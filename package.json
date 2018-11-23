@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docserve": "docsify serve docs"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Guardiadelcastro/RecipeMug/issues"
   },
-  "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme"
+  "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
+  "dependencies": {
+    "docsify-cli": "^4.3.0"
+  }
 }
