@@ -1,15 +1,23 @@
 language: node_js
 node_js:
-  - "node"
-env: development
-script: 
-  - npm i
-  - npm run test
+- node
 addons:
-  sshknownhosts:
-  - 206.189.96.128
+  sshknownhosts: 206.189.96.128
 branches:
   only:
-  - master
   - develop
   - travis
+before_install:
+- openssl aes-256-cbc -K $encrypted_47ecb0011c7b_key -iv $encrypted_47ecb0011c7b_iv
+  -in travis_rsa.enc -out travis_rsa -d
+- chmod 600 ~/.ssh/travis_rsa
+install:
+- npm i
+script:
+- npm run test && npm run build
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: .travis/deploy.sh
+  on:
+  - develop
