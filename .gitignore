@@ -1,2 +1,5 @@
 node_modules
 travis_rsa.pub
+.DS_Store
+.AppleDouble
+.LSOverride
