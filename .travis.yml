@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "node"
+env: development
+script: 
+  - npm i
+  - npm run test
+addons:
+  sshknownhosts:
+  - 206.189.96.128
+branches:
+  only:
+  - master
+  - develop
+  - travis
