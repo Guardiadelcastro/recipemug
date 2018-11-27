@@ -18,7 +18,7 @@ if [ $TRAVIS_BRANCH == "travis" ] ; then
     git add .
     git status # debug
     git commit -m "Deploy compressed files"
-    git push -f deploy HEAD:master
+    git push -f deploy HEAD:travis
 
 else
 

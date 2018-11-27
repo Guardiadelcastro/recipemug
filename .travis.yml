@@ -14,11 +14,11 @@ before_install:
 install:
 - npm i
 script:
-# - npm run test && npm run build
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: .travis/deploy.sh
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^travis|develop$
+ - npm run test && npm run build
+#deploy:
+ # skip_cleanup: true
+  #provider: script
+  #script: .scripts/deploy.sh
+  #on:
+   # all_branches: true
+    #condition: $TRAVIS_BRANCH =~ ^travis|develop$
