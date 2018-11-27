@@ -15,7 +15,7 @@ install:
 - npm i
 script:
  - npm run test
- - npm run build
+# - npm run build
 #deploy:
  # skip_cleanup: true
   #provider: script
