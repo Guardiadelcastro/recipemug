@@ -3,7 +3,7 @@
 # print outputs and exit on first failure
 set -xe
 
-if [ $TRAVIS_BRANCH == "master" ] ; then
+if [ $TRAVIS_BRANCH == "travis" ] ; then
 
     # setup ssh agent, git config and remote
     eval "$(ssh-agent -s)"
