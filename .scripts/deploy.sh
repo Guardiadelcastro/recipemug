@@ -14,11 +14,11 @@ if [ $TRAVIS_BRANCH == "travis" ] ; then
 
     # commit compressed files and push it to remote
     rm -f .gitignore
-    cp .travis/deployignore .gitignore
+    # cp .travis/deployignore .gitignore
     git add .
     git status # debug
-    git commit -m "Deploy compressed files"
-    git push -f deploy HEAD:travis
+    git commit -m "Travis eploy compressed files"
+    git push -f deploy HEAD:master
 
 else
 

@@ -16,10 +16,13 @@ install:
 script:
  - npm run test
 # - npm run build
-#deploy:
- # skip_cleanup: true
-  #provider: script
-  #script: .scripts/deploy.sh
-  #on:
-   # all_branches: true
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash .scripts/deploy.sh
+  on:
+    branch: travis
+    #all_branches: true
     #condition: $TRAVIS_BRANCH =~ ^travis|develop$
+notifications: 
+  email: false
