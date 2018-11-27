@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- node
+- "node"
 addons:
   sshknownhosts: 206.189.96.128
 branches:
