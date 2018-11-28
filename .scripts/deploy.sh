@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xe
 
-if [ $TRAVIS_BRANCH == 'master' ] ; then
+if [ $TRAVIS_BRANCH == 'travis' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
 
