@@ -2,7 +2,10 @@ language: node_js
 node_js:
 - "10"
 addons:
-  sshknownhosts: 206.189.96.128
+  sshknownhosts: 
+  - 206.189.96.128
+  - new.recipemug.club
+  - recipemug.club
 branches:
   only:
   - develop
