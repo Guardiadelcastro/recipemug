@@ -9,9 +9,9 @@ branches:
   - travis
 env:
   global:
-  - REMOTEAPPDIR=/var/www/new.recipemug.club/
-  - REMOTEUSER=travis
-  - REMOTEHOST=206.189.96.128 # your droplet IP goes here
+  - REMOTE_APPDIR=/var/www/new.recipemug.club/
+  - REMOTE_USER=travis
+  - REMOTE_HOST=206.189.96.128 # your droplet IP goes here
   #- PORT=8080
 before_install:
 - openssl aes-256-cbc -K $encrypted_47ecb0011c7b_key -iv $encrypted_47ecb0011c7b_iv
