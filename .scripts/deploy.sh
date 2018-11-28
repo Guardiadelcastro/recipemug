@@ -7,7 +7,7 @@ if [ $TRAVIS_BRANCH == "travis" ] ; then
 
     # setup ssh agent, git config and remote
     eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/travis_rsa
+    ssh-add ~/.ssh/id_rsa
     git remote add deploy "travis@206.189.96.128:/var/www/new.recipemug.club"
     git config user.name "travis"
     git config user.email "travis@recipemug.club"
