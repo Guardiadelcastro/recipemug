@@ -32,6 +32,7 @@ set -xe
 if [ $TRAVIS_BRANCH == 'travis' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/travis_rsa
+  chmod 600 ~/.ssh/travis_rsa
 
   ## cd public
   git init
