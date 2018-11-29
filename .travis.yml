@@ -12,7 +12,7 @@ branches:
 env:
   global:
   - REMOTE_PROD_DIR=/var/www/recipemug.club/
-  - REMOTE_NEW_DIR=/var/www/new.recipemug.club/
+  - REMOTE_DEV_DIR=/var/www/new.recipemug.club/
   - REMOTE_USER=travis
   - REMOTE_HOST=206.189.96.128
 before_install:
@@ -31,7 +31,7 @@ deploy:
   script: bash .scripts/deploy.sh
   on:
     all_branches: true
-    condition: "$TRAVIS_BRANCH =~ ^travis|develop$"
+    condition: "$TRAVIS_BRANCH =~ ^master|travis$"
 notifications:
   email: false
   slack:
