@@ -5,7 +5,7 @@ if [ $TRAVIS_BRANCH == 'travis' ] ; then
   #eval "$(ssh-agent -s)"
   #ssh-add ~/.ssh/id_rsa
 tar -czf package.tgz build
-scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_TEST_DIR
+scp package.tgz $REMOTE_USER@$REMOTE_HOST:$REMOTE_NEW_DIR
 ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./.scripts/untar.sh
   #cd public
   #git init
