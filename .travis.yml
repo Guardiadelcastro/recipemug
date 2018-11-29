@@ -7,7 +7,7 @@ addons:
   - recipemug.club
 branches:
   only:
-  - travis
+  - develop
   - master
 env:
   global:
@@ -31,7 +31,7 @@ deploy:
   script: bash .scripts/deploy.sh
   on:
     all_branches: true
-    condition: "$TRAVIS_BRANCH =~ ^master|travis$"
+    condition: "$TRAVIS_BRANCH =~ ^master|develop$"
 notifications:
   email: false
   slack:
