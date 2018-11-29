@@ -24,5 +24,15 @@
         align-items: center;
         box-shadow: 1px 2px 4px 0 rgba(0,0,0,.3);
     }
+
+    .new {
+        grid-column: 9 / 10;
+    }
+
+    .user {
+        grid-column: 10 / 11;
+    }
+
+    
 </style>
 
