@@ -11,7 +11,8 @@ branches:
   - travis
 env:
   global:
-  - REMOTE_APPDIR=/var/www/new.recipemug.club/
+  - REMOTE_PROD_DIR=/var/www/recipemug.club/
+  - REMOTE_NEW_DIR=/var/www/new.recipemug.club/
   - REMOTE_USER=travis
   - REMOTE_HOST=206.189.96.128 # your droplet IP goes here
   #- PORT=8080
