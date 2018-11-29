@@ -6,6 +6,8 @@ set -x
 
 cd /var/www/new.recipemug.club
 tar zxvf package.tgz -C .
+mv build/* .
+rm -rf package.tgz build
 # mv build/package.json .
 # npm i
 # npm run build
