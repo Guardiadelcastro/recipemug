@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <h1>hola</h1>
+   <html-recipeForm></html-recipeForm>
+  </div>
+</template>
+
+
+<style>
+  
+</style>
+
+<script>
+import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
+  export default {
+    components: {
+      'html-recipeForm': HTMLRecipeForm
+    } 
+    
+  }
+</script>
