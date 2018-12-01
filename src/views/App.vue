@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>hola</h1>
-   <html-recipeForm></html-recipeForm>
+    <web-nav></web-nav>
+    <html-recipeForm></html-recipeForm>
   </div>
 </template>
 

@@ -8662,6 +8662,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   components: {
     'html-recipeForm': _HTMLRecipeForm.default
@@ -8680,7 +8681,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("html-recipeForm")], 1)
+  return _c("div", [_c("web-nav"), _vm._v(" "), _c("html-recipeForm")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -8756,7 +8757,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45059" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44453" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
