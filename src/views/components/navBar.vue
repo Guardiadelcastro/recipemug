@@ -1,11 +1,11 @@
 <template>
     <div class="web-nav">
         <nav class="nav-bar">
-            <div class="newRecipe">
+            <div class="new-recipe">
                 <a href=""></a>
                 <p>NEW</p>
             </div>
-            <div class="userSettings">
+            <div class="user-settings">
                 <a href=""></a>
                 <p>ICON</p>
             </div>
@@ -25,11 +25,11 @@
         box-shadow: 1px 2px 4px 0 rgba(0,0,0,.3);
     }
 
-    .new {
+    .new-recipe {
         grid-column: 9 / 10;
     }
 
-    .user {
+    .user-settings {
         grid-column: 10 / 11;
     }
 
