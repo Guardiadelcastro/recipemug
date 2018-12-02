@@ -8639,6 +8639,76 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/navBar.vue":[function(require,module,exports) {
+
+        var $af33f3 = exports.default || module.exports;
+      
+      if (typeof $af33f3 === 'function') {
+        $af33f3 = $af33f3.options;
+      }
+    
+        /* template */
+        Object.assign($af33f3, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "web-nav" }, [
+      _c("nav", { staticClass: "nav-bar" }, [
+        _c("div", { staticClass: "newRecipe" }, [
+          _c("a", { attrs: { href: "" } }),
+          _vm._v(" "),
+          _c("p", [_vm._v("NEW")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "userSettings" }, [
+          _c("a", { attrs: { href: "" } }),
+          _vm._v(" "),
+          _c("p", [_vm._v("ICON")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$af33f3', $af33f3);
+          } else {
+            api.reload('$af33f3', $af33f3);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"App.vue":[function(require,module,exports) {
 "use strict";
 
@@ -8648,6 +8718,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _HTMLRecipeForm = _interopRequireDefault(require("./components/HTMLRecipeForm.vue"));
+
+var _navBar = _interopRequireDefault(require("./components/navBar.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8665,7 +8737,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 var _default = {
   components: {
-    'html-recipeForm': _HTMLRecipeForm.default
+    'html-recipeForm': _HTMLRecipeForm.default,
+    'web-nav': _navBar.default
   }
 };
 exports.default = _default;
@@ -8716,7 +8789,7 @@ render._withStripped = true
       
       }
     })();
-},{"./components/HTMLRecipeForm.vue":"components/HTMLRecipeForm.vue","_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"index.js":[function(require,module,exports) {
+},{"./components/HTMLRecipeForm.vue":"components/HTMLRecipeForm.vue","./components/navBar.vue":"components/navBar.vue","_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -8757,7 +8830,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44453" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37313" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
