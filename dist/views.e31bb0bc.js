@@ -8663,15 +8663,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "web-nav" }, [
       _c("nav", { staticClass: "nav-bar" }, [
         _c("div", { staticClass: "new-recipe" }, [
-          _c("a", { attrs: { href: "" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("NEW")])
+          _c("button", { staticClass: "new" }, [_vm._v("NEW")])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "user-settings" }, [
-          _c("a", { attrs: { href: "" } }),
-          _vm._v(" "),
-          _c("p", [_vm._v("ICON")])
+          _c("button", { staticClass: "new" }, [_vm._v("USER")])
         ])
       ])
     ])
@@ -17432,7 +17428,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37179" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46041" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
