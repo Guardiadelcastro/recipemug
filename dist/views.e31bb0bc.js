@@ -8659,7 +8659,7 @@ render._withStripped = true
         "div",
         { staticClass: "new-recipe" },
         [
-          _c("font-awesome-icon", { attrs: { icon: "coffee" } }, [
+          _c("font-awesome-icon", { attrs: { icon: "coffee\n            " } }, [
             _c("button", { staticClass: "new" }, [_vm._v("NEW")])
           ])
         ],
@@ -17428,7 +17428,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42339" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -2,7 +2,8 @@
     <div class="web-nav">
         <nav class="nav-bar">
             <div class="new-recipe">
-                <font-awesome-icon icon="coffee" />
+                <font-awesome-icon icon="coffee
+                " />
                 <button class="new">NEW</button>
             </div>
             <div class="user-settings">
