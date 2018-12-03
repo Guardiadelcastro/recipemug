@@ -11,7 +11,8 @@
     "docsiserve": "docsify serve docs",
     "clean:cache": "rm -rf .cache dist build",
     "clean:all": "rm -rf node_modules package-lock.json .cache dist build",
-    "deploy": "git subtree push --prefix build origin gh-pages"
+    "deploy": "git subtree push --prefix build origin gh-pages",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -38,13 +39,16 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.0",
+    "@storybook/vue": "^4.0.11",
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.11.1",
     "@types/method-override": "0.0.31",
     "@types/node": "^10.0.8",
     "@vue/component-compiler-utils": "^2.3.0",
+    "babel-loader": "^8.0.4",
+    "babel-preset-vue": "^2.0.2",
     "jest": "^23.6.0",
     "node-notifier": "^5.2.1",
     "parcel-bundler": "^1.10.3",
@@ -55,6 +59,8 @@
     "tslint-config-prettier": "^1.12.0",
     "typescript": "^2.8.3",
     "vue-hot-reload-api": "^2.3.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1"
   }
 }

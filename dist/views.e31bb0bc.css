@@ -15,22 +15,13 @@
 .steps {
   display: grid;
   grid-template-columns: 35em;
-}.html-recipeCard {
-  margin-left: 10px;
-  width: 400px;
-  min-height: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
-  text-align: center;
 }
-.image {
-  padding: 5px;
+button[data-v-e74ae0] {
+  padding: 5px 10px;
+  border: 2px solid;
+  font-size: 14px
 }
-img {
-  max-width: 100%;
-}
-.shortDescription {
-  padding: 5px;
-}
-.recipes {
-  display: flex;
+.slateblue[data-v-e74ae0] {
+  color: slateblue;
+  border-color: slateblue;
 }
