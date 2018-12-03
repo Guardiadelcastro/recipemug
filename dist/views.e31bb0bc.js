@@ -8653,23 +8653,30 @@ render._withStripped = true
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "web-nav" }, [
+    _c("nav", { staticClass: "nav-bar" }, [
+      _c(
+        "div",
+        { staticClass: "new-recipe" },
+        [
+          _c("font-awesome-icon", { attrs: { icon: "coffee" } }, [
+            _c("button", { staticClass: "new" }, [_vm._v("NEW")])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "web-nav" }, [
-      _c("nav", { staticClass: "nav-bar" }, [
-        _c("div", { staticClass: "new-recipe" }, [
-          _c("button", { staticClass: "new" }, [_vm._v("NEW")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-settings" }, [
-          _c("button", { staticClass: "new" }, [_vm._v("USER")])
-        ])
-      ])
+    return _c("div", { staticClass: "user-settings" }, [
+      _c("button", { staticClass: "new" }, [_vm._v("USER")])
     ])
   }
 ]
@@ -17394,13 +17401,6 @@ new _vue.default({
     return h(_App.default);
   }
 }).$mount('#app');
-new _vue.default({
-  el: '#app',
-  components: {
-    App: _App.default
-  },
-  template: '<App/>'
-});
 },{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./App.vue":"App.vue","@fortawesome/fontawesome-svg-core":"../../node_modules/@fortawesome/fontawesome-svg-core/index.es.js","@fortawesome/free-solid-svg-icons":"../../node_modules/@fortawesome/free-solid-svg-icons/index.es.js","@fortawesome/vue-fontawesome":"../../node_modules/@fortawesome/vue-fontawesome/index.es.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -17428,7 +17428,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46041" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42579" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
