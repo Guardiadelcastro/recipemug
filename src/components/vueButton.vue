@@ -1,28 +1,42 @@
 <template>
-  <button name="Send" @click="alertClick">{{ name }}</button>
+  <button @click="onClick">{{ name }}</button>
 </template>
 
 <script>
 export default {
   name: 'button',
   props:{
-    name: String,
-    color: String,
-    onClick: {
+    name: {
+      type: String,
+      default: "+"
+    },
+   // color: String,
+    actionClick: {
       type: Function,
       required: true
     }
+    
   },
   methods: {
     alertClick() {
       alert('You have clicked the button')
+    },
+    consoleLog() {
+      console.log('Vue cabrón funciona')
     }
+
   },
   data() {
     return {
-      submit: true
+      submit: true,
+      theme: {
+        isCadetBlue: true
+      }
     }
   },
+  mounted(){
+    console.log(this.$options.name)
+  }
 }
 </script>
 
@@ -30,10 +44,20 @@ export default {
   button {
     padding: 5px 10px;
     border: 2px solid;
-    font-size: 14px
+    font-size: 14px;
   }
+
   .slateblue {
     color: slateblue;
     border-color: slateblue;
+  }
+
+  .cadetblue {
+    color: cadetblue;
+    border-color: cadetblue;
+  }
+
+  .slateblue:hover {
+    color: red;
   }
 </style>
