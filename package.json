@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
   "dependencies": {
-    "@types/express-session": "^1.15.8",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
     "docsify-cli": "^4.3.0",
