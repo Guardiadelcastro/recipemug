@@ -1,0 +1,17 @@
+{
+  "plugins": {
+    "autoprefixer": true,
+    "postcss-easy-import": {
+      "prefix": "_",
+      "extensions": [".pcss", ".postcss", ".css"]
+    },
+    "postcss-mixins": true,
+    "postcss-preset-env": {
+      "stage": 2,
+      "features": {
+        "nesting-rules": true
+      }
+},
+    "cssnano": true
+  }
+}
