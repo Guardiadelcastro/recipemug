@@ -1,19 +1,20 @@
 <template>
   <div>
-   <html-recipeForm></html-recipeForm>
+   <html-recipe-form></html-recipe-form>
+   <alert-button onClick="alertClick" class="slateblue" name="alert"></alert-button>
+   <console-button class="cadetblue"></console-button>
   </div>
 </template>
 
-
-<style>
-  
-</style>
-
 <script>
 import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
+import vueButton from './components/vueButton'
+
   export default {
     components: {
-      'html-recipeForm': HTMLRecipeForm
+      'html-recipe-form': HTMLRecipeForm,
+      'alert-button': vueButton,
+      'console-button': vueButton
     } 
     
   }

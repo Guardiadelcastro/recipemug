@@ -8490,14 +8490,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $4067d1 = exports.default || module.exports;
+        var $f99ae3 = exports.default || module.exports;
       
-      if (typeof $4067d1 === 'function') {
-        $4067d1 = $4067d1.options;
+      if (typeof $f99ae3 === 'function') {
+        $f99ae3 = $f99ae3.options;
       }
     
         /* template */
-        Object.assign($4067d1, (function () {
+        Object.assign($f99ae3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8626,9 +8626,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$4067d1', $4067d1);
+            api.createRecord('$f99ae3', $f99ae3);
           } else {
-            api.reload('$4067d1', $4067d1);
+            api.reload('$f99ae3', $f99ae3);
           }
         }
 
@@ -8639,7 +8639,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/HTMLRecipeCard.vue":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/vueButton.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8650,177 +8650,54 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
-  name: 'HTMLRecipeCard',
-  props: {},
-  data: function data() {
-    return {};
+  name: 'button',
+  props: {
+    name: String,
+    color: String,
+    onClick: {
+      type: Function,
+      required: true
+    }
   },
-  methods: {}
-};
-exports.default = _default;
-        var $9df63a = exports.default || module.exports;
-      
-      if (typeof $9df63a === 'function') {
-        $9df63a = $9df63a.options;
-      }
-    
-        /* template */
-        Object.assign($9df63a, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "html-recipeCard" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("Recipe One")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "image" }, [
-        _c("img", {
-          attrs: {
-            src:
-              "https://www.gallinablanca.es/files/thumbs/1ee83d8475a79fa5a91b8cfce167adc4e20b2290_r900_340_5.jpg",
-            alt: ""
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "shortDescription" }, [
-        _c("p", [
-          _vm._v(
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde saepe dolores eum, animi explicabo sit deserunt modi perspiciatis reprehenderit quis ducimus, nam pariatur asperiores iure, doloribus facilis numquam! Fugiat?"
-          )
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: null,
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$9df63a', $9df63a);
-          } else {
-            api.reload('$9df63a', $9df63a);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"components/HTMLMyProfile.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _HTMLRecipeCard = _interopRequireDefault(require("./HTMLRecipeCard"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'HTMLMyProfile',
-  props: {},
+  methods: {
+    alertClick: function alertClick() {
+      alert('You have clicked the button');
+    }
+  },
   data: function data() {
     return {
-      numberOfRecipes: 3
+      submit: true
     };
-  },
-  methods: {},
-  components: {
-    'html-recipeCard': _HTMLRecipeCard.default
   }
 };
 exports.default = _default;
-        var $6f2c0b = exports.default || module.exports;
+        var $e74ae0 = exports.default || module.exports;
       
-      if (typeof $6f2c0b === 'function') {
-        $6f2c0b = $6f2c0b.options;
+      if (typeof $e74ae0 === 'function') {
+        $e74ae0 = $e74ae0.options;
       }
     
         /* template */
-        Object.assign($6f2c0b, (function () {
+        Object.assign($e74ae0, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "html-myProfile" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "recipes" },
-      _vm._l(3, function(value) {
-        return _c("html-recipeCard", { key: value })
-      })
-    )
-  ])
+  return _c(
+    "button",
+    { attrs: { name: "Send" }, on: { click: _vm.alertClick } },
+    [_vm._v(_vm._s(_vm.name))]
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title" }, [
-      _c("h1", [_vm._v("My Profile")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-e74ae0",
             functional: undefined
           };
         })());
@@ -8833,9 +8710,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$6f2c0b', $6f2c0b);
+            api.createRecord('$e74ae0', $e74ae0);
           } else {
-            api.reload('$6f2c0b', $6f2c0b);
+            api.reload('$e74ae0', $e74ae0);
           }
         }
 
@@ -8846,7 +8723,7 @@ render._withStripped = true
       
       }
     })();
-},{"./HTMLRecipeCard":"components/HTMLRecipeCard.vue","_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"App.vue":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"App.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8856,7 +8733,7 @@ exports.default = void 0;
 
 var _HTMLRecipeForm = _interopRequireDefault(require("./components/HTMLRecipeForm.vue"));
 
-var _HTMLMyProfile = _interopRequireDefault(require("./components/HTMLMyProfile"));
+var _vueButton = _interopRequireDefault(require("./components/vueButton"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8875,25 +8752,32 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   components: {
     'html-recipeForm': _HTMLRecipeForm.default,
-    'html-myProfile': _HTMLMyProfile.default
+    'v-button': _vueButton.default
   }
 };
 exports.default = _default;
-        var $68b078 = exports.default || module.exports;
+        var $566beb = exports.default || module.exports;
       
-      if (typeof $68b078 === 'function') {
-        $68b078 = $68b078.options;
+      if (typeof $566beb === 'function') {
+        $566beb = $566beb.options;
       }
     
         /* template */
-        Object.assign($68b078, (function () {
+        Object.assign($566beb, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("html-myProfile"), _vm._v(" "), _c("html-recipeForm")],
+    [
+      _c("html-recipeForm"),
+      _vm._v(" "),
+      _c("v-button", {
+        attrs: { name: "alert" },
+        on: { click: _vm.alertClick }
+      })
+    ],
     1
   )
 }
@@ -8917,9 +8801,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$68b078', $68b078);
+            api.createRecord('$566beb', $566beb);
           } else {
-            api.reload('$68b078', $68b078);
+            api.reload('$566beb', $566beb);
           }
         }
 
@@ -8930,7 +8814,7 @@ render._withStripped = true
       
       }
     })();
-},{"./components/HTMLRecipeForm.vue":"components/HTMLRecipeForm.vue","./components/HTMLMyProfile":"components/HTMLMyProfile.vue","_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"index.js":[function(require,module,exports) {
+},{"./components/HTMLRecipeForm.vue":"components/HTMLRecipeForm.vue","./components/vueButton":"components/vueButton.vue","_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -8971,7 +8855,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56292" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64022" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
