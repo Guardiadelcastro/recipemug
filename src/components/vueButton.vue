@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick">{{ name }}</button>
+  <button>{{ name }}</button>
 </template>
 
 <script>
@@ -11,15 +11,13 @@ export default {
       default: "+"
     },
    // color: String,
-    actionClick: {
+    onClick: {
       type: Function,
-      required: true
     }
-    
   },
   methods: {
-    alertClick() {
-      alert('You have clicked the button')
+    alertClick(message) {
+      alert(`You have clicked the button {this.name}`)
     },
     consoleLog() {
       console.log('Vue cabrón funciona')
@@ -58,6 +56,7 @@ export default {
   }
 
   .slateblue:hover {
-    color: red;
+    color: whitesmoke;
+    background: slateblue;
   }
 </style>

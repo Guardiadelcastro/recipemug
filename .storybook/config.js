@@ -1,22 +1,9 @@
 import { configure } from '@storybook/vue';
 
-import Vue from 'vue';
-import Vuex from 'vuex'; // Vue plugins
-
-// Import your custom components.
-//import Mybutton from '../src/stories/Button.vue';
-import HTMLRecipeForm from '../src/views/components/HMTLRecipeForm.vue'
-
-// Install Vue plugins.
-Vue.use(Vuex);
-
-// Register custom components.
-//Vue.component('my-button', Mybutton);
-Vue.component('recipe-form', HTMLRecipeForm);
-
+// automatically import all files ending in *.stories.js
+const req = require.context('../src/stories', true, /.stories.js$/);
 function loadStories() {
-  // You can require as many stories as you need.
-  require('../src/stories');
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

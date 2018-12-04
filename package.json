@@ -12,7 +12,8 @@
     "clean:cache": "rm -rf .cache dist build",
     "clean:all": "rm -rf node_modules package-lock.json .cache dist build",
     "deploy": "git subtree push --prefix build origin gh-pages",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,6 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.1.0",
-    "@storybook/vue": "^4.0.11",
     "@vue/component-compiler-utils": "^2.3.0",
     "autoprefixer": "^9.4.0",
     "babel-loader": "^8.0.4",
@@ -49,12 +49,17 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-mixins": "^6.2.0",
     "postcss-preset-env": "^6.4.0",
+    "prettier": "1.15.3",
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
     "tslint-config-prettier": "^1.12.0",
     "vue-hot-reload-api": "^2.3.1",
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "@storybook/vue": "^4.0.11",
+    "@storybook/addon-actions": "^4.0.11",
+    "@storybook/addon-links": "^4.0.11",
+    "@storybook/addons": "^4.0.11"
   }
 }

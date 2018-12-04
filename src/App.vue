@@ -1,8 +1,8 @@
 <template>
   <div>
-   <html-recipeForm></html-recipeForm>
-   <alert-button class="slateblue" name="alert"></alert-button>
-   <console-button></console-button>
+   <html-recipe-form></html-recipe-form>
+   <alert-button onClick="alertClick" class="slateblue" name="alert"></alert-button>
+   <console-button class="cadetblue"></console-button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import vueButton from './components/vueButton'
 
   export default {
     components: {
-      'html-recipeForm': HTMLRecipeForm,
+      'html-recipe-form': HTMLRecipeForm,
       'alert-button': vueButton,
       'console-button': vueButton
     } 
