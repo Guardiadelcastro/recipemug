@@ -2,13 +2,13 @@
 Storybook es una herramienta para mostrar, organizar y crear elementos de nuestra UI. En este proyecto usamos VueJS y con esta herramienta documentamos nuestros componentes.
 
 ###Instalación
-1. La instalación de Storybook es simple. Empezamos instalando storybook:
+#####La instalación de Storybook es simple. Empezamos instalando storybook:
  		```bash
- 		npm i --save-dev @storybook/vue
+ 		cd my-project
+		npx -p @storybook/cli sb init
  		```
  
- y añadimos las dependencias que están especificadas en su [documentación](https://storybook.js.org/basics/guide-vue/).
+ Con esto toda la configuración de storybook está creada, con un ejemplo para que se vea como quedaría con un botón de ejemplo.
 
-2. Añadimos una carpeta *.storybook* a la raíz del proyecto en la que añadiremos  
- 
+ ###Añadir stories
  
