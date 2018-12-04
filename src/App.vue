@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div>  
+    <log-in></log-in>
    <html-recipeForm></html-recipeForm>
+
   </div>
 </template>
 
@@ -11,9 +13,11 @@
 
 <script>
 import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
+import login from './components/login.vue'
   export default {
     components: {
-      'html-recipeForm': HTMLRecipeForm
+      'html-recipeForm': HTMLRecipeForm,
+      'log-in':login
     } 
     
   }
