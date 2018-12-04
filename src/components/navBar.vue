@@ -2,10 +2,10 @@
     <div class="web-nav">
         <nav class="nav-bar">
             <div class="new-recipe">
-                <font-awesome-icon icon="coffee" />
-                <button class="new">NEW</button>
+                <font-awesome-icon icon="plus-square" />
             </div>
             <div class="user-settings">
+                <font-awesome-icon icon="user-circle" />
                 <button class="new">USER</button>
             </div>
         </nav>
@@ -30,11 +30,11 @@
     }
 
     .new-recipe {
-        grid-column: 9 / 10;
+        grid-column: 10 / 11;
     }
 
     .user-settings {
-        grid-column: 10 / 11;
+        grid-column: 11 / 12;
     }
 
     
