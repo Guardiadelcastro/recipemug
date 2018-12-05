@@ -1,5 +1,5 @@
 <template>
-  <button>{{ name }}</button>
+  <button @click="handleClick" :class="theme">{{ name }}</button>
 </template>
 
 <script>
@@ -8,28 +8,21 @@ export default {
   props:{
     name: {
       type: String,
-      default: "+"
+      default: 'button'
     },
-   // color: String,
-    onClick: {
-      type: Function,
+    theme: {
+      type: String,
+      default: 'template'
     }
   },
   methods: {
-    alertClick(message) {
-      alert(`You have clicked the button {this.name}`)
-    },
-    consoleLog() {
-      console.log('Vue cabrón funciona')
+    handleClick(event) {
+      this.$emit('click', event);
     }
-
   },
   data() {
     return {
-      submit: true,
-      theme: {
-        isCadetBlue: true
-      }
+      
     }
   },
   mounted(){
@@ -58,5 +51,10 @@ export default {
   .slateblue:hover {
     color: whitesmoke;
     background: slateblue;
+  }
+
+  .cadetblue:hover {
+    color: whitesmoke;
+    background: cadetblue;
   }
 </style>

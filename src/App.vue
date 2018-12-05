@@ -1,21 +1,28 @@
 <template>
   <div>
    <html-recipe-form></html-recipe-form>
-   <alert-button onClick="alertClick" class="slateblue" name="alert"></alert-button>
-   <console-button class="cadetblue"></console-button>
+   <v-button @click="alertClick" theme="slateblue" name="alert"></v-button>
+   <v-button @click="consoleLog" theme="cadetblue" name="console log"></v-button>
   </div>
 </template>
 
 <script>
 import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
-import vueButton from './components/vueButton'
+import TemplateButton from './components/TemplateButton'
 
   export default {
     components: {
       'html-recipe-form': HTMLRecipeForm,
-      'alert-button': vueButton,
-      'console-button': vueButton
-    } 
+      'v-button': TemplateButton
+    },
+    methods: {
+    alertClick() {
+      alert(`You have clicked the button ${this.name}`)
+    },
+    consoleLog() {
+      console.log('Vue cabrón funciona')
+    }
+  } 
     
   }
 </script>
