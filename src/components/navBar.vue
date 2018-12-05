@@ -1,18 +1,21 @@
 <template>
     <div class="web-nav">
         <nav class="nav-bar">
-            <div class="new-recipe">
-                <font-awesome-icon icon="plus-square" />
+            <div class="new-box">
+                <div class="new-recipe">
+                    <font-awesome-icon icon="plus-square" />
+                </div>
             </div>
-            <div class="user-settings">
-                <font-awesome-icon icon="user-circle" />
-                <button class="new">USER</button>
+            <div class="user-box">
+                <div class="user-settings">
+                    <font-awesome-icon icon="user" />
+                </div>
             </div>
         </nav>
     </div>
 </template>
 
-<style>
+<style lang="postcss">
     .nav-bar{
         background: #82e863;
         position: absolute;
@@ -20,23 +23,37 @@
         left: 0;
         min-width: 100%;
         display: grid;
-        grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: 1fr;
-        grid-gap: 10px;
+        grid-template-columns: 100px 600px auto 100px 100px;
         min-height: 50px;
         justify-items: center;
         align-items: center;
         box-shadow: 1px 2px 4px 0 rgba(0,0,0,.3);
     }
-
+    .new-box {
+        background:#82e863;
+        height: 70%;
+        width: 35%;
+        border: 2px dashed #3F250B;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+    }
     .new-recipe {
-        grid-column: 10 / 11;
+        color:#3F250B;
     }
-
+    .user-box {
+        background:#82e863;
+        height: 70%;
+        width: 35%;
+        border: 2px dashed #3F250B;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+    }   
     .user-settings {
-        grid-column: 11 / 12;
+        color: #3F250B;
     }
-
-    
 </style>
 
