@@ -29,7 +29,10 @@
   "dependencies": {
     "docsify-cli": "^4.3.0",
     "superagent": "^3.8.3",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
