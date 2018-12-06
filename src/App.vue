@@ -11,12 +11,12 @@
 </style>
 
 <script>
-import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
+//import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
 import navBar from './components/navBar.vue';
 
   export default {
     components: {
-      'html-recipeForm': HTMLRecipeForm,
+      //'html-recipeForm': HTMLRecipeForm,
       'web-nav': navBar
     } 
     
