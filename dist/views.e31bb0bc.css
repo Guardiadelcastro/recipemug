@@ -1,0 +1,27 @@
+.html-recipeForm {
+  width: 600px;
+  background: greenyellow;
+  margin: 10px;
+  padding: 0px 0px 10px 10px;
+  border-radius: 6px;
+}
+
+.ingredients {
+  display: grid;
+  grid-template-columns: 35em;
+
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 35em;
+}
+button[data-v-e74ae0] {
+  padding: 5px 10px;
+  border: 2px solid;
+  font-size: 14px
+}
+.slateblue[data-v-e74ae0] {
+  color: slateblue;
+  border-color: slateblue;
+}
