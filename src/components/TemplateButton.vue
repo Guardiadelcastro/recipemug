@@ -31,30 +31,28 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-  button {
-    padding: 5px 10px;
-    border: 3px solid;
-    font-size: 14px;
-  }
+<style lang="stylus" scoped>
+@import '../styles/variables';
+  button
+    padding: 5px 10px
+    border: 3px dashed
+    font-size: 14px
 
-  .slateblue {
+  .blue 
     color: slateblue;
     border-color: slateblue;
 
-    &:hover {
+    &:hover
       color: whitesmoke;
       background: slateblue;
-    }
-  }
+    
 
-  .cadetblue {
+  .red
     color: cadetblue;
     border-color: cadetblue;
 
     &:hover {
       color: whitesmoke;
       background: cadetblue;
-    }
-  }
+
 </style>
