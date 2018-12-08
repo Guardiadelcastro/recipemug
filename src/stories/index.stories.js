@@ -6,6 +6,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import MyButton from './MyButton.vue';
 import Welcome from './Welcome.vue';
+import TemplateButton from '../components/TemplateButton';
 
 storiesOf('Welcome', module).add('to Storybook', () => ({
   components: { Welcome },
@@ -32,5 +33,12 @@ storiesOf('Button', module)
       '<my-button @click="action"><span role="img" aria-label="so cool">😀 😎 👍 💯</span></my-button>',
     methods: { action: action('clicked') },
   }));
+// Story of templateButton
+storiesOf('Template button', module)
+  .add('slateblue', () =>({
+    components: { TemplateButton },
+    template: '<template-button theme="slateblue" name="slateblue"></template-button>',
+    methods: {action: action('clicked')},
+  }));
 
-/* eslint-enable react/react-in-jsx-scope */
+  /* eslint-enable react/react-in-jsx-scope */

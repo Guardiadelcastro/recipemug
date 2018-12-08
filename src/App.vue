@@ -7,22 +7,12 @@
 </template>
 
 <script>
-import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
-import TemplateButton from './components/TemplateButton'
+import HTMLRecipeForm from './containers/CreationRecipeForm.vue';
 
   export default {
     components: {
       'html-recipe-form': HTMLRecipeForm,
-      'v-button': TemplateButton
     },
-    methods: {
-    alertClick() {
-      alert(`You have clicked the button ${this.name}`)
-    },
-    consoleLog() {
-      console.log('Vue cabrón funciona')
-    }
   } 
-    
-  }
+
 </script>

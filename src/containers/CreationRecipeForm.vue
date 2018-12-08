@@ -1,0 +1,112 @@
+<template>
+  <div class="html-recipeForm">
+    <h1 class="title">Recipe Form</h1>
+    <form action="post" enctype="multipart/form-data">
+    <div class="title">
+      <label for="text"> Title of the Recipe: </label>  
+      <input type="text" name="title">
+    </div>
+    <br>
+    <div class="description"> 
+       <label for=""> Description: </label> 
+       <br>
+       <textarea name="description" id="" cols="40" rows="5"></textarea>
+    </div>
+    <br>
+     <div class="list-container">
+        <div id="ingredients">
+          <label for="">Ingredients:</label>
+          <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
+        </div>
+        <templatebutton type="button" id="newIngredient" theme="cadetblue" name="+" @click="addIngredient"></templatebutton>
+     </div>
+     <br>
+    <div class="list-container">
+       <div id="steps">
+       	<label for="">Steps:</label> 
+       	<input type="text" name="newStep" placeholder="Add a Step"> 
+       </div>
+     <templatebutton id="newStep" theme="cadetblue" name="+" @click="addStep"></templatebutton>
+    </div>
+    <br>
+    <div class="upladoImage">
+      <input type="file" name="image" id="uploadImage" accept="image/*" >
+    </div>
+    <br>
+    <templatebutton name="Cook the new Recipe" theme="slateblue"></templatebutton>
+    </form>
+  </div>
+</template>
+
+<script>
+import TemplateButton from '../components/TemplateButton';
+
+export default {
+  name: 'HTMLRecipeForm',
+  components: {
+    'templatebutton': TemplateButton,
+  },
+  props: {},
+  methods: {
+    addIngredient() {
+      const button = document.querySelector('#newIngredient');
+      let newIngredient = document.createElement('input');
+      newIngredient.type = 'text';
+      newIngredient.placeholder = 'Add an Ingredient';
+      newIngredient.name = 'newIngredient';
+      document.querySelector('#ingredients').appendChild(newIngredient);
+    },
+
+    addStep() {
+      const steps = document.querySelector('#steps');
+      const button = document.querySelector('#newStep');
+      let newStep = document.createElement('input');
+      newStep.type = 'text';
+      newStep.placeholder = 'Add a Step';
+      newIngredient.name = 'newStep';
+      steps.appendChild(newStep);
+    },
+  },
+  data() {
+    return {
+
+    }
+  },
+}
+</script>
+
+<style scoped>
+.html-recipeForm {
+  width: 600px;
+  background: greenyellow;
+  margin: 10px;
+  padding: 0 0 10px 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.list-container,
+.steps {
+  display: grid;
+  grid-template-columns: 35em;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  justify-items: start;
+}
+
+.title {
+  align-self: center;
+  color: slateblue;
+  font-size: 30px;
+}
+
+#newIngredient,
+#newStep {
+  justify-self: end;
+}
+
+</style>
+
