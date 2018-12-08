@@ -32,27 +32,55 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables';
-  button
-    padding: 5px 10px
-    border: 3px dashed
-    font-size: 14px
+@import '../styles/variables'
 
-  .blue 
-    color: slateblue;
-    border-color: slateblue;
+button
+    padding 5px 10px
+    border 3px solid
+    font-size 16px
+    transition ease 0.3s
+    cursor pointer
+    font-weight bold
 
-    &:hover
-      color: whitesmoke;
-      background: slateblue;
-    
+.blue 
+  color $blue
+  border-color $blue
+  &:active
+    background-color: $blue
+    color $white
+  
+.red 
+  color $red
+  border-color $red
+  &:active
+    background-color: $red
+    color $white
+  
+.orange 
+  color $orange
+  border-color $orange
+  &:active
+    background-color: $orange
+    color $white
+  
+.yellow 
+  color $yellow
+  border-color $yellow
+  &:active
+    background-color: $yellow
+    color $white
 
-  .red
-    color: cadetblue;
-    border-color: cadetblue;
+.green 
+  color $green
+  border-color $green
+  &:active
+    background-color: $green
+    color $white
 
-    &:hover {
-      color: whitesmoke;
-      background: cadetblue;
-
+.template 
+  color $grey
+  border-color $grey
+  &:active
+    background-color: $grey
+    color $white
 </style>

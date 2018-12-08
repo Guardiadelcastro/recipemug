@@ -18,7 +18,7 @@
           <label for="">Ingredients:</label>
           <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
         </div>
-        <templatebutton type="button" id="newIngredient" theme="cadetblue" name="+" @click="addIngredient"></templatebutton>
+        <templatebutton type="button" id="newIngredient" :class="orange" name="+" @click="addIngredient"></templatebutton>
      </div>
      <br>
     <div class="list-container">
@@ -26,14 +26,14 @@
        	<label for="">Steps:</label> 
        	<input type="text" name="newStep" placeholder="Add a Step"> 
        </div>
-     <templatebutton id="newStep" theme="cadetblue" name="+" @click="addStep"></templatebutton>
+     <templatebutton type="button" id="newStep" theme="orange" name="+" @click="addStep"></templatebutton>
     </div>
     <br>
     <div class="upladoImage">
       <input type="file" name="image" id="uploadImage" accept="image/*" >
     </div>
     <br>
-    <templatebutton name="Cook the new Recipe" theme="slateblue"></templatebutton>
+    <templatebutton name="Cook the new Recipe" theme="blue"></templatebutton>
     </form>
   </div>
 </template>
@@ -75,38 +75,33 @@ export default {
 }
 </script>
 
-<style scoped>
-.html-recipeForm {
-  width: 600px;
-  background: greenyellow;
-  margin: 10px;
-  padding: 0 0 10px 10px;
-  border-radius: 6px;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
+<style lang="stylus" scoped>
+@import '../styles/variables'
+.html-recipeForm
+  width 600px
+  background $green
+  margin 10px
+  padding 0 0 10px 10px
+  border-radius 6px
+  display flex
+  flex-flow column wrap
+  justify-content center
+  align-items flex-start
 
-.list-container,
-.steps {
-  display: grid;
-  grid-template-columns: 35em;
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  justify-items: start;
-}
+.list-container, .steps 
+  display grid
+  grid-template-columns 35em
+  grid-template-rows auto
+  grid-gap 10px
+  justify-items start
 
-.title {
-  align-self: center;
-  color: slateblue;
-  font-size: 30px;
-}
+.title 
+  align-self center
+  color #blue
+  font-size 30px
 
-#newIngredient,
-#newStep {
-  justify-self: end;
-}
+#newIngredient, #newStep 
+  justify-self end
 
 </style>
 
