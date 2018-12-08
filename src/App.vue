@@ -1,18 +1,21 @@
 <template>
   <div>
-   <html-recipe-form></html-recipe-form>
-   <v-button @click="alertClick" theme="slateblue" name="alert"></v-button>
-   <v-button @click="consoleLog" theme="cadetblue" name="console log"></v-button>
+    <web-nav></web-nav>
+    <html-recipeForm></html-recipeForm>
+
   </div>
 </template>
 
 <script>
 import HTMLRecipeForm from './containers/CreationRecipeForm.vue';
+import navBar from './components/navBar'
 
   export default {
     components: {
       'html-recipe-form': HTMLRecipeForm,
-    },
-  } 
+      'web-nav': navBar
+    } 
+    
+  }
 
 </script>
