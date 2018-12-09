@@ -1,7 +1,7 @@
 {
   "name": "recipemug",
   "version": "1.0.0",
-  "description": "",
+  "description": "recipe mug webapp",
   "main": "index.js",
   "scripts": {
     "dev": "parcel serve src/index.html --open",
@@ -10,10 +10,7 @@
     "test": "jest",
     "docsiserve": "docsify serve docs",
     "clean:cache": "rm -rf .cache dist build",
-    "clean:all": "rm -rf node_modules package-lock.json .cache dist build",
-    "deploy": "git subtree push --prefix build origin gh-pages",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "clean:all": "rm -rf node_modules package-lock.json .cache dist build"
   },
   "repository": {
     "type": "git",
@@ -27,12 +24,12 @@
   },
   "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.9",
+    "@fortawesome/free-solid-svg-icons": "^5.6.0",
+    "@fortawesome/vue-fontawesome": "^0.1.3",
     "docsify-cli": "^4.3.0",
     "superagent": "^3.8.3",
-    "vue": "^2.5.17",
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@fortawesome/vue-fontawesome": "^0.1.2"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -40,7 +37,7 @@
     "@babel/preset-env": "^7.1.0",
     "@vue/component-compiler-utils": "^2.3.0",
     "autoprefixer": "^9.4.0",
-    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-vue": "^2.0.2",
     "cssnano": "^4.1.7",
     "jest": "^23.6.0",
@@ -53,16 +50,9 @@
     "postcss-mixins": "^6.2.0",
     "postcss-preset-env": "^6.4.0",
     "prettier": "1.15.3",
-    "stylelint": "^9.9.0",
-    "stylelint-config-standard": "^18.2.0",
-    "tslint-config-prettier": "^1.12.0",
+    "stylus": "^0.54.5",
     "vue-hot-reload-api": "^2.3.1",
-    "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",
-    "vuex": "^3.0.1",
-    "@storybook/vue": "^4.0.11",
-    "@storybook/addon-actions": "^4.0.11",
-    "@storybook/addon-links": "^4.0.11",
-    "@storybook/addons": "^4.0.11"
+    "vuex": "^3.0.1"
   }
 }

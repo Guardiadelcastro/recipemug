@@ -1,22 +1,17 @@
 <template>
   <div>
     <web-nav></web-nav>
-    <html-recipeForm></html-recipeForm>
-    <alert-button onClick="alertClick" class="slateblue" name="alert"></alert-button>
-    <console-button class="cadetblue"></console-button>
+    <recipe-form></recipe-form>
   </div>
 </template>
 
 <script>
-import HTMLRecipeForm from './components/HTMLRecipeForm.vue';
-import vueButton from './components/vueButton'
-import navBar from './components/navBar'
+import CreateRecipeForm from "./containers/CreateRecipeForm"
+import navBar from './containers/navBar';
 
   export default {
     components: {
-      'html-recipe-form': HTMLRecipeForm,
-      'alert-button': vueButton,
-      'console-button': vueButton,
+      'recipe-form': CreateRecipeForm,
       'web-nav': navBar
     } 
     
