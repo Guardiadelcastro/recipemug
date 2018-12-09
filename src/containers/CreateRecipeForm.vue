@@ -24,7 +24,7 @@
     <div class="list-container">
        <div id="steps">
        	<label for="">Steps:</label> 
-       	<input type="text" name="newStep" placeholder="Add a Step"> 
+       	<text-input theme="blue" message="Add a Step"> 
        </div>
      <templatebutton type="button" id="newStep" theme="orange" name="+" @click="addStep"></templatebutton>
     </div>
@@ -40,21 +40,23 @@
 
 <script>
 import TemplateButton from '../components/TemplateButton';
+//import TextInput from "../components/TextInput";
 
 export default {
   name: 'HTMLRecipeForm',
   components: {
     'templatebutton': TemplateButton,
+   // 'text-input': TextInput
   },
   props: {},
   methods: {
     addIngredient() {
-      const button = document.querySelector('#newIngredient');
+      const newIngredientButton = document.querySelector('#newIngredient');
       let newIngredient = document.createElement('input');
       newIngredient.type = 'text';
       newIngredient.placeholder = 'Add an Ingredient';
       newIngredient.name = 'newIngredient';
-      document.querySelector('#ingredients').appendChild(newIngredient);
+      newIngredientButton.appendChild(newIngredient);
     },
 
     addStep() {

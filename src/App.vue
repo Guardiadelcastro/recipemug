@@ -1,18 +1,18 @@
 <template>
   <div>
     <web-nav></web-nav>
-    <html-recipeForm></html-recipeForm>
+    <recipe-form></recipe-form>
 
   </div>
 </template>
 
 <script>
-import HTMLRecipeForm from './containers/CreationRecipeForm.vue';
-import navBar from './components/navBar'
+import CreateRecipeForm from './containers/CreateRecipeForm';
+import navBar from './containers/navBar'
 
   export default {
     components: {
-      'html-recipe-form': HTMLRecipeForm,
+      'recipe-form': HTMLRecipeForm,
       'web-nav': navBar
     } 
     
