@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import CreateRecipeForm from './containers/CreateRecipeFrom';
-import navBar from './containers/navBar'
+import CreateRecipeForm from "./containers/CreateRecipeForm"
+import navBar from './containers/navBar';
 
   export default {
     components: {

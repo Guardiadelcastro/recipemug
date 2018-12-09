@@ -43,7 +43,7 @@ import TemplateButton from '../components/TemplateButton';
 //import TextInput from "../components/TextInput";
 
 export default {
-  name: 'HTMLRecipeForm',
+  name: 'CreateRecipeForm',
   components: {
     'templatebutton': TemplateButton,
    // 'text-input': TextInput
