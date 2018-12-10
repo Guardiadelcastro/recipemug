@@ -1,12 +1,22 @@
 <template>
-  <div class="container">
-    <div class="image">RecipeMug</div>
+  <div class="nav-container">
+    <div class="image"></div>
     <div class="nav-list">
-      <div class="nav">Profile</div>
-      <div class="nav">My Cookbook</div>
-      <div class="nav">Shared With Me</div>
-      <div class="nav">Week plan</div>
-      <div class="nav">Something else</div>
+      <div class="nav">
+        <p>Profile</p>
+      </div>
+      <div class="nav">
+        <p>My Cookbook</p>
+      </div>
+      <div class="nav">
+        <p>Shared With Me</p>
+      </div>
+      <div class="nav">
+        <p>Week plan</p>
+        </div>
+      <div class="nav">
+        <p>Something else</p>
+      </div>
     </div>
   </div>
 </template>
@@ -20,22 +30,31 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-.container
+.nav-container
   height 100vh
   display grid
   grid-template-rows 2fr 8fr
+  grid-gap 10px
+  background-color $orange
 
 .image
   grid-row 1 / 2
-  width 50px
-  height 50px
+  align-self center
+  justify-self center
+  width 125px
+  height 125px
   background $blue
-  border-bottom 5px solid $red
+  border 5px solid $green
+
 
 .nav-list
   grid-row 2 / 3
   display grid
-  grid-template-rows auto
+  grid-template-rows repeat(1fr, 10)
+  justify-items left 
+  align-items center
+  &p 
+    margin-left 10px
 
 </style>
 

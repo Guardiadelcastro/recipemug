@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import navBar from '../containers/NavBar.vue'
+import NavBar from '../containers/NavBar.vue'
 import SideBar from '../containers/SideBar.vue'
 import CreateRecipeForm from '../containers/CreateRecipeForm.vue'
 
@@ -30,6 +30,8 @@ export default {
   display grid 
   grid-template-rows 1fr 10fr
   grid-template-columns 2fr 8fr
+  width 100vw
+  height 100vh
 
 .navbar
   grid-row 1 / 2 
@@ -42,5 +44,6 @@ export default {
 .content
   grid-row 2 / 3
   grid-column 2 / 3
+  justify-self center
 
 </style>

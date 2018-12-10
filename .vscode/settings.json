@@ -4,5 +4,6 @@
   "languageStylus.useSeparator": false,
   "stylusSupremacy.insertBraces": false,
   "stylusSupremacy.insertSemicolons": false,
-  "stylusSupremacy.insertSpaceAfterComma": true
+  "stylusSupremacy.insertSpaceAfterComma": true,
+  "eslint.enable": false
 }

@@ -15,3 +15,9 @@ import Dashboard from './pages/Dashboard.vue';
   }
 
 </script>
+<style lang="stylus" scoped>
+@import './styles/variables'
+
+div
+  background $white
+</style>
