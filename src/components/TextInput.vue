@@ -6,11 +6,11 @@
 export default {
   props: {
     theme: {
-      type: string,
-      default: template
+      type: String,
+      default: 'template'
     },
     message: {
-      type: string,
+      type: String,
       default: 'Write here'
     }
   },
