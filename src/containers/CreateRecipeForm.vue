@@ -18,7 +18,7 @@
           <label for="">Ingredients:</label>
           <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
         </div>
-        <templatebutton type="button" id="newIngredient" stheme="orange" name="+" @click="addIngredient"></templatebutton>
+        <templatebutton type="button" id="newIngredient" theme="red" name="+" @click="addIngredient"></templatebutton>
      </div>
      <br>
     <div class="list-container">

@@ -2,27 +2,18 @@
   <div class="nav-container">
     <div class="image"></div>
     <div class="nav-list">
-      <div class="nav">
-        <p>Profile</p>
-      </div>
-      <div class="nav">
-        <p>My Cookbook</p>
-      </div>
-      <div class="nav">
-        <p>Shared With Me</p>
-      </div>
-      <div class="nav">
-        <p>Week plan</p>
-        </div>
-      <div class="nav">
-        <p>Something else</p>
-      </div>
+      <div class="nav">Profile</div>
+      <div class="nav">My Cookbook</div>
+      <div class="nav">Shared With Me</div>
+      <div class="nav">Week plan</div>
+      <div class="nav">Something else</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name:'sidebar',
   props: {}
 };
 </script>
@@ -35,7 +26,7 @@ export default {
   display grid
   grid-template-rows 2fr 8fr
   grid-gap 10px
-  background-color $orange
+  background-color $dark-blue
 
 .image
   grid-row 1 / 2
@@ -50,11 +41,13 @@ export default {
 .nav-list
   grid-row 2 / 3
   display grid
-  grid-template-rows repeat(1fr, 10)
+  grid-auto-rows minmax(25px, auto)
   justify-items left 
   align-items center
-  &p 
-    margin-left 10px
 
+.nav
+  margin-left 10px
+  font-size 20px
+  height 25px
 </style>
 

@@ -29,9 +29,10 @@ export default {
 .container
   display grid 
   grid-template-rows 1fr 10fr
-  grid-template-columns 2fr 8fr
+  grid-template-columns 2fr 10fr
   width 100vw
   height 100vh
+  background $white
 
 .navbar
   grid-row 1 / 2 

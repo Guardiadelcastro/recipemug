@@ -8,6 +8,7 @@
 import Dashboard from './pages/Dashboard.vue';
 
   export default {
+    name: 'App',
     components: {
       'dashboard': Dashboard
     } 
@@ -15,9 +16,9 @@ import Dashboard from './pages/Dashboard.vue';
   }
 
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import './styles/variables'
 
-div
-  background $white
+body
+  margin 0
 </style>
