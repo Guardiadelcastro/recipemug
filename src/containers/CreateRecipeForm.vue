@@ -51,17 +51,16 @@ export default {
   props: {},
   methods: {
     addIngredient() {
-      const newIngredientButton = document.querySelector('#newIngredient');
+      const ingredientList = document.querySelector('#ingredients');
       let newIngredient = document.createElement('input');
       newIngredient.type = 'text';
       newIngredient.placeholder = 'Add an Ingredient';
       newIngredient.name = 'newIngredient';
-      newIngredientButton.appendChild(newIngredient);
+      ingredientList.appendChild(newIngredient);
     },
 
     addStep() {
       const steps = document.querySelector('#steps');
-      const button = document.querySelector('#newStep');
       let newStep = document.createElement('input');
       newStep.type = 'text';
       newStep.placeholder = 'Add a Step';
