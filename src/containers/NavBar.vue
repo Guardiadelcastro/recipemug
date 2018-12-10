@@ -13,6 +13,7 @@
 import TemplateButton from '../components/TemplateButton.vue';
 
 export default {
+  name: 'NavBar',
   components: {
     'create-button': TemplateButton
   }
