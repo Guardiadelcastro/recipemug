@@ -25,7 +25,7 @@ props: {},
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .html-recipeCard 
     margin-left: 10px;
     width: 400px;

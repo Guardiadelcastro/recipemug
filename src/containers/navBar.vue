@@ -10,7 +10,7 @@
   </nav>
 </template>
 <script>
-import TemplateButton from '../components/TemplateButton';
+import TemplateButton from '../components/TemplateButton.vue';
 
 export default {
   components: {

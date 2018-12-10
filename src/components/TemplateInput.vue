@@ -1,9 +1,10 @@
 <template>
-  <text-input type="text" :class="theme" :placeholder="message">
+  <text-input :class="theme" :placeholder="message">
 </template>
 
 <script>
 export default {
+  name: 'TemplateInput',
   props: {
     theme: {
       type: string,
