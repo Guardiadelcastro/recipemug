@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import TemplateButton from '../components/TemplateButton';
+import TemplateButton from '../components/TemplateButton.vue';
 //import TextInput from "../components/TextInput";
 
 export default {
