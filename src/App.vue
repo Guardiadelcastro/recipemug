@@ -1,20 +1,24 @@
 <template>
   <div>
-    <web-nav></web-nav>
-    <recipe-form></recipe-form>
+    <dashboard></dashboard>
   </div>
 </template>
 
 <script>
-import CreateRecipeForm from "./containers/CreateRecipeForm"
-import navBar from './containers/navBar';
+import Dashboard from './pages/Dashboard.vue';
 
   export default {
+    name: 'App',
     components: {
-      'recipe-form': CreateRecipeForm,
-      'web-nav': navBar
+      'dashboard': Dashboard
     } 
     
   }
 
 </script>
+<style lang="stylus">
+@import './styles/variables'
+
+body
+  margin 0
+</style>

@@ -1,5 +1,4 @@
 <template>
-
   <div class="html-myProfile">
     <div class="title">
       <h1>My Profile</h1>
@@ -12,9 +11,10 @@
 </template>
 
 <script>
-import HTMLRecipeCard from './HTMLRecipeCard';
+import RecipeCard from '../containters/RecipeCard';
+
 export default {
-name: 'HTMLMyProfile',
+name: 'UserProfile',
 props: {},
   data: function() {
     return {
