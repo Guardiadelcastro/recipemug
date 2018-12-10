@@ -18,7 +18,7 @@
           <label for="">Ingredients:</label>
           <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
         </div>
-        <templatebutton type="button" id="newIngredient" stheme="orange" name="+" @click="addIngredient"></templatebutton>
+        <templatebutton type="button" id="newIngredient" theme="red" name="+" @click="addIngredient"></templatebutton>
      </div>
      <br>
     <div class="list-container">
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import TemplateButton from '../components/TemplateButton';
+import TemplateButton from '../components/TemplateButton.vue';
 //import TextInput from "../components/TextInput";
 
 export default {
@@ -51,17 +51,16 @@ export default {
   props: {},
   methods: {
     addIngredient() {
-      const newIngredientButton = document.querySelector('#newIngredient');
+      const ingredientList = document.querySelector('#ingredients');
       let newIngredient = document.createElement('input');
       newIngredient.type = 'text';
       newIngredient.placeholder = 'Add an Ingredient';
       newIngredient.name = 'newIngredient';
-      newIngredientButton.appendChild(newIngredient);
+      ingredientList.appendChild(newIngredient);
     },
 
     addStep() {
       const steps = document.querySelector('#steps');
-      const button = document.querySelector('#newStep');
       let newStep = document.createElement('input');
       newStep.type = 'text';
       newStep.placeholder = 'Add a Step';

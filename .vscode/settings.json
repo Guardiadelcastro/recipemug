@@ -1,0 +1,9 @@
+{
+  "editor.tabSize": 2,
+  "prettier.useTabs": true,
+  "languageStylus.useSeparator": false,
+  "stylusSupremacy.insertBraces": false,
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.insertSpaceAfterComma": true,
+  "eslint.enable": false
+}

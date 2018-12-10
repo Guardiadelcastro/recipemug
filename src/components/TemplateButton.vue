@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'template-button',
-  props:{
+  props: {
     name: {
       type: String,
       default: 'button'
@@ -21,63 +21,98 @@ export default {
     }
   },
   data() {
-    return {
-      
-    }
+    return {};
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
 button
-    padding 5px 10px
-    border 3px solid
-    font-size 16px
-    transition ease 0.3s
-    cursor pointer
-    font-weight bold
+  padding 5px 10px
+  border 3px solid
+  font-size 16px
+  transition ease 0.3s
+  cursor pointer
+  font-weight bold
+  border-radius 5px
 
-.blue 
+.blue
   color $blue
   border-color $blue
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $blue
+    background-color $blue
     color $white
-  
-.red 
+
+.red
   color $red
   border-color $red
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $red
+    background-color $red
     color $white
-  
-.orange 
+
+.orange
   color $orange
   border-color $orange
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $orange
+    background-color darken($white, 10%)
     color $white
-  
-.yellow 
+
+.yellow
   color $yellow
   border-color $yellow
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $yellow
+    background-color $yellow
     color $white
 
-.green 
+.green
   color $green
   border-color $green
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $green
+    background-color $green
     color $white
 
-.template 
+.green-filled
+  color $white
+  background-color $green
+  border-color $white
+
+  &:hover
+    background-color darken($green, 10%)
+
+  &:active
+    background-color $white
+    color $green
+
+.template
   color $grey
   border-color $grey
+
+  &:hover
+    background-color darken($white, 10%)
+
   &:active
-    background-color: $grey
+    background-color $grey
     color $white
 </style>
