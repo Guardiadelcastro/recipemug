@@ -82,18 +82,8 @@ button
     background-color $yellow
     color $white
 
+
 .green
-  color $green
-  border-color $green
-
-  &:hover
-    background-color darken($white, 10%)
-
-  &:active
-    background-color $green
-    color $white
-
-.green-filled
   color $white
   background-color $green
   border-color $white
