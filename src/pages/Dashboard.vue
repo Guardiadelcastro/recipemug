@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import NavBar from '../containers/NavBar.vue'
-import SideBar from '../containers/SideBar.vue'
-import CreateRecipeForm from '../templates/CreateRecipeForm.vue'
+import NavBar from '../containers/NavBar.vue';
+import SideBar from '../containers/SideBar.vue';
+import CreateRecipeForm from '../templates/CreateRecipeForm.vue';
 
 export default {
   name: 'dashboard',
