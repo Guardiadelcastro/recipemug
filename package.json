@@ -2,27 +2,16 @@
   "name": "recipemug",
   "version": "1.0.0",
   "description": "recipe mug webapp",
-  "main": "index.js",
+  "author": "",
   "scripts": {
-    "dev": "parcel serve src/index.html --open",
-    "watch": "parcel watch src/index.html --global global",
     "build": "rm -rf build && parcel build src/index.html -d build --global global --public-url /",
     "test": "jest",
-    "docsiserve": "docsify serve docs",
+    "clean:all": "rm -rf node_modules package-lock.json .cache dist build",
     "clean:cache": "rm -rf .cache dist build",
-    "clean:all": "rm -rf node_modules package-lock.json .cache dist build"
+    "dev": "parcel serve src/index.html --open",
+    "docsiserve": "docsify serve docs",
+    "watch": "parcel watch src/index.html --global global"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Guardiadelcastro/RecipeMug.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Guardiadelcastro/RecipeMug/issues"
-  },
-  "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.9",
     "@fortawesome/free-solid-svg-icons": "^5.6.0",
@@ -41,6 +30,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-vue": "^2.0.2",
     "cssnano": "^4.1.7",
+    "eslint": "^5.10.0",
     "jest": "^23.6.0",
     "npm": "^6.4.1",
     "parcel-bundler": "^1.10.3",
@@ -53,8 +43,20 @@
     "prettier": "1.15.3",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
+    "vue-cli-plugin-fontawesome": "^0.1.0",
     "vue-hot-reload-api": "^2.3.1",
     "vue-template-compiler": "^2.5.17",
     "vuex": "^3.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Guardiadelcastro/RecipeMug/issues"
+  },
+  "homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guardiadelcastro/RecipeMug.git"
   }
 }

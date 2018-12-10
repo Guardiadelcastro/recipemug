@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-bar">
     <input class="search" type="text" placeholder="What would you like to cook today?">
-    <create-button class="create-new" type="button" theme="green-filled" name="new">
+    <create-button class="create-new" type="button" theme="orange" name="new">
       <font-awesome-icon icon="plus-square"/>
     </create-button>
     <div class="user">
@@ -39,20 +39,23 @@ export default {
   width 400px
   height 25px
   border 2px solid $white
-  border-left 2px solid $green
+  border-left 2px solid $orange
   padding 5px 10px
   outline none
   transition border ease 0.5s
   &:focus
-    border 2px solid $green
+    border 2px solid $orange
 
 .create-new
   grid-column 9 / 10
   border-radius 2px
 
 .user
+  cursor pointer
   grid-column 10 / 11
-  color $green
+  color $orange
   font-size 25px
+  &:hover
+   color $dark-orange
 </style>
 
