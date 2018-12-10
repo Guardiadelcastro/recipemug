@@ -17,7 +17,6 @@ import Dashboard from './pages/Dashboard.vue';
 
 </script>
 <style lang="stylus">
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Pacifico');
 @import './styles/variables'
 
 body

@@ -1,6 +1,9 @@
 <template>
   <div class="nav-container">
-    <div class="image"></div>
+    <div class="title">
+      <span class="recipe-title">Recipe</span>
+      <span class="mug-title">Mug</span>
+    </div>
     <div class="nav-list">
       <div class="nav">Profile</div>
       <div class="nav">My Cookbook</div>
@@ -26,17 +29,30 @@ export default {
   display grid
   grid-template-rows 2fr 8fr
   grid-gap 10px
-  background-color $dark-blue
+  background-color $red
 
-.image
+.title
   grid-row 1 / 2
-  align-self center
-  justify-self center
-  width 125px
-  height 125px
-  background $blue
-  border 5px solid $green
+  display flex
+  flex-flow row nowrap
+  justify-content center
+  align-items center
+  background $white
+  box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
+
+.recipe-title, .mug-title
+  font-family 'Pacifico', 'Monserrat', serif 
+  font-size 2em
+  color $white
+  font-weigth bold
+
+.recipe-title
+  background-color $red
+  padding 0 3px 0 5px
+
+.mug-title
+  color $red
 
 .nav-list
   grid-row 2 / 3
@@ -44,10 +60,13 @@ export default {
   grid-auto-rows minmax(25px, auto)
   justify-items left 
   align-items center
+  color $white
 
 .nav
   margin-left 10px
   font-size 20px
   height 25px
+
+  
 </style>
 
