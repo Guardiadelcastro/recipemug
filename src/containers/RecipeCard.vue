@@ -12,7 +12,7 @@
 
 <script>
 export default {
-name: 'HTMLRecipeCard',
+name: 'RecipeCard',
 props: {},
   data: function() {
     return {
