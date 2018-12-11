@@ -1,11 +1,20 @@
 <template>
   <nav class="nav-bar">
-    <input class="search" type="text" placeholder="What would you like to cook today?">
-    <create-button class="create-new" type="button" theme="orange" name="new">
-      <font-awesome-icon icon="plus-square"/>
-    </create-button>
+    <input
+      class="search"
+      type="text"
+      placeholder="What would you like to cook today?"
+    >
+    <CreateButton
+      class="create-new"
+      type="button"
+      theme="orange"
+      name="new"
+    >
+      <FontAwesomeIcon icon="plus-square" />
+    </CreateButton>
     <div class="user">
-      <font-awesome-icon icon="user"/>
+      <FontAwesomeIcon icon="user" />
     </div>
   </nav>
 </template>
@@ -15,7 +24,7 @@ import TemplateButton from '../components/TemplateButton.vue';
 export default {
   name: 'NavBar',
   components: {
-    'create-button': TemplateButton
+    'CreateButton': TemplateButton
   }
 };
 </script>

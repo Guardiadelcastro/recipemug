@@ -1,11 +1,21 @@
 <template>
   <div>
-    <h4>{{ title }}</h4>
+    <h4 :class="title">
+      {{ title }}
+    </h4>
     <div id="list">
-      <text-input theme="green" message="Add an ingredient"/>
+      <TextInput  
+        theme="green" 
+        message="Add an ingredient"
+      />
     </div>
-    <add-button>
-    <templatebutton type="button" theme="green" name="+" @click="addIngredient"></templatebutton>
+    <TemplateButton />
+    <TemplateButton
+      type="button" 
+      theme="green" 
+      name="+" 
+      @click="addIngredient" 
+    />
   </div>
 </template>
 
@@ -15,15 +25,22 @@ import TemplateButton from '../components/TemplateButton';
 
 export default {
   components: {
-    'text-input': TextInput,
-    'add-button': TemplateButton
+    TextInput,
+    TemplateButton
   },
   props: {
-    title: string,
+    title: {
+      type: String,
+      default: 'Add here'
+    }
+  },
+  data() {
+    return {
+    };
   },
   methods: {
     addIngredient() {
-      const ingredients = document.querySelector('#list')
+      const ingredients = document.querySelector('#list');
       let newIngredient = document.createElement('input');
       newIngredient.type = 'text';
       newIngredient.placeholder = 'Add an Ingredient';
@@ -35,14 +52,9 @@ export default {
       let newStep = document.createElement('input');
       newStep.type = 'text';
       newStep.placeholder = 'Add a Step';
-      newIngredient.name = 'newStep';
+      newStep.name = 'newStep';
       steps.appendChild(newStep);
     },
-  },
-  data() {
-    return {
-      title: 'Add an ingredient'
-    }
   }
-}
+};
 </script>

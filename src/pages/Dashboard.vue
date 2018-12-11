@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <nav-bar class="navbar"></nav-bar>
-    <side-bar class="sidebar"></side-bar>
+    <NavBar class="navbar" />
+    <SideBar class="sidebar" />
     <div class="content">
-      <recipe-form class="content"></recipe-form>
+      <CreateRecipeForm class="content" />
     </div>
   </div>
 </template>
@@ -14,13 +14,13 @@ import SideBar from '../containers/SideBar.vue';
 import CreateRecipeForm from '../templates/CreateRecipeForm.vue';
 
 export default {
-  name: 'dashboard',
+  name: 'Dashboard',
   components: {
-    'nav-bar': NavBar,
-    'side-bar': SideBar,
-    'recipe-form': CreateRecipeForm
+    NavBar,
+    SideBar,
+    CreateRecipeForm
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

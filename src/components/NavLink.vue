@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div>
+      My template
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,7 @@ export default {
 
   }
 
-}
+};
 </script>
 
 <style lang="stylus">

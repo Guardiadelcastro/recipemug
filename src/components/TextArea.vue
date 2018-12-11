@@ -1,13 +1,18 @@
 <template>
-  <textarea :placeholder="message"></textarea>
+  <TemplateTextArea :placeholder="message" />
 </template>
 
 <script>
 export default {
+  name: 'TemplateTextArea',
   props: {
-    message: String
+    message: {
+      type: String,
+      default: 'Write here'
+    }
   }
-}
+};
+
 </script>
 
 <style lang="stylus" scoped>

@@ -1,5 +1,8 @@
 <template>
-  <text-input :class="theme" :placeholder="message">
+  <TemplateInput 
+    :class="theme" 
+    :placeholder="message" 
+  />
 </template>
 
 <script>
@@ -18,9 +21,9 @@ export default {
   data() {
     return {
       
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

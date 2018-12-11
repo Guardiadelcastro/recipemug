@@ -5,5 +5,20 @@
   "stylusSupremacy.insertBraces": false,
   "stylusSupremacy.insertSemicolons": false,
   "stylusSupremacy.insertSpaceAfterComma": true,
-  "eslint.enable": false
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ]
 }

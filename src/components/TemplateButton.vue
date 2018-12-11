@@ -1,10 +1,15 @@
 <template>
-  <button @click="handleClick" v-bind:class="theme">{{ name }}</button>
+  <button 
+    :class="theme"
+    @click="handleClick"
+  >
+    {{ name }}
+  </button>
 </template>
 
 <script>
 export default {
-  name: 'template-button',
+  name: 'TemplateButton',
   props: {
     name: {
       type: String,
@@ -15,13 +20,13 @@ export default {
       default: 'grey'
     }
   },
+  data() {
+    return {};
+  },
   methods: {
     handleClick(event) {
       this.$emit('click', event);
     }
-  },
-  data() {
-    return {};
   }
 };
 </script>
@@ -42,8 +47,10 @@ button
   color $white
   background-color $blue
   border-color $white
+
   &:hover
     background-color $dark-blue
+
   &:active
     background-color $white
     color $blue
@@ -52,8 +59,10 @@ button
   color $white
   background-color $red
   border-color $white
+
   &:hover
     background-color $dark-red
+
   &:active
     background-color $white
     color $red
@@ -62,8 +71,10 @@ button
   color $white
   background-color $orange
   border-color $white
+
   &:hover
     background-color $orange
+
   &:active
     background-color $white
     color $orange
@@ -72,30 +83,35 @@ button
   color $white
   background-color $yellow
   border-color $white
+
   &:hover
     background-color $dark-yellow
+
   &:active
     background-color $white
     color $yellow
-
 
 .green
   color $white
   background-color $green
   border-color $white
+
   &:hover
     background-color darken($green, 10%)
+
   &:active
     background-color $white
     color $green
 
 .grey
- color $white
-  background-color $grey
-  border-color $white
-  &:hover
-    background-color $dark-grey
-  &:active
-    background-color $white
-    color $grey
+  color $white
+    background-color $grey
+    border-color $white
+
+    &:hover
+      background-color $dark-grey
+
+    &:active
+      background-color $white
+      color $grey
 </style>

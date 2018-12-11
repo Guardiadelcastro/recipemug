@@ -1,15 +1,29 @@
 <template>
   <div class="nav-container">
     <div class="title">
-      <span class="recipe-title">Recipe</span>
-      <span class="mug-title">Mug</span>
+      <span class="recipe-title">
+        Recipe
+      </span>
+      <span class="mug-title">
+        Mug
+      </span>
     </div>
     <div class="nav-list">
-      <div class="nav">Profile</div>
-      <div class="nav">My Cookbook</div>
-      <div class="nav">Shared With Me</div>
-      <div class="nav">Week plan</div>
-      <div class="nav">Something else</div>
+      <div class="nav">
+        Profile
+      </div>
+      <div class="nav">
+        My Cookbook
+      </div>
+      <div class="nav">
+        Shared With Me
+      </div>
+      <div class="nav">
+        Week plan
+      </div>
+      <div class="nav">
+        Something else
+      </div>
     </div>
   </div>
 </template>

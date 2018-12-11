@@ -1,39 +1,87 @@
 <template>
   <div class="html-recipeForm">
-    <h1 class="title">Recipe Form</h1>
-    <form action="post" enctype="multipart/form-data">
-    <div class="title">
-      <label for="text"> Title of the Recipe: </label>  
-      <input type="text" name="title">
-    </div>
-    <br>
-    <div class="description"> 
-       <label for=""> Description: </label> 
-       <br>
-       <textarea name="description" id="" cols="40" rows="5"></textarea>
-    </div>
-    <br>
-     <div class="list-container">
+    <h1 class="title">
+      Recipe Form
+    </h1>
+    <form 
+      action="post"
+      enctype="multipart/form-data"
+    >
+      <div class="title">
+        <label for="text">
+          Title of the Recipe:
+        </label>  
+        <input
+          type="text"
+          name="title"
+        >
+      </div>
+      <br>
+      <div class="description"> 
+        <label for="">
+          Description:
+        </label> 
+        <br>
+        <textarea
+          id=""
+          name="description"
+          cols="40"
+          rows="5"
+        />
+      </div>
+      <br>
+      <div class="list-container">
         <div id="ingredients">
-          <label for="">Ingredients:</label>
-          <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
+          <label for="">
+            Ingredients:
+          </label>
+          <input
+            type="text"
+            name="newIngredient"
+            placeholder="Add an Ingredient"
+          > 
         </div>
-        <templatebutton type="button" id="newIngredient" theme="red" name="+" @click="addIngredient"></templatebutton>
-     </div>
-     <br>
-    <div class="list-container">
-       <div id="steps">
-       	<label for="">Steps:</label> 
-       	<text-input theme="blue" message="Add a Step"> 
-       </div>
-     <templatebutton type="button" id="newStep" theme="orange" name="+" @click="addStep"></templatebutton>
-    </div>
-    <br>
-    <div class="upladoImage">
-      <input type="file" name="image" id="uploadImage" accept="image/*" >
-    </div>
-    <br>
-    <templatebutton name="Cook the new Recipe" theme="blue"></templatebutton>
+        <Templatebutton
+          id="newIngredient"
+          type="button"
+          theme="red"
+          name="+"
+          @click="addIngredient"
+        />
+      </div>
+      <br>
+      <div class="list-container">
+        <div id="steps">
+          <label for="">
+            Steps:
+          </label> 
+          <TextInput
+            theme="blue"
+            message="Add a Step"
+          />
+        </div>
+        <Templatebutton
+          id="newStep"
+          type="button"
+          theme="orange"
+          name="+"
+          @click="addStep"
+        />
+      </div>
+      <br>
+      <div class="upladoImage">
+        <input
+          id="uploadImage"
+          type="file"
+          name="image"
+          accept="image/*"
+        >
+      </div>
+      <br>
+      <Templatebutton
+        name="Cook the new Recipe"
+        theme="blue" 
+      />
     </form>
   </div>
 </template>
@@ -46,9 +94,14 @@ export default {
   name: 'CreateRecipeForm',
   components: {
     'templatebutton': TemplateButton,
-   // 'text-input': TextInput
+  // 'text-input': TextInput
   },
   props: {},
+  data() {
+    return {
+
+    };
+  },
   methods: {
     addIngredient() {
       const ingredientList = document.querySelector('#ingredients');
@@ -64,16 +117,11 @@ export default {
       let newStep = document.createElement('input');
       newStep.type = 'text';
       newStep.placeholder = 'Add a Step';
-      newIngredient.name = 'newStep';
+      newStep.name = 'newStep';
       steps.appendChild(newStep);
     },
   },
-  data() {
-    return {
-
-    }
-  },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
