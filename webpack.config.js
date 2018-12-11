@@ -22,23 +22,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader'
-        }/*,
-        {
-          loader: 'eslint-loader' // You can uncomment this if you want compiling to fail if linting fails
-        }*/]    
-      },
-      {
         test: /\.vue$/,
         use: 'vue-loader'
       }, 
       {
-        test: /\.styl$/,
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'   
+      },
+      {
+        test: /\.styl(us)?$/,
         use: [
-          'stylus-loader',
+          'vue-style-loader',
+          'css-loader',
+          'style-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -48,13 +45,15 @@ module.exports = {
                 require('cssnano')()
               ]
             }
-          }
+          },
+          'stylus-loader'
         ]
       },
       {
+        enforce: 'pre',
         test: /\.(js|vue)$/,
         use: 'eslint-loader',
-        enforce: 'pre'
+        exclude: /node_modules/
       }
     ]
   },
