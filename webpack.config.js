@@ -13,7 +13,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    port: 9000,
     open: true,
     hot: true
   },
@@ -64,6 +63,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: false
     }),
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),

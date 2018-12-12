@@ -3,27 +3,27 @@
     <h1 class="title">
       Recipe Form
     </h1>
-    <form 
+    <form
       action="post"
       enctype="multipart/form-data"
     >
       <div class="title">
         <label for="text">
           Title of the Recipe:
-        </label>  
+        </label>
         <input
           type="text"
           name="title"
         >
       </div>
       <br>
-      <div class="description"> 
-        <label for="">
+      <div class="description">
+        <label for>
           Description:
-        </label> 
+        </label>
         <br>
         <textarea
-          id=""
+          id
           name="description"
           cols="40"
           rows="5"
@@ -32,14 +32,14 @@
       <br>
       <div class="list-container">
         <div id="ingredients">
-          <label for="">
+          <label for>
             Ingredients:
           </label>
           <input
             type="text"
             name="newIngredient"
             placeholder="Add an Ingredient"
-          > 
+          >
         </div>
         <Templatebutton
           id="newIngredient"
@@ -52,9 +52,9 @@
       <br>
       <div class="list-container">
         <div id="steps">
-          <label for="">
+          <label for>
             Steps:
-          </label> 
+          </label>
           <TextInput
             theme="blue"
             message="Add a Step"
@@ -80,7 +80,7 @@
       <br>
       <Templatebutton
         name="Cook the new Recipe"
-        theme="blue" 
+        theme="blue"
       />
     </form>
   </div>
@@ -93,14 +93,12 @@ import TemplateButton from '../components/TemplateButton.vue';
 export default {
   name: 'CreateRecipeForm',
   components: {
-    'templatebutton': TemplateButton,
-  // 'text-input': TextInput
+    templatebutton: TemplateButton
+    // 'text-input': TextInput
   },
   props: {},
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     addIngredient() {
@@ -119,38 +117,39 @@ export default {
       newStep.placeholder = 'Add a Step';
       newStep.name = 'newStep';
       steps.appendChild(newStep);
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
-.html-recipeForm
-  width 600px
-  background $green
-  margin 10px
-  padding 0 0 10px 10px
-  border-radius 6px
-  display flex
-  flex-flow column wrap
-  justify-content center
-  align-items flex-start
+	@import '../styles/variables'
 
-.list-container, .steps 
-  display grid
-  grid-template-columns 35em
-  grid-template-rows auto
-  grid-gap 10px
-  justify-items start
+	.html-recipeForm
+		width 600px
+		background $white
+		border 2px solid $green
+		margin 10px
+		padding 0 0 10px 10px
+		border-radius 6px
+		display flex
+		flex-flow column wrap
+		justify-content center
+		align-items flex-start
 
-.title 
-  align-self center
-  color #blue
-  font-size 30px
+	.list-container, .steps
+		display grid
+		grid-template-columns 35em
+		grid-template-rows auto
+		grid-gap 10px
+		justify-items start
 
-#newIngredient, #newStep 
-  justify-self end
+	.title
+		align-self center
+		color #b lue
+		font-size 30px
 
+	#newIngredient, #newStep
+		justify-self end
 </style>
 
