@@ -1,4 +1,3 @@
-import { describe, test, expect} from 'jest';
 
 describe('add', () => {
   test('should add two numbers', () => {
