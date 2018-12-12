@@ -4,7 +4,7 @@
 		"es6": true,
 		"node": true
 	},
-	"extends": ["eslint:recommended", "plugin:vue/recommended"],
+	"extends": ["eslint:recommended", "plugin:vue/recommended", "plugin:jest/recommended"],
 	"parserOptions": {
 		"parser": "babel-eslint",
 		"ecmaVersion": 2018,
@@ -15,5 +15,6 @@
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"]
-	}
+	},
+	"plugins": ["jest"]
 }
