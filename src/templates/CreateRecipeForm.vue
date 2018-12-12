@@ -41,7 +41,7 @@
             placeholder="Add an Ingredient"
           >
         </div>
-        <Templatebutton
+        <TemplateButton
           id="newIngredient"
           type="button"
           theme="red"
@@ -60,7 +60,7 @@
             message="Add a Step"
           />
         </div>
-        <Templatebutton
+        <TemplateButton
           id="newStep"
           type="button"
           theme="orange"
@@ -78,7 +78,7 @@
         >
       </div>
       <br>
-      <Templatebutton
+      <TemplateButton
         name="Cook the new Recipe"
         theme="blue"
       />
@@ -93,7 +93,7 @@ import TemplateButton from '../components/TemplateButton.vue';
 export default {
   name: 'CreateRecipeForm',
   components: {
-    templatebutton: TemplateButton
+    TemplateButton
     // 'text-input': TextInput
   },
   props: {},
