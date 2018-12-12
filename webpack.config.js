@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -11,13 +11,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist'
   },
   devServer: {
-    hot: true,
-    watchOptions: {
-      poll: true
-    }
+    port: 9000,
+    open: true,
+    hot: true
   },
   module: {
     rules: [
@@ -31,11 +29,17 @@ module.exports = {
         use: 'babel-loader'   
       },
       {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
+      {
         test: /\.styl(us)?$/,
         use: [
           'vue-style-loader',
           'css-loader',
-          'style-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -46,7 +50,7 @@ module.exports = {
               ]
             }
           },
-          'stylus-loader'
+          'stylus-loader',
         ]
       },
       {
@@ -58,7 +62,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
-  ]
+  ],
 };

@@ -10,6 +10,9 @@
     </div>
     <div class="nav-list">
       <div class="nav">
+        Search
+      </div>
+      <div class="nav">
         Profile
       </div>
       <div class="nav">
