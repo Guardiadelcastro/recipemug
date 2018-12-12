@@ -2,5 +2,7 @@ node_modules
 .DS_Store
 .AppleDouble
 .LSOverride
-.cache
 dist
+build
+.cache
+

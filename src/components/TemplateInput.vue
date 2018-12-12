@@ -1,5 +1,8 @@
 <template>
-  <text-input :class="theme" :placeholder="message">
+  <TemplateInput 
+    :class="theme" 
+    :placeholder="message" 
+  />
 </template>
 
 <script>
@@ -7,20 +10,20 @@ export default {
   name: 'TemplateInput',
   props: {
     theme: {
-      type: string,
-      default: template
+      type: String,
+      default: 'template'
     },
     message: {
-      type: string,
+      type: String,
       default: 'Write here'
     }
   },
   data() {
     return {
       
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

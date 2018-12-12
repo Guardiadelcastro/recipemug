@@ -1,8 +1,13 @@
 <template>
   <div class="html-recipeCard">
-    <div class="title">Recipe One</div>
+    <div class="title">
+      Recipe One
+    </div>
     <div class="image">
-      <img src="https://www.gallinablanca.es/files/thumbs/1ee83d8475a79fa5a91b8cfce167adc4e20b2290_r900_340_5.jpg" alt="">
+      <img
+        src="https://www.gallinablanca.es/files/thumbs/1ee83d8475a79fa5a91b8cfce167adc4e20b2290_r900_340_5.jpg"
+        alt=""
+      >
     </div>
     <div class="shortDescription">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde saepe dolores eum, animi explicabo sit deserunt modi perspiciatis reprehenderit quis ducimus, nam pariatur asperiores iure, doloribus facilis numquam! Fugiat?</p>
@@ -12,17 +17,17 @@
 
 <script>
 export default {
-name: 'RecipeCard',
-props: {},
+  name: 'RecipeCard',
+  props: {},
   data: function() {
     return {
 
-    }
+    };
   },
   methods: {
 
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

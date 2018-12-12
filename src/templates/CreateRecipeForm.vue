@@ -1,39 +1,87 @@
 <template>
   <div class="html-recipeForm">
-    <h1 class="title">Recipe Form</h1>
-    <form action="post" enctype="multipart/form-data">
-    <div class="title">
-      <label for="text"> Title of the Recipe: </label>  
-      <input type="text" name="title">
-    </div>
-    <br>
-    <div class="description"> 
-       <label for=""> Description: </label> 
-       <br>
-       <textarea name="description" id="" cols="40" rows="5"></textarea>
-    </div>
-    <br>
-     <div class="list-container">
+    <h1 class="title">
+      Recipe Form
+    </h1>
+    <form
+      action="post"
+      enctype="multipart/form-data"
+    >
+      <div class="title">
+        <label for="text">
+          Title of the Recipe:
+        </label>
+        <input
+          type="text"
+          name="title"
+        >
+      </div>
+      <br>
+      <div class="description">
+        <label for>
+          Description:
+        </label>
+        <br>
+        <textarea
+          id
+          name="description"
+          cols="40"
+          rows="5"
+        />
+      </div>
+      <br>
+      <div class="list-container">
         <div id="ingredients">
-          <label for="">Ingredients:</label>
-          <input type="text" name="newIngredient" placeholder="Add an Ingredient"> 
+          <label for>
+            Ingredients:
+          </label>
+          <input
+            type="text"
+            name="newIngredient"
+            placeholder="Add an Ingredient"
+          >
         </div>
-        <templatebutton type="button" id="newIngredient" theme="red" name="+" @click="addIngredient"></templatebutton>
-     </div>
-     <br>
-    <div class="list-container">
-       <div id="steps">
-       	<label for="">Steps:</label> 
-       	<text-input theme="blue" message="Add a Step"> 
-       </div>
-     <templatebutton type="button" id="newStep" theme="orange" name="+" @click="addStep"></templatebutton>
-    </div>
-    <br>
-    <div class="upladoImage">
-      <input type="file" name="image" id="uploadImage" accept="image/*" >
-    </div>
-    <br>
-    <templatebutton name="Cook the new Recipe" theme="blue"></templatebutton>
+        <TemplateButton
+          id="newIngredient"
+          type="button"
+          theme="red"
+          name="+"
+          @click="addIngredient"
+        />
+      </div>
+      <br>
+      <div class="list-container">
+        <div id="steps">
+          <label for>
+            Steps:
+          </label>
+          <TextInput
+            theme="blue"
+            message="Add a Step"
+          />
+        </div>
+        <TemplateButton
+          id="newStep"
+          type="button"
+          theme="orange"
+          name="+"
+          @click="addStep"
+        />
+      </div>
+      <br>
+      <div class="upladoImage">
+        <input
+          id="uploadImage"
+          type="file"
+          name="image"
+          accept="image/*"
+        >
+      </div>
+      <br>
+      <TemplateButton
+        name="Cook the new Recipe"
+        theme="blue"
+      />
     </form>
   </div>
 </template>
@@ -45,10 +93,13 @@ import TemplateButton from '../components/TemplateButton.vue';
 export default {
   name: 'CreateRecipeForm',
   components: {
-    'templatebutton': TemplateButton,
-   // 'text-input': TextInput
+    TemplateButton
+    // 'text-input': TextInput
   },
   props: {},
+  data() {
+    return {};
+  },
   methods: {
     addIngredient() {
       const ingredientList = document.querySelector('#ingredients');
@@ -64,45 +115,41 @@ export default {
       let newStep = document.createElement('input');
       newStep.type = 'text';
       newStep.placeholder = 'Add a Step';
-      newIngredient.name = 'newStep';
+      newStep.name = 'newStep';
       steps.appendChild(newStep);
-    },
-  },
-  data() {
-    return {
-
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
-.html-recipeForm
-  width 600px
-  background $green
-  margin 10px
-  padding 0 0 10px 10px
-  border-radius 6px
-  display flex
-  flex-flow column wrap
-  justify-content center
-  align-items flex-start
+	@import '../styles/variables'
 
-.list-container, .steps 
-  display grid
-  grid-template-columns 35em
-  grid-template-rows auto
-  grid-gap 10px
-  justify-items start
+	.html-recipeForm
+		width 600px
+		background $white
+		border 2px solid $green
+		margin 10px
+		padding 0 0 10px 10px
+		border-radius 6px
+		display flex
+		flex-flow column wrap
+		justify-content center
+		align-items flex-start
 
-.title 
-  align-self center
-  color #blue
-  font-size 30px
+	.list-container, .steps
+		display grid
+		grid-template-columns 35em
+		grid-template-rows auto
+		grid-gap 10px
+		justify-items start
 
-#newIngredient, #newStep 
-  justify-self end
+	.title
+		align-self center
+		color #b lue
+		font-size 30px
 
+	#newIngredient, #newStep
+		justify-self end
 </style>
 
