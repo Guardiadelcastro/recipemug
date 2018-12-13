@@ -3,13 +3,22 @@
     :class="theme"
     :to="to"
   >
+    <Icon
+      v-if="showIcon"
+      :icon="icon"
+    />
     {{ name }}
   </RouterLink>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
   name: 'NavLink',
+  components: {
+    Icon
+  },
   props: {
     name: {
       type: String,
@@ -22,6 +31,14 @@ export default {
     to: {
       type: String,
       default: '/#lost'
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    showIcon: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -34,7 +51,7 @@ export default {
     color $white
     padding 15px 20px
     text-decoration none
-    font-size 1.15em
+    font-size 1em
     font-weight bold
     height 25px
     &:hover
@@ -45,5 +62,8 @@ export default {
     color $red
     &:hover
       background-color $white
+  
+  i
+    padding-right 5px
 </style>
 

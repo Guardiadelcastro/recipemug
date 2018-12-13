@@ -10,12 +10,11 @@
       type="button"
       theme="orange"
       name="new"
-      icon="fas fa-search"
+      icon="far fa-plus-square"
       show
     />
     <Icon
-      name="far fa-calendar"
-      has-icon
+      icon="far fa-lemon"
     />
   </nav>
 </template>
@@ -60,7 +59,6 @@ export default {
 
 .create-new
   grid-column 9 / 10
-  border-radius 2px
 
 .user
   cursor pointer

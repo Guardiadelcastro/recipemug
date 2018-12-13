@@ -44,7 +44,7 @@
         <TemplateButton
           id="newIngredient"
           type="button"
-          theme="red"
+          theme="red square"
           name="+"
           @click="addIngredient"
         />

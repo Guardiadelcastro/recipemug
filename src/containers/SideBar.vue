@@ -10,26 +10,38 @@
     </div>
     <div class="nav-list">
       <NavLink
+        show-icon
+        icon="fas fa-search"
         to="/#search"
         name="Search"
       />
       <NavLink
+        show-icon
+        icon="fas fa-id-badge"
         to="/#profile"
         name="Profile"
       />
       <NavLink
+        show-icon
+        icon="fas fa-book"
         to="/#cookbook"
         name="My Cookbook"
       />
       <NavLink
+        show-icon
+        icon="fas fa-share-square"
         to="/#shared"
         name="Shared with Me"
       />
       <NavLink
+        show-icon
+        icon="fas fa-calendar-check"
         to="/#week-plan"
         name="Week Plan"
       />
       <NavLink
+        show-icon
+        icon="fas fa-lemon"
         to="/My meals"
         name="My Meals"
       />
