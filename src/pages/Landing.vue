@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <HomeNav class="homenav" />
+    <LandingImages class="landing-images" />
     <AboutUs class="about-us" />
     <WhatsTheApp class="whats-the-app" />
     <Footer class="footer" />
@@ -12,11 +13,13 @@ import HomeNav from '../containers/HomeNav.vue';
 import AboutUs from '../containers/AboutUs.vue';
 import Footer from '../containers/Footer.vue';
 import WhatsTheApp from '../containers/WhatsTheApp.vue';
+import LandingImages from '../containers/LandingImages.vue';
 
 export default {
   name: 'Landing',
   components: {
     HomeNav,
+    LandingImages,
     AboutUs,
     WhatsTheApp,
     Footer

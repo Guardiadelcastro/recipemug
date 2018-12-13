@@ -24,7 +24,7 @@ export default {
 @import '../styles/variables'
 
   .home-nav 
-    background-color $orange
+    background-color $dark-red
     grid-column 1 / 4
     display flex
 
@@ -32,17 +32,24 @@ export default {
     display flex
     grid-column 1 / 2
     margin-left 20px
-    margin-top 10px
-    max-height 50px
+    margin-top 5px
+    max-height 60px
     width 150px
     justify-content center
     align-items center
 
   .recipe-title, .mug-title
     font-family 'Pacifico', 'Montserrat', serif
-    font-size 25px
-    color $white
+    font-size 30px
     font-weight bold
+
+  .recipe-title
+    background-color $white
+    color $dark-red
+    padding-right 4px
+
+  .mug-title
+    color $white
     
 </style>
 

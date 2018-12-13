@@ -24,9 +24,9 @@ export default {
     justify-content center
 
   .title
-    font-family 'Pacifico', 'Montserrat', serif
+    font-family 'Montserrat', 'Pacifico',  sans-serif
     margin-top 10px
-    font-size 2em
+    font-size 30px
 
 </style>
 
