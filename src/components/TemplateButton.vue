@@ -3,13 +3,21 @@
     :class="theme"
     @click="handleClick"
   >
-    {{ name }}
+    <Icon
+      v-show="show"
+      :icon="icon"
+    /> {{ name }} 
   </button>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
   name: 'TemplateButton',
+  components: {
+    Icon
+  },
   props: {
     name: {
       type: String,
@@ -18,6 +26,14 @@ export default {
     theme: {
       type: String,
       default: 'grey'
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    show: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

@@ -10,21 +10,24 @@
       type="button"
       theme="orange"
       name="new"
-    >
-      <FontAwesomeIcon icon="plus-square" />
-    </CreateButton>
-    <div class="user">
-      <FontAwesomeIcon icon="user" />
-    </div>
+      icon="fas fa-search"
+      show
+    />
+    <Icon
+      name="far fa-calendar"
+      has-icon
+    />
   </nav>
 </template>
 <script>
 import TemplateButton from '../components/TemplateButton.vue';
+import Icon from '../components/Icon.vue';
 
 export default {
   name: 'NavBar',
   components: {
-    'CreateButton': TemplateButton
+    'CreateButton': TemplateButton,
+    Icon
   }
 };
 </script>

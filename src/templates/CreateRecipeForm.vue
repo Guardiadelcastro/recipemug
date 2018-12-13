@@ -81,6 +81,8 @@
       <TemplateButton
         name="Cook the new Recipe"
         theme="blue"
+        icon="fas fa-search"
+        show="true"
       />
     </form>
   </div>

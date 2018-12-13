@@ -9,31 +9,42 @@
       </span>
     </div>
     <div class="nav-list">
-      <div class="nav">
-        Search
-      </div>
-      <div class="nav">
-        Profile
-      </div>
-      <div class="nav">
-        My Cookbook
-      </div>
-      <div class="nav">
-        Shared With Me
-      </div>
-      <div class="nav">
-        Week plan
-      </div>
-      <div class="nav">
-        Something else
-      </div>
+      <NavLink
+        to="/#search"
+        name="Search"
+      />
+      <NavLink
+        to="/#profile"
+        name="Profile"
+      />
+      <NavLink
+        to="/#cookbook"
+        name="My Cookbook"
+      />
+      <NavLink
+        to="/#shared"
+        name="Shared with Me"
+      />
+      <NavLink
+        to="/#week-plan"
+        name="Week Plan"
+      />
+      <NavLink
+        to="/My meals"
+        name="My Meals"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import NavLink from '../components/NavLink.vue';
+
 export default {
   name:'SideBar',
+  components: {
+    NavLink
+  },
   props: {}
 };
 </script>
@@ -57,33 +68,27 @@ export default {
   background $white
   box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
-
-.recipe-title, .mug-title
-  font-family 'Pacifico', 'Monserrat', serif 
+.recipe-title
+  background-color $red
+  padding 0 3px 0 5px
+  font-family $font-title
   font-size 2em
   color $white
   font-weigth bold
 
-.recipe-title
-  background-color $red
-  padding 0 3px 0 5px
-
 .mug-title
   color $red
+  font-family $font-title
+  font-size 2em
+  font-weigth bold
 
 .nav-list
   grid-row 2 / 3
-  display grid
-  grid-auto-rows minmax(25px, auto)
+  display flex
+  flex-flow column nowrap
   justify-items left 
-  align-items center
   color $white
-
-.nav
-  margin-left 10px
-  font-size 20px
-  height 25px
-
+  padding-top 15px
   
 </style>
 
