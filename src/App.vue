@@ -1,16 +1,19 @@
 <template>
   <div>
-    <Dashboard />
+    <!--<Dashboard />-->
+    <Landing />
   </div>
 </template>
 
 <script>
-import Dashboard from './pages/Dashboard.vue';
+//import Dashboard from './pages/Dashboard.vue';
+import Landing from './pages/Landing.vue';
 
 export default {
   name: 'App',
   components: {
-    'Dashboard': Dashboard
+    //'Dashboard': Dashboard,
+    'Landing': Landing
   } 
 };
 
