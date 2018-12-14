@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeNavBar />
-    <h1>My Home Page</h1>
+    <h1>Recipe Mug Home Page</h1>
   </div>
 </template>
 
@@ -16,6 +16,5 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
 </style>
