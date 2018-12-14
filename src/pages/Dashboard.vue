@@ -29,7 +29,7 @@ export default {
 .container
   display grid 
   grid-template-rows 1fr 10fr
-  grid-template-columns 2fr 10fr
+  grid-template-columns 200px 10fr
   width 100vw
   height 100vh
   background $white

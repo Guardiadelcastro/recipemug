@@ -10,21 +10,23 @@
       type="button"
       theme="orange"
       name="new"
-    >
-      <FontAwesomeIcon icon="plus-square" />
-    </CreateButton>
-    <div class="user">
-      <FontAwesomeIcon icon="user" />
-    </div>
+      icon="far fa-plus-square"
+      show
+    />
+    <Icon
+      icon="far fa-lemon"
+    />
   </nav>
 </template>
 <script>
 import TemplateButton from '../components/TemplateButton.vue';
+import Icon from '../components/Icon.vue';
 
 export default {
   name: 'NavBar',
   components: {
-    'CreateButton': TemplateButton
+    'CreateButton': TemplateButton,
+    Icon
   }
 };
 </script>
@@ -57,7 +59,6 @@ export default {
 
 .create-new
   grid-column 9 / 10
-  border-radius 2px
 
 .user
   cursor pointer

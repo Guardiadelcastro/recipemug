@@ -3,13 +3,21 @@
     :class="theme"
     @click="handleClick"
   >
-    {{ name }}
+    <Icon
+      v-if="showIcon"
+      :icon="icon"
+    /> {{ name }} 
   </button>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
   name: 'TemplateButton',
+  components: {
+    Icon
+  },
   props: {
     name: {
       type: String,
@@ -18,6 +26,14 @@ export default {
     theme: {
       type: String,
       default: 'grey'
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    showIcon: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -33,15 +49,23 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
+@import '../styles/mixins'
 
 button
-  padding 5px 10px
+  display flex
+  flex-flow row nowrap
+  justify-content center
+  align-items center
   border 3px solid
   font-size 16px
   transition ease 0.3s
   cursor pointer
   font-weight bold
   border-radius 5px
+  padding 10px
+
+.square 
+  square(35px)
 
 .blue
   color $white
@@ -73,7 +97,7 @@ button
   border-color $white
 
   &:hover
-    background-color $orange
+    background-color $dark-orange
 
   &:active
     background-color $white
@@ -97,7 +121,7 @@ button
   border-color $white
 
   &:hover
-    background-color darken($green, 10%)
+    background-color $dark-green
 
   &:active
     background-color $white

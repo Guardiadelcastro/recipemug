@@ -1,22 +1,69 @@
 <template>
-  <div>
-    <div>
-      My template
-    </div>
-  </div>
+  <RouterLink
+    :class="theme"
+    :to="to"
+  >
+    <Icon
+      v-if="showIcon"
+      :icon="icon"
+    />
+    {{ name }}
+  </RouterLink>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
   name: 'NavLink',
+  components: {
+    Icon
+  },
   props: {
-
+    name: {
+      type: String,
+      default: 'Link'
+    },
+    theme: {
+      type: String,
+      default: 'nav'
+    },
+    to: {
+      type: String,
+      default: '/#lost'
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    showIcon: {
+      type: Boolean,
+      default: false
+    }
   }
-
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+@import '../styles/variables'
+  .nav
+    font-family $font
+    color $white
+    padding 15px 20px
+    text-decoration none
+    font-size 1em
+    font-weight bold
+    height 25px
+    &:hover
+      background-color $dark-red
 
+  .router-link-exact-active, .router-link-active
+    background $white
+    color $red
+    &:hover
+      background-color $white
+  
+  i
+    padding-right 5px
 </style>
 

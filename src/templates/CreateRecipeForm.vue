@@ -44,7 +44,7 @@
         <TemplateButton
           id="newIngredient"
           type="button"
-          theme="red"
+          theme="red square"
           name="+"
           @click="addIngredient"
         />
@@ -81,6 +81,8 @@
       <TemplateButton
         name="Cook the new Recipe"
         theme="blue"
+        icon="fas fa-search"
+        show="true"
       />
     </form>
   </div>
