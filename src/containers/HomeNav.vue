@@ -27,6 +27,7 @@ export default {
     background-color $dark-red
     grid-column 1 / 4
     display flex
+    height 70px
 
   .title
     display flex

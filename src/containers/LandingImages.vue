@@ -16,6 +16,7 @@ export default {
     background-color $dark-blue
     grid-column 1 / 3
     grid-row 2 / 3
+    height 599px
 
 </style>
 
