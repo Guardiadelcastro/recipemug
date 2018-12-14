@@ -1,10 +1,10 @@
-<!--<template>
+<template>
   <nav class="whats-the-app">
     <div class="title">
       What's the App
     </div>
   </nav>
-</template>-->
+</template>
 
 <script>
 export default {
@@ -16,7 +16,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-  /*.whats-the-app
+  .whats-the-app
     background-color $yellow
     grid-column 2 / 4
     grid-row 3 / 4
@@ -26,7 +26,7 @@ export default {
   .title
     font-family 'Montserrat', 'Pacifico',  sans-serif
     margin-top 10px
-    font-size 2em*/
+    font-size 2em
 
 </style>
 

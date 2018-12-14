@@ -2,27 +2,27 @@
   <div class="container">
     <HomeNav class="homenav" />
     <LandingImages class="landing-images" />
-    <!--<AboutUs class="about-us" />
+    <AboutUs class="about-us" />
     <WhatsTheApp class="whats-the-app" />
-    <Footer class="footer" />-->
+    <Footer class="footer" />
   </div>
 </template>
 
 <script>
 import HomeNav from '../containers/HomeNav.vue';
 import LandingImages from '../containers/LandingImages.vue';
-//import AboutUs from //'../containers/AboutUs.vue';
-//import Footer from '../containers/Footer.vue';
-//import WhatsTheApp from '../containers/WhatsTheApp.vue';
+import AboutUs from '../containers/AboutUs.vue';
+import WhatsTheApp from '../containers/WhatsTheApp.vue';
+import Footer from '../containers/Footer.vue';
 
 export default {
   name: 'Landing',
   components: {
     HomeNav,
-    LandingImages
-    //AboutUs,
-    //WhatsTheApp,
-    //Footer
+    LandingImages,
+    AboutUs,
+    WhatsTheApp,
+    Footer
   }
 };
 </script>
@@ -31,10 +31,9 @@ export default {
 @import '../styles/variables'
 
   .container
-    height auto 
     display grid
-    grid-template-columns 50% 20% 30%
     grid-template-rows 70px 599px 350x 250px
+    grid-template-columns 50% 20% 30%
 
 </style>
 
