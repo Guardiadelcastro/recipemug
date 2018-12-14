@@ -1,12 +1,20 @@
 <template>
-  <h1 class="cookbook">
-    My Cookbook
-  </h1>
+  <div>
+    <h1 class="cookbook">
+      My Cookbook
+    </h1>
+    <FullRecipe />
+  </div>
 </template>
 
 <script>
-export default {
+import FullRecipe from './FullRecipe.vue';
 
+export default {
+  name: 'Cookbook',
+  components: {
+    FullRecipe
+  }
 };
 </script>
 

@@ -1,10 +1,18 @@
 <template>
-  <h1>My Home Page</h1>
+  <div>
+    <HomeNavBar />
+    <h1>My Home Page</h1>
+  </div>
 </template>
 
 <script>
-export default {
+import HomeNavBar from '../containers/HomeNavBar.vue';
 
+export default {
+  name: 'HomePage',
+  components: {
+    HomeNavBar
+  }
 };
 </script>
 

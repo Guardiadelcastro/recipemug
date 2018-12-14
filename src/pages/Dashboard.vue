@@ -1,24 +1,22 @@
 <template>
   <div class="container">
-    <NavBar class="navbar" />
+    <BaseNavBar class="navbar" />
     <SideBar class="sidebar" />
     <div class="content">
-      <FullRecipe class="content" />
+      <RouterView />
     </div>
   </div>
 </template>
 
 <script>
-import NavBar from '../containers/NavBar.vue';
+import BaseNavBar from '../containers/BaseNavBar.vue';
 import SideBar from '../containers/SideBar.vue';
-import FullRecipe from '../templates/FullRecipe.vue';
 
 export default {
   name: 'Dashboard',
   components: {
-    NavBar,
+    BaseNavBar,
     SideBar,
-    FullRecipe
   }
 };
 </script>

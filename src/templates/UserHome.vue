@@ -1,5 +1,5 @@
 <template>
-  <h1 class="search">
+  <h1 class="home">
     Home
   </h1>
 </template>

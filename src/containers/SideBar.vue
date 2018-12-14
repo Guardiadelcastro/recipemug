@@ -1,48 +1,46 @@
 <template>
   <div class="nav-container">
-    <div class="title">
-      <span class="recipe-title">
-        Recipe
-      </span>
-      <span class="mug-title">
-        Mug
-      </span>
-    </div>
+    <RouterLink
+      class="logo"
+      to="/"
+    >
+      <BaseLogo />
+    </RouterLink>
     <div class="nav-list">
       <NavLink
         show-icon
         icon="fab fa-phoenix-squadron"
-        to="/#home"
+        to="/dashboard/home"
         name="home"
       />
       <NavLink
         show-icon
         icon="fas fa-search"
-        to="/#search"
+        to="/dashboard/search"
         name="Search"
       />
       <NavLink
         show-icon
         icon="fas fa-book"
-        to="/#cookbook"
+        to="/dashboard/my-cookbook"
         name="My Cookbook"
       />
       <NavLink
         show-icon
         icon="fas fa-share-square"
-        to="/#shared"
+        to="/dashboard/shared"
         name="Shared with Me"
       />
       <NavLink
         show-icon
         icon="fas fa-calendar-check"
-        to="/#week-plan"
+        to="/dashboard/week-plan"
         name="Week Plan"
       />
       <NavLink
         show-icon
         icon="fas fa-lemon"
-        to="/My meals"
+        to="/dashboard/meal-plans"
         name="My Meals"
       />
     </div>
@@ -51,11 +49,13 @@
 
 <script>
 import NavLink from '../components/NavLink.vue';
+import BaseLogo from '../components/BaseLogo.vue';
 
 export default {
   name:'SideBar',
   components: {
-    NavLink
+    NavLink,
+    BaseLogo
   },
   props: {}
 };
@@ -71,28 +71,15 @@ export default {
   grid-gap 10px
   background-color $red
 
-.title
+.logo
   grid-row 1 / 2
+  text-decoration none
   display flex
   flex-flow row nowrap
   justify-content center
   align-items center
   background $white
   box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
-
-.recipe-title
-  background-color $red
-  padding 0 3px 0 5px
-  font-family $font-title
-  font-size 2em
-  color $white
-  font-weigth bold
-
-.mug-title
-  color $red
-  font-family $font-title
-  font-size 2em
-  font-weigth bold
 
 .nav-list
   grid-row 2 / 3

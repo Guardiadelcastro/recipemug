@@ -1,17 +1,11 @@
 <template>
-  <div>
-    <Dashboard />
-  </div>
+  <RouterView />
 </template>
 
 <script>
-import Dashboard from './pages/Dashboard.vue';
 
 export default {
   name: 'App',
-  components: {
-    'Dashboard': Dashboard
-  } 
 };
 
 </script>
