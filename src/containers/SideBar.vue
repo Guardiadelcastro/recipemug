@@ -11,15 +11,15 @@
     <div class="nav-list">
       <NavLink
         show-icon
-        icon="fas fa-search"
-        to="/#search"
-        name="Search"
+        icon="fab fa-phoenix-squadron"
+        to="/#home"
+        name="home"
       />
       <NavLink
         show-icon
-        icon="fas fa-id-badge"
-        to="/#profile"
-        name="Profile"
+        icon="fas fa-search"
+        to="/#search"
+        name="Search"
       />
       <NavLink
         show-icon
