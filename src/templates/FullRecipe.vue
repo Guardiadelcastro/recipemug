@@ -41,7 +41,7 @@
             placeholder="Add an Ingredient"
           >
         </div>
-        <TemplateButton
+        <BaseButton
           id="newIngredient"
           type="button"
           theme="red square"
@@ -55,12 +55,12 @@
           <label for>
             Steps:
           </label>
-          <TextInput
+          <BaseInput
             theme="blue"
             message="Add a Step"
           />
         </div>
-        <TemplateButton
+        <BaseButton
           id="newStep"
           type="button"
           theme="orange"
@@ -78,7 +78,7 @@
         >
       </div>
       <br>
-      <TemplateButton
+      <BaseButton
         name="Cook the new Recipe"
         theme="blue"
         icon="fas fa-search"
@@ -89,14 +89,14 @@
 </template>
 
 <script>
-import TemplateButton from '../components/TemplateButton.vue';
-//import TextInput from "../components/TextInput";
+import BaseButton from '../components/BaseButton.vue';
+import BaseInput from '../components/BaseInput.vue';
 
 export default {
-  name: 'CreateRecipeForm',
+  name: 'FullRecipe',
   components: {
-    TemplateButton
-    // 'text-input': TextInput
+    BaseButton,
+    BaseInput
   },
   props: {},
   data() {

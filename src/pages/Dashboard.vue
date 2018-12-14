@@ -3,7 +3,7 @@
     <NavBar class="navbar" />
     <SideBar class="sidebar" />
     <div class="content">
-      <CreateRecipeForm class="content" />
+      <FullRecipe class="content" />
     </div>
   </div>
 </template>
@@ -11,14 +11,14 @@
 <script>
 import NavBar from '../containers/NavBar.vue';
 import SideBar from '../containers/SideBar.vue';
-import CreateRecipeForm from '../templates/CreateRecipeForm.vue';
+import FullRecipe from '../templates/FullRecipe.vue';
 
 export default {
   name: 'Dashboard',
   components: {
     NavBar,
     SideBar,
-    CreateRecipeForm
+    FullRecipe
   }
 };
 </script>

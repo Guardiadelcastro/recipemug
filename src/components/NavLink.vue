@@ -3,7 +3,7 @@
     :class="theme"
     :to="to"
   >
-    <Icon
+    <BaseIcon
       v-if="showIcon"
       :icon="icon"
     />
@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import Icon from './Icon.vue';
+import BaseIcon from './BaseIcon.vue';
 
 export default {
   name: 'NavLink',
   components: {
-    Icon
+    BaseIcon
   },
   props: {
     name: {
