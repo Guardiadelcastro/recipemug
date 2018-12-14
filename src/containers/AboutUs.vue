@@ -1,10 +1,10 @@
-<template>
+<!--<template>
   <nav class="about-us">
     <div class="title">
       About Us
     </div>
   </nav>
-</template>
+</template>-->
 
 <script>
 export default {
@@ -16,7 +16,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-  .about-us
+  /*.about-us
     background-color $green
     grid-column 1 / 2
     grid-row 3 / 4
@@ -26,7 +26,7 @@ export default {
   .title
     font-family 'Montserrat', 'Pacifico',  sans-serif
     margin-top 10px
-    font-size 30px
+    font-size 30px*/
 
 </style>
 
