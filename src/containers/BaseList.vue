@@ -4,13 +4,13 @@
       {{ title }}
     </h4>
     <div id="list">
-      <TextInput  
+      <BaseInput  
         theme="green" 
         message="Add an ingredient"
       />
     </div>
-    <TemplateButton />
-    <TemplateButton
+    <BaseButton />
+    <BaseInput
       type="button" 
       theme="green" 
       name="+" 
@@ -20,13 +20,14 @@
 </template>
 
 <script>
-import TextInput from '../components/TextInput';
-import TemplateButton from '../components/TemplateButton';
+import BaseInput from '../components/BaseInput.vue';
+import BaseButton from '../components/BaseButton.vue';
 
 export default {
+  name: 'BaseList',
   components: {
-    TextInput,
-    TemplateButton
+    BaseInput,
+    BaseButton
   },
   props: {
     title: {

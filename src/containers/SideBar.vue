@@ -1,39 +1,62 @@
 <template>
   <div class="nav-container">
-    <div class="title">
-      <span class="recipe-title">
-        Recipe
-      </span>
-      <span class="mug-title">
-        Mug
-      </span>
-    </div>
+    <RouterLink
+      class="logo"
+      to="/"
+    >
+      <BaseLogo />
+    </RouterLink>
     <div class="nav-list">
-      <div class="nav">
-        Search
-      </div>
-      <div class="nav">
-        Profile
-      </div>
-      <div class="nav">
-        My Cookbook
-      </div>
-      <div class="nav">
-        Shared With Me
-      </div>
-      <div class="nav">
-        Week plan
-      </div>
-      <div class="nav">
-        Something else
-      </div>
+      <NavLink
+        show-icon
+        icon="fab fa-phoenix-squadron"
+        to="/dashboard/home"
+        name="home"
+      />
+      <NavLink
+        show-icon
+        icon="fas fa-search"
+        to="/dashboard/search"
+        name="Search"
+      />
+      <NavLink
+        show-icon
+        icon="fas fa-book"
+        to="/dashboard/my-cookbook"
+        name="My Cookbook"
+      />
+      <NavLink
+        show-icon
+        icon="fas fa-share-square"
+        to="/dashboard/shared"
+        name="Shared with Me"
+      />
+      <NavLink
+        show-icon
+        icon="fas fa-calendar-check"
+        to="/dashboard/week-plan"
+        name="Week Plan"
+      />
+      <NavLink
+        show-icon
+        icon="fas fa-lemon"
+        to="/dashboard/meal-plans"
+        name="My Meals"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import NavLink from '../components/NavLink.vue';
+import BaseLogo from '../components/BaseLogo.vue';
+
 export default {
   name:'SideBar',
+  components: {
+    NavLink,
+    BaseLogo
+  },
   props: {}
 };
 </script>
@@ -48,8 +71,9 @@ export default {
   grid-gap 10px
   background-color $red
 
-.title
+.logo
   grid-row 1 / 2
+  text-decoration none
   display flex
   flex-flow row nowrap
   justify-content center
@@ -57,33 +81,13 @@ export default {
   background $white
   box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
-
-.recipe-title, .mug-title
-  font-family 'Pacifico', 'Monserrat', serif 
-  font-size 2em
-  color $white
-  font-weigth bold
-
-.recipe-title
-  background-color $red
-  padding 0 3px 0 5px
-
-.mug-title
-  color $red
-
 .nav-list
   grid-row 2 / 3
-  display grid
-  grid-auto-rows minmax(25px, auto)
+  display flex
+  flex-flow column nowrap
   justify-items left 
-  align-items center
   color $white
-
-.nav
-  margin-left 10px
-  font-size 20px
-  height 25px
-
+  padding-top 15px
   
 </style>
 

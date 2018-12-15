@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'TemplateTextArea',
+  name: 'BaseTextArea',
   props: {
     message: {
       type: String,
