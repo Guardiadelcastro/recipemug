@@ -5,7 +5,7 @@
       type="text"
       placeholder="What would you like to cook today?"
     >
-    <CreateButton
+    <BaseButton
       class="create-new"
       type="button"
       theme="orange"
@@ -13,20 +13,20 @@
       icon="far fa-plus-square"
       show
     />
-    <Icon
+    <BaseIcon
       icon="far fa-lemon"
     />
   </nav>
 </template>
 <script>
-import TemplateButton from '../components/TemplateButton.vue';
-import Icon from '../components/Icon.vue';
+import BaseButton from '../components/BaseButton.vue';
+import BaseIcon from '../components/BaseIcon.vue';
 
 export default {
   name: 'NavBar',
   components: {
-    'CreateButton': TemplateButton,
-    Icon
+    BaseButton,
+    BaseIcon
   }
 };
 </script>

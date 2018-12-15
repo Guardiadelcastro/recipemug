@@ -1,13 +1,13 @@
 <template>
-  <TemplateInput 
+  <input 
     :class="theme" 
     :placeholder="message" 
-  />
+  >
 </template>
 
 <script>
 export default {
-  name: 'TemplateInput',
+  name: 'BaseInput',
   props: {
     theme: {
       type: String,

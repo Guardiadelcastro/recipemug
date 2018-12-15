@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Icon from './Icon.vue';
+import Icon from './BaseIcon.vue';
 
 export default {
-  name: 'TemplateButton',
+  name: 'BaseButton',
   components: {
     Icon
   },
