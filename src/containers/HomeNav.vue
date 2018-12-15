@@ -33,15 +33,13 @@ export default {
     display flex
     grid-column 1 / 2
     margin-left 20px
-    margin-top 5px
-    max-height 60px
     width 150px
     justify-content center
     align-items center
 
   .recipe-title, .mug-title
     font-family 'Pacifico', 'Montserrat', serif
-    font-size 20px
+    font-size 1.6em
     font-weight bold
 
   .recipe-title
