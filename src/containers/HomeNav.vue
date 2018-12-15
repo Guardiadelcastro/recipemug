@@ -26,8 +26,8 @@ export default {
   .home-nav 
     background-color $dark-red
     grid-column 1 / 4
+    grid-row 1 / 2
     display flex
-    height 70px
 
   .title
     display flex
@@ -41,7 +41,7 @@ export default {
 
   .recipe-title, .mug-title
     font-family 'Pacifico', 'Montserrat', serif
-    font-size 30px
+    font-size 20px
     font-weight bold
 
   .recipe-title

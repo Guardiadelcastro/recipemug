@@ -27,7 +27,6 @@ export default {
     font-family 'Montserrat', 'Pacifico',  sans-serif
     margin-top 10px
     font-size 30px
-    height 350px
 
 </style>
 

@@ -16,7 +16,6 @@ export default {
     background-color $grey
     grid-column 1 / 4
     grid-row 4 / 5
-    height 250px
 
 </style>
 

@@ -32,7 +32,7 @@ export default {
 
   .container
     display grid
-    grid-template-rows 70px 599px 350x 250px
+    grid-template-rows 10vh 90vh 65vh 35vh
     grid-template-columns 50% 20% 30%
 
 </style>
