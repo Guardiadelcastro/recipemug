@@ -1,5 +1,9 @@
 <template>
-  <nav class="footer" />
+  <nav class="footer">
+    <div class="team">
+      <p>RecipeMug has been designed by Alejandro Castro de la Guardia, Aythami Z. Martín González, Richard Morales Luis y Javier Pérez García. </p>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -13,9 +17,17 @@ export default {
 @import '../styles/variables'
 
   .footer
-    background-color $grey
+    background-color $ligh-green
     grid-column 1 / 4
     grid-row 4 / 5
+    display flex
+    align-items flex-end
+    justify-content center
+
+  .team
+    font-family 'Nobile', 'Montserrat', 'Pacifico', serif
+    margin-bottom 10px
+    font-size 13px
 
 </style>
 

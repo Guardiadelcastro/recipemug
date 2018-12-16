@@ -1,23 +1,25 @@
 <template>
-  <div class="landing-images" />
+  <nav class="landing-login">
+    <div class="title" />
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'LandingImages',
+  name: 'LandingLogin',
   props: {}
 };
 </script>
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
-  
-  .landing-images
-    background-color $white
-    grid-column 1 / 3
-    grid-row 2 / 3
-    margin 10px 5px 10px 10px
 
+  .landing-login
+    background-color $white
+    grid-column 3 / 4
+    grid-row 2 / 3
+    margin 10px 10px 10px 5px
+  
 </style>
 
 

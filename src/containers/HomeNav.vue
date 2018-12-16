@@ -12,23 +12,32 @@
       <div id="box">
         <RouterLink to="/dashboard">
           <BaseButton
-            type="button1"
+            type="button"
             theme="orange"
             name="Go to Dashboard"
           />
         </RouterLink>
-      </div>
+      </div>  
+    </div>
+    <div class="move-to-info">
+      <LandingButton
+        type="info"
+        theme="orange"
+        name="+ info"
+      />
     </div>
   </nav>
 </template>
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
+import LandingButton from '../components/LandingButton.vue';
 
 export default {
   name:'HomeNav',
   components: {
-    BaseButton
+    BaseButton,
+    LandingButton
   },
   props: {}
 };
@@ -45,7 +54,7 @@ export default {
     grid-row 1 / 2
     display flex
     display grid
-    grid-template-columns 25% 25% 25% 25%
+    grid-template-columns 25% 15% 15% 15% 15% 15% 
 
   .title
     display flex
@@ -69,11 +78,17 @@ export default {
     color $white
   
   .move-to-dash
-    grid-column 4 / 5
+    grid-column 6 / 7
     display flex
     align-items center
-    justify-content flex-end
-    margin-right 15px
+    justify-content center
+    margin-left 10px
+
+  .move-to-info
+    grid-column 5 / 6
+    display flex
+    align-items center
+    justify-content center
     
 </style>
 

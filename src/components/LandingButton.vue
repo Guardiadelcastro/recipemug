@@ -1,12 +1,12 @@
 <template>
-  <button 
+  <button
     :class="theme"
-    @click="handleClick"
+    @click="handClick"
   >
     <Icon
       v-if="showIcon"
       :icon="icon"
-    /> {{ name }} 
+    /> {{ name }}
   </button>
 </template>
 
@@ -14,14 +14,14 @@
 import Icon from './BaseIcon.vue';
 
 export default {
-  name: 'BaseButton',
+  name: 'LandingButton',
   components: {
     Icon
   },
   props: {
     name: {
       type: String,
-      default: 'button'
+      default: 'info'
     },
     theme: {
       type: String,
@@ -45,6 +45,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style lang="stylus" scoped>
@@ -64,33 +65,6 @@ button
   border-radius 5px
   padding 10px
 
-.square 
-  square(35px)
-
-.blue
-  color $white
-  background-color $blue
-  border-color $white
-
-  &:hover
-    background-color $dark-blue
-
-  &:active
-    background-color $white
-    color $blue
-
-.red
-  color $white
-  background-color $red
-  border-color $white
-
-  &:hover
-    background-color $dark-red
-
-  &:active
-    background-color $white
-    color $red
-
 .orange
   color $white
   background-color $orange
@@ -103,39 +77,4 @@ button
     background-color $white
     color $orange
 
-.yellow
-  color $white
-  background-color $yellow
-  border-color $white
-
-  &:hover
-    background-color $dark-yellow
-
-  &:active
-    background-color $white
-    color $yellow
-
-.green
-  color $white
-  background-color $green
-  border-color $white
-
-  &:hover
-    background-color $dark-green
-
-  &:active
-    background-color $white
-    color $green
-
-.grey
-  color $white
-    background-color $grey
-    border-color $white
-
-    &:hover
-      background-color $dark-grey
-
-    &:active
-      background-color $white
-      color $grey
 </style>

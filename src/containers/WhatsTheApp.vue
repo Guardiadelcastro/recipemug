@@ -17,12 +17,12 @@ export default {
 @import '../styles/variables'
 
   .whats-the-app
-    background-color $yellow
+    background-color $white
     grid-column 2 / 4
     grid-row 3 / 4
     display flex
     justify-content center
-    margin 10px
+    margin 5px 10px 10px 5px
 
   .title
     font-family 'Nobile', 'Pacifico', 'Montserrat', sans-serif
