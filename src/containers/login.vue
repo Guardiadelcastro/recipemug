@@ -24,4 +24,17 @@
 
 <style lang="stylus" scoped>
 
+@import '../styles/variables';
+
+.form
+  background-color green
+  width 300px
+  margin 60px auto 30px
+  padding 10px
+  display flex
+  align-items center
+  justify-content center
+  flex-flow column nowrap
+
+  font-family $font-title
 </style>
