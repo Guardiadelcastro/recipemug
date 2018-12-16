@@ -8,12 +8,28 @@
         Mug
       </span>
     </div>
+    <div class="move-to-dash">
+      <div id="box">
+        <RouterLink to="/dashboard">
+          <BaseButton
+            type="button1"
+            theme="orange"
+            name="Go to Dashboard"
+          />
+        </RouterLink>
+      </div>
+    </div>
   </nav>
 </template>
 
 <script>
+import BaseButton from '../components/BaseButton.vue';
+
 export default {
   name:'HomeNav',
+  components: {
+    BaseButton
+  },
   props: {}
 };
 
@@ -28,6 +44,8 @@ export default {
     grid-column 1 / 4
     grid-row 1 / 2
     display flex
+    display grid
+    grid-template-columns 25% 25% 25% 25%
 
   .title
     display flex
@@ -49,6 +67,13 @@ export default {
 
   .mug-title
     color $white
+  
+  .move-to-dash
+    grid-column 4 / 5
+    display flex
+    align-items center
+    justify-content flex-end
+    margin-right 15px
     
 </style>
 

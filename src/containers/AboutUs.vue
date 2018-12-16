@@ -1,5 +1,6 @@
 <template>
   <nav class="about-us">
+    <div class="lines" />
     <div class="title">
       About Us
     </div>
@@ -17,15 +18,16 @@ export default {
 @import '../styles/variables'
 
   .about-us
-    background-color $green
+    background-color $ligh-blue
     grid-column 1 / 2
     grid-row 3 / 4
     display flex
     justify-content center
+    margin 10px
 
   .title
-    font-family 'Pacifico', 'Montserrat', sans-serif
-    margin-top 10px
+    font-family 'Nobile', 'Pacifico', 'Montserrat', sans-serif
+    margin-top 20px
     font-size 30px
 
 </style>

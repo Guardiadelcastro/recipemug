@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div id="lines" />
     <HomeNav class="homenav" />
     <LandingImages class="landing-images" />
     <AboutUs class="about-us" />
@@ -34,6 +35,14 @@ export default {
     display grid
     grid-template-rows 10vh 90vh 65vh 35vh
     grid-template-columns 50% 20% 30%
+
+  #lines
+    grid-column 2 / 2
+    grid-row 3 / 4
+    border-left 0.5px solid $black
+    border-color $grey
+    margin-top 10px
+    margin-bottom 10px
 
 </style>
 

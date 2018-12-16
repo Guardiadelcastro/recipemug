@@ -22,10 +22,11 @@ export default {
     grid-row 3 / 4
     display flex
     justify-content center
+    margin 10px
 
   .title
-    font-family 'Pacifico', 'Montserrat', sans-serif
-    margin-top 10px
+    font-family 'Nobile', 'Pacifico', 'Montserrat', sans-serif
+    margin-top 20px
     font-size 2em
 
 </style>

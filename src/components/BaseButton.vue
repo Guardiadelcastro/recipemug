@@ -21,7 +21,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'button'
+      default: ''
     },
     theme: {
       type: String,

@@ -13,7 +13,7 @@ export default {
 @import '../styles/variables'
   
   .landing-images
-    background-color $dark-blue
+    background-color $orange
     grid-column 1 / 3
     grid-row 2 / 3
 
