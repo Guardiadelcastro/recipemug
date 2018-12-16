@@ -15,7 +15,6 @@
         name="password"
         placeholder="Password"
       >
-      
       <button type="submit">
         SignIn
       </button>
@@ -23,8 +22,6 @@
   </div>
 </template>
 
+<style lang="stylus" scoped>
 
-<script>
-
-</script>
-
+</style>
