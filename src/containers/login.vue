@@ -15,6 +15,7 @@
         name="password"
         placeholder="Password"
       >
+      
       <button type="submit">
         SignIn
       </button>
@@ -24,34 +25,6 @@
 
 
 <script>
-import { mapState, mapActions } from 'vuex';
 
-export default {
-  name:'Login',
-  data () {
-    return {
-      email: '',
-      password: '',
-      submitted: false
-    };
-  },
-  computed: {
-    ...mapState('account', ['status'])
-  },
-  created () {
-    // reset login status
-    this.logout();
-  },
-  methods: {
-    ...mapActions('account', ['login', 'logout']),
-    handleSubmit () {
-      this.submitted = true;
-      const { email, password } = this;
-      if (email && password) {
-        this.login({ email, password });
-      }
-    }
-  }
-};
 </script>
 
