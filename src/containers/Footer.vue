@@ -1,7 +1,7 @@
 <template>
   <nav class="footer">
     <div class="team">
-      <p>RecipeMug has been designed by Alejandro Castro de la Guardia, Aythami Z. Martín González, Richard Morales Luis y Javier Pérez García. </p>
+      <p>RecipeMug has been designed by Alejandro Castro de la Guardia, Aythami Z. Martín González, Richard Morales Luis and Javier Pérez García. </p>
     </div>
   </nav>
 </template>

@@ -8,6 +8,17 @@
         Mug
       </span>
     </div>
+    <div class="move-to-info">
+      <a href="#second-page">
+        <div id="box1">
+          <LandingButton
+            type="info"
+            theme="modern"
+            name="+ info"
+          />
+        </div>
+      </a>
+    </div>
     <div class="move-to-dash">
       <div id="box">
         <RouterLink to="/dashboard">
@@ -18,13 +29,6 @@
           />
         </RouterLink>
       </div>  
-    </div>
-    <div class="move-to-info">
-      <LandingButton
-        type="info"
-        theme="orange"
-        name="+ info"
-      />
     </div>
   </nav>
 </template>
@@ -79,16 +83,21 @@ export default {
   
   .move-to-dash
     grid-column 6 / 7
+    grid-row 1 / 2
     display flex
     align-items center
     justify-content center
-    margin-left 10px
+    padding-left 10px
 
   .move-to-info
     grid-column 5 / 6
+    grid-row 1 / 2
     display flex
     align-items center
-    justify-content center
+    justify-content flex-end
+
+  #box1
+    padding-right 10px
     
 </style>
 

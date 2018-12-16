@@ -54,27 +54,32 @@ export default {
 
 button
   display flex
-  flex-flow row nowrap
+  text-align center
   justify-content center
   align-items center
-  border 3px solid
   font-size 16px
   transition ease 0.3s
   cursor pointer
   font-weight bold
-  border-radius 5px
   padding 10px
+  text-decoration none
+  border: none
 
-.orange
+.modern
   color $white
-  background-color $orange
-  border-color $white
+  background-color $dark-red
 
-  &:hover
-    background-color $dark-orange
+  &:before
+      background: #fff none repeat scroll 0 0
+      content: ""
+      height: 3px
+      left: 0
+      position: absolute 
+      width: 0%
+      transition: 0.5s
 
-  &:active
-    background-color $white
-    color $orange
+    &:hover:before
+      background-color none
+      width: 100%
 
 </style>

@@ -3,9 +3,11 @@
     <HomeNav class="homenav" />
     <LandingImages class="landing-images" />
     <LandingLogin class="landing-login" />
-    <AboutUs class="about-us" />
-    <WhatsTheApp class="whats-the-app" />
-    <Footer class="footer" />
+    <div id="second-page">
+      <AboutUs class="about-us" />
+      <WhatsTheApp class="whats-the-app" />
+      <Footer class="footer" />
+    </div>
   </div>
 </template>
 
@@ -38,6 +40,10 @@ export default {
     grid-template-rows 10vh 90vh 65vh 35vh
     grid-template-columns 50% 20% 30%
     background #eab23a
+
+  #second-page
+    grid-column 1 / 4
+    grid-row 3 / 5
 
 </style>
 
