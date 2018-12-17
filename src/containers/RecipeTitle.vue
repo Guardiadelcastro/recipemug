@@ -5,12 +5,12 @@
     @mouseleave="removeButtons"
   >
     <div class="content">
-      <h2
+      <h1
         v-if="edit"
         class="title"
       >
         {{ title }}
-      </h2>
+      </h1>
       <BaseInput
         v-else
         v-model="title"

@@ -4,7 +4,7 @@
       class="logo"
       to="/"
     >
-      <BaseLogo />
+      <LightLogo />
     </RouterLink>
     <div class="nav-list">
       <NavLink
@@ -49,13 +49,13 @@
 
 <script>
 import NavLink from '../components/NavLink.vue';
-import BaseLogo from '../components/BaseLogo.vue';
+import LightLogo from '../components/LightLogo.vue';
 
 export default {
   name:'SideBar',
   components: {
     NavLink,
-    BaseLogo
+    LightLogo
   },
   props: {}
 };

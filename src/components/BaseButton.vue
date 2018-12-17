@@ -138,4 +138,21 @@ button
     &:active
       background-color $white
       color $grey
+
+.modern
+color $white
+background-color $dark-red
+
+&:before
+    background: #fff none repeat scroll 0 0
+    content: ""
+    height: 2px
+    left: 0
+    position: absolute 
+    width: 0%
+    transition: 0.5s
+
+  &:hover:before
+    background-color none
+    width: 100%
 </style>
