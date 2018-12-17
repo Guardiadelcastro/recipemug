@@ -1,0 +1,103 @@
+<template>
+  <nav class="home-nav">
+    <div class="title">
+      <span class="recipe-title">
+        Recipe
+      </span>
+      <span class="mug-title">
+        Mug
+      </span>
+    </div>
+    <div class="move-to-info">
+      <a href="#second-page">
+        <div id="box1">
+          <LandingButton
+            type="info"
+            theme="modern"
+            name="+ info"
+          />
+        </div>
+      </a>
+    </div>
+    <div class="move-to-dash">
+      <div id="box">
+        <RouterLink to="/dashboard">
+          <LandingButton
+            type="info"
+            theme="modern"
+            name="Go to Dashboard"
+          />
+        </RouterLink>
+      </div>  
+    </div>
+  </nav>
+</template>
+
+<script>
+//import BaseButton from '../components/BaseButton.vue';
+import LandingButton from '../components/LandingButton.vue';
+
+export default {
+  name:'HomeNav',
+  components: {
+    //BaseButton,
+    LandingButton
+  },
+  props: {}
+};
+
+</script>
+
+
+<style lang="stylus" scoped>
+@import '../styles/variables'
+
+  .home-nav 
+    background-color $dark-red
+    grid-column 1 / 4
+    grid-row 1 / 2
+    display flex
+    display grid
+    grid-template-columns 25% 15% 15% 15% 15% 15% 
+
+  .title
+    display flex
+    grid-column 1 / 2
+    margin-left 20px
+    width 150px
+    justify-content center
+    align-items center
+
+  .recipe-title, .mug-title
+    font-family 'Pacifico', 'Montserrat', serif
+    font-size 1.6em
+    font-weight bold
+
+  .recipe-title
+    background-color $white
+    color $dark-red
+    padding-right 4px
+
+  .mug-title
+    color $white
+  
+  .move-to-dash
+    grid-column 6 / 7
+    grid-row 1 / 2
+    display flex
+    align-items center
+    justify-content center
+    padding-left 10px
+
+  .move-to-info
+    grid-column 5 / 6
+    grid-row 1 / 2
+    display flex
+    align-items center
+    justify-content flex-end
+
+  #box1
+    padding-right 10px
+    
+</style>
+

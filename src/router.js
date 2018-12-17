@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from './pages/HomePage.vue';
+import Landing from './pages/Landing.vue';
 import Dashboard from './pages/Dashboard.vue';
 import Cookbook from './templates/Cookbook.vue';
 import MealPlans from './templates/MealPlans.vue';
@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/',
       name: 'Recipe Mug',
-      component: HomePage
+      component: Landing
     },
     {
       path: '/dashboard',
