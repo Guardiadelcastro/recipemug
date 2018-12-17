@@ -16,23 +16,19 @@
         v-model="title"
       />
     </div>
-    <div
+    <BaseButton
       v-show="show"
-      class="buttons"
-    >
-      <BaseButton
-        v-if="edit"
-        name="edit"
-        theme="blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
-        name="save"
-        theme="red"
-        @click="saveElement"
-      />
-    </div>
+      v-if="edit"
+      name="edit"
+      theme="blue"
+      @click="editElement"
+    />
+    <BaseButton
+      v-else
+      name="save"
+      theme="red"
+      @click="saveElement"
+    />
   </div>
 </template>
 
