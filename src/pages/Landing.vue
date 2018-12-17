@@ -44,6 +44,14 @@ export default {
   #second-page
     grid-column 1 / 4
     grid-row 3 / 5
+  
+  .about-us
+    grid-column 1 / 2
+    grid-row 3 / 4
+  
+  .whats-the-app
+    grid-column 2 / 4
+    grid-row 3 / 4
 
 </style>
 

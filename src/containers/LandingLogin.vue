@@ -60,16 +60,29 @@ export default {
     background-color $white
     grid-column 3 / 4
     grid-row 2 / 3
-    margin 10px 10px 10px 5px
+    margin 20px 10px 20px 5px
   
   .login
-    background-color $dark-red
+    background-color #fad6a5
     height 100%
+    display flex
+    align-items flex-start
+    justify-content center
+
+  .title
+    color $white
+    font-family 'Fira Sans' sans-serif
+    display flex
+    justify-content center
+    font-size 2em
+    margin-top 10px
+
+  p
     display flex
     align-items center
     justify-content center
 
-  .title
+  input
     display flex
     justify-content center
   

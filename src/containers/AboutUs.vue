@@ -18,8 +18,6 @@ export default {
 
   .about-us
     background-color $white
-    grid-column 1 / 2
-    grid-row 3 / 4
     display flex
     justify-content center
     margin 5px 5px 10px 10px

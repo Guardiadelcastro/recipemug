@@ -72,7 +72,7 @@ button
   &:before
       background: #fff none repeat scroll 0 0
       content: ""
-      height: 3px
+      height: 2px
       left: 0
       position: absolute 
       width: 0%

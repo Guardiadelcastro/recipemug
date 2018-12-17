@@ -22,9 +22,9 @@
     <div class="move-to-dash">
       <div id="box">
         <RouterLink to="/dashboard">
-          <BaseButton
-            type="button"
-            theme="orange"
+          <LandingButton
+            type="info"
+            theme="modern"
             name="Go to Dashboard"
           />
         </RouterLink>
@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import BaseButton from '../components/BaseButton.vue';
+//import BaseButton from '../components/BaseButton.vue';
 import LandingButton from '../components/LandingButton.vue';
 
 export default {
   name:'HomeNav',
   components: {
-    BaseButton,
+    //BaseButton,
     LandingButton
   },
   props: {}
