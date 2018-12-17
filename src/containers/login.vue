@@ -1,57 +1,81 @@
+
 <template>
-  <div class="log-in">
-    <h2>Login</h2>  
-    <form
-      action="/signin"
-      method="POST"
-    >
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-      >
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-      >
-      <button type="submit">
-        SignIn
-      </button>
+  <div class="login">
+    <form class="form">
+      <h1>Login or Register</h1>
+      <p>
+        <label
+          for="login"
+        >
+          Email
+        </label>
+        <input
+          type="text"
+          name="login"
+          placeholder="Email"
+          required
+        >
+      </p>
+      <p>
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        > 
+      </p>
+
+      <RouterLink to="/dashboard">
+        <button type="submit">
+          Login
+        </button>
+      </RouterLink>   
     </form>
   </div>
 </template>
-
-
 <script>
-import { mapState, mapActions } from 'vuex';
 
 export default {
-  name:'Login',
-  data () {
-    return {
-      email: '',
-      password: '',
-      submitted: false
-    };
-  },
-  computed: {
-    ...mapState('account', ['status'])
-  },
-  created () {
-    // reset login status
-    this.logout();
-  },
+
   methods: {
-    ...mapActions('account', ['login', 'logout']),
-    handleSubmit () {
-      this.submitted = true;
-      const { email, password } = this;
-      if (email && password) {
-        this.login({ email, password });
-      }
+    login1: function () {
+    
     }
   }
-};
+}; 
 </script>
+
+
+<style lang="stylus" scoped>
+@import '../styles/variables';
+
+.form
+  background-color green
+  width 300px
+  margin 60px auto 30px
+  padding 10px
+  display flex
+  align-items center
+  justify-content center
+  flex-flow column nowrap
+  font-family $font-title
+
+.form input 
+  align-items center
+  justify-content center
+  flex-flow column nowrap
+  font-family $font-title
+
+.from button 
+   align-items center
+  justify-content center
+  flex-flow column nowrap
+  font-family $font-title
+</style>
+
 
