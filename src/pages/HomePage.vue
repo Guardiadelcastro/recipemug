@@ -1,7 +1,12 @@
 <template>
   <div class="homepage">
     <HomeNav class="nav" />
-    <RouterView class="content" />
+    <Transition
+      name="fade"
+      mode="out-in"
+    >
+      <RouterView class="content" />
+    </Transition>
     <Footer class="footer" />
   </div>
 </template>
@@ -37,6 +42,13 @@ export default {
 
   .footer
     grid-row 3/4
+  
+   .slide-fade-enter-active
+  transition all 3s ease
+
+  .slide-fade-leave-active
+    transition all 3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+    
 </style>
 
 

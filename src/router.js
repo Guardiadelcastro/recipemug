@@ -9,7 +9,7 @@ import UserHome from './templates/UserHome.vue';
 import WeekPlan from './templates/WeekPlan.vue';
 import HomePage from './pages/HomePage.vue';
 import AboutUs from './templates/AboutUs.vue';
-import LandingLogin from './templates/LandingLogin.vue';
+import SignUpIn from './templates/SignUpIn.vue';
 import AppInfo from './templates/AppInfo.vue';
 
 Vue.use(Router);
@@ -23,11 +23,11 @@ export default new Router({
       children: [
         {
           path: '/',
-          component: LandingLogin
+          component: SignUpIn
         },
         {
           path: '/login',
-          component: LandingLogin
+          component: SignUpIn
         },
         {
           path:'/about',

@@ -13,7 +13,12 @@
         theme="home"
       />
       <NavLink
-        to="/dashboard"
+        to="/pricing"
+        name="Pricing"
+        theme="home"
+      />
+      <NavLink
+        to="/login"
         name="Log In"
         theme="home"
       />
@@ -44,6 +49,7 @@ export default {
     background-color $red
     display grid
     grid-template-columns 20% 80%
+    width 100vw
   
   .logo
     grid-column 1/2
