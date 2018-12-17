@@ -16,7 +16,7 @@ export default {
     background-color $white
     grid-column 1 / 3
     grid-row 2 / 3
-    margin 10px 5px 10px 10px
+    margin 20px 5px 20px 10px
 
 </style>
 
