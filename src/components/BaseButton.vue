@@ -1,7 +1,7 @@
 <template>
   <button 
     :class="theme"
-    @click="handleClick"
+    @click.prevent="handleClick"
   >
     <Icon
       v-if="showIcon"

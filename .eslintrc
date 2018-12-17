@@ -17,7 +17,11 @@
 		"semi": ["error", "always"],
 		"vue/component-name-in-template-casing": ["error",
 			"PascalCase | kebab-case"
-		]
+		],
+		"vue/require-default-prop": ["error", {
+			"required": false,
+			"non-required": false
+		}]
 	},
 	"plugins": ["jest"]
 }

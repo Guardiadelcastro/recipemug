@@ -44,5 +44,6 @@ export default {
   grid-row 2 / 3
   grid-column 2 / 3
   justify-self center
+  width 100%
 
 </style>

@@ -1,104 +1,111 @@
 <template>
-  <div class="html-recipeForm">
-    <h1 class="title">
-      Recipe Form
-    </h1>
-    <form
-      action="post"
-      enctype="multipart/form-data"
-    >
-      <div class="title">
-        <label for="text">
-          Title of the Recipe:
-        </label>
-        <input
-          type="text"
-          name="title"
-        >
-      </div>
-      <br>
-      <div class="description">
-        <label for>
-          Description:
-        </label>
+  <div class="full-recipe">
+    <div class="recipe">
+      <form
+        action="post"
+        enctype="multipart/form-data"
+      >
+        <RecipeTitle />
+    
         <br>
-        <textarea
-          id
-          name="description"
-          cols="40"
-          rows="5"
-        />
-      </div>
-      <br>
-      <div class="list-container">
-        <div id="ingredients">
+        <div class="description">
           <label for>
-            Ingredients:
+            Description:
           </label>
-          <input
-            type="text"
-            name="newIngredient"
-            placeholder="Add an Ingredient"
-          >
-        </div>
-        <BaseButton
-          id="newIngredient"
-          type="button"
-          theme="red square"
-          name="+"
-          @click="addIngredient"
-        />
-      </div>
-      <br>
-      <div class="list-container">
-        <div id="steps">
-          <label for>
-            Steps:
-          </label>
-          <BaseInput
-            theme="blue"
-            message="Add a Step"
+          <br>
+          <textarea
+            id
+            name="description"
+            cols="40"
+            rows="5"
           />
         </div>
+        <br>
+        <div class="list-container">
+          <div id="ingredients">
+            <label for>
+              Ingredients:
+            </label>
+            <input
+              type="text"
+              name="newIngredient"
+              placeholder="Add an Ingredient"
+            >
+          </div>
+          <BaseButton
+            id="newIngredient"
+            type="button"
+            theme="red square"
+            name="+"
+            @click="addIngredient"
+          />
+        </div>
+        <br>
+        <div class="list-container">
+          <div id="steps">
+            <label for>
+              Steps:
+            </label>
+            <BaseInput
+              theme="blue"
+              message="Add a Step"
+            />
+          </div>
+          <BaseButton
+            id="newStep"
+            type="button"
+            theme="orange"
+            name="+"
+            @click="addStep"
+          />
+        </div>
+        <br>
+        <div class="upladoImage">
+          <input
+            id="uploadImage"
+            type="file"
+            name="image"
+            accept="image/*"
+          >
+        </div>
+        <br>
         <BaseButton
-          id="newStep"
-          type="button"
-          theme="orange"
-          name="+"
-          @click="addStep"
+          name="Cook the new Recipe"
+          theme="blue"
+          icon="fas fa-search"
+          show="true"
         />
-      </div>
-      <br>
-      <div class="upladoImage">
-        <input
-          id="uploadImage"
-          type="file"
-          name="image"
-          accept="image/*"
-        >
-      </div>
-      <br>
-      <BaseButton
-        name="Cook the new Recipe"
-        theme="blue"
-        icon="fas fa-search"
-        show="true"
-      />
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+import RecipeTitle from '../containers/RecipeTitle.vue';
 
 export default {
   name: 'FullRecipe',
   components: {
     BaseButton,
-    BaseInput
+    BaseInput,
+    RecipeTitle
   },
-  props: {},
+  props: {
+    edit: {
+      type: Boolean,
+      default: false
+    },
+    toggleButton: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {};
   },
@@ -119,39 +126,47 @@ export default {
       newStep.placeholder = 'Add a Step';
       newStep.name = 'newStep';
       steps.appendChild(newStep);
+    },
+
+    editRecipe() {
+      this.edit = !this.edit;
+      this.toggleButton = !this.toggleButton;
+      this.disabled = !this.disabled;
+    },
+
+    saveRecipe() {
+      // Handle save
+      this.edit = !this.edit;
+      this.toggleButton =!this.toggleButton;
+      this.disabled = !this.disabled;
     }
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-	@import '../styles/variables'
 
-	.html-recipeForm
-		width 600px
-		background $white
-		border 2px solid $green
-		margin 10px
-		padding 0 0 10px 10px
-		border-radius 6px
-		display flex
-		flex-flow column wrap
-		justify-content center
-		align-items flex-start
+@import '../styles/variables'
 
-	.list-container, .steps
-		display grid
-		grid-template-columns 35em
-		grid-template-rows auto
-		grid-gap 10px
-		justify-items start
+.full-recipe
+  display grid
+  width 90%
+  background white
+  margin 10px
+  padding 0 0 10px 10px
+  border-radius 6px
+  
+.list-container, .steps
+  display grid
+  grid-template-columns 35em
+  grid-template-rows auto
+  grid-gap 10px
+  justify-items start
 
-	.title
-		align-self center
-		color #b lue
-		font-size 30px
+.title
+  align-self center
+  color $blue
+  font-size 30px
 
-	#newIngredient, #newStep
-		justify-self end
 </style>
 
