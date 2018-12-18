@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <BaseNavBar class="navbar" />
+    <DashNavBar class="navbar" />
     <SideBar class="sidebar" />
     <div class="content">
       <Transition name="slide-fade">
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import BaseNavBar from '../containers/BaseNavBar.vue';
+import DashNavBar from '../containers/DashNavBar.vue';
 import SideBar from '../containers/SideBar.vue';
 
 export default {
   name: 'Dashboard',
   components: {
-    BaseNavBar,
+    DashNavBar,
     SideBar,
   }
 };
@@ -32,6 +32,7 @@ export default {
   grid-template-columns 200px 10fr
   width 100vw
   height 100vh
+  max-height 100vh
   background $white
 
 .navbar
@@ -47,6 +48,10 @@ export default {
   grid-column 2 / 3
   justify-self center
   width 100%
+  height 100%
+  display flex
+  justify-content center
+  align-items center
 
 .slide-fade-enter-active 
   transition all 0.5s ease

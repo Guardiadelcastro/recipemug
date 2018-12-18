@@ -3,11 +3,14 @@
     <h1 class="cookbook">
       My Cookbook
     </h1>
-    <CategoriesCard
-      v-for="category in getCategories"
-      :key="category.id"
-      :title="category.name"
-    />
+    <div class="cards">
+      <CategoriesCard
+        v-for="category in getCategories"
+        :key="category.id"
+        :title="category.name"
+        :img="category.img"
+      />
+    </div>
   </div>
 </template>
 
@@ -24,6 +27,10 @@ export default {
     title:{
       type: String,
       default: ''
+    },
+    img: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -35,5 +42,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  
+  @import '../styles/variables'
+
+  .cards
+    display grid 
+    grid-gap 20px
+    grid-template-columns repeat(2, 1fr)
+    grid-template-rows auto
+    align-items center
+    justify-content center
+
 </style>

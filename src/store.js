@@ -9,7 +9,7 @@ export default new Vuex.Store({
       { id: 1, name: 'Breakfast'},
       { id: 2, name: 'Lunch'},
       { id: 3, name: 'Dinner'},
-      { id: 4, name: 'Nibbles'},
+      { id: 4, name: 'Nibbles', img:'./img/categories/appetizer-chicken.jpg'},
       { id: 5, name: 'Drinks'}
     ],
     user:[],
@@ -19,6 +19,9 @@ export default new Vuex.Store({
     getCategories(state) {
       return state.categories;
     }
+  },
+  actions: {
+ 
   }
 
 });
