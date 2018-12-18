@@ -5,14 +5,19 @@
       type="text"
       placeholder="What would you like to cook today?"
     >
-    <BaseButton
+    <RouterLink
+      to="/dashboard/full-recipe"
+      tag="nav"
       class="create-new"
-      type="button"
-      theme="orange"
-      name="new"
-      icon="far fa-plus-square"
-      show
-    />
+    >
+      <BaseButton
+        type="button"
+        theme="square orange"
+        show-icon
+        icon="fas fa-plus-square"
+        @click="createNew"
+      />
+    </RouterLink>
     <BaseIcon
       icon="far fa-lemon"
     />
@@ -23,7 +28,7 @@ import BaseButton from '../components/BaseButton.vue';
 import BaseIcon from '../components/BaseIcon.vue';
 
 export default {
-  name: 'NavBar',
+  name: 'BaseNavBar',
   components: {
     BaseButton,
     BaseIcon

@@ -12,6 +12,7 @@ import AboutUs from './templates/AboutUs.vue';
 import SignUpIn from './templates/SignUpIn.vue';
 import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
+import FullRecipe from './templates/FullRecipe.vue';
 
 Vue.use(Router);
 
@@ -55,34 +56,32 @@ export default new Router({
         },
         {
           path: 'home',
-          name: 'home',
           component: UserHome
         },
         {
           path: 'search',
-          name: 'search',
           component: Search
         },
         {
           path: 'my-cookbook',
-          name: 'cookbook',
           component: Cookbook
         },
         {
           path: 'shared',
-          name: 'shared with me',
           component: Shared
         },
         {
           path: 'week-plan',
-          name: 'week plan',
           component: WeekPlan
         },
         {
           path: 'meal-plans',
-          name: 'meal plans',
           component: MealPlans
         },
+        {
+          path: 'full-recipe',
+          component: FullRecipe
+        }
       ]
     },
   ],

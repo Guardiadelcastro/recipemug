@@ -21,6 +21,12 @@
       />
       <NavLink
         show-icon
+        icon="fas fa-plus-square"
+        to="/dashboard/full-recipe"
+        name="New Recipe"
+      />
+      <NavLink
+        show-icon
         icon="fas fa-book"
         to="/dashboard/my-cookbook"
         name="My Cookbook"
