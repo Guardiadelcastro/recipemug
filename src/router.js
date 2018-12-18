@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage.vue';
 import AboutUs from './templates/AboutUs.vue';
 import SignUpIn from './templates/SignUpIn.vue';
 import AppInfo from './templates/AppInfo.vue';
+import Pricing from './templates/Pricing.vue';
 
 Vue.use(Router);
 
@@ -28,6 +29,10 @@ export default new Router({
         {
           path: '/login',
           component: SignUpIn
+        },
+        {
+          path: '/pricing',
+          component: Pricing
         },
         {
           path:'/about',
