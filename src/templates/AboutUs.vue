@@ -6,24 +6,42 @@
     <div class="description">
       Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. Voluptas voluptatem voluptas autem vel. Sint saepe explicabo dolor voluptates qui quos eaque similique. Rem est in et.
     </div>
-    <div class="images">
-      <div class="developer 1" />
-      <div class="developer 2" />
-      <div class="developer 3" />
-      <div class="developer 4" />
-    </div>
     <div class="members">
-      <div class="name 1">
-        Alejandro
+      <div class="developer A">
+        <div class="box" />
+        <a
+          href="https://github.com/Guardiadelcastro/recipemug"
+          target="_blank"
+        >
+          Alejandro Castro de la Guardia
+        </a>
       </div>
-      <div class="name 2">
-        Aythami
+      <div class="developer B">
+        <div class="box" />
+        <a
+          href="https://github.com/Aythamiza"
+          target="_blank"
+        >
+          Aythami Z. Martín González
+        </a>
       </div>
-      <div class="name 3">
-        Richard
+      <div class="developer C">
+        <div class="box" />
+        <a
+          href="https://github.com/RichardMoralesLuis"
+          target="_blank"
+        >
+          Richard Morales Luis
+        </a> 
       </div>
-      <div class="name 4">
-        Javier
+      <div class="developer D"> 
+        <div class="box" />
+        <a
+          href="https://github.com/JavierPerezGarcia"
+          target="_blank"
+        >
+          Javier Pérez García
+        </a>
       </div>
     </div>
   </nav>
@@ -66,35 +84,50 @@ export default {
   .description
     text-align justify
     font-family $font
-    font-size 95%
+    font-size 97%
     margin 15px 25px 0px 25px
     height 90px
-  
-  .images
-    border 1px solid $black
-    height 230px
-    width 100%
-    display flex
-    justify-content center
-    align-items center
-    flex-direction row
-
-  .developer
-    height 200px
-    width 200px
-    margin 0px 25px 0px 25px 
-    border 1px solid $black
-    border-radius 50%
 
   .members
+    //border 1px solid $black
+    margin 10px 10px
     display flex
     flex-direction row
-    width 100%
     justify-content center
-    margin-top 30px
+    align-items center
+    width 100%
+    height 70%
 
-  .name
-    margin 0px 25px 0px 25px
-
+  .developer
+    //border 1px solid $black
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items center
+    height 280px
+    width 280px
+   
+  .box
+    background $white
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+  
+  a
+    margin-top 15px
+    color $black
+    font-family $font
+    text-decoration none
+    font-size 97%
+    &:hover
+      border-bottom 1px dashed $black
+    
 </style>
 
