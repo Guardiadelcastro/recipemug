@@ -4,7 +4,7 @@
     :class="theme"
     :placeholder="message"
     @input="handleInput"
-    @keyup.prevent
+    @keyup="handleInput"
   >
 </template>
 
@@ -14,7 +14,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'template'
+      default: 'default'
     },
     message: {
       type: String,
@@ -47,8 +47,17 @@ input
   font-size 16px
   padding 10px 15px
   border-radius $br
-  border 0
-  color $white
-  background-color $blue
+  border 1px solid transparent
+  background-color white
+  transition all ease 0.3s
+  font-font-family $font
   
+.default
+  border 1px solid $blue
+
+.correct
+  border 1px solid $green
+
+.error
+  border 1px solid $red
 </style>

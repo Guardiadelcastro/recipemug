@@ -3,6 +3,14 @@
 	"version": "1.0.0",
 	"description": "recipe mug webapp",
 	"author": "",
+	"homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
+	"keywords": [],
+	"license": "ISC",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Guardiadelcastro/RecipeMug.git"
+	},
 	"scripts": {
 		"dev": "webpack-dev-server --mode development",
 		"build": "webpack --mode production",
@@ -53,13 +61,5 @@
 	},
 	"bugs": {
 		"url": "https://github.com/Guardiadelcastro/RecipeMug/issues"
-	},
-	"homepage": "https://github.com/Guardiadelcastro/RecipeMug#readme",
-	"keywords": [],
-	"license": "ISC",
-	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Guardiadelcastro/RecipeMug.git"
 	}
 }

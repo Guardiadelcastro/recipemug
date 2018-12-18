@@ -1,19 +1,22 @@
 <template>
-  <div
-    class="container"
+  <div 
+    class="grid"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
+    <h3 class="title">
+      Description
+    </h3>
     <div class="content">
-      <h1
+      <p
         v-if="edit"
-        class="title"
+        class="description"
       >
-        {{ title }}
-      </h1>
-      <BaseInput
+        {{ description }}
+      </p>
+      <BaseTextArea
         v-else
-        v-model="title"
+        v-model="description"
       />
     </div>
     <div class="buttons">
@@ -37,19 +40,19 @@
 </template>
 
 <script>
-import BaseInput from '../components/BaseInput.vue';
+import BaseTextArea from '../components/BaseTextArea.vue';
 import BaseButton from '../components/BaseButton.vue';
 
 export default {
-  name: 'RecipeTitle',
+  name: 'RecipeDescription',
   components: {
-    BaseInput,
+    BaseTextArea,
     BaseButton
   },
   props: {
-    title: {
+    description: {
       type: String,
-      default: 'My Recipe'
+      default: 'Recipe Description'
     },
     show: {
       type: Boolean,
@@ -79,31 +82,38 @@ export default {
 
 <style lang="stylus" scoped>
   @import '../styles/variables'
-
-  .container
+  .grid
     display grid
     grid-template-columns 8fr 1fr
+    grid-template-rows 1fr 4fr
     justify-content center
+    align-items center
     width 100%
     font-family $font
 
+  .title
+    grid-column 1/3
+    grid-row 1/2
+    padding 10px 0 0 25px
+
   .content
     grid-column 1/2
+    grid-row 2/3
+    align-self flex-start
     display flex
-    justify-content center
-    align-items center
-    margin 25px 0  
-  h1
-    margin 0
+    justify-content left
+    align-items left 
+    padding 10px 0 10px 25px
+    
+  .description
+    align-self flex-start
 
   .buttons
     grid-column 2/3
+    grid-row 2/3
     display flex
     justify-content center
     align-items center
-
-  .title
-    text-align center
 
 </style>
 
