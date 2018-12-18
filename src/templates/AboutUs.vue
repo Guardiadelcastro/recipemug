@@ -6,17 +6,23 @@
     <div class="description">
       Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. Voluptas voluptatem voluptas autem vel. Sint saepe explicabo dolor voluptates qui quos eaque similique. Rem est in et.
     </div>
+    <div class="images">
+      <div class="developer 1" />
+      <div class="developer 2" />
+      <div class="developer 3" />
+      <div class="developer 4" />
+    </div>
     <div class="members">
-      <div class="developer 1">
+      <div class="name 1">
         Alejandro
       </div>
-      <div class="developer 2">
+      <div class="name 2">
         Aythami
       </div>
-      <div class="developer 3">
+      <div class="name 3">
         Richard
       </div>
-      <div class="developer 4">
+      <div class="name 4">
         Javier
       </div>
     </div>
@@ -34,7 +40,7 @@ export default {
 @import '../styles/variables'
 
   .about-us
-    background-color $green2
+    background-color $mustard
     display flex
     flex-direction column
     align-items center
@@ -49,7 +55,7 @@ export default {
       box-shadow 1px
 
   .title
-    color $mustard
+    color $white
     font-family $font-title
     margin-top 15px
     font-size 30px
@@ -62,24 +68,33 @@ export default {
     font-family $font
     font-size 95%
     margin 15px 25px 0px 25px
-    height 120px
+    height 90px
   
-  .members
-    //border 1px solid $black
-    height 100%
+  .images
+    border 1px solid $black
+    height 230px
     width 100%
     display flex
     justify-content center
-    //align-items center
+    align-items center
     flex-direction row
 
   .developer
-    height 70px
-    width 70px
-    padding 60px
-    margin 20px 50px 50px 50px
+    height 200px
+    width 200px
+    margin 0px 25px 0px 25px 
     border 1px solid $black
     border-radius 50%
-    
+
+  .members
+    display flex
+    flex-direction row
+    width 100%
+    justify-content center
+    margin-top 30px
+
+  .name
+    margin 0px 25px 0px 25px
+
 </style>
 
