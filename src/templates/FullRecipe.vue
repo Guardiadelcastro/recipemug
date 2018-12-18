@@ -6,20 +6,7 @@
         enctype="multipart/form-data"
       >
         <RecipeTitle />
-    
-        <br>
-        <div class="description">
-          <label for>
-            Description:
-          </label>
-          <br>
-          <textarea
-            id
-            name="description"
-            cols="40"
-            rows="5"
-          />
-        </div>
+        <RecipeDescription />
         <br>
         <div class="list-container">
           <div id="ingredients">
@@ -84,13 +71,15 @@
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
 import RecipeTitle from '../containers/RecipeTitle.vue';
+import RecipeDescription from '../containers/RecipeDescription.vue';
 
 export default {
   name: 'FullRecipe',
   components: {
     BaseButton,
     BaseInput,
-    RecipeTitle
+    RecipeTitle,
+    RecipeDescription
   },
   props: {
     edit: {
