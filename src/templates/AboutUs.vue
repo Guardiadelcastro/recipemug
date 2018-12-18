@@ -32,6 +32,5 @@ export default {
     font-family  'Fira Sans','Nobile', 'Pacifico', 'Montserrat', sans-serif
     margin-top 20px
     font-size 30px
-
 </style>
 

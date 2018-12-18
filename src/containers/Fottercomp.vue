@@ -3,12 +3,6 @@
     <div class="container">
       <ul class="bd-footer-links">
         <div class="link">
-          <RouterLink to="/">
-            Home
-          </RouterLink>
-        </div>
-        
-        <div class="link">
           <a
             href="https://github.com/Guardiadelcastro/recipemug"
             target="_blank"

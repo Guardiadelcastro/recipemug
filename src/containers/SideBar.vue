@@ -4,14 +4,14 @@
       class="logo"
       to="/"
     >
-      <BaseLogo />
+      <LightLogo />
     </RouterLink>
     <div class="nav-list">
       <NavLink
         show-icon
         icon="fab fa-phoenix-squadron"
         to="/dashboard/home"
-        name="home"
+        name="Home"
       />
       <NavLink
         show-icon
@@ -49,13 +49,13 @@
 
 <script>
 import NavLink from '../components/NavLink.vue';
-import BaseLogo from '../components/BaseLogo.vue';
+import LightLogo from '../components/LightLogo.vue';
 
 export default {
   name:'SideBar',
   components: {
     NavLink,
-    BaseLogo
+    LightLogo
   },
   props: {}
 };
@@ -79,7 +79,6 @@ export default {
   justify-content center
   align-items center
   background $white
-  box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
 .nav-list
   grid-row 2 / 3

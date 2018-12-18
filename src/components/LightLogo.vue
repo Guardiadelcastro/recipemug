@@ -26,7 +26,6 @@ export default {
   justify-content center
   align-items center
   background $white
-  box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
 .recipe-title
   background-color $red
