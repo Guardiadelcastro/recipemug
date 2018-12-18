@@ -140,11 +140,11 @@ export default {
 .full-recipe
   display grid
   width 90%
+  max-height 90%
   background white
-  margin 10px
-  padding 0 0 10px 10px
   border-radius 6px
-  
+  overflow scroll
+
 .list-container, .steps
   display grid
   grid-template-columns 35em

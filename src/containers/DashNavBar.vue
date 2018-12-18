@@ -5,21 +5,17 @@
       type="text"
       placeholder="What would you like to cook today?"
     >
-    <RouterLink
-      to="/dashboard/full-recipe"
-      tag="nav"
+    <BaseButton
       class="create-new"
-    >
-      <BaseButton
-        type="button"
-        theme="square orange"
-        show-icon
-        icon="fas fa-plus-square"
-        @click="createNew"
-      />
-    </RouterLink>
+      type="button"
+      theme="square blue"
+      show-icon
+      icon="fas fa-plus-square"
+      @click="createNew"
+    />
     <BaseIcon
-      icon="far fa-lemon"
+      icon="fas fa-user"
+      class="user"
     />
   </nav>
 </template>
@@ -28,10 +24,15 @@ import BaseButton from '../components/BaseButton.vue';
 import BaseIcon from '../components/BaseIcon.vue';
 
 export default {
-  name: 'BaseNavBar',
+  name: 'DashNavBar',
   components: {
     BaseButton,
     BaseIcon
+  },
+  methods: {
+    createNew() {
+      this.$router.push({name:'fullRecipe'});
+    }
   }
 };
 </script>
@@ -68,9 +69,9 @@ export default {
 .user
   cursor pointer
   grid-column 10 / 11
-  color $orange
+  color $blue
   font-size 25px
   &:hover
-   color $dark-orange
+   color $dark-blue
 </style>
 

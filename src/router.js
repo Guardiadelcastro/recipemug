@@ -52,6 +52,7 @@ export default new Router({
       children: [
         {
           path: '', 
+          name: 'userHome',
           component: UserHome
         },
         {
@@ -80,6 +81,7 @@ export default new Router({
         },
         {
           path: 'full-recipe',
+          name: 'fullRecipe',
           component: FullRecipe
         }
       ]

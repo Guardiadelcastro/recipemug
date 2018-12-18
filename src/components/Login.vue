@@ -30,21 +30,25 @@
         > 
       </p>
 
-      <RouterLink to="/dashboard">
-        <button type="submit">
-          Login
-        </button>
-      </RouterLink>   
+      <BaseButton
+        name="Login"
+        theme="green"
+        @click="logIn"
+      />
     </form>
   </div>
 </template>
 <script>
+import BaseButton from './BaseButton.vue';
 
 export default {
-
+  name: 'Login',
+  components:{
+    BaseButton
+  },
   methods: {
-    login1: function () {
-    
+    logIn() {
+      this.$router.push({name:'dashboard'});
     }
   }
 }; 
