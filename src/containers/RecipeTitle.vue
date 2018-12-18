@@ -16,19 +16,23 @@
         v-model="title"
       />
     </div>
-    <BaseButton
-      v-show="show"
-      v-if="edit"
-      name="edit"
-      theme="blue"
-      @click="editElement"
-    />
-    <BaseButton
-      v-else
-      name="save"
-      theme="red"
-      @click="saveElement"
-    />
+    <div class="buttons">
+      <BaseButton
+        v-show="show"
+        v-if="edit"
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="editElement"
+      />
+      <BaseButton
+        v-else
+        show-icon
+        icon="fas fa-save"
+        theme="circle red"
+        @click="saveElement"
+      />
+    </div>
   </div>
 </template>
 
@@ -78,18 +82,28 @@ export default {
 
   .container
     display grid
-    grid-template-columns 8fr 2fr
+    grid-template-columns 8fr 1fr
     justify-content center
     width 100%
     font-family $font
 
   .content
     grid-column 1/2
+    display flex
+    justify-content center
+    align-items center
+    margin 25px 0  
+  h1
+    margin 0
 
   .buttons
     grid-column 2/3
+    display flex
+    justify-content center
+    align-items center
 
   .title
     text-align center
+
 </style>
 
