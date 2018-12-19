@@ -23,6 +23,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 @import '../styles/mixins'
+  
   .container
     display flex 
     justify-content center
