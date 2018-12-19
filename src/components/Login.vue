@@ -9,12 +9,13 @@
         >
           Email
         </label>
-        <input
-          type="text"
+        <BaseInput
+          type="email"
           name="login"
           placeholder="Email"
           required
-        >
+          :content="email"
+        />
       </p>
       <p>
         <label
@@ -40,11 +41,19 @@
 </template>
 <script>
 import BaseButton from './BaseButton.vue';
+import BaseInput from './BaseInput.vue';
 
 export default {
   name: 'Login',
   components:{
-    BaseButton
+    BaseButton,
+    BaseInput
+  },
+  props: {
+    email: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     logIn() {
