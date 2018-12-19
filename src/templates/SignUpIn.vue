@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <div class="image" />
+    <div class="image">
+      <img
+        src="https://assets.recipemug.club/img/landing.jpg"
+        alt="person cooking"
+      >
+    </div>
     <Login />
   </div>
 </template>
@@ -15,11 +20,10 @@ export default {
   },
   props: {},
   methods: {
-    login1: function () {
     
-    }
   }
 };
+
 </script>
 
 <style lang="stylus" scoped>
