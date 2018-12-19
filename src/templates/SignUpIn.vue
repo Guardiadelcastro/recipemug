@@ -28,7 +28,7 @@ export default {
     display flex 
     justify-content center
     align-items center
-    background-image url('https://assets.recipemug.club/img/landing.jpg')
+    background-image url('https://assets.recipemug.club/img/landing2.jpg')
 
   .login
     background $grey
