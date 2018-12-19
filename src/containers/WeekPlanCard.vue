@@ -1,10 +1,10 @@
 <template>
   <div class="week-card">
     <p class="day">
-      {{ day }}
+      {{ dayName }}
     </p>
     <div class="recipe">
-      Add your recipe
+      Your Recipe
     </div>
     <BaseButton
       theme="green"
@@ -24,7 +24,7 @@ export default {
     BaseButton
   },
   props:{
-    day: {
+    dayName: {
       type: String,
       default: ''
     }
@@ -37,7 +37,12 @@ export default {
 
   .week-card
     width 200px
-    height 500px
+    height 300px
+    display flex
+    flex-flow column
+    justify-content flex-start
+    align-items center
+    padding 10px
 
   .day
     font-family $font
@@ -45,9 +50,14 @@ export default {
     color $grey
   
   .recipe
-    width 200px
+    width 150px
     height 200px
+    font-family $font
     border 2px dashed $grey
+    margin-bottom 10px
+    display flex
+    align-items center
+    justify-content center
 
 
 </style>
