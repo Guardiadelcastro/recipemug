@@ -4,7 +4,7 @@
       <ul class="bd-footer-links">
         <div class="link">
           <a
-            href="https://github.com/Guardiadelcastro/recipemug"
+            href="https://github.com/Guardiadelcastro"
             target="_blank"
           >
             Github front.

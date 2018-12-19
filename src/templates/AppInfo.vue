@@ -24,7 +24,7 @@ export default {
     margin 5px 10px 10px 5px
 
   .title
-    font-family 'Nobile', 'Pacifico', 'Montserrat', sans-serif
+    font-family 'Fira Sans', 'Nobile', 'Pacifico', 'Montserrat', sans-serif
     margin-top 20px
     font-size 2em
 

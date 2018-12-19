@@ -12,9 +12,11 @@
         <input
           id="email"
           type="text"
+
           name="login"
           placeholder="Email"
           required
+          :content="email"
         >
       </p>
       <p>
@@ -47,7 +49,13 @@ import * as axios from 'axios';
 export default {
   name: 'Login',
   components:{
-    BaseButton
+    BaseButton,
+  },
+  props: {
+    email: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     logIn() {
