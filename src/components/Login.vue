@@ -9,13 +9,15 @@
         >
           Email
         </label>
-        <BaseInput
-          type="email"
+        <input
+          id="email"
+          type="text"
+
           name="login"
           placeholder="Email"
           required
           :content="email"
-        />
+        >
       </p>
       <p>
         <label
@@ -24,6 +26,7 @@
           Password
         </label>
         <input
+          id="password"
           type="password"
           name="password"
           placeholder="Password"
@@ -41,13 +44,12 @@
 </template>
 <script>
 import BaseButton from './BaseButton.vue';
-import BaseInput from './BaseInput.vue';
+import * as axios from 'axios';
 
 export default {
   name: 'Login',
   components:{
     BaseButton,
-    BaseInput
   },
   props: {
     email: {
@@ -57,7 +59,20 @@ export default {
   },
   methods: {
     logIn() {
-      this.$router.push({name:'dashboard'});
+      const email = document.getElementById('email').value;
+      
+      //const user = axios.get('http://localhost:3000/users/email/'+email).then((user) => {return user;})
+      
+      axios
+        .get('http://localhost:3000/users/email/' +email)
+        .then((user) => {
+          this.$store.commit('ADD_USER', user.data);
+          this.$router.push({name:'dashboard'});
+        })
+        .catch((err) => {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        });
     }
   }
 }; 

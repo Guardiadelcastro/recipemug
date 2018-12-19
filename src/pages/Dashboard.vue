@@ -13,12 +13,21 @@
 <script>
 import DashNavBar from '../containers/DashNavBar.vue';
 import SideBar from '../containers/SideBar.vue';
-
+import * as axios from 'axios';
 export default {
   name: 'Dashboard',
   components: {
     DashNavBar,
     SideBar,
+  },  
+  mounted() {
+    const id = this.$store.state.user[0].uuid;
+    axios
+      .get('http://localhost:3000/recipes/'+ id)
+      .then((recipes) => {
+        this.$store.commit('ADD_RECIPES', recipes.data);
+      });
+
   }
 };
 </script>
