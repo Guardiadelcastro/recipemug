@@ -1,9 +1,15 @@
 <template>
   <div class="week-plan">
-    <h1 class="week-plan">
+    <h1 class="title">
       Week Plan
     </h1>
-    <WeekPlanCard />
+    <div class="content">
+      <WeekPlanCard
+        v-for="day in days"
+        :key="day.id"
+        :day-name="day.day"
+      />
+    </div>
   </div>
 </template>
 
@@ -14,6 +20,12 @@ export default {
   name:'WeekPlan',
   components: {
     WeekPlanCard
+  },
+  props:{
+    dayName: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
@@ -31,6 +43,31 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus" scoped>
+  @import '../styles/variables'
+  @import '../styles/mixins'
+
+  .week-plan
+    comp-size(90%)
+    display flex
+    flex-flow column nowrap
+    justify-content center
+    align-items center
+
+  .title
+    font-family $font-title
+    color $green
+    border-radius $br
+    border 2px dashed $green
+    padding 10px
+
+  .content
+    display flex
+    flex-flow row wrap
+    justify-content center
+    align-items center
+    overflow scroll
+
 
 </style>
+
