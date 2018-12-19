@@ -33,11 +33,12 @@ export default {
   @import '../styles/variables'
   img 
     background $blue
-    width 50px
-    height 50px
+    width 150px
+    height 150px
   .default
-    width 50px
-    height 25px
+    width 150px
+    height 125px
+    border-radius $br
     background $blue
 </style>
 
