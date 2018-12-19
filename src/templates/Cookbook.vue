@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="cookbook">
+  <div class="cookbook">
+    <h1 class="title">
       My Cookbook
     </h1>
     <div class="cards">
@@ -9,6 +9,7 @@
         :key="category.id"
         :title="category.name"
         :img="category.img"
+        theme="blue"
       />
     </div>
   </div>
@@ -44,11 +45,25 @@ export default {
 <style lang="stylus" scoped>
   @import '../styles/variables'
 
+  .cookbook
+    width 90%
+    height 90vh
+    max-height 90vh
+    display grid
+    grid-template-rows 1fr 9fr
+    grid-template-columns 1fr
+    overflow scroll
+
+  .title
+    grid-row 1/2
+    text-align center
+    font-family $font-title
+    margin 0
+
   .cards
-    display grid 
-    grid-gap 20px
-    grid-template-columns repeat(2, 1fr)
-    grid-template-rows auto
+    grid-row 2/3
+    display flex 
+    flex-flow row wrap
     align-items center
     justify-content center
 
