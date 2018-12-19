@@ -4,13 +4,27 @@
       <div class="title">
         The App
       </div>
-      <div class="rings1" />
+      <div class="rings1">
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+      </div>
     </div>
     <div class="screenshots">
       <div class="images">
         The views
       </div>
-      <div class="rings2" /> 
+      <div class="rings2">
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+        <div id="box" />
+      </div> 
     </div>
   </nav>
 </template>
@@ -29,20 +43,27 @@ export default {
     display grid
     grid-template-columns 50% 50%
     max-width 100%
-    margin 10px 10px 10px 10px
+    margin 15px 15px 15px 15px
 
   .info-body
     font-family $font
     grid-column 1 / 2
     font-size 2em
-    background-color $dark-blue
-    border-radius 20px
-    border-top 1px solid $black
-    border-left 1px solid $black
-    border-bottom 1px solid $black
+    background-color $ligh-orange
+    border-top-left-radius 30px
+    border-top-right-radius 15px
+    border-bottom-left-radius 15px
+    border-bottom-right-radius 30px
+    //border-top 1px solid $black
+    //border-left 1px solid $black
+    //border-bottom 1px solid $black
     display grid
     grid-template-columns 15fr 1fr
     grid-template-rows 15% 75% 10%
+    box-shadow 1px
+    -webkit-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
   
   .title
     color $white
@@ -58,14 +79,20 @@ export default {
     font-family $font
     grid-column 2 / 3
     font-size 2em
-    background-color $ligh-blue
-    border-radius 20px
-    border-top 1px solid $black
-    border-right 1px solid $black
-    border-bottom 1px solid $black
+    background-color $green2
+    border-top-right-radius 30px
+    border-top-left-radius 15px
+    border-bottom-right-radius 15px
+    border-bottom-left-radius 30px
+    //border-top 1px solid $black
+    //border-right 1px solid $black
+    //border-bottom 1px solid $black
     display grid 
     grid-template-columns 1fr 15fr
     grid-template-rows 15% 75% 10%
+    -webkit-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
   
   .images
     color $white
@@ -78,12 +105,30 @@ export default {
     display flex
     justify-content center
 
-    .rings1
-      height 20px
-      weight 20px
-      border 1px solid $black
-      grid-column 2 / 3
-      grid-row 2 / 3
+  .rings1
+    grid-column 2 / 3
+    grid-row 2 / 3
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+
+  .rings2
+    grid-column 1 / 2
+    grid-row 2 / 3
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+
+  #box
+    margin-top 20px
+    margin-bottom 20px
+    background-color $white
+    height 10px
+    width 10px
+    border 1px solid $black
+    border-radius 50%
 
 </style>
 
