@@ -1,5 +1,5 @@
 <template>
-  <nav class="whats-the-app">
+  <nav class="App Info">
     <div class="title">
       What's the App
     </div>
@@ -16,10 +16,9 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-  .whats-the-app
+  .app-info
+    width 100vw
     background-color $white
-    grid-column 2 / 4
-    grid-row 3 / 4
     display flex
     justify-content center
     margin 5px 10px 10px 5px

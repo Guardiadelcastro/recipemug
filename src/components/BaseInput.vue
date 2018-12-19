@@ -1,7 +1,10 @@
 <template>
   <input 
-    :class="theme" 
-    :placeholder="message" 
+    v-model="content" 
+    :class="theme"
+    :placeholder="message"
+    @input="handleInput"
+    @keyup="handleInput"
   >
 </template>
 
@@ -11,19 +14,29 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'template'
+      default: 'default'
     },
     message: {
       type: String,
       default: 'Write here'
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   data() {
     return {
-      
+      content: this.value
     };
+  },
+  methods: {
+    handleInput() {
+      this.$emit('input', this.content);
+    }
   }
 };
+
 </script>
 
 <style lang="stylus" scoped>
@@ -33,15 +46,18 @@ input
   outline none
   font-size 16px
   padding 10px 15px
-  border-bottom 3px solid $grey
-  transform: all ease 0.5s
-  &:active
-    border 3px solid
+  border-radius $br
+  border 1px solid transparent
+  background-color white
+  transition all ease 0.3s
+  font-font-family $font
+  
+.default
+  border 1px solid $blue
 
-.blue
-  border-color $blue
+.correct
+  border 1px solid $green
 
-.green
-  border-color $green
-    
+.error
+  border 1px solid $red
 </style>

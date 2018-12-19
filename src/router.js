@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Landing from './pages/Landing.vue';
 import Dashboard from './pages/Dashboard.vue';
 import Cookbook from './templates/Cookbook.vue';
 import MealPlans from './templates/MealPlans.vue';
@@ -8,7 +7,12 @@ import Search from './templates/Search.vue';
 import Shared from './templates/Shared.vue';
 import UserHome from './templates/UserHome.vue';
 import WeekPlan from './templates/WeekPlan.vue';
-
+import HomePage from './pages/HomePage.vue';
+import AboutUs from './templates/AboutUs.vue';
+import SignUpIn from './templates/SignUpIn.vue';
+import AppInfo from './templates/AppInfo.vue';
+import Pricing from './templates/Pricing.vue';
+import FullRecipe from './templates/FullRecipe.vue';
 
 Vue.use(Router);
 
@@ -17,7 +21,29 @@ export default new Router({
     {
       path: '/',
       name: 'Recipe Mug',
-      component: Landing
+      component: HomePage,
+      children: [
+        {
+          path: '/',
+          component: SignUpIn
+        },
+        {
+          path: '/login',
+          component: SignUpIn
+        },
+        {
+          path: '/pricing',
+          component: Pricing
+        },
+        {
+          path:'/about',
+          component: AboutUs
+        },
+        {
+          path:'/info',
+          component: AppInfo
+        }
+      ]
     },
     {
       path: '/dashboard',
@@ -26,38 +52,38 @@ export default new Router({
       children: [
         {
           path: '', 
+          name: 'userHome',
           component: UserHome
         },
         {
           path: 'home',
-          name: 'home',
           component: UserHome
         },
         {
           path: 'search',
-          name: 'search',
           component: Search
         },
         {
           path: 'my-cookbook',
-          name: 'cookbook',
           component: Cookbook
         },
         {
           path: 'shared',
-          name: 'shared with me',
           component: Shared
         },
         {
           path: 'week-plan',
-          name: 'week plan',
           component: WeekPlan
         },
         {
           path: 'meal-plans',
-          name: 'meal plans',
           component: MealPlans
         },
+        {
+          path: 'full-recipe',
+          name: 'fullRecipe',
+          component: FullRecipe
+        }
       ]
     },
   ],

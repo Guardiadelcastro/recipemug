@@ -25,7 +25,7 @@ export default {
     justify-content center
 
   .team
-    font-family 'Nobile', 'Montserrat', 'Pacifico', serif
+    font-family $font
     margin-bottom 10px
     font-size 13px
 

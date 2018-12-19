@@ -1,47 +1,43 @@
 <template>
-  <nav class="home-nav">
-    <div class="title">
-      <span class="recipe-title">
-        Recipe
-      </span>
-      <span class="mug-title">
-        Mug
-      </span>
+  <div class="home-nav">
+    <BaseLogo
+      theme="dark"
+      class="logo"
+    />
+    <div class="links">
+      <NavLink
+        to="/info"
+        name="App Info"
+        theme="home"
+      />
+      <NavLink
+        to="/about"
+        name="About us"
+        theme="home"
+      />
+      <NavLink
+        to="/pricing"
+        name="Pricing"
+        theme="home"
+      />
+      <NavLink
+        to="/login"
+        name="Log In"
+        theme="home"
+      />
     </div>
-    <div class="move-to-info">
-      <a href="#second-page">
-        <div id="box1">
-          <LandingButton
-            type="info"
-            theme="modern"
-            name="+ info"
-          />
-        </div>
-      </a>
-    </div>
-    <div class="move-to-dash">
-      <div id="box">
-        <RouterLink to="/dashboard">
-          <LandingButton
-            type="info"
-            theme="modern"
-            name="Go to Dashboard"
-          />
-        </RouterLink>
-      </div>  
-    </div>
-  </nav>
+  </div>
 </template>
 
 <script>
-//import BaseButton from '../components/BaseButton.vue';
-import LandingButton from '../components/LandingButton.vue';
+import NavLink from '../components/NavLink.vue';
+import BaseLogo from '../components/BaseLogo.vue';
 
 export default {
   name:'HomeNav',
   components: {
-    //BaseButton,
-    LandingButton
+    NavLink,
+    BaseLogo
   },
   props: {}
 };
@@ -53,51 +49,24 @@ export default {
 @import '../styles/variables'
 
   .home-nav 
-    background-color $dark-red
-    grid-column 1 / 4
-    grid-row 1 / 2
-    display flex
+    background-color $red
     display grid
-    grid-template-columns 25% 15% 15% 15% 15% 15% 
-
-  .title
-    display flex
-    grid-column 1 / 2
-    margin-left 20px
-    width 150px
-    justify-content center
-    align-items center
-
-  .recipe-title, .mug-title
-    font-family 'Pacifico', 'Montserrat', serif
-    font-size 1.6em
-    font-weight bold
-
-  .recipe-title
-    background-color $white
-    color $dark-red
-    padding-right 4px
-
-  .mug-title
-    color $white
+    grid-template-columns 20% 80%
+    width 100vw
   
-  .move-to-dash
-    grid-column 6 / 7
-    grid-row 1 / 2
-    display flex
-    align-items center
-    justify-content center
-    padding-left 10px
+  .logo
+    grid-column 1/2
 
-  .move-to-info
-    grid-column 5 / 6
-    grid-row 1 / 2
+
+  .links
+    grid-column 2/3
     display flex
+    flex-flow row nowrap
     align-items center
     justify-content flex-end
+    padding-right 20px
 
-  #box1
-    padding-right 10px
-    
+  a
+    text-decoration none
 </style>
 

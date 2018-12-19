@@ -11,7 +11,7 @@
         show-icon
         icon="fab fa-phoenix-squadron"
         to="/dashboard/home"
-        name="home"
+        name="Home"
       />
       <NavLink
         show-icon
@@ -79,7 +79,6 @@ export default {
   justify-content center
   align-items center
   background $white
-  box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
 .nav-list
   grid-row 2 / 3

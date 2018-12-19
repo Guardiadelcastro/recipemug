@@ -8,13 +8,14 @@
     <BaseButton
       class="create-new"
       type="button"
-      theme="orange"
-      name="new"
-      icon="far fa-plus-square"
-      show
+      theme="square blue"
+      show-icon
+      icon="fas fa-plus-square"
+      @click="createNew"
     />
     <BaseIcon
-      icon="far fa-lemon"
+      icon="fas fa-user"
+      class="user"
     />
   </nav>
 </template>
@@ -23,10 +24,15 @@ import BaseButton from '../components/BaseButton.vue';
 import BaseIcon from '../components/BaseIcon.vue';
 
 export default {
-  name: 'NavBar',
+  name: 'DashNavBar',
   components: {
     BaseButton,
     BaseIcon
+  },
+  methods: {
+    createNew() {
+      this.$router.push({name:'fullRecipe'});
+    }
   }
 };
 </script>
@@ -63,9 +69,9 @@ export default {
 .user
   cursor pointer
   grid-column 10 / 11
-  color $orange
+  color $blue
   font-size 25px
   &:hover
-   color $dark-orange
+   color $dark-blue
 </style>
 

@@ -1,34 +1,37 @@
 <template>
-  <div class="logo">
-    <div class="title">
-      <span class="recipe-title">
-        Recipe
-      </span>
-      <span class="mug-title">
-        Mug
-      </span>
-    </div>
+  <div :class="theme">
+    <span class="recipe-title">
+      Recipe
+    </span>
+    <span class="mug-title">
+      Mug
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'BaseLogo',
+  props: {
+    theme: {
+      type: String,
+      default: 'light'
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-.logo
+.light
   display flex
   flex-flow row nowrap
   justify-content center
   align-items center
   background $white
-  box-shadow 4px 0 4px 0 rgba(0, 0, 0, 0.03)
 
-.recipe-title
+.light span.recipe-title
   background-color $red
   padding 0 3px 0 5px
   font-family $font-title
@@ -36,8 +39,29 @@ export default {
   color $white
   font-weigth bold
 
-.mug-title
+.light span.mug-title
   color $red
+  font-family $font-title
+  font-size 2em
+  font-weigth bold
+
+.dark
+  display flex
+  flex-flow row nowrap
+  justify-content center
+  align-items center
+  background $red
+
+.dark span.recipe-title
+  background-color $white
+  padding 0 3px 0 5px
+  font-family $font-title
+  font-size 2em
+  color $red
+  font-weigth bold
+
+.dark span.mug-title
+  color $white
   font-family $font-title
   font-size 2em
   font-weigth bold
