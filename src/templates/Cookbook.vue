@@ -59,6 +59,7 @@ export default {
     text-align center
     font-family $font-title
     margin 0
+    color $blue
 
   .cards
     grid-row 2/3
