@@ -94,7 +94,7 @@ export default {
 @import '../styles/variables'
 
   .about-us
-    background-color $mustard
+    background-image url('https://assets.recipemug.club/img/landing1.jpg')
     display flex
     flex-direction column
     align-items center
@@ -123,6 +123,7 @@ export default {
     font-size 97%
     margin 15px 25px 0px 25px
     height 80px
+    background $transparent
 
   .members
     //border 1px solid $black

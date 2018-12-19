@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <Login />
+    <LogInSignUp />
   </div>
 </template>
 
 <script>
-import Login from '../components/Login.vue';
+import LogInSignUp from '../components/LogInSignUp.vue';
 
 export default {
   name: 'SignUpIn',
   components: {
-    Login
+    LogInSignUp
   },
   props: {},
   methods: {
@@ -29,11 +29,5 @@ export default {
     justify-content center
     align-items center
     background-image url('https://assets.recipemug.club/img/landing2.jpg')
-
-  .login
-    background $grey
-    opacity 0.8
   
 </style>
-
-
