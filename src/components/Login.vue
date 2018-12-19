@@ -12,7 +12,6 @@
         <input
           id="email"
           type="text"
-
           name="login"
           placeholder="Email"
           required
