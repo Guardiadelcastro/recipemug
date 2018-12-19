@@ -26,7 +26,7 @@ export default {
 
   .team
     font-family $font
-    margin-bottom 10px
+    margin-bottom 15px
     font-size 13px
 
 </style>

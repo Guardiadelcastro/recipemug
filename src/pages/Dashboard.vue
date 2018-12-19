@@ -25,6 +25,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
+@import '../styles/mixins'
 
 .container
   display grid 
@@ -47,8 +48,8 @@ export default {
   grid-row 2 / 3
   grid-column 2 / 3
   justify-self center
-  width 100%
-  height 100%
+  comp-size(100%)
+  overflow hidden
   display flex
   justify-content center
   align-items center
