@@ -159,4 +159,18 @@ background-color $dark-red
   &:hover:before
     background-color none
     width: 100%
+
+.login-button
+  background $transparent
+  border none
+  color $blue
+  &:hover
+    background-color darken($transparent, 30%)
+
+.login-button.left
+  border-radius $br 0 0 0
+
+.login-button.right
+  border-radius 0 $br 0 0
+
 </style>

@@ -48,7 +48,7 @@ export default {
   @import '../styles/mixins'
 
   .week-plan
-    comp-size(90%)
+    comp-size(90%, 90%)
     display flex
     flex-flow column nowrap
     justify-content center

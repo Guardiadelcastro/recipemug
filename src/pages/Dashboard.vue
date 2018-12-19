@@ -57,7 +57,7 @@ export default {
   grid-row 2 / 3
   grid-column 2 / 3
   justify-self center
-  comp-size(100%)
+  comp-size(100%, 100%)
   overflow hidden
   display flex
   justify-content center
