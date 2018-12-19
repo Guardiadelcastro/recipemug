@@ -65,6 +65,7 @@ export default {
     align-items center
     justify-content flex-end
     padding-right 20px
+    outline none
 
   a
     text-decoration none
