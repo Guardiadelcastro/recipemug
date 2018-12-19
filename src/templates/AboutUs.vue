@@ -4,44 +4,80 @@
       About Us
     </div>
     <div class="description">
-      Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. Voluptas voluptatem voluptas autem vel. Sint saepe explicabo dolor voluptates qui quos eaque similique. Rem est in et.
+      Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
     </div>
     <div class="members">
       <div class="developer A">
         <div class="box" />
-        <a
-          href="https://github.com/Guardiadelcastro/recipemug"
-          target="_blank"
-        >
-          Alejandro Castro de la Guardia
-        </a>
+        <p>Alejandro Castro de la Guardia</p>
+        <div class="links">
+          <a
+            href="https://github.com/Guardiadelcastro"
+            target="_blank"
+          >
+            <i class="fab fa-github" /> 
+          </a>
+          <a
+            href="https://www.linkedin.com/in/acastrodelaguardia/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin" />
+          </a>
+        </div>
       </div>
       <div class="developer B">
         <div class="box" />
-        <a
-          href="https://github.com/Aythamiza"
-          target="_blank"
-        >
-          Aythami Z. Martín González
-        </a>
+        <p>Aythami Z. Martín González</p>
+        <div class="links">
+          <a
+            href="https://github.com/Aythamiza"
+            target="_blank"
+          >
+            <i class="fab fa-github" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/aythami-z-martin-gonzalez-645676171/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin" />
+          </a>
+        </div>
       </div>
       <div class="developer C">
         <div class="box" />
-        <a
-          href="https://github.com/RichardMoralesLuis"
-          target="_blank"
-        >
-          Richard Morales Luis
-        </a> 
+        <p>Richard Morales Luis</p>
+        <div class="links">
+          <a
+            href="https://github.com/RichardMoralesLuis"
+            target="_blank"
+          >
+            <i class="fab fa-github" />
+          </a> 
+          <a
+            href="https://www.linkedin.com/in/richardmoralesluis/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin" />
+          </a>
+        </div>  
       </div>
       <div class="developer D"> 
         <div class="box" />
-        <a
-          href="https://github.com/JavierPerezGarcia"
-          target="_blank"
-        >
-          Javier Pérez García
-        </a>
+        <p>Javier Pérez García</p>
+        <div class="links">
+          <a
+            href="https://github.com/JavierPerezGarcia"
+            target="_blank"
+          >
+            <i class="fab fa-github" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/javier-p%C3%A9rez-garc%C3%ADa-ba5555171/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin" />
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -86,15 +122,15 @@ export default {
     font-family $font
     font-size 97%
     margin 15px 25px 0px 25px
-    height 90px
+    height 80px
 
   .members
     //border 1px solid $black
-    margin 10px 10px
+    //margin 10px 10px
     display flex
     flex-direction row
     justify-content center
-    align-items center
+    align-items flex-start
     width 100%
     height 70%
 
@@ -104,7 +140,7 @@ export default {
     flex-direction column
     justify-content flex-start
     align-items center
-    height 280px
+    height 100%
     width 280px
    
   .box
@@ -120,14 +156,23 @@ export default {
     flex-direction column
     margin-top 10px
   
-  a
+  .links
+    flex-direction row
+  
+  p
     margin-top 15px
     color $black
     font-family $font
     text-decoration none
     font-size 97%
-    &:hover
-      border-bottom 1px dashed $black
-    
+    border-bottom 1px dashed $black
+  
+  a
+    margin 5px
+    font-size 2em
+    color $grey
+    :hover
+      color $purple
+ 
 </style>
 
