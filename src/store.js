@@ -12,16 +12,21 @@ export default new Vuex.Store({
       { id: 4, name: 'Nibbles', img:'./img/categories/appetizer-chicken.jpg'},
       { id: 5, name: 'Drinks'}
     ],
-    user:[],
-    recipes:[]
+    user:{},
+    recipes: {}
   },
   getters: {
     getCategories(state) {
       return state.categories;
     }
-  },
-  actions: {
- 
+  }, 
+  mutations: {
+    ADD_RECIPES(state, recipes) {
+      state.recipes = recipes;
+    }, 
+    ADD_USER(state, user) {
+      state.user = user;
+    }
   }
 
 });
