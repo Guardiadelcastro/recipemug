@@ -13,12 +13,21 @@
 <script>
 import DashNavBar from '../containers/DashNavBar.vue';
 import SideBar from '../containers/SideBar.vue';
-
+import * as axios from 'axios';
 export default {
   name: 'Dashboard',
   components: {
     DashNavBar,
     SideBar,
+  },  
+  mounted() {
+    const id = this.$store.state.user[0].uuid;
+    axios
+      .get('http://localhost:3000/recipes/'+ id)
+      .then((recipes) => {
+        this.$store.commit('ADD_RECIPES', recipes.data);
+      });
+
   }
 };
 </script>
@@ -48,7 +57,7 @@ export default {
   grid-row 2 / 3
   grid-column 2 / 3
   justify-self center
-  comp-size(100%)
+  comp-size(100%, 100%)
   overflow hidden
   display flex
   justify-content center
