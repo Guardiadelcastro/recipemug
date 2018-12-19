@@ -1,5 +1,11 @@
 <template>
-  <TemplateTextArea :placeholder="message" />
+  <textarea
+    v-model="content" 
+    :class="theme"
+    :placeholder="message"
+    @input="handleInput"
+    @keyup.prevent
+  />
 </template>
 
 <script>
@@ -9,6 +15,24 @@ export default {
     message: {
       type: String,
       default: 'Write here'
+    },
+    theme: {
+      type: String,
+      default: 'default'
+    },
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      content: this.value 
+    };
+  },
+  methods: {
+    handleInput() {
+      this.$emit('input', this.content);
     }
   }
 };
@@ -16,12 +40,24 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
-textarea
-  border 0 0 0 5px
-  border-color $yellow
-  outline none 
-  &:active
-    border 1px 1px 1px 5px
+  @import '../styles/variables'
 
+  textarea
+    outline none
+    resize none
+    padding 10px
+    width 600px
+    height 200px
+    border-radius $br
+    font-family $font
+    font-size 16px
+
+  .default
+    border 1px solid $blue
+
+  .correct
+    border 1px solid $green
+  
+  .error
+    border 1px solid $red
 </style>

@@ -13,6 +13,7 @@ env:
   global:
   - REMOTE_PROD_DIR=/var/www/recipemug.club/
   - REMOTE_DEV_DIR=/var/www/new.recipemug.club/
+  - REMOTE_ASSETS_DIR=/var/www/assets.recipemug.club/
   - REMOTE_USER=travis
   - REMOTE_HOST=206.189.96.128
 before_install:

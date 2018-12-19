@@ -21,7 +21,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'button'
+      default: ''
     },
     theme: {
       type: String,
@@ -67,10 +67,14 @@ button
 .square 
   square(35px)
 
+.circle
+  square(45px)
+  border-radius 50px
+
 .blue
   color $white
   background-color $blue
-  border-color $white
+  border-color transparent
 
   &:hover
     background-color $dark-blue
@@ -82,7 +86,7 @@ button
 .red
   color $white
   background-color $red
-  border-color $white
+  border-color transparent
 
   &:hover
     background-color $dark-red
@@ -94,7 +98,7 @@ button
 .orange
   color $white
   background-color $orange
-  border-color $white
+  border-color transparent
 
   &:hover
     background-color $dark-orange
@@ -106,7 +110,7 @@ button
 .yellow
   color $white
   background-color $yellow
-  border-color $white
+  border-color transparent
 
   &:hover
     background-color $dark-yellow
@@ -118,7 +122,7 @@ button
 .green
   color $white
   background-color $green
-  border-color $white
+  border-color transparent
 
   &:hover
     background-color $dark-green
@@ -130,7 +134,7 @@ button
 .grey
   color $white
     background-color $grey
-    border-color $white
+    border-color transparent
 
     &:hover
       background-color $dark-grey
