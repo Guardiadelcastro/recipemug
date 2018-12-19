@@ -1,11 +1,5 @@
 <template>
   <div class="container">
-    <div class="image">
-      <img
-        src="https://assets.recipemug.club/img/landing.jpg"
-        alt="person cooking"
-      >
-    </div>
     <Login />
   </div>
 </template>
@@ -14,7 +8,7 @@
 import Login from '../components/Login.vue';
 
 export default {
-  name: 'LandingLogin',
+  name: 'SignUpIn',
   components: {
     Login
   },
@@ -28,16 +22,16 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
+@import '../styles/mixins'
   .container
-    display grid 
-    grid-template-columns 50vw 50vw
-
-  .image
-    grid-column 1/2
-    background $blue
+    display flex 
+    justify-content center
+    align-items center
+    background-image url('https://assets.recipemug.club/img/landing.jpg')
 
   .login
-    grid-column 2/3
+    background $grey
+    opacity 0.8
   
 </style>
 
