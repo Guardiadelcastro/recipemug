@@ -1,30 +1,32 @@
 <template>
   <nav class="app-info">
-    <div class="info-body">
-      <div class="title">
-        The App
+    <div class="image">
+      <div class="box">
+        <div class="top">
+          <div class="title">
+            What's the App
+          </div>
+          <div class="links">
+            <a
+              href="https://github.com/Guardiadelcastro/recipemug"
+              target="_blank"
+            >
+              <p>Front-end<i class="fab fa-github" /></p>  
+            </a>
+            <a
+              href="https://github.com/Guardiadelcastro/recipemug-backend"
+              target="_blank"
+            >
+              <p>Back-end<i class="fab fa-github" /></p>
+            </a>
+          </div>
+        </div>
+        <div class="description">
+          <p class="text">
+            RecipeMug es una App para crear tus propias recetas y poder compartirlas con tus amigos, familiares, compañeros de una manera muy sencilla y amena.
+          </p>
+        </div>
       </div>
-      <div class="rings1">
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-      </div>
-    </div>
-    <div class="screenshots">
-      <div class="images">
-        The views
-      </div>
-      <div class="rings2">
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-        <div id="box" />
-      </div> 
     </div>
   </nav>
 </template>
@@ -40,96 +42,78 @@ export default {
 @import '../styles/variables'
 
   .app-info
-    display grid
-    grid-template-columns 50% 50%
-    max-width 100%
-    margin 15px 15px 15px 15px
-
-  .info-body
-    font-family $font
-    grid-column 1 / 2
-    font-size 2em
-    background-image url('http://localhost:8080/src/assets/img/landing4.jpg')
+    display grid 
+    grid-template-columns 100%
+    grid-template-rows 100%
+  
+  .image
+    margin 10px 12px 12px 10px
+    background-image url('https://assets.recipemug.club/img/landing7.jpg')
     background-size cover
-    border-top-left-radius 30px
-    border-top-right-radius 15px
-    border-bottom-left-radius 15px
-    border-bottom-right-radius 30px
-    //border-top 1px solid $black
-    //border-left 1px solid $black
-    //border-bottom 1px solid $black
     display grid
-    grid-template-columns 15fr 1fr
-    grid-template-rows 15% 75% 10%
-    box-shadow 1px
-    -webkit-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
-    box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
+    grid-template-columns 100%
+    grid-template-rows 100%
+    transition-duration 0.7s
+    -webkit-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
+    -moz-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
+    
+  .box
+    display grid
+    grid-template-columns 10% 73% 17%
+    grid-template-rows 34% 66%
+
+  .top
+    grid-column 2 / 3
+    grid-row 1 / 2
+    display grid
+    grid-template-rows 50% 50%
   
   .title
-    color $white
-    font-family $font-title
-    font-size 1em
-    margin-top 10px
-    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     grid-row 1 / 2
+    color $mustard
+    font-family $font-title
+    font-size 2.2em
+    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     display flex
     justify-content center
+    align-items flex-end
+
+  .links
+    font-family $font
+    grid-row 2 / 3
+    display flex
+    justify-content center
+    flex-direction row
+    align-items flex-end
+    :hover
+      color $purple
+
+  a
+    color $green2
+    text-decoration none
+    margin-right 25px
+    margin-left 25px
+    font-size 1.5em
+    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
+
+  i
+    margin-left 15px
   
-  .screenshots
+  .description
+    margin 15px 10px 15px 10px
     font-family $font
     grid-column 2 / 3
-    font-size 2em
-    background-color $green2
-    border-top-right-radius 30px
-    border-top-left-radius 15px
-    border-bottom-right-radius 15px
-    border-bottom-left-radius 30px
-    //border-top 1px solid $black
-    //border-right 1px solid $black
-    //border-bottom 1px solid $black
-    display grid 
-    grid-template-columns 1fr 15fr
-    grid-template-rows 15% 75% 10%
-    -webkit-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
-    box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.75);
-  
-  .images
-    color $white
-    font-family $font-title
-    font-size 1em
-    margin-top 10px
-    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
-    grid-column 2 / 3
-    grid-row 1 / 2
-    display flex
-    justify-content center
-
-  .rings1
-    grid-column 2 / 3
     grid-row 2 / 3
-    display flex
-    justify-content center
-    align-items center
-    flex-direction column
+    background-color $transparent-mustard
 
-  .rings2
-    grid-column 1 / 2
-    grid-row 2 / 3
-    display flex
-    justify-content center
-    align-items center
-    flex-direction column
-
-  #box
-    margin-top 20px
-    margin-bottom 20px
-    background-color $white
-    height 10px
-    width 10px
-    border 1px solid $black
-    border-radius 50%
+  .text
+    margin-left 20px
+    margin-right 20px
+    text-align justify
+    height 50px
+    font-size 97%
+    text-shadow: 0px 0.1px 0px;
 
 </style>
 

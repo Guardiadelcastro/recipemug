@@ -4,12 +4,18 @@
       About Us
     </div>
     <div class="description">
-      Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
+      <p class="text">
+        Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
+      </p>  
     </div>
     <div class="members">
       <div class="developer A">
-        <div class="box" />
-        <p>Alejandro Castro de la Guardia</p>
+        <div class="box1">
+          <div class="photo" />
+        </div>
+        <p class="name 1">
+          Alejandro Castro de la Guardia
+        </p>
         <div class="links">
           <a
             href="https://github.com/Guardiadelcastro"
@@ -26,8 +32,10 @@
         </div>
       </div>
       <div class="developer B">
-        <div class="box" />
-        <p>Aythami Z. Martín González</p>
+        <div class="box2" />
+        <p class="name 2">
+          Aythami Z. Martín González
+        </p>
         <div class="links">
           <a
             href="https://github.com/Aythamiza"
@@ -44,8 +52,10 @@
         </div>
       </div>
       <div class="developer C">
-        <div class="box" />
-        <p>Richard Morales Luis</p>
+        <div class="box3" />
+        <p class="name 3">
+          Richard Morales Luis
+        </p>
         <div class="links">
           <a
             href="https://github.com/RichardMoralesLuis"
@@ -62,8 +72,10 @@
         </div>  
       </div>
       <div class="developer D"> 
-        <div class="box" />
-        <p>Javier Pérez García</p>
+        <div class="box4" />
+        <p class="name 4">
+          Javier Pérez García
+        </p>
         <div class="links">
           <a
             href="https://github.com/JavierPerezGarcia"
@@ -99,14 +111,10 @@ export default {
     flex-direction column
     align-items center
     margin 10px 12px 12px 10px
-    transition-duration 1s
+    transition-duration 0.7s
     -webkit-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
     box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
-
-    &:hover
-      transition-duration 1s
-      box-shadow 1px
 
   .title
     color $white
@@ -124,6 +132,10 @@ export default {
     margin 15px 25px 0px 25px
     height 80px
     background $transparent
+    text-shadow: 0px 0.1px 0px;
+  
+  .text
+    margin 10px 10px
 
   .members
     //border 1px solid $black
@@ -144,8 +156,37 @@ export default {
     height 100%
     width 280px
    
-  .box
-    background $white
+  .box1
+    background-image url(https://assets.recipemug.club/img/aboutus/alejandro.jpg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
+  .box2
+    background-image url(https://assets.recipemug.club/img/aboutus/aythami.jpg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
+  .box3
+    background-image url(https://assets.recipemug.club/img/aboutus/richard.jpg)
+    background-size cover
     display flex
     align-items center
     justify-content center
@@ -157,10 +198,24 @@ export default {
     flex-direction column
     margin-top 10px
   
+  .box4
+    background-image url(https://assets.recipemug.club/img/aboutus/javier.jpeg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
   .links
     flex-direction row
   
-  p
+  .name
     margin-top 15px
     color $black
     font-family $font
