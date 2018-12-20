@@ -61,8 +61,10 @@
           theme="blue"
           icon="fas fa-search"
           show="true"
+          @click="saveRecipe"
         />
       </form>
+      <div>{{ this.$store.state.recipes }}</div>
     </div>
   </div>
 </template>
@@ -106,6 +108,7 @@ export default {
       newIngredient.placeholder = 'Add an Ingredient';
       newIngredient.name = 'newIngredient';
       ingredientList.appendChild(newIngredient);
+      
     },
 
     addStep() {
@@ -128,6 +131,7 @@ export default {
       this.edit = !this.edit;
       this.toggleButton =!this.toggleButton;
       this.disabled = !this.disabled;
+      this.$store.commit('SAVE_NEW_RECIPE');
     }
   }
 };

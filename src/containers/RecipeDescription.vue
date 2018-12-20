@@ -75,6 +75,7 @@ export default {
     },
     saveElement() {
       this.edit = true;
+      this.$store.commit('ADD_DESCRIPTION', this.description);
     }
   }
 };
