@@ -113,7 +113,8 @@ export default {
       default: ''
     },
     active: {
-      type: Boolean
+      type: Boolean,
+      default: true
     }
   },
   data() {
