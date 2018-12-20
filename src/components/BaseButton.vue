@@ -2,6 +2,7 @@
   <button 
     :class="theme"
     @click.prevent="handleClick"
+    @keyup.prevent
   >
     <Icon
       v-if="showIcon"
@@ -66,6 +67,9 @@ button
 
 .square 
   square(35px)
+
+.square-small 
+  square(10px)
 
 .circle
   square(45px)

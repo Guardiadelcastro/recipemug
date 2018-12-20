@@ -18,11 +18,11 @@ export default new Vuex.Store({
     activeRecipe: -1
   },
   getters: {
-    getCategories(state) {
-      return state.categories;
-    },
-    getNewRecipe(state) {
-      return state.newRecipe;
+    getIngredients(state) {
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      return recipe.ingredients;
     }
   }, 
   mutations: {
@@ -32,33 +32,43 @@ export default new Vuex.Store({
     ADD_USER(state, user) {
       state.user = user;
     },
-    ADD_TITLE(state, title) {
+    UPDATE_TITLE(state, title) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
       recipe.title = title;
     },
-    ADD_DESCRIPTION(state, description) {
+    UPDATE_DESCRIPTION(state, description) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
       recipe.description = description;
     },
-    ADD_INGREDIENT(state, ingredient) {
+    UPDATE_INGREDIENTS(state, ingredients) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
-      recipe.ingredient.push(ingredient);
+      // eslint-disable-next-line no-console
+      console.log(recipe);
+      // eslint-disable-next-line no-console
+      console.log(ingredients);
+      recipe.ingredients = ingredients;
+    },
+    UPDATE_STEPS(state, steps) {
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      recipe.steps = steps;
     },
     SAVE_NEW_RECIPE() {
        
     },
     NEW_RECIPE(state) {
       const newRecipe = {
-        title: 'New Recipe',
-        description: '',
-        ingredients: [''],
-        steps: [''],
+        title: 'New recipe',
+        description: 'New description',
+        ingredients: [],
+        steps: [],
         img: '', 
         uuid: '0'
       };

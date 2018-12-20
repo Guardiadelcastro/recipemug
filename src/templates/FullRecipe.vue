@@ -1,31 +1,19 @@
 <template>
   <div class="full-recipe">
+    <div class="buttons">
+      <BaseButton
+        name="Cook the new Recipe"
+        theme="blue"
+        icon="fas fa-search"
+        show="true"
+        @click="saveRecipe"
+      />
+    </div>
     <div class="recipe">
-      <form
-        action="post"
-        enctype="multipart/form-data"
-      >
-        <RecipeTitle />
-        <RecipeDescription />
-        <RecipeList />
-        <RecipeList />
-        <div class="upladoImage">
-          <input
-            id="uploadImage"
-            type="file"
-            name="image"
-            accept="image/*"
-          >
-        </div>
-        <br>
-        <BaseButton
-          name="Cook the new Recipe"
-          theme="blue"
-          icon="fas fa-search"
-          show="true"
-          @click="saveRecipe"
-        />
-      </form>
+      <RecipeTitle />
+      <RecipeDescription />
+      <IngredientList />
+      <StepList />
     </div>
   </div>
 </template>
@@ -34,7 +22,8 @@
 import BaseButton from '../components/BaseButton.vue';
 import RecipeTitle from '../containers/RecipeTitle.vue';
 import RecipeDescription from '../containers/RecipeDescription.vue';
-import RecipeList from '../containers/RecipeList.vue';
+import IngredientList from '../containers/IngredientList.vue';
+import StepList from '../containers/StepList.vue';
 
 export default {
   name: 'FullRecipe',
@@ -42,7 +31,8 @@ export default {
     BaseButton,
     RecipeTitle,
     RecipeDescription,
-    RecipeList
+    IngredientList,
+    StepList
   },
   props: {
     edit: {
@@ -69,24 +59,6 @@ export default {
     
   },
   methods: {
-    addIngredient() {
-      const ingredientList = document.querySelector('#ingredients');
-      let newIngredient = document.createElement('input');
-      newIngredient.type = 'text';
-      newIngredient.placeholder = 'Add an Ingredient';
-      newIngredient.name = 'newIngredient';
-      ingredientList.appendChild(newIngredient);
-      
-    },
-    addStep() {
-      const steps = document.querySelector('#steps');
-      let newStep = document.createElement('input');
-      newStep.type = 'text';
-      newStep.placeholder = 'Add a Step';
-      newStep.name = 'newStep';
-      steps.appendChild(newStep);
-    },
-
     editRecipe() {
       this.edit = !this.edit;
       this.toggleButton = !this.toggleButton;
@@ -107,26 +79,25 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../styles/variables'
+@import '../styles/mixins'
 
 .full-recipe
+  comp-size(95%, 95%)
+  padding 10px
   display grid
-  width 90%
-  max-height 90%
-  background white
-  border-radius 6px
-  overflow scroll
-
-.list-container, .steps
-  display grid
-  grid-template-columns 35em
-  grid-template-rows auto
+  grid-template-rows 50px auto
   grid-gap 10px
-  justify-items start
+  border-radius 6px
+  background $white
 
-.title
-  align-self center
-  color $blue
-  font-size 30px
+.buttons
+  grid-row 1/2
+
+.recipe
+  grid-row 2/3
+  overflow scroll
+  border-radius 6px
+  background #fff
 
 </style>
 
