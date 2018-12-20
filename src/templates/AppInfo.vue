@@ -1,12 +1,32 @@
 <template>
   <nav class="app-info">
-    <div class="description">
-      <div class="title">
-        What's the App
+    <div class="image">
+      <div class="box">
+        <div class="top">
+          <div class="title">
+            What's the App
+          </div>
+          <div class="links">
+            <a
+              href="https://github.com/Guardiadelcastro/recipemug"
+              target="_blank"
+            >
+              <p>Front-end<i class="fab fa-github" /></p>  
+            </a>
+            <a
+              href="https://github.com/Guardiadelcastro/recipemug-backend"
+              target="_blank"
+            >
+              <p>Back-end<i class="fab fa-github" /></p>
+            </a>
+          </div>
+        </div>
+        <div class="description">
+          <p class="text">
+            RecipeMug es una App para crear tus propias recetas y poder compartirlas con tus amigos, familiares, compañeros de una manera muy sencilla y amena.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="pictures">
-      <div class="images" />
     </div>
   </nav>
 </template>
@@ -23,14 +43,65 @@ export default {
 
   .app-info
     display grid 
-    grid-template-columns 40% 60%
+    grid-template-columns 100%
+    grid-template-rows 100%
+  
+  .image
+    margin 10px
+    background-image url('http://localhost:8080/src/assets/img/landing7.jpg')
+    background-size cover
+    display grid
+    grid-template-columns 100%
+    grid-template-rows 100%
+    
+  .box
+    display grid
+    grid-template-columns 10% 73% 17%
+    grid-template-rows 34% 66%
 
-  .description
-    grid column 1 / 2
-
+  .top
+    grid-column 2 / 3
+    grid-row 1 / 2
+    display flex
+    flex-direction column
+    display grid
+    grid-template-rows 50% 50%
+  
   .title
+    grid-row 1 / 2
+    color $mustard
     font-family $font-title
     font-size 2em
+    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
+    display flex
+    justify-content center
+    align-items center
+
+  .links
+    grid-row 2 / 3
+    display flex
+    justify-content center
+    flex-direction row
+    align-items center
+
+  a
+    color $green2
+    text-decoration none
+    margin-right 30px
+    font-size 1.5em
+    text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
+  
+  .description
+    margin 15px 10px 20px 10px
+    font-family $font
+    grid-column 2 / 3
+    grid-row 2 / 3
+    background-color $transparent-mustard
+
+  .text
+    margin-left 20px
+    margin-right 20px
+    text-align justify
 
 </style>
 
