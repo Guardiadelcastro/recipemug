@@ -101,14 +101,10 @@ export default {
     flex-direction column
     align-items center
     margin 10px 12px 12px 10px
-    transition-duration 1s
+    transition-duration 0.7s
     -webkit-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
     box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
-
-    &:hover
-      transition-duration 1s
-      box-shadow 1px
 
   .title
     color $white
@@ -126,6 +122,7 @@ export default {
     margin 15px 25px 0px 25px
     height 80px
     background $transparent
+    text-shadow: 0px 0.1px 0px;
 
   .members
     //border 1px solid $black
