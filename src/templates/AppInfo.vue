@@ -1,7 +1,12 @@
 <template>
-  <nav class="App Info">
-    <div class="title">
-      What's the App
+  <nav class="app-info">
+    <div class="description">
+      <div class="title">
+        What's the App
+      </div>
+    </div>
+    <div class="pictures">
+      <div class="images" />
     </div>
   </nav>
 </template>
@@ -17,15 +22,14 @@ export default {
 @import '../styles/variables'
 
   .app-info
-    width 100vw
-    background-color $white
-    display flex
-    justify-content center
-    margin 5px 10px 10px 5px
+    display grid 
+    grid-template-columns 40% 60%
+
+  .description
+    grid column 1 / 2
 
   .title
-    font-family 'Fira Sans', 'Nobile', 'Pacifico', 'Montserrat', sans-serif
-    margin-top 20px
+    font-family $font-title
     font-size 2em
 
 </style>
