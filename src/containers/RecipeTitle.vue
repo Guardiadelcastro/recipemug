@@ -1,12 +1,13 @@
 <template>
   <div
     class="container"
+    :class="activeEdit ? warning : step-list-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
       <h1
-        v-if="edit"
+        v-if="activeEdit"
         class="title"
       >
         {{ title }}
@@ -14,23 +15,24 @@
       <BaseInput
         v-else
         v-model="title"
+        @keyup.prevent
       />
     </div>
     <div class="buttons">
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
+        v-if="activeEdit"
         show-icon
         icon="fas fa-save"
         theme="circle red"
-        @click="saveElement"
+        @click="saveTitle"
+      />
+      <BaseButton
+        v-show="show"
+        v-else
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="startEdit"
       />
     </div>
   </div>
@@ -47,28 +49,19 @@ export default {
     BaseButton
   },
   props: {
-    title: {
-      type: String,
-      default: 'My Recipe'
-    },
     show: {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
     },
   },
   data() {
     return {
-      id: {
-        type: Number
-      },
+      title: ''
     };
-  },
-  computed: {
-   
   },
   mounted() {
     this.id = this.$store.state.activeRecipe;
@@ -84,11 +77,11 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    startEdit() {
+      this.activeEdit = true;
     },
-    saveElement() {
-      this.edit = true;
+    saveTitle() {
+      this.activeEdit = false;
       this.$store.commit('UPDATE_TITLE', this.title);
     }
   }
@@ -123,6 +116,10 @@ export default {
   
   .title
     text-align center
+.normal
+  border 2px dashed transparent
 
+.warning
+  border 2px dashed $red
 </style>
 

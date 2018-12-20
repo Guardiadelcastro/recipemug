@@ -1,27 +1,28 @@
 <template>
   <div
-    class="ingredient-list"
+    class="step-list"
+    :class="activeEdit ? warning-border : no-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
-      <h3 class="ingredient-title">
-        Ingredients:
+      <h3 class="step-title">
+        Preparation
       </h3>
       <div
-        v-if="edit"
-        class="input"
+        v-show="activeEdit"
+        class="text-area"
       >
-        <BaseInput
-          v-model="ingredient"
-          placeholder="New Ingredient"
-          @keyup.prevent="addIngredient(ingredient)"
+        <BaseTextArea
+          v-model="step"
+          placeholder="Add new preparation"
+          @keyup.prevent="addStep(step)"
         />
         <BaseButton
           theme="green square"
           show-icon
           icon="fas fa-plus"
-          @click="addIngredient(ingredient)"
+          @click="addStep(step)"
         />
       </div>
       <div
@@ -29,35 +30,44 @@
       >
         <ul>
           <li
-            v-for="(data, index) in ingredients"
+            v-for="(data, index) in steps"
             :key="index"
           >
-            {{ data }}
             <BaseButton
+              v-show="activeEdit"
               show-icon
               icon="fas fa-minus-circle"
               theme="red square-small"
-              @click="removeIngredient(index)"
+              @click="removeStep(index)"
             />
+            <p>
+              {{ index + 1 }}. 
+            </p>
+            <span /> 
+            <p class="paragraph">
+              {{ data }}
+            </p>
           </li>
         </ul>
       </div>
     </div>
-    <div class="buttons">
+    <div
+      class="buttons"
+    >
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
+        v-if="activeEdit"
         show-icon
         icon="fas fa-save"
         theme="circle red"
-        @click="saveIngredients"
+        @click="saveSteps"
+      />
+      <BaseButton
+        v-show="show"
+        v-else
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="startEdit"
       />
     </div>
   </div>
@@ -65,28 +75,28 @@
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
-import BaseInput from '../components/BaseInput.vue';
+import BaseTextArea from '../components/BaseTextArea.vue';
 
 export default {
   name: 'IngredientList',
   components: {
     BaseButton,
-    BaseInput
+    BaseTextArea
   },
   props: {
     show: {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
     return {
-      ingredient: '',
-      ingredients: []
+      step: '',
+      steps: []
     };
   },
   mounted() {
@@ -94,7 +104,7 @@ export default {
     const recipe = this.$store.state.recipes.find((recipe) => {
       return recipe.uuid == this.id;
     });
-    this.ingredients = recipe.ingredients;
+    this.steps = recipe.steps;
   },
   methods: {
     showButtons() {
@@ -103,19 +113,19 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    startEdit() {
+      this.activeEdit = true;
     },
-    addIngredient(value){
-      this.ingredients.push(value);
-      this.ingredient = '';
+    addStep(value){
+      this.steps.push(value);
+      this.step = '';
     },
-    removeIngredient(index) {
-      this.ingredients.splice(index, 1);
+    removeStep(index) {
+      this.steps.splice(index, 1);
     },
-    saveIngredients() {
-      this.edit = true;
-      this.$store.commit('UPDATE_INGREDIENTS', this.ingredients);
+    saveSteps() {
+      this.activeEdit = false;
+      this.$store.commit('UPDATE_STEPS', this.steps);
     }
   }
 };
@@ -126,28 +136,38 @@ export default {
 @import '../styles/mixins'
 
 
-.ingredient-list
+.step-list
   display grid
   grid-template-columns 8fr 1fr
   justify-content center
   width 100%
   font-family $font
+  padding 5px
+  border-radius $br
+
+.no-border
+  border 2px dashed transparent
+
+.warning-border
+  border 2px dashed $red
 
 .content
   grid-column 1/2
   display grid
-  grid-template-rows 50px 50px auto
+  grid-template-rows 50px auto auto
   grid-gap 10px
   justify-content flex-start
   align-items center
   margin 25px 0  
 
-.ingredient-title
+.step-title
   grid-row 1/2
   width 100%
   margin 0
+  font-family $font-title
+  color $blue
 
-.input
+.text-area
   grid-row 2/3
   width 100%
   display flex
@@ -167,13 +187,16 @@ export default {
     & li
       display inline-flex
       width 100%
-      justify-content space-between
+      justify-content flex-start
       align-items center
       padding 5px 10px
       background-color $white
       border-left 5px solid $blue
       margin-bottom 2px
       color #3E5252
+      & p, span, button
+        text-align left
+        margin-right 5px
       & button
         display inline-flex
 

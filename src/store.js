@@ -49,10 +49,16 @@ export default new Vuex.Store({
       });
       recipe.ingredients = ingredients;
     },
+    UPDATE_Steps(state, steps) {
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      recipe.steps = steps;
+    },
     NEW_RECIPE(state) {
       const newRecipe = {
-        title: 'New Recipe',
-        description: '',
+        title: 'New recipe',
+        description: 'New description',
         ingredients: ['patatas','thomas'],
         steps: [''],
         img: '', 

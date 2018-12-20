@@ -4,7 +4,7 @@
     :class="theme"
     :placeholder="message"
     @input="handleInput"
-    @keyup="handleInput"
+    @keyup.prevent="handleInput"
   >
 </template>
 
@@ -45,10 +45,10 @@ export default {
 input
   outline none
   font-size 16px
-  padding 10px 15px
+  padding 10px
   border-radius $br
   border 1px solid transparent
-  background-color white
+  background-color $white
   transition all ease 0.3s
   font-font-family $font
   

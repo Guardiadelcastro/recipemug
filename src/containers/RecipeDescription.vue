@@ -47,10 +47,6 @@ export default {
     BaseButton
   },
   props: {
-    description: {
-      type: String,
-      default: 'Recipe Description'
-    },
     show: {
       type: Boolean,
       default: false
@@ -59,6 +55,14 @@ export default {
       type: Boolean,
       default: true
     },
+  },
+  data() {
+    return {
+      description: {
+        type: String,
+        default: ''
+      }
+    };
   },
   methods: {
     showButtons() {

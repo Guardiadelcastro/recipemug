@@ -51,6 +51,7 @@ export default {
     border-radius $br
     font-family $font
     font-size 16px
+    background $white
 
   .default
     border 1px solid $blue

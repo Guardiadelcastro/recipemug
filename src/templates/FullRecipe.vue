@@ -7,8 +7,8 @@
       >
         <RecipeTitle />
         <RecipeDescription />
-        <IngredientList list-name="Ingredients" />
-        <!-- <RecipeList /> -->
+        <IngredientList />
+        <StepList />
         <div class="upladoImage">
           <input
             id="uploadImage"
@@ -34,6 +34,7 @@ import BaseButton from '../components/BaseButton.vue';
 import RecipeTitle from '../containers/RecipeTitle.vue';
 import RecipeDescription from '../containers/RecipeDescription.vue';
 import IngredientList from '../containers/IngredientList.vue';
+import StepList from '../containers/StepList.vue';
 
 export default {
   name: 'FullRecipe',
@@ -41,7 +42,8 @@ export default {
     BaseButton,
     RecipeTitle,
     RecipeDescription,
-    IngredientList
+    IngredientList,
+    StepList
   },
   props: {
     edit: {
@@ -68,24 +70,6 @@ export default {
     
   },
   methods: {
-    addIngredient() {
-      const ingredientList = document.querySelector('#ingredients');
-      let newIngredient = document.createElement('input');
-      newIngredient.type = 'text';
-      newIngredient.placeholder = 'Add an Ingredient';
-      newIngredient.name = 'newIngredient';
-      ingredientList.appendChild(newIngredient);
-      
-    },
-    addStep() {
-      const steps = document.querySelector('#steps');
-      let newStep = document.createElement('input');
-      newStep.type = 'text';
-      newStep.placeholder = 'Add a Step';
-      newStep.name = 'newStep';
-      steps.appendChild(newStep);
-    },
-
     editRecipe() {
       this.edit = !this.edit;
       this.toggleButton = !this.toggleButton;
@@ -106,12 +90,13 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../styles/variables'
+@import '../styles/mixins'
 
 .full-recipe
+  comp-size(90%, 90%)
+  padding 15px
   display grid
-  width 90%
-  max-height 90%
-  background white
+  background #fff
   border-radius 6px
   overflow scroll
 
