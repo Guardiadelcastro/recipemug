@@ -14,13 +14,7 @@ export default new Vuex.Store({
     ],
     user:{},
     recipes: [],
-    newRecipe: {
-      title: '',
-      description: '',
-      ingredients: [''],
-      steps: [''],
-      img: ''
-    }
+    activeRecipe: -1
   },
   getters: {
     getCategories(state) {
@@ -46,17 +40,19 @@ export default new Vuex.Store({
     ADD_INGREDIENT(state, ingredient) {
       state.newRecipe.ingredients.push(ingredient);
     },
-    SAVE_NEW_RECIPE(state) {
-      state.recipes.push(state.newRecipe);
-    },
     NEW_RECIPE(state) {
-      state.newRecipe = {
+      const newRecipe = {
         title: '',
         description: '',
-        ingredients: [],
-        steps: [],
-        img: '' 
+        ingredients: [''],
+        steps: [''],
+        img: '', 
+        uuid: '0'
       };
+      state.recipes.push(newRecipe);
+    },
+    MAKE_ACTIVE(state, id) {
+      state.activeRecipe = id;
     }
   }
 });

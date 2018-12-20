@@ -32,6 +32,7 @@ export default {
   methods: {
     createNew() {
       this.$store.commit('NEW_RECIPE');
+      this.$store.commit('MAKE_ACTIVE', 0);
       this.$router.push({name:'fullRecipe'});
     }
   }

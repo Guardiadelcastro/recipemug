@@ -65,6 +65,9 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    
+  },
   methods: {
     addIngredient() {
       const ingredientList = document.querySelector('#ingredients');
