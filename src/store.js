@@ -17,14 +17,17 @@ export default new Vuex.Store({
     newRecipe: {
       title: '',
       description: '',
-      ingredients: [],
-      steps: [],
+      ingredients: [''],
+      steps: [''],
       img: ''
     }
   },
   getters: {
     getCategories(state) {
       return state.categories;
+    },
+    getNewRecipe(state) {
+      return state.newRecipe;
     }
   }, 
   mutations: {

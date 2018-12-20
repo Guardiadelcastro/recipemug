@@ -4,9 +4,6 @@
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
-    <h3 class="title">
-      Description
-    </h3>
     <div class="content">
       <p
         v-if="edit"
