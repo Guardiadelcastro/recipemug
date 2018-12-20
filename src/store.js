@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
@@ -48,6 +49,9 @@ export default new Vuex.Store({
         return recipe.uuid == state.activeRecipe;
       });
       recipe.ingredient.push(ingredient);
+    },
+    SAVE_NEW_RECIPE() {
+       
     },
     NEW_RECIPE(state) {
       const newRecipe = {

@@ -27,7 +27,6 @@ export default {
       .then((recipes) => {
         this.$store.commit('ADD_RECIPES', recipes.data);
       });
-
   }
 };
 </script>
