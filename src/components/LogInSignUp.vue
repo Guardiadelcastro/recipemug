@@ -34,7 +34,6 @@
           required
           :content="email"
         >
-        
         <label
           for="password"
         >
@@ -190,7 +189,7 @@ export default {
   display flex
   flex-flow column nowrap 
   align-items flex-start
-  justify-content start
+  justify-content flex-start
   font-family $font
   font-size 16px
   height 200px
