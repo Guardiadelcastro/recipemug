@@ -89,7 +89,7 @@ export default {
     },
     saveElement() {
       this.edit = true;
-      this.$store.commit('ADD_TITLE', this.title);
+      this.$store.commit('UPDATE_TITLE', this.title);
     }
   }
 };
@@ -120,6 +120,7 @@ export default {
     justify-content center
     align-items center
 
+  
   .title
     text-align center
 

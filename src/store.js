@@ -17,11 +17,11 @@ export default new Vuex.Store({
     activeRecipe: -1
   },
   getters: {
-    getCategories(state) {
-      return state.categories;
-    },
-    getNewRecipe(state) {
-      return state.newRecipe;
+    getIngredients(state) {
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      return recipe.ingredients;
     }
   }, 
   mutations: {
@@ -31,29 +31,29 @@ export default new Vuex.Store({
     ADD_USER(state, user) {
       state.user = user;
     },
-    ADD_TITLE(state, title) {
+    UPDATE_TITLE(state, title) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
       recipe.title = title;
     },
-    ADD_DESCRIPTION(state, description) {
+    UPDATE_DESCRIPTION(state, description) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
       recipe.description = description;
     },
-    ADD_INGREDIENT(state, ingredient) {
+    UPDATE_INGREDIENT(state, ingredients) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
-      recipe.ingredient.push(ingredient);
+      recipe.ingredients = ingredients;
     },
     NEW_RECIPE(state) {
       const newRecipe = {
         title: 'New Recipe',
         description: '',
-        ingredients: [''],
+        ingredients: ['patatas','thomas'],
         steps: [''],
         img: '', 
         uuid: '0'

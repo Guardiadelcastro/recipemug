@@ -7,8 +7,8 @@
       >
         <RecipeTitle />
         <RecipeDescription />
-        <RecipeList />
-        <RecipeList />
+        <IngredientList list-name="Ingredients" />
+        <!-- <RecipeList /> -->
         <div class="upladoImage">
           <input
             id="uploadImage"
@@ -17,7 +17,6 @@
             accept="image/*"
           >
         </div>
-        <br>
         <BaseButton
           name="Cook the new Recipe"
           theme="blue"
@@ -34,7 +33,7 @@
 import BaseButton from '../components/BaseButton.vue';
 import RecipeTitle from '../containers/RecipeTitle.vue';
 import RecipeDescription from '../containers/RecipeDescription.vue';
-import RecipeList from '../containers/RecipeList.vue';
+import IngredientList from '../containers/IngredientList.vue';
 
 export default {
   name: 'FullRecipe',
@@ -42,7 +41,7 @@ export default {
     BaseButton,
     RecipeTitle,
     RecipeDescription,
-    RecipeList
+    IngredientList
   },
   props: {
     edit: {
