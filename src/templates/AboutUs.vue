@@ -4,14 +4,18 @@
       About Us
     </div>
     <div class="description">
-      Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
+      <p class="text">
+        Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
+      </p>  
     </div>
     <div class="members">
       <div class="developer A">
         <div class="box1">
           <div class="photo" />
         </div>
-        <p>Alejandro Castro de la Guardia</p>
+        <p class="name 1">
+          Alejandro Castro de la Guardia
+        </p>
         <div class="links">
           <a
             href="https://github.com/Guardiadelcastro"
@@ -29,7 +33,9 @@
       </div>
       <div class="developer B">
         <div class="box2" />
-        <p>Aythami Z. Martín González</p>
+        <p class="name 2">
+          Aythami Z. Martín González
+        </p>
         <div class="links">
           <a
             href="https://github.com/Aythamiza"
@@ -47,7 +53,9 @@
       </div>
       <div class="developer C">
         <div class="box3" />
-        <p>Richard Morales Luis</p>
+        <p class="name 3">
+          Richard Morales Luis
+        </p>
         <div class="links">
           <a
             href="https://github.com/RichardMoralesLuis"
@@ -65,7 +73,9 @@
       </div>
       <div class="developer D"> 
         <div class="box4" />
-        <p>Javier Pérez García</p>
+        <p class="name 4">
+          Javier Pérez García
+        </p>
         <div class="links">
           <a
             href="https://github.com/JavierPerezGarcia"
@@ -123,6 +133,9 @@ export default {
     height 80px
     background $transparent
     text-shadow: 0px 0.1px 0px;
+  
+  .text
+    margin 10px 10px
 
   .members
     //border 1px solid $black
@@ -202,7 +215,7 @@ export default {
   .links
     flex-direction row
   
-  p
+  .name
     margin-top 15px
     color $black
     font-family $font
