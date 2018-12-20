@@ -62,7 +62,6 @@ button
   cursor pointer
   font-weight bold
   border-radius 5px
-  padding 10px
 
 .square 
   square(35px)
