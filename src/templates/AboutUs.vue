@@ -147,7 +147,7 @@ export default {
     width 280px
    
   .box1
-    background-image url(localhost:8080/src/assets/img/aboutus/alejandro.jpg)
+    background-image url(https://assets.recipemug.club/img/aboutus/alejandro.jpg)
     background-size cover
     display flex
     align-items center
@@ -161,7 +161,7 @@ export default {
     margin-top 10px
 
   .box2
-    background-image url(localhost:8080/src/assets/img/aboutus/aythami.jpg)
+    background-image url(https://assets.recipemug.club/img/aboutus/aythami.jpg)
     background-size cover
     display flex
     align-items center
@@ -175,7 +175,7 @@ export default {
     margin-top 10px
 
   .box3
-    background-image url(localhost:8080/src/assets/img/aboutus/richard.jpg)
+    background-image url(https://assets.recipemug.club/img/aboutus/richard.jpg)
     background-size cover
     display flex
     align-items center
@@ -189,7 +189,7 @@ export default {
     margin-top 10px
   
   .box4
-    background-image url(localhost:8080/src/assets/img/aboutus/javier.jpeg)
+    background-image url(https://assets.recipemug.club/img/aboutus/javier.jpeg)
     background-size cover
     display flex
     align-items center
