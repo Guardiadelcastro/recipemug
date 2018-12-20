@@ -1,30 +1,19 @@
 <template>
   <div class="full-recipe">
+    <div class="buttons">
+      <BaseButton
+        name="Cook the new Recipe"
+        theme="blue"
+        icon="fas fa-search"
+        show="true"
+        @click="saveRecipe"
+      />
+    </div>
     <div class="recipe">
-      <form
-        action="post"
-        enctype="multipart/form-data"
-      >
-        <RecipeTitle />
-        <RecipeDescription />
-        <IngredientList />
-        <StepList />
-        <div class="upladoImage">
-          <input
-            id="uploadImage"
-            type="file"
-            name="image"
-            accept="image/*"
-          >
-        </div>
-        <BaseButton
-          name="Cook the new Recipe"
-          theme="blue"
-          icon="fas fa-search"
-          show="true"
-          @click="saveRecipe"
-        />
-      </form>
+      <RecipeTitle />
+      <RecipeDescription />
+      <IngredientList />
+      <StepList />
     </div>
   </div>
 </template>
@@ -93,24 +82,22 @@ export default {
 @import '../styles/mixins'
 
 .full-recipe
-  comp-size(90%, 90%)
-  padding 15px
+  comp-size(95%, 95%)
+  padding 10px
   display grid
-  background #fff
-  border-radius 6px
-  overflow scroll
-
-.list-container, .steps
-  display grid
-  grid-template-columns 35em
-  grid-template-rows auto
+  grid-template-rows 50px auto
   grid-gap 10px
-  justify-items start
+  border-radius 6px
+  background $white
 
-.title
-  align-self center
-  color $blue
-  font-size 30px
+.buttons
+  grid-row 1/2
+
+.recipe
+  grid-row 2/3
+  overflow scroll
+  border-radius 6px
+  background #fff
 
 </style>
 

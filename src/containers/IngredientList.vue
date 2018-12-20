@@ -1,63 +1,67 @@
 <template>
   <div
     class="ingredient-list"
+    :class="activeEdit ? warning : no-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
       <h3 class="ingredient-title">
-        Ingredients:
+        Ingredients
       </h3>
-      <div
-        v-if="edit"
-        class="input"
-      >
-        <BaseInput
-          v-model="ingredient"
-          placeholder="New Ingredient"
-          @keyup.prevent="addIngredient(ingredient)"
-        />
-        <BaseButton
-          theme="green square"
-          show-icon
-          icon="fas fa-plus"
-          @click="addIngredient(ingredient)"
-        />
-      </div>
-      <div
-        class="list"
-      >
-        <ul>
-          <li
-            v-for="(data, index) in ingredients"
-            :key="index"
-          >
-            {{ data }}
-            <BaseButton
-              show-icon
-              icon="fas fa-minus-circle"
-              theme="red square-small"
-              @click="removeIngredient(index)"
-            />
-          </li>
-        </ul>
+      <div class="list-container">
+        <div
+          v-show="activeEdit"
+          class="input"
+        >
+          <BaseInput
+            v-model="ingredient"
+            placeholder="Add New Ingredient"
+            @keyup.prevent="addIngredient(ingredient)"
+          />
+          <BaseButton
+            theme="green square"
+            show-icon
+            icon="fas fa-plus"
+            @click="addIngredient(ingredient)"
+          />
+        </div>
+        <div
+          class="list"
+        >
+          <ul>
+            <li
+              v-for="(data, index) in ingredients"
+              :key="index"
+            >
+              <BaseButton
+                v-show="activeEdit"
+                show-icon
+                icon="fas fa-minus-circle"
+                theme="red square-small"
+                @click="removeIngredient(index)"
+              />
+              {{ data }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="buttons">
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
+        v-if="activeEdit"
         show-icon
         icon="fas fa-save"
         theme="circle red"
         @click="saveIngredients"
+      />
+      <BaseButton
+        v-show="show"
+        v-else
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="startEdit"
       />
     </div>
   </div>
@@ -78,9 +82,13 @@ export default {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
+    },
+    warning: {
+      type: String,
+      default: 'warning-border'
     }
   },
   data() {
@@ -103,18 +111,19 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    startEdit() {
+      this.activeEdit = true;
     },
     addIngredient(value){
       this.ingredients.push(value);
       this.ingredient = '';
+      this.value = '';
     },
     removeIngredient(index) {
       this.ingredients.splice(index, 1);
     },
     saveIngredients() {
-      this.edit = true;
+      this.activeEdit = false;
       this.$store.commit('UPDATE_INGREDIENTS', this.ingredients);
     }
   }
@@ -132,11 +141,15 @@ export default {
   justify-content center
   width 100%
   font-family $font
-
+  padding 5px
+  border-radius $br
+.warning-border
+  border 2px dashed $red
+  
 .content
   grid-column 1/2
   display grid
-  grid-template-rows 50px 50px auto
+  grid-template-rows 50px auto
   grid-gap 10px
   justify-content flex-start
   align-items center
@@ -146,19 +159,29 @@ export default {
   grid-row 1/2
   width 100%
   margin 0
+  background-color #fff
+  border-bottom 5px solid $blue
+  padding 0 10px
+  font-size 1.75em
+
+.list-container
+  grid-row 2/3
+  display flex
+  flex-flow column nowrap
+  align-items flex-start
+  justify-content flex-start
 
 .input
-  grid-row 2/3
   width 100%
   display flex
   flex-flow row nowrap 
   justify-content flex-start
   align-items center
+  margin-bottom 10px
   & button, input
     margin-left 10px 
 
 .list
-  grid-row 3/4
   width 100%
   & ul
     margin 0 0 0 10px
@@ -167,15 +190,19 @@ export default {
     & li
       display inline-flex
       width 100%
-      justify-content space-between
+      justify-content flex-start
       align-items center
       padding 5px 10px
       background-color $white
-      border-left 5px solid $blue
+      border-left 5px solid $grey
       margin-bottom 2px
-      color #3E5252
+      color $grey
+      text-align left
       & button
+        margin-right 5px
         display inline-flex
+      & span 
+        margin-right 5px
 
 .buttons
   grid-column 2/3

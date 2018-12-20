@@ -43,13 +43,17 @@ export default new Vuex.Store({
       });
       recipe.description = description;
     },
-    UPDATE_INGREDIENT(state, ingredients) {
+    UPDATE_INGREDIENTS(state, ingredients) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
+      // eslint-disable-next-line no-console
+      console.log(recipe);
+      // eslint-disable-next-line no-console
+      console.log(ingredients);
       recipe.ingredients = ingredients;
     },
-    UPDATE_Steps(state, steps) {
+    UPDATE_STEPS(state, steps) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });

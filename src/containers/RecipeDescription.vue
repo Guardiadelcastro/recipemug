@@ -56,6 +56,10 @@ export default {
       type: Boolean,
       default: false
     },
+    warning: {
+      type: String,
+      default: 'warning-border'
+    }
   },
   data() {
     return {
@@ -92,7 +96,6 @@ export default {
   .recipe-description
     display grid
     grid-template-columns 8fr 1fr
-    grid-template-rows 1fr 4fr
     justify-content center
     align-items center
     width 100%

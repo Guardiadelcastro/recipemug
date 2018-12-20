@@ -78,7 +78,7 @@ import BaseButton from '../components/BaseButton.vue';
 import BaseTextArea from '../components/BaseTextArea.vue';
 
 export default {
-  name: 'IngredientList',
+  name: 'StepList',
   components: {
     BaseButton,
     BaseTextArea
@@ -149,9 +149,6 @@ export default {
   padding 5px
   border-radius $br
 
-.no-border
-  border 2px dashed transparent
-
 .warning-border
   border 2px dashed $red
 
@@ -182,6 +179,9 @@ export default {
   align-items center
   & button, input
     margin-left 10px 
+  & textarea 
+    height 75px
+    overflow scroll
 
 .list
   grid-row 3/4
@@ -197,14 +197,20 @@ export default {
       align-items center
       padding 5px 10px
       background-color $white
-      border-left 5px solid $blue
+      border-left 5px solid $grey
       margin-bottom 2px
-      color #3E5252
-      & p, span, button
+      color $grey
+      & p
         text-align left
         margin-right 5px
       & button
+        text-align left
         display inline-flex
+        margin-right 5px
+      & span 
+        font-family $font-title
+        color $blue
+        margin-right 5px
 
 .buttons
   grid-column 2/3
