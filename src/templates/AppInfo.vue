@@ -48,7 +48,7 @@ export default {
   
   .image
     margin 10px 12px 12px 10px
-    background-image url('http://localhost:8080/src/assets/img/landing7.jpg')
+    background-image url('https://assets.recipemug.club/img/landing7.jpg')
     background-size cover
     display grid
     grid-template-columns 100%
