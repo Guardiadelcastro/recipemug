@@ -47,12 +47,16 @@ export default {
     grid-template-rows 100%
   
   .image
-    margin 10px
+    margin 10px 12px 12px 10px
     background-image url('http://localhost:8080/src/assets/img/landing7.jpg')
     background-size cover
     display grid
     grid-template-columns 100%
     grid-template-rows 100%
+    transition-duration 0.7s
+    -webkit-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
+    -moz-box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4)
     
   .box
     display grid
