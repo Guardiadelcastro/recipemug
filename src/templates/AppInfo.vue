@@ -49,7 +49,8 @@ export default {
     font-family $font
     grid-column 1 / 2
     font-size 2em
-    background-color $ligh-orange
+    background-image url('http://localhost:8080/src/assets/img/landing4.jpg')
+    background-size cover
     border-top-left-radius 30px
     border-top-right-radius 15px
     border-bottom-left-radius 15px

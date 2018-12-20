@@ -171,7 +171,7 @@ export default {
   a
     margin 5px
     font-size 2em
-    color $grey
+    color $black
     :hover
       color $purple
  
