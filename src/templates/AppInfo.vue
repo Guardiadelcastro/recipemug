@@ -66,8 +66,6 @@ export default {
   .top
     grid-column 2 / 3
     grid-row 1 / 2
-    display flex
-    flex-direction column
     display grid
     grid-template-rows 50% 50%
   
@@ -75,7 +73,7 @@ export default {
     grid-row 1 / 2
     color $mustard
     font-family $font-title
-    font-size 2em
+    font-size 2.2em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     display flex
     justify-content center
@@ -94,6 +92,9 @@ export default {
     margin-right 30px
     font-size 1.5em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
+
+  i
+    margin-left 15px
   
   .description
     margin 15px 10px 20px 10px
