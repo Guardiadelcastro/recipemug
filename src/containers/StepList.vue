@@ -1,7 +1,7 @@
 <template>
   <div
     class="step-list"
-    :class="activeEdit ? warning-border : no-border"
+    :class="activeEdit ? warning : no-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
@@ -91,6 +91,10 @@ export default {
     activeEdit: {
       type: Boolean,
       default: false
+    },
+    warning: {
+      type: String,
+      default: 'warning-border'
     }
   },
   data() {

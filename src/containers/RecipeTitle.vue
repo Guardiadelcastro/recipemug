@@ -1,22 +1,22 @@
 <template>
   <div
-    class="container"
+    class="recipe-title"
     :class="activeEdit ? warning : step-list-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
-      <h1
+      <BaseInput
         v-if="activeEdit"
+        v-model="title"
+        @keyup.prevent
+      />
+      <h1
+        v-else
         class="title"
       >
         {{ title }}
       </h1>
-      <BaseInput
-        v-else
-        v-model="title"
-        @keyup.prevent
-      />
     </div>
     <div class="buttons">
       <BaseButton
@@ -57,6 +57,10 @@ export default {
       type: Boolean,
       default: false
     },
+    warning: {
+      type: String,
+      default: 'warning-border'
+    }
   },
   data() {
     return {
@@ -91,12 +95,13 @@ export default {
 <style lang="stylus" scoped>
   @import '../styles/variables'
 
-  .container
+  .recipe-title
     display grid
     grid-template-columns 8fr 1fr
     justify-content center
     width 100%
     font-family $font
+    border-radius $br
 
   .content
     grid-column 1/2
@@ -116,10 +121,11 @@ export default {
   
   .title
     text-align center
-.normal
-  border 2px dashed transparent
 
-.warning
-  border 2px dashed $red
+  .no-border
+    border 2px dashed transparent
+
+  .warning-border
+    border 2px dashed $red  
 </style>
 

@@ -59,8 +59,8 @@ export default new Vuex.Store({
       const newRecipe = {
         title: 'New recipe',
         description: 'New description',
-        ingredients: ['patatas','thomas'],
-        steps: [''],
+        ingredients: [],
+        steps: [],
         img: '', 
         uuid: '0'
       };
