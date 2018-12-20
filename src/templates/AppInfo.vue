@@ -77,19 +77,23 @@ export default {
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     display flex
     justify-content center
-    align-items center
+    align-items flex-end
 
   .links
+    font-family $font
     grid-row 2 / 3
     display flex
     justify-content center
     flex-direction row
-    align-items center
+    align-items flex-end
+    :hover
+      color $purple
 
   a
     color $green2
     text-decoration none
-    margin-right 30px
+    margin-right 25px
+    margin-left 25px
     font-size 1.5em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
 
@@ -97,7 +101,7 @@ export default {
     margin-left 15px
   
   .description
-    margin 15px 10px 20px 10px
+    margin 15px 10px 15px 10px
     font-family $font
     grid-column 2 / 3
     grid-row 2 / 3
@@ -107,6 +111,8 @@ export default {
     margin-left 20px
     margin-right 20px
     text-align justify
+    height 50px
+    font-size 97%
 
 </style>
 
