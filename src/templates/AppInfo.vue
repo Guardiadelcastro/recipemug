@@ -4,7 +4,9 @@
       <div class="box">
         <div class="top">
           <div class="title">
-            What's the App
+            <div class="text1">
+              What's the App
+            </div>
           </div>
           <div class="links">
             <a
@@ -22,7 +24,7 @@
           </div>
         </div>
         <div class="description">
-          <p class="text">
+          <p class="text2">
             RecipeMug es una App para crear tus propias recetas y poder compartirlas con tus amigos, familiares, compañeros de una manera muy sencilla y amena.
           </p>
         </div>
@@ -73,11 +75,14 @@ export default {
     grid-row 1 / 2
     color $mustard
     font-family $font-title
-    font-size 2.2em
+    font-size 2.4em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     display flex
     justify-content center
     align-items flex-end
+  
+  .text1
+    border-bottom 1.5px dashed $dark-grey
 
   .links
     font-family $font
@@ -85,16 +90,16 @@ export default {
     display flex
     justify-content center
     flex-direction row
-    align-items flex-end
+    align-items center
     :hover
       color $purple
 
   a
-    color $green2
+    color $ligh-green
     text-decoration none
     margin-right 25px
     margin-left 25px
-    font-size 1.5em
+    font-size 1.8em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
 
   i
@@ -107,7 +112,7 @@ export default {
     grid-row 2 / 3
     background-color $transparent-mustard
 
-  .text
+  .text2
     margin-left 20px
     margin-right 20px
     text-align justify
