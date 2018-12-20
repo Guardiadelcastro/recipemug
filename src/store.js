@@ -32,17 +32,26 @@ export default new Vuex.Store({
       state.user = user;
     },
     ADD_TITLE(state, title) {
-      state.newRecipe.title = title;
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      recipe.title = title;
     },
     ADD_DESCRIPTION(state, description) {
-      state.newRecipe.description = description;
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      recipe.description = description;
     },
     ADD_INGREDIENT(state, ingredient) {
-      state.newRecipe.ingredients.push(ingredient);
+      const recipe = state.recipes.find((recipe) => {
+        return recipe.uuid == state.activeRecipe;
+      });
+      recipe.ingredient.push(ingredient);
     },
     NEW_RECIPE(state) {
       const newRecipe = {
-        title: '',
+        title: 'New Recipe',
         description: '',
         ingredients: [''],
         steps: [''],

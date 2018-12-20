@@ -9,7 +9,7 @@
         v-if="edit"
         class="title"
       >
-        {{ getTitle }}
+        {{ title }}
       </h1>
       <BaseInput
         v-else
@@ -64,19 +64,18 @@ export default {
     return {
       id: {
         type: Number
-      }
+      },
     };
   },
   computed: {
-    getTitle() {
-      const recipe = this.$store.state.recipes[0].find((recipe) => {
-        return recipe.uuid == this.id;
-      });
-      return recipe.title;
-    }
+   
   },
   mounted() {
     this.id = this.$store.state.activeRecipe;
+    const recipe = this.$store.state.recipes.find((recipe) => {
+      return recipe.uuid == this.id;
+    });
+    this.title = recipe.title;
   },
   methods: {
     showButtons() {
