@@ -113,6 +113,7 @@ export default {
     text-align justify
     height 50px
     font-size 97%
+    text-shadow: 0px 0.1px 0px;
 
 </style>
 

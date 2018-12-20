@@ -120,6 +120,7 @@ export default {
     margin 15px 25px 0px 25px
     height 80px
     background $transparent
+    text-shadow: 0px 0.1px 0px;
 
   .members
     //border 1px solid $black
