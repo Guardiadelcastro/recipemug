@@ -8,7 +8,9 @@
     </div>
     <div class="members">
       <div class="developer A">
-        <div class="box" />
+        <div class="box1">
+          <div class="photo" />
+        </div>
         <p>Alejandro Castro de la Guardia</p>
         <div class="links">
           <a
@@ -26,7 +28,7 @@
         </div>
       </div>
       <div class="developer B">
-        <div class="box" />
+        <div class="box2" />
         <p>Aythami Z. Martín González</p>
         <div class="links">
           <a
@@ -44,7 +46,7 @@
         </div>
       </div>
       <div class="developer C">
-        <div class="box" />
+        <div class="box3" />
         <p>Richard Morales Luis</p>
         <div class="links">
           <a
@@ -62,7 +64,7 @@
         </div>  
       </div>
       <div class="developer D"> 
-        <div class="box" />
+        <div class="box4" />
         <p>Javier Pérez García</p>
         <div class="links">
           <a
@@ -144,8 +146,37 @@ export default {
     height 100%
     width 280px
    
-  .box
-    background $white
+  .box1
+    background-image url(localhost:8080/src/assets/img/aboutus/alejandro.jpg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
+  .box2
+    background-image url(localhost:8080/src/assets/img/aboutus/aythami.jpg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
+  .box3
+    background-image url(localhost:8080/src/assets/img/aboutus/richard.jpg)
+    background-size cover
     display flex
     align-items center
     justify-content center
@@ -157,6 +188,20 @@ export default {
     flex-direction column
     margin-top 10px
   
+  .box4
+    background-image url(localhost:8080/src/assets/img/aboutus/javier.jpeg)
+    background-size cover
+    display flex
+    align-items center
+    justify-content center
+    width 200px
+    height 200px
+    border 1px solid black
+    margin 0px 0px 10px 0px
+    border-radius 50%
+    flex-direction column
+    margin-top 10px
+
   .links
     flex-direction row
   
@@ -171,7 +216,7 @@ export default {
   a
     margin 5px
     font-size 2em
-    color $grey
+    color $black
     :hover
       color $purple
  
