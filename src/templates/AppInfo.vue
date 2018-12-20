@@ -82,7 +82,7 @@ export default {
     align-items flex-end
   
   .text1
-    border-bottom 1.5px dashed $dark-grey
+    border-bottom 1.5px dashed $black
 
   .links
     font-family $font
