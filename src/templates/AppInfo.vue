@@ -8,25 +8,25 @@
               What's the App
             </div>
           </div>
-          <div class="links">
-            <a
-              href="https://github.com/Guardiadelcastro/recipemug"
-              target="_blank"
-            >
-              <p>Front-end<i class="fab fa-github" /></p>  
-            </a>
-            <a
-              href="https://github.com/Guardiadelcastro/recipemug-backend"
-              target="_blank"
-            >
-              <p>Back-end<i class="fab fa-github" /></p>
-            </a>
-          </div>
         </div>
         <div class="description">
           <p class="text2">
             RecipeMug es una App para crear tus propias recetas y poder compartirlas con tus amigos, familiares, compañeros de una manera muy sencilla y amena.
           </p>
+        </div>
+        <div class="links">
+          <a
+            href="https://github.com/Guardiadelcastro/recipemug"
+            target="_blank"
+          >
+            <p>Front-end<i class="fab fa-github" /></p>  
+          </a>
+          <a
+            href="https://github.com/Guardiadelcastro/recipemug-backend"
+            target="_blank"
+          >
+            <p>Back-end<i class="fab fa-github" /></p>
+          </a>
         </div>
       </div>
     </div>
@@ -62,31 +62,32 @@ export default {
     
   .box
     display grid
-    grid-template-columns 10% 73% 17%
-    grid-template-rows 34% 66%
+    grid-template-columns 15% 70% 15%
+    grid-template-rows 20% 65% 15%
 
   .top
     grid-column 2 / 3
     grid-row 1 / 2
-    display grid
-    grid-template-rows 50% 50%
+    display flex
+    justify-content center
+    align-items center
   
   .title
-    grid-row 1 / 2
     color $mustard
     font-family $font-title
     font-size 2.4em
     text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px
     display flex
-    justify-content center
-    align-items flex-end
+    //justify-content center
+    //align-items center
   
   .text1
     border-bottom 1.5px dashed $black
 
   .links
     font-family $font
-    grid-row 2 / 3
+    grid-row 3 / 4
+    grid-column 2 / 3
     display flex
     justify-content center
     flex-direction row
@@ -106,7 +107,6 @@ export default {
     margin-left 15px
   
   .description
-    margin 15px 10px 15px 10px
     font-family $font
     grid-column 2 / 3
     grid-row 2 / 3
