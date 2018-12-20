@@ -121,6 +121,10 @@ export default {
   
   .title
     text-align center
+    font-size 2.5em
+    background-color #fff
+    border-bottom 5px solid $blue
+    padding 0 10px
 
   .no-border
     border 2px dashed transparent

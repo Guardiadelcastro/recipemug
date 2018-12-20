@@ -1,36 +1,37 @@
 <template>
   <div 
-    class="grid"
+    class="recipe-description"
+    :class="activeEdit ? warning : no-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
+      <BaseTextArea
+        v-if="activeEdit"
+        v-model="description"
+      />
       <p
-        v-if="edit"
+        v-else
         class="description"
       >
         {{ description }}
       </p>
-      <BaseTextArea
-        v-else
-        v-model="description"
-      />
     </div>
     <div class="buttons">
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
+        v-if="activeEdit"
         show-icon
         icon="fas fa-save"
         theme="circle red"
-        @click="saveElement"
+        @click="saveDescription"
+      />
+      <BaseButton
+        v-show="show"
+        v-else
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="startEdit"
       />
     </div>
   </div>
@@ -51,18 +52,22 @@ export default {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
     },
   },
   data() {
     return {
-      description: {
-        type: String,
-        default: ''
-      }
+      description: ''
     };
+  },
+  mounted() {
+    this.id = this.$store.state.activeRecipe;
+    const recipe = this.$store.state.recipes.find((recipe) => {
+      return recipe.uuid == this.id;
+    });
+    this.description = recipe.description;
   },
   methods: {
     showButtons() {
@@ -71,12 +76,12 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    startEdit() {
+      this.activeEdit = true;
     },
-    saveElement() {
-      this.edit = true;
-      this.$store.commit('ADD_DESCRIPTION', this.description);
+    saveDescription() {
+      this.activeEdit = false;
+      this.$store.commit('UPDATE_DESCRIPTION', this.description);
     }
   }
 };
@@ -84,7 +89,7 @@ export default {
 
 <style lang="stylus" scoped>
   @import '../styles/variables'
-  .grid
+  .recipe-description
     display grid
     grid-template-columns 8fr 1fr
     grid-template-rows 1fr 4fr
@@ -92,6 +97,10 @@ export default {
     align-items center
     width 100%
     font-family $font
+    border-radius $br
+
+  .warning-border
+    border 2px dashed $red
 
   .title
     grid-column 1/3
@@ -109,6 +118,10 @@ export default {
     
   .description
     align-self flex-start
+    background-color #fff
+    border-left 5px solid $blue
+    padding 0 10px
+    font-size 1.25em
 
   .buttons
     grid-column 2/3

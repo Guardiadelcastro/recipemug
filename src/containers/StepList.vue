@@ -168,8 +168,10 @@ export default {
   grid-row 1/2
   width 100%
   margin 0
-  font-family $font-title
-  color $blue
+  background-color #fff
+  border-bottom 5px solid $blue
+  padding 0 10px
+  font-size 1.75em
 
 .text-area
   grid-row 2/3
