@@ -73,5 +73,13 @@ export default new Vuex.Store({
     MAKE_ACTIVE(state, id) {
       state.activeRecipe = id;
     }
+  },
+  actions: {
+    UPDATE_TITLE(context) {
+      context.commit('UPDATE_TITLE');
+    },
+    UPDATE_DESCRIPTION(context) {
+      context.commit('UPDATE_DESCRIPTION');
+    }
   }
 });

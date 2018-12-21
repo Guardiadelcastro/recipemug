@@ -85,7 +85,7 @@ export default {
     },
     saveDescription() {
       this.activeEdit = false;
-      this.$store.commit('UPDATE_DESCRIPTION', this.description);
+      this.$store.dispatch('UPDATE_DESCRIPTION', this.description);
     }
   }
 };

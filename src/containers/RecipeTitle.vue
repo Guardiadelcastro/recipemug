@@ -86,7 +86,7 @@ export default {
     },
     saveTitle() {
       this.activeEdit = false;
-      this.$store.commit('UPDATE_TITLE', this.title);
+      this.$store.dispatch('UPDATE_TITLE', this.title);
     }
   }
 };

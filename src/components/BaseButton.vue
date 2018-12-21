@@ -137,12 +137,11 @@ button
 
 .grey
   color $white
-    background-color $grey
-    border-color transparent
-
+  background-color $grey
+  border-color transparent
     &:hover
       background-color $dark-grey
-
+      border-color $dark-grey
     &:active
       background-color $white
       color $grey
