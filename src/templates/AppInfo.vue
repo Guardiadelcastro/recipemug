@@ -11,7 +11,7 @@
         </div>
         <div class="description">
           <p class="text2">
-            Recipe Mug es una página web que está hecha para todas aquellas personas apasionadas por la cocina que deseen crear sus propias recetas de manera sencilla y cómoda, además de tener la posibilidad de poder archivar las recetas para consultarlas cuando quiera. Aparte podrás ser dueño de tu propio planing de la semana para organizar tus recetas y no estar pensando en que hacer de comer.
+            Recipe Mug is a web app made for all those passionate about cooking. For those who want to create their own recipes in a simple and comfortable way, as well as always having access to your recipes for reference whenever you want. Also, you can plan your week in advance with the meals you already have created, making a process that is tedius more managable. Or you can store meal plans for special days, like Christmas or a simple family get-together.
           </p>
           <div class="photo" />
         </div>
