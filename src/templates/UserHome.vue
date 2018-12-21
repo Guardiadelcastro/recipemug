@@ -10,11 +10,12 @@
 <script>
 import AllRecipes from '../containers/AllRecipes.vue';
 
+
 export default {
   name: 'DashboardHome',
   components: {
     AllRecipes
-  }
+  },
 };
 </script>
 

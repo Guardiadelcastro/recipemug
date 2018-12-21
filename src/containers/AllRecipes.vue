@@ -19,7 +19,7 @@
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
-
+import axios from 'axios';
 export default {
   name: 'AllRecipes',
   components: {
@@ -34,6 +34,12 @@ export default {
     };
   },
   mounted() {
+    const id = this.$store.state.user[0].uuid;
+    axios
+      .get('http://localhost:3000/recipes/'+ id)
+      .then((recipes) => {
+        this.$store.commit('ADD_RECIPES', recipes.data);
+      });
     this.recipes = this.$store.state.recipes;
   },
   methods: {
