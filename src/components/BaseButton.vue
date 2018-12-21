@@ -67,13 +67,16 @@ button
 
 .square 
   square(35px)
+  padding 0
 
 .square-small 
   square(10px)
+  padding 0
 
 .circle
   square(45px)
   border-radius 50px
+  padding 0
 
 .blue
   color $white
