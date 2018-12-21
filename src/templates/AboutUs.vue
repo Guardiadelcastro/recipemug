@@ -5,7 +5,7 @@
     </div>
     <div class="description">
       <p class="text">
-        Occaecati accusantium dicta accusantium beatae dignissimos doloremque. Sed architecto exercitationem nemo voluptatum omnis laudantium id voluptatibus. Neque nobis eaque omnis nihil libero sequi cupiditate. Odit ratione illo ea magnam velit magnam at. Soluta suscipit dolores aut itaque dolorum. Et et non enim provident voluptas. Magni itaque iste architecto. Necessitatibus est rerum ipsa et non non nisi mollitia. Dicta ut exercitationem eos facere hic laboriosam. 
+        Somos un grupo formado por 4 jóvenes entusiastas de la Informática y la Tecnología, que se están inicializando en el mundo de la programación web gracias a la docencia impartida por el profesorado de la Escuela de Organización Industrial (EOI). En concreto, ha sido durante nuestra estancia en el curso Full Stack organizado en Santa Cruz de Tenerife, el cual nos ha permitido empaparnos de los conocimientos necesarios para poder llevar a cabo nuestra propia página web.
       </p>  
     </div>
     <div class="members">

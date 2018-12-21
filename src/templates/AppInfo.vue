@@ -5,14 +5,15 @@
         <div class="top">
           <div class="title">
             <div class="text1">
-              What's the App
+              Recipe Mug
             </div>
           </div>
         </div>
         <div class="description">
           <p class="text2">
-            RecipeMug es una App para crear tus propias recetas y poder compartirlas con tus amigos, familiares, compañeros de una manera muy sencilla y amena.
+            Recipe Mug es una página web que está hecha para todas aquellas personas apasionadas por la cocina que deseen crear sus propias recetas de manera sencilla y cómoda, además de tener la posibilidad de poder archivar las recetas para consultarlas cuando quiera. Aparte podrás ser dueño de tu propio planing de la semana para organizar tus recetas y no estar pensando en que hacer de comer.
           </p>
+          <div class="photo" />
         </div>
         <div class="links">
           <a
@@ -73,6 +74,7 @@ export default {
     align-items center
   
   .title
+    margin-bottom 5px
     color $mustard
     font-family $font-title
     font-size 2.4em
@@ -111,14 +113,27 @@ export default {
     grid-column 2 / 3
     grid-row 2 / 3
     background-color $transparent-mustard
+    display grid
+    grid-template-columns 50% 50%
+    grid-template-rows 100%
+    line-height 35px
 
   .text2
-    margin-left 20px
-    margin-right 20px
+    margin 15px 10px 15px 5px
     text-align justify
-    height 50px
-    font-size 97%
-    text-shadow: 0px 0.1px 0px;
+    font-size 100%
+    text-shadow 0px 0.1px 0px
+    grid-column 2 / 3
+    grid-row 1 / 2
+    display flex
+    align-items center
+
+  .photo
+    grid-column 1 / 2
+    grid-row 1 / 2
+    background-image url('localhost:8080/src/assets/img/landing9.jpg')
+    background-size cover
+    margin 5px
 
 </style>
 
