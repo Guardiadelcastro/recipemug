@@ -62,8 +62,8 @@ button
   transition ease 0.3s
   cursor pointer
   font-weight bold
+  border-radius $br
   padding 10px
-  border-radius 5px
 
 .square 
   square(35px)
