@@ -36,7 +36,7 @@ export default {
   mounted() {
     const id = this.$store.state.user[0].uuid;
     axios
-      .get('http://localhost:3000/recipes/'+ id)
+      .get('http://api.recipemug.club/recipes/'+ id)
       .then((recipes) => {
         this.$store.commit('ADD_RECIPES', recipes.data);
       });

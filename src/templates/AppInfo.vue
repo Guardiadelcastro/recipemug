@@ -131,7 +131,7 @@ export default {
   .photo
     grid-column 1 / 2
     grid-row 1 / 2
-    background-image url('localhost:8080/src/assets/img/landing9.jpg')
+    background-image url('https://assets.recipemug.club/src/assets/img/landing9.jpg')
     background-size cover
     margin 5px
 

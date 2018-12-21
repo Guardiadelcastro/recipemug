@@ -133,11 +133,9 @@ export default {
     },
     logIn() {
       const email = document.getElementById('email').value;
-      
-      //const user = axios.get('http://localhost:3000/users/email/'+email).then((user) => {return user;})
-      
+            
       axios
-        .get('http://localhost:3000/users/email/' + email)
+        .get('http://api.recipemug.club/users/email/' + email)
         .then((user) => {
           this.$store.commit('ADD_USER', user.data);
           this.$router.push({path:'/dashboard/home'});
