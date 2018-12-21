@@ -8,34 +8,34 @@
       </div> 
       <div class="info1">
         <div class="first-data">
-          Es gratis
+          Share your recipes
         </div>
         <div class="second-data">
-          Es simple
+          Access to meal-plans
         </div>
         <div class="third-data">
-          Almacenamiento de recetas limitado
+          Unlimited creation of recipes
         </div>
       </div>
     </div>
     <div class="premium-method">
       <div class="image2">
         <div class="plan2">
-          Premium Plan
+          Members Plan
         </div>
       </div>
       <div class="info2">
         <div class="data1">
-          Coste: 6€
+          Price: 5€/month
         </div>
         <div class="data2">
-          Es simple
+          Creation of your own categories
         </div>
         <div class="data3">
-          Almacenamiento de recetas ilimitado
+          Extension of meal plans and weekly planning
         </div>
         <div class="data4">
-          Ampliación del planning semanal
+          Access to 'Cook your recipe' functionality
         </div>
       </div>
     </div>
@@ -105,7 +105,8 @@ export default {
     justify-content center
     align-items center
     font-family $font
-    border-right 1px solid black
+    border-right 1px solid $black
+    font-size 23px
   
   .second-data
     grid-row 1 / 2
@@ -114,6 +115,7 @@ export default {
     justify-content center
     align-items center
     font-family $font
+    font-size 23px
 
   .third-data
     grid-row 2 / 3
@@ -122,9 +124,8 @@ export default {
     justify-content center
     align-items center
     font-family $font
-    border-top 1px solid black
-  
-  .data
+    border-top 1px solid $black
+    font-size 23px
 
   .premium-method
     grid-column 2 / 3
@@ -156,40 +157,35 @@ export default {
     display grid
     grid-template-rows 25% 25% 25% 25%
     grid-template-columns 100%
+  
+  .data1, .data2, .data3, .data4
+    display flex
+    justify-content center
+    align-items center
+    font-family $font
+    font-size 23px
+    text-align center
 
   .data1
     grid-row 1 / 2
     grid-column 1 / 2
-    display flex
-    justify-content center
-    align-items center
-    font-family $font
+    
   
   .data2
     grid-row 2 / 3
     grid-column 1 / 2
-    display flex
-    justify-content center
-    align-items center
-    font-family $font
     border-top 1px solid black
+    
   
   .data3
     grid-row 3 / 4
     grid-column 1 / 2
-    display flex
-    justify-content center
-    align-items center
-    font-family $font
     border-top 1px solid black
-  
+   
+
   .data4
     grid-row 4 / 5
     grid-column 1 / 2
-    display flex
-    justify-content center
-    align-items center
-    font-family $font
     border-top 1px solid black
 
 </style>

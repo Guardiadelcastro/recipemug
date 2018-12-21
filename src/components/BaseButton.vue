@@ -168,7 +168,7 @@ background-color $dark-red
 .login-button
   background $transparent
   border none
-  color $blue
+  color $dark-blue
   &:hover
     background-color darken($transparent, 30%)
 
