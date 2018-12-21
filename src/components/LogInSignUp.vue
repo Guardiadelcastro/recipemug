@@ -132,10 +132,10 @@ export default {
       this.active = false;
     },
     logIn() {
-      const email = document.getElementById('email').value;
+      //const email = document.getElementById('email').value;
             
       axios
-        .get('http://api.recipemug.club/users/email/' + email)
+        .get('https://api.recipemug.club/users/email/user@gmail.com')
         .then((user) => {
           this.$store.commit('ADD_USER', user.data);
           this.$router.push({path:'/dashboard/home'});

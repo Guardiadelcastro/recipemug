@@ -66,14 +66,14 @@ export default new Vuex.Store({
       const user_id = state.user[0].uuid;
       state.recipes.forEach((recipe) => {
         if(recipe.uuid == 0) {
-          axios.post('http://api.recipemug.club/recipes/'+user_id, recipe)
+          axios.post('https://api.recipemug.club/recipes/'+user_id, recipe)
           // eslint-disable-next-line no-console
             .then((message) => console.log(message))
           // eslint-disable-next-line no-console
             .catch((err) => console.log(err));
         } else {
           const id = recipe.uuid;
-          axios.put('http://api.recipemug.club/recipes/'+id, recipe)
+          axios.put('https://api.recipemug.club/recipes/'+id, recipe)
             // eslint-disable-next-line no-console
             .then((message) => console.log(message))
           // eslint-disable-next-line no-console
@@ -83,7 +83,7 @@ export default new Vuex.Store({
       state.recipes = [];
       const id = state.user[0].uuid;
       axios
-        .get('http://api.recipemug.club/recipes/'+ id)
+        .get('https://api.recipemug.club/recipes/'+ id)
         .then((recipes) => {
           state.recipes = recipes.data;
         });
