@@ -14,7 +14,8 @@ export default new Vuex.Store({
     ],
     user:{},
     recipes: [],
-    activeRecipe: -1
+    activeRecipe: -1,
+    editActive: false
   },
   getters: {
     getIngredients(state) {
@@ -27,7 +28,7 @@ export default new Vuex.Store({
   mutations: {
     ADD_RECIPES(state, recipes) {
       state.recipes = recipes;
-    }, 
+    },  
     ADD_USER(state, user) {
       state.user = user;
     },
@@ -72,14 +73,9 @@ export default new Vuex.Store({
     },
     MAKE_ACTIVE(state, id) {
       state.activeRecipe = id;
-    }
-  },
-  actions: {
-    UPDATE_TITLE(context) {
-      context.commit('UPDATE_TITLE');
     },
-    UPDATE_DESCRIPTION(context) {
-      context.commit('UPDATE_DESCRIPTION');
-    }
+    ACTIVATE_EDIT(state) {
+      state.editActive = true;
+    },
   }
 });

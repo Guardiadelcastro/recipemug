@@ -2,7 +2,7 @@
   <div
     class="recipe-title"
     :class="activeEdit ? warning : step-list-border"
-    @mouseenter="showButtons"
+    @mouseenter=" editActive ? showButtons: null"
     @mouseleave="removeButtons"
   >
     <div class="content">
@@ -81,12 +81,15 @@ export default {
     removeButtons() {
       this.show = false;
     },
+    hideButtons() {
+
+    },
     startEdit() {
       this.activeEdit = true;
     },
     saveTitle() {
       this.activeEdit = false;
-      this.$store.dispatch('UPDATE_TITLE', this.title);
+      this.$store.commit('UPDATE_TITLE', this.title);
     }
   }
 };

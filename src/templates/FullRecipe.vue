@@ -7,19 +7,23 @@
         theme="orange"
         @click="saveRecipe"
       />
-      <BaseButton
+      <div
         v-else
-        theme="circle blue"
-        show-icon
-        icon="fas fa-edit"
-        @click="editRecipe"
-      />
-      <BaseButton
-        theme="circle grey"
-        show-icon
-        icon="fas fa-share-square"
-        @click="shareRecipe"
-      />
+        class="context-buttons"
+      >
+        <BaseButton
+          theme="circle blue"
+          show-icon
+          icon="fas fa-edit"
+          @click="editRecipe"
+        />
+        <BaseButton
+          theme="circle green"
+          show-icon
+          icon="fas fa-share-square"
+          @click="shareRecipe"
+        />
+      </div>
     </div>
     <div class="recipe">
       <RecipeTitle />
@@ -47,17 +51,23 @@ export default {
     StepList
   },
   props: {
-    editActive: {
-      type: Boolean,
-      default: false
-    }
+  },
+  data() {
+    return {
+      editActive: {
+        type: Boolean,
+        default: false
+      }
+    };
+  },
+  computed() {
+    this.store.state.editActive = this.editActive;
   },
   methods: {
     editRecipe() {
-      this.editActive = true;
+      this.$store.commit('ACTIVATE_EDIT');
     },
     saveRecipe() {
-      this.editActive = false;
       this.$store.commit('SAVE_NEW_RECIPE');
     }
   }
@@ -83,6 +93,13 @@ export default {
   display flex
   align-items center
   justify-content center
+
+.context-buttons
+  display flex
+  flex-flow row nowrap 
+  width 200px
+  justify-content space-evenly
+  align-items center
 
 .recipe
   grid-row 2/3
