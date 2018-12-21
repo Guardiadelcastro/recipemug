@@ -113,7 +113,8 @@ export default {
       default: ''
     },
     active: {
-      type: Boolean
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -139,7 +140,7 @@ export default {
         .get('http://localhost:3000/users/email/' + email)
         .then((user) => {
           this.$store.commit('ADD_USER', user.data);
-          this.$router.push({name:'dashboard'});
+          this.$router.push({path:'/dashboard/home'});
         })
         .catch((err) => {
           // eslint-disable-next-line no-console

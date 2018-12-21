@@ -47,10 +47,11 @@ export default {
     resize none
     padding 10px
     width 600px
-    height 200px
+    height 150px
     border-radius $br
     font-family $font
     font-size 16px
+    background $white
 
   .default
     border 1px solid $blue

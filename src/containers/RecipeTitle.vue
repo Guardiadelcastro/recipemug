@@ -1,36 +1,38 @@
 <template>
   <div
-    class="container"
+    class="recipe-title"
+    :class="activeEdit ? warning : step-list-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">
+      <BaseInput
+        v-if="activeEdit"
+        v-model="title"
+        @keyup.prevent
+      />
       <h1
-        v-if="edit"
+        v-else
         class="title"
       >
         {{ title }}
       </h1>
-      <BaseInput
-        v-else
-        v-model="title"
-      />
     </div>
     <div class="buttons">
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
+        v-if="activeEdit"
         show-icon
         icon="fas fa-save"
         theme="circle red"
-        @click="saveElement"
+        @click="saveTitle"
+      />
+      <BaseButton
+        v-show="show"
+        v-else
+        show-icon
+        icon="fas fa-edit"
+        theme="circle blue"
+        @click="startEdit"
       />
     </div>
   </div>
@@ -47,18 +49,30 @@ export default {
     BaseButton
   },
   props: {
-    title: {
-      type: String,
-      default: 'My Recipe'
-    },
     show: {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
     },
+    warning: {
+      type: String,
+      default: 'warning-border'
+    }
+  },
+  data() {
+    return {
+      title: ''
+    };
+  },
+  mounted() {
+    this.id = this.$store.state.activeRecipe;
+    const recipe = this.$store.state.recipes.find((recipe) => {
+      return recipe.uuid == this.id;
+    });
+    this.title = recipe.title;
   },
   methods: {
     showButtons() {
@@ -67,11 +81,15 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    hideButtons() {
+
     },
-    saveElement() {
-      this.edit = true;
+    startEdit() {
+      this.activeEdit = true;
+    },
+    saveTitle() {
+      this.activeEdit = false;
+      this.$store.commit('UPDATE_TITLE', this.title);
     }
   }
 };
@@ -80,12 +98,13 @@ export default {
 <style lang="stylus" scoped>
   @import '../styles/variables'
 
-  .container
+  .recipe-title
     display grid
     grid-template-columns 8fr 1fr
     justify-content center
     width 100%
     font-family $font
+    border-radius $br
 
   .content
     grid-column 1/2
@@ -102,8 +121,18 @@ export default {
     justify-content center
     align-items center
 
+  
   .title
     text-align center
+    font-size 2.5em
+    background-color #fff
+    border-bottom 5px solid $blue
+    padding 0 10px
 
+  .no-border
+    border 2px dashed transparent
+
+  .warning-border
+    border 2px dashed $red  
 </style>
 

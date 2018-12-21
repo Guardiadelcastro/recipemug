@@ -2,6 +2,7 @@
   <button 
     :class="theme"
     @click.prevent="handleClick"
+    @keyup.prevent
   >
     <Icon
       v-if="showIcon"
@@ -65,10 +66,16 @@ button
 
 .square 
   square(35px)
+  padding 0
+
+.square-small 
+  square(10px)
+  padding 0
 
 .circle
   square(45px)
   border-radius 50px
+  padding 0
 
 .blue
   color $white
@@ -132,12 +139,11 @@ button
 
 .grey
   color $white
-    background-color $grey
-    border-color transparent
-
+  background-color $grey
+  border-color transparent
     &:hover
       background-color $dark-grey
-
+      border-color $dark-grey
     &:active
       background-color $white
       color $grey
