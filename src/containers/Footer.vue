@@ -28,6 +28,7 @@ export default {
     font-family $font
     margin-bottom 15px
     font-size 13px
+    text-shadow 0px 0.1px 0px
 
 </style>
 
