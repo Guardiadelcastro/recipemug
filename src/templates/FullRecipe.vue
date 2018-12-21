@@ -15,6 +15,7 @@
       <IngredientList />
       <StepList />
     </div>
+    <div>{{ this.$store.state.recipes }}</div>
   </div>
 </template>
 
@@ -55,8 +56,8 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    
+  beforeDestroy() {
+    this.$store.commit('INITIALIZE_RECIPES');
   },
   methods: {
     editRecipe() {

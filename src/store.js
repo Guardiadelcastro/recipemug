@@ -27,6 +27,7 @@ export default new Vuex.Store({
   }, 
   mutations: {
     ADD_RECIPES(state, recipes) {
+      state.recipes = [];
       state.recipes = recipes;
     }, 
     ADD_USER(state, user) {
@@ -60,8 +61,31 @@ export default new Vuex.Store({
       });
       recipe.steps = steps;
     },
-    SAVE_NEW_RECIPE() {
-       
+    SAVE_NEW_RECIPE(state) {
+      const user_id = state.user[0].uuid;
+      state.recipes.forEach((recipe) => {
+        if(recipe.uuid == 0) {
+          axios.post('http://localhost:3000/recipes/'+user_id, recipe)
+          // eslint-disable-next-line no-console
+            .then((message) => console.log(message))
+          // eslint-disable-next-line no-console
+            .catch((err) => console.log(err));
+        } else {
+          const id = recipe.uuid;
+          axios.put('http://localhost:3000/recipes/'+id, recipe)
+            // eslint-disable-next-line no-console
+            .then((message) => console.log(message))
+          // eslint-disable-next-line no-console
+            .catch((err) => console.log(err));
+        }
+      });
+      state.recipes = [];
+      const id = state.user[0].uuid;
+      axios
+        .get('http://localhost:3000/recipes/'+ id)
+        .then((recipes) => {
+          state.recipes = recipes.data;
+        });
     },
     NEW_RECIPE(state) {
       const newRecipe = {
@@ -76,6 +100,6 @@ export default new Vuex.Store({
     },
     MAKE_ACTIVE(state, id) {
       state.activeRecipe = id;
-    }
+    },
   }
 });

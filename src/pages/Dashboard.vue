@@ -19,7 +19,7 @@ export default {
   components: {
     DashNavBar,
     SideBar,
-  },  
+  },
   mounted() {
     const id = this.$store.state.user[0].uuid;
     axios
