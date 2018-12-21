@@ -98,7 +98,7 @@ export default {
       color $purple
 
   a
-    color $ligh-green
+    color $light-green
     text-decoration none
     margin-right 25px
     margin-left 25px
