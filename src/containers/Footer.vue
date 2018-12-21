@@ -17,7 +17,7 @@ export default {
 @import '../styles/variables'
 
   .footer
-    background-color $ligh-green
+    background-color $light-green
     grid-column 1 / 4
     grid-row 4 / 5
     display flex
