@@ -20,7 +20,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Recipe Mug',
       component: HomePage,
       children: [
         {
@@ -47,7 +46,6 @@ export default new Router({
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
       component: Dashboard,
       children: [
         {

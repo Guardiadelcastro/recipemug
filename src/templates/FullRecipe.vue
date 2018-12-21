@@ -2,11 +2,23 @@
   <div class="full-recipe">
     <div class="buttons">
       <BaseButton
+        v-if="editActive"
         name="Cook the new Recipe"
-        theme="blue"
-        icon="fas fa-search"
-        show="true"
+        theme="orange"
         @click="saveRecipe"
+      />
+      <BaseButton
+        v-else
+        theme="circle blue"
+        show-icon
+        icon="fas fa-edit"
+        @click="editRecipe"
+      />
+      <BaseButton
+        theme="circle grey"
+        show-icon
+        icon="fas fa-share-square"
+        @click="shareRecipe"
       />
     </div>
     <div class="recipe">
@@ -36,19 +48,7 @@ export default {
     StepList
   },
   props: {
-    edit: {
-      type: Boolean,
-      default: false
-    },
-    toggleButton: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    new: {
+    editActive: {
       type: Boolean,
       default: false
     }
@@ -61,16 +61,10 @@ export default {
   },
   methods: {
     editRecipe() {
-      this.edit = !this.edit;
-      this.toggleButton = !this.toggleButton;
-      this.disabled = !this.disabled;
+      this.editActive = true;
     },
-
     saveRecipe() {
-      // Handle save
-      this.edit = !this.edit;
-      this.toggleButton =!this.toggleButton;
-      this.disabled = !this.disabled;
+      this.editActive = false;
       this.$store.commit('SAVE_NEW_RECIPE');
     }
   }
@@ -93,12 +87,16 @@ export default {
 
 .buttons
   grid-row 1/2
+  display flex
+  align-items center
+  justify-content center
 
 .recipe
   grid-row 2/3
   overflow scroll
   border-radius 6px
   background #fff
+  padding 10px
 
 </style>
 
