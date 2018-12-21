@@ -143,6 +143,7 @@ export default {
   font-family $font
   padding 5px
   border-radius $br
+  
 .warning-border
   border 2px dashed $red
   

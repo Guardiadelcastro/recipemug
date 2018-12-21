@@ -26,7 +26,7 @@
         />
       </div>
       <div
-        class="list"
+        class="list-steps"
       >
         <ul>
           <li
@@ -44,9 +44,7 @@
               {{ index + 1 }}. 
             </p>
             <span /> 
-            <p class="paragraph">
-              {{ data }}
-            </p>
+            {{ data }}
           </li>
         </ul>
       </div>
@@ -183,9 +181,10 @@ export default {
     height 75px
     overflow scroll
 
-.list
+.list-steps
   grid-row 3/4
   width 100%
+  height auto
   & ul
     margin 0 0 0 10px
     padding 0
@@ -200,9 +199,7 @@ export default {
       border-left 5px solid $grey
       margin-bottom 2px
       color $grey
-      & p
-        text-align left
-        margin-right 5px
+      text-align left
       & button
         text-align left
         display inline-flex

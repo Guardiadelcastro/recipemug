@@ -62,6 +62,7 @@ button
   transition ease 0.3s
   cursor pointer
   font-weight bold
+  padding 10px
   border-radius 5px
 
 .square 
