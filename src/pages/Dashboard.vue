@@ -19,7 +19,7 @@ export default {
   components: {
     DashNavBar,
     SideBar,
-  },  
+  },
   mounted() {
     const id = this.$store.state.user[0].uuid;
     axios
@@ -27,7 +27,6 @@ export default {
       .then((recipes) => {
         this.$store.commit('ADD_RECIPES', recipes.data);
       });
-
   }
 };
 </script>

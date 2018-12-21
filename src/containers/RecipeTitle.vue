@@ -2,7 +2,7 @@
   <div
     class="recipe-title"
     :class="activeEdit ? warning : step-list-border"
-    @mouseenter=" editActive ? showButtons: null"
+    @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
     <div class="content">

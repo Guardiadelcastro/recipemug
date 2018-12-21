@@ -2,28 +2,20 @@
   <div class="full-recipe">
     <div class="buttons">
       <BaseButton
-        v-if="editActive"
-        name="Cook the new Recipe"
-        theme="orange"
+        name="Save Recipe"
+        theme="red"
         @click="saveRecipe"
       />
-      <div
-        v-else
-        class="context-buttons"
-      >
-        <BaseButton
-          theme="circle blue"
-          show-icon
-          icon="fas fa-edit"
-          @click="editRecipe"
-        />
-        <BaseButton
-          theme="circle green"
-          show-icon
-          icon="fas fa-share-square"
-          @click="shareRecipe"
-        />
-      </div>
+      <BaseButton
+        theme="circle blue"
+        show-icon
+        icon="fas fa-edit"
+      />
+      <BaseButton
+        theme="circle green"
+        show-icon
+        icon="fas fa-share-square"
+      />
     </div>
     <div class="recipe">
       <RecipeTitle />
@@ -54,20 +46,12 @@ export default {
   },
   data() {
     return {
-      editActive: {
-        type: Boolean,
-        default: false
-      }
+      editActive: false
     };
   },
-  computed() {
-    this.store.state.editActive = this.editActive;
-  },
   methods: {
-    editRecipe() {
-      this.$store.commit('ACTIVATE_EDIT');
-    },
     saveRecipe() {
+      this.$router.push({path:'/dashboard/home'});
       this.$store.commit('SAVE_NEW_RECIPE');
     }
   }
