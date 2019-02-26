@@ -1,38 +1,35 @@
 <template>
-  <input 
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup.prevent="handleInput"
-  >
+  <div>
+    <label v-if="label">{{ label }}</label>
+    <input 
+      v-model="content" 
+      :class="theme"
+      v-bind="$attrs"
+      :value="value"
+      v-on="listeners"
+      @input="updateValue"
+    >
+  </div>
 </template>
 
 <script>
+import { formFieldMixin } from '../mixins/formFieldMixin';
+
 export default {
   name: 'BaseInput',
+  mixins: [formFieldMixin],
   props: {
     theme: {
       type: String,
       default: 'default'
-    },
-    message: {
-      type: String,
-      default: 'Write here'
-    },
-    value: {
-      type: String,
-      default: ''
     }
   },
-  data() {
-    return {
-      content: this.value
-    };
-  },
-  methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
     }
   }
 };

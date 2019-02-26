@@ -8,9 +8,10 @@
         <BaseButton
           theme="square blue"
           show-icon
-          icon="fas fa-directions" 
           @click="goToRecipe(recipe.uuid)"
-        />
+        >
+          <i class="fas fa-directions" />
+        </BaseButton>
         {{ recipe.title }}
       </li>
     </ul>

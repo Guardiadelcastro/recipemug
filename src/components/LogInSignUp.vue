@@ -3,14 +3,16 @@
     <div class="buttons">
       <BaseButton
         theme="login-button left"
-        name="Log In"
         @click="changeLogIn"
-      />
+      >
+        Log In
+      </BaseButton>
       <BaseButton
         theme="login-button right"
-        name="Sign Up"
         @click="changeSignUp"
-      />
+      >
+        Sign Up
+      </BaseButton>
     </div>
     <form class="form">
       <h3 class="title">
@@ -20,92 +22,71 @@
         v-if="active"
         class="log-in"
       >
-        <label
-          for="email"
-        >
-          Email
-        </label>
-        <input
+        <BaseInput
           id="email"
           type="text"
-    
-          name="login"
+          label="email"
           placeholder="Email"
           required
-          :content="email"
-        >
-        <label
-          for="password"
-        >
-          Password
-        </label>
-        <input
+        />
+        <BaseInput
           id="password"
           type="password"
-          name="password"
+          label="password"
           placeholder="Password"
           required
+        />
+        <BaseButton
+          theme="green"
+          @click="logIn"
         > 
+          Log In
+        </BaseButton>
       </div>
       <div
         v-else
         class="sign-up"
       >
-        <label
-          for="email"
-        >
-          Email
-        </label>
-        <input
+        <BaseInput
           id="email"
           type="text"
-    
-          name="login"
+          label="email"
           placeholder="Email"
           required
-          :content="email"
-        >
-        <label
-          for="password"
-        >
-          Password
-        </label>
-        <input
+        />
+        <BaseInput
           id="password"
           type="password"
-          name="password"
-          placeholder="Password"
+          label="password"
+          placeholder="******"
           required
-        > 
-        <label
-          for="repeat-password"
-        >
-          Repeat Password
-        </label>
-        <input
+        /> 
+        <BaseInput
           id="repeat-password"
           type="password"
-          name="password"
-          placeholder="Repeat password"
+          label="Repeat Password"
+          placeholder="*****"
           required
-        >
+        /> 
+        <BaseButton
+          theme="green"
+        > 
+          Register
+        </BaseButton>
       </div>
-      <BaseButton
-        :name="title"
-        theme="green"
-        @click="logIn"
-      />
     </form>
   </div>
 </template>
 <script>
 import BaseButton from './BaseButton.vue';
+import BaseInput from './BaseInput.vue';
 import * as axios from 'axios';
 
 export default {
   name: 'LogInSignUp',
   components:{
     BaseButton,
+    BaseInput
   },
   props: {
     email: {

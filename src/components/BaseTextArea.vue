@@ -1,38 +1,35 @@
 <template>
-  <textarea
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup.prevent
-  />
+  <div>
+    <label v-if="label">{{ label }}</label>
+    <textarea 
+      :value="value"
+      :class="theme"
+      v-bind="$attrs"
+      v-on="listeners"
+      @input="updateValue"
+      @keyup.prevent="updateValue"
+    /> 
+  </div>
 </template>
 
 <script>
+import { formFieldMixin } from '../mixins/formFieldMixin';
+
 export default {
   name: 'BaseTextArea',
+  mixins: [formFieldMixin],
   props: {
-    message: {
-      type: String,
-      default: 'Write here'
-    },
     theme: {
       type: String,
       default: 'default'
-    },
-    value: {
-      type: String,
-      default: ''
     }
   },
-  data() {
-    return {
-      content: this.value 
-    };
-  },
-  methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
     }
   }
 };

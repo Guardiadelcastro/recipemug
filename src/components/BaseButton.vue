@@ -1,48 +1,22 @@
 <template>
   <button 
     :class="theme"
-    @click.prevent="handleClick"
-    @keyup.prevent
+    v-bind="$attrs"
+    v-on="$listeners"
   >
-    <Icon
-      v-if="showIcon"
-      :icon="icon"
-    /> {{ name }} 
+    <slot />
   </button>
 </template>
 
 <script>
-import Icon from './BaseIcon.vue';
 
 export default {
   name: 'BaseButton',
-  components: {
-    Icon
-  },
+  inheritAttrs: false,
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
     theme: {
       type: String,
       default: 'grey'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    handleClick(event) {
-      this.$emit('click', event);
     }
   }
 };
