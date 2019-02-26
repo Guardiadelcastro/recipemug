@@ -20,10 +20,10 @@
         />
         <BaseButton
           theme="green square"
-          show-icon
-          icon="fas fa-plus"
           @click="addStep(step)"
-        />
+        >
+          <i class="fas fa-plus" />
+        </BaseButton>
       </div>
       <div
         class="list-steps"
@@ -35,11 +35,11 @@
           >
             <BaseButton
               v-show="activeEdit"
-              show-icon
-              icon="fas fa-minus-circle"
               theme="red square-small"
               @click="removeStep(index)"
-            />
+            >
+              <i class="fas fa-minus-circle" />
+            </BaseButton>
             <p>
               {{ index + 1 }}. 
             </p>
@@ -54,11 +54,11 @@
     >
       <BaseButton
         v-if="activeEdit"
-        show-icon
-        icon="fas fa-save"
         theme="circle red"
         @click="saveSteps"
-      />
+      >
+        <i class="fas fa-save" />
+      </BaseButton>
       <BaseButton
         v-show="show"
         v-else
@@ -66,7 +66,9 @@
         icon="fas fa-edit"
         theme="circle blue"
         @click="startEdit"
-      />
+      >
+        <i class="fas fa-edit" />
+      </BaseButton>
     </div>
   </div>
 </template>

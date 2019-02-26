@@ -1,18 +1,13 @@
 <template>
   <nav class="nav-bar">
-    <input
-      class="search"
-      type="text"
-      placeholder="What would you like to cook today?"
-    >
     <BaseButton
       class="create-new"
       type="button"
       theme="square blue"
-      show-icon
-      icon="fas fa-plus-square"
       @click="createNew"
-    />
+    >
+      <i class="fas fa-plus-square" />
+    </BaseButton>
     <BaseIcon
       icon="fas fa-user"
       class="user"

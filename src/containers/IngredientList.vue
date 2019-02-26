@@ -21,10 +21,10 @@
           />
           <BaseButton
             theme="green square"
-            show-icon
-            icon="fas fa-plus"
             @click="addIngredient(ingredient)"
-          />
+          >
+            <i class="fas fa-plus" />
+          </BaseButton>
         </div>
         <div
           class="list"
@@ -36,11 +36,11 @@
             >
               <BaseButton
                 v-show="activeEdit"
-                show-icon
-                icon="fas fa-minus-circle"
                 theme="red square-small"
                 @click="removeIngredient(index)"
-              />
+              >
+                <i class="fas fa-minus-circle" />
+              </BaseButton>
               {{ data }}
             </li>
           </ul>
@@ -50,11 +50,11 @@
     <div class="buttons">
       <BaseButton
         v-if="activeEdit"
-        show-icon
-        icon="fas fa-save"
         theme="circle red"
         @click="saveIngredients"
-      />
+      >
+        <i class="fas fa-save" />
+      </BaseButton>
       <BaseButton
         v-show="show"
         v-else
@@ -62,7 +62,9 @@
         icon="fas fa-edit"
         theme="circle blue"
         @click="startEdit"
-      />
+      >
+        <i class="fas fa-edit" />
+      </BaseButton>
     </div>
   </div>
 </template>

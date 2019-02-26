@@ -21,11 +21,11 @@
     <div class="buttons">
       <BaseButton
         v-if="activeEdit"
-        show-icon
-        icon="fas fa-save"
         theme="circle red"
         @click="saveTitle"
-      />
+      >
+        <i class="fas fa-save" />
+      </BaseButton>
       <BaseButton
         v-show="show"
         v-else
@@ -33,7 +33,9 @@
         icon="fas fa-edit"
         theme="circle blue"
         @click="startEdit"
-      />
+      >
+        <i class="fas fa-edit" />
+      </BaseButton>
     </div>
   </div>
 </template>
