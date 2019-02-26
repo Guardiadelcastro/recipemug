@@ -7,22 +7,28 @@
       v-bind="$attrs"
       v-on="listeners"
       @input="updateValue"
-      @keyup.prevent="updateValue"
     /> 
   </div>
 </template>
 
 <script>
-import { formFieldMixin } from '../mixins/formFieldMixin';
 
 export default {
   name: 'BaseTextArea',
-  mixins: [formFieldMixin],
+  inheritAttrs: false,
   props: {
     theme: {
       type: String,
       default: 'default'
-    }
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: ''
+    },
   },
   computed: {
     listeners() {
@@ -30,6 +36,11 @@ export default {
         ...this.$listeners,
         input: this.updateValue
       };
+    }
+  },
+  methods: {
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };

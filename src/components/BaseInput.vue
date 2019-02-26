@@ -2,10 +2,9 @@
   <div>
     <label v-if="label">{{ label }}</label>
     <input 
-      v-model="content" 
+      :value="value"
       :class="theme"
       v-bind="$attrs"
-      :value="value"
       v-on="listeners"
       @input="updateValue"
     >
@@ -13,16 +12,23 @@
 </template>
 
 <script>
-import { formFieldMixin } from '../mixins/formFieldMixin';
 
 export default {
   name: 'BaseInput',
-  mixins: [formFieldMixin],
+  inheritAttrs: false,
   props: {
     theme: {
       type: String,
       default: 'default'
-    }
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: ''
+    },
   },
   computed: {
     listeners() {
@@ -30,6 +36,11 @@ export default {
         ...this.$listeners,
         input: this.updateValue
       };
+    }
+  },
+  methods: {
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };
