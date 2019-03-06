@@ -29,8 +29,6 @@
       <BaseButton
         v-show="show"
         v-else
-        show-icon
-        icon="fas fa-edit"
         theme="circle blue"
         @click="startEdit"
       >

@@ -1,6 +1,6 @@
 <template>
   <div class="home-nav">
-    <BaseLogo
+    <Logo
       theme="dark"
       class="logo"
     />
@@ -31,13 +31,13 @@
 
 <script>
 import NavLink from '../components/NavLink.vue';
-import BaseLogo from '../components/BaseLogo.vue';
+import Logo from '../components/Logo.vue';
 
 export default {
   name:'HomeNav',
   components: {
     NavLink,
-    BaseLogo
+    Logo
   },
   props: {}
 };

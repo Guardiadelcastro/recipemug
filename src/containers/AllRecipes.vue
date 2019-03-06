@@ -7,7 +7,6 @@
       >
         <BaseButton
           theme="square blue"
-          show-icon
           @click="goToRecipe(recipe.uuid)"
         >
           <i class="fas fa-directions" />
@@ -21,6 +20,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import axios from 'axios';
+
 export default {
   name: 'AllRecipes',
   components: {

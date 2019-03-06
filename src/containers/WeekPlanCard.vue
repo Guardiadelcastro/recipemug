@@ -8,8 +8,6 @@
     </div>
     <BaseButton
       theme="green"
-      show-icon
-      icon="fas fa-chevron-circle-down"
       name="Add Recipe"
     >
       <i class="fas fa-chevron-circle-down" />

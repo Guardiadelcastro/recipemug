@@ -12,9 +12,10 @@
     <BaseButton
       type="button" 
       theme="green" 
-      name="+" 
       @click="addIngredient"
-    />
+    >
+      <i class="fas fa-plus" />
+    </BaseButton>
   </div>
 </template>
 
