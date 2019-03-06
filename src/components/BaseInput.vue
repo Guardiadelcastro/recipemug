@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input-container">
     <label v-if="label">{{ label }}</label>
     <input 
       :value="value"
@@ -59,7 +59,15 @@ input
   background-color $white
   transition all ease 0.3s
   font-font-family $font
-  
+
+label 
+  font-family $font
+  margin 0 5px
+
+.input-container
+  display flex
+  flex-flow column nowrap
+
 .default
   border 1px solid $blue
 

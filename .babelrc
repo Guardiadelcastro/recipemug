@@ -1,11 +1,5 @@
 {
-  "presets": [
-    [
-      "env", {
-        "useBuiltIns": true
-      }
-    ]
-  ],
+  "presets": ["@vue/app"],
   "ignore": [
     "node_modules"
   ]

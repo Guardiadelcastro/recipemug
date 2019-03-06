@@ -25,10 +25,11 @@ export default {
       type: String,
       default: ''
     },
-    value: {
-      type: [String, Number],
-      default: ''
-    },
+  },
+  data() {
+    return {
+      value: ''
+    };
   },
   computed: {
     listeners() {
