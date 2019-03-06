@@ -25,6 +25,11 @@
         name="Log In"
         theme="home"
       />
+      <NavLink
+        to="/register"
+        name="Register"
+        theme="home"
+      />
     </div>
   </div>
 </template>

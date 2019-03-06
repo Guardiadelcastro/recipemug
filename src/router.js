@@ -13,6 +13,7 @@ import SignUpIn from './templates/SignUpIn.vue';
 import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
+import Register from './containers/Register.vue';
 
 Vue.use(Router);
 
@@ -29,6 +30,10 @@ export default new Router({
         {
           path: '/login',
           component: SignUpIn
+        },
+        {
+          path: '/register',
+          component: Register
         },
         {
           path: '/pricing',

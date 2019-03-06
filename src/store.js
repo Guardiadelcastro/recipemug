@@ -74,7 +74,7 @@ export default new Vuex.Store({
         } else {
           const id = recipe.uuid;
           axios.put('https://api.recipemug.club/recipes/'+id, recipe)
-            // eslint-disable-next-line no-console
+          // eslint-disable-next-line no-console
             .then((message) => console.log(message))
           // eslint-disable-next-line no-console
             .catch((err) => console.log(err));
