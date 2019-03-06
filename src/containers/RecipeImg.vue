@@ -16,18 +16,19 @@
       <BaseButton
         v-show="show"
         v-if="edit"
-        show-icon
-        icon="fas fa-edit"
+g
         theme="circle blue"
         @click="editElement"
-      />
+      >
+        <i class="fas fa-edit" />
+      </BaseButton>
       <BaseButton
         v-else
-        show-icon
-        icon="fas fa-save"
         theme="circle red"
         @click="saveElement"
-      />
+      >
+        <i class="fas fa-save" />
+      </BaseButton>
     </div>
   </div>
 </template>
