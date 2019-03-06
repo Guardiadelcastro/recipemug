@@ -1,40 +1,38 @@
 <template>
   <div 
-    class="grid"
+    class="recipe-description"
+    :class="activeEdit ? warning : no-border"
     @mouseenter="showButtons"
     @mouseleave="removeButtons"
   >
-    <h3 class="title">
-      Description
-    </h3>
     <div class="content">
+      <BaseTextArea
+        v-if="activeEdit"
+        v-model="description"
+      />
       <p
-        v-if="edit"
+        v-else
         class="description"
       >
         {{ description }}
       </p>
-      <BaseTextArea
-        v-else
-        v-model="description"
-      />
     </div>
     <div class="buttons">
       <BaseButton
-        v-show="show"
-        v-if="edit"
-        show-icon
-        icon="fas fa-edit"
-        theme="circle blue"
-        @click="editElement"
-      />
-      <BaseButton
-        v-else
-        show-icon
-        icon="fas fa-save"
+        v-if="activeEdit"
         theme="circle red"
-        @click="saveElement"
-      />
+        @click="saveDescription"
+      >
+        <i class="fas fa-save" />
+      </BaseButton>
+      <BaseButton
+        v-show="show"
+        v-else
+        theme="circle blue"
+        @click="startEdit"
+      >
+        <i class="fas fa-edit" />
+      </BaseButton>
     </div>
   </div>
 </template>
@@ -50,18 +48,30 @@ export default {
     BaseButton
   },
   props: {
-    description: {
-      type: String,
-      default: 'Recipe Description'
-    },
     show: {
       type: Boolean,
       default: false
     },
-    edit: {
+    activeEdit: {
       type: Boolean,
-      default: true
+      default: false
     },
+    warning: {
+      type: String,
+      default: 'warning-border'
+    }
+  },
+  data() {
+    return {
+      description: ''
+    };
+  },
+  mounted() {
+    this.id = this.$store.state.activeRecipe;
+    const recipe = this.$store.state.recipes.find((recipe) => {
+      return recipe.uuid == this.id;
+    });
+    this.description = recipe.description;
   },
   methods: {
     showButtons() {
@@ -70,11 +80,12 @@ export default {
     removeButtons() {
       this.show = false;
     },
-    editElement() {
-      this.edit = false;
+    startEdit() {
+      this.activeEdit = true;
     },
-    saveElement() {
-      this.edit = true;
+    saveDescription() {
+      this.activeEdit = false;
+      this.$store.commit('UPDATE_DESCRIPTION', this.description);
     }
   }
 };
@@ -82,14 +93,17 @@ export default {
 
 <style lang="stylus" scoped>
   @import '../styles/variables'
-  .grid
+  .recipe-description
     display grid
     grid-template-columns 8fr 1fr
-    grid-template-rows 1fr 4fr
     justify-content center
     align-items center
     width 100%
     font-family $font
+    border-radius $br
+
+  .warning-border
+    border 2px dashed $red
 
   .title
     grid-column 1/3
@@ -107,6 +121,10 @@ export default {
     
   .description
     align-self flex-start
+    background-color #fff
+    border-left 5px solid $blue
+    padding 0 10px
+    font-size 1.25em
 
   .buttons
     grid-column 2/3

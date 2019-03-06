@@ -38,6 +38,9 @@ export default {
 
   .content
     grid-row 2/3
+    //display flex
+    //justify-content center
+    //align-items center
 
   .footer
     grid-row 3/4

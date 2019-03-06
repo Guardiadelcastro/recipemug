@@ -1,133 +1,58 @@
 <template>
   <div class="full-recipe">
+    <div class="buttons">
+      <BaseButton
+        name="Save Recipe"
+        theme="red"
+        @click="saveRecipe"
+      />
+      <BaseButton
+        theme="circle blue"
+        show-icon
+        icon="fas fa-edit"
+      />
+      <BaseButton
+        theme="circle green"
+        show-icon
+        icon="fas fa-share-square"
+      />
+    </div>
     <div class="recipe">
-      <form
-        action="post"
-        enctype="multipart/form-data"
-      >
-        <RecipeTitle />
-        <RecipeDescription />
-        <br>
-        <div class="list-container">
-          <div id="ingredients">
-            <label for>
-              Ingredients:
-            </label>
-            <input
-              type="text"
-              name="newIngredient"
-              placeholder="Add an Ingredient"
-            >
-          </div>
-          <BaseButton
-            id="newIngredient"
-            type="button"
-            theme="red square"
-            name="+"
-            @click="addIngredient"
-          />
-        </div>
-        <br>
-        <div class="list-container">
-          <div id="steps">
-            <label for>
-              Steps:
-            </label>
-            <BaseInput
-              theme="blue"
-              message="Add a Step"
-            />
-          </div>
-          <BaseButton
-            id="newStep"
-            type="button"
-            theme="orange"
-            name="+"
-            @click="addStep"
-          />
-        </div>
-        <br>
-        <div class="upladoImage">
-          <input
-            id="uploadImage"
-            type="file"
-            name="image"
-            accept="image/*"
-          >
-        </div>
-        <br>
-        <BaseButton
-          name="Cook the new Recipe"
-          theme="blue"
-          icon="fas fa-search"
-          show="true"
-        />
-      </form>
+      <RecipeTitle />
+      <RecipeDescription />
+      <IngredientList />
+      <StepList />
     </div>
   </div>
 </template>
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
-import BaseInput from '../components/BaseInput.vue';
 import RecipeTitle from '../containers/RecipeTitle.vue';
 import RecipeDescription from '../containers/RecipeDescription.vue';
+import IngredientList from '../containers/IngredientList.vue';
+import StepList from '../containers/StepList.vue';
 
 export default {
   name: 'FullRecipe',
   components: {
     BaseButton,
-    BaseInput,
     RecipeTitle,
-    RecipeDescription
+    RecipeDescription,
+    IngredientList,
+    StepList
   },
   props: {
-    edit: {
-      type: Boolean,
-      default: false
-    },
-    toggleButton: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
   },
   data() {
-    return {};
+    return {
+      editActive: false
+    };
   },
   methods: {
-    addIngredient() {
-      const ingredientList = document.querySelector('#ingredients');
-      let newIngredient = document.createElement('input');
-      newIngredient.type = 'text';
-      newIngredient.placeholder = 'Add an Ingredient';
-      newIngredient.name = 'newIngredient';
-      ingredientList.appendChild(newIngredient);
-    },
-
-    addStep() {
-      const steps = document.querySelector('#steps');
-      let newStep = document.createElement('input');
-      newStep.type = 'text';
-      newStep.placeholder = 'Add a Step';
-      newStep.name = 'newStep';
-      steps.appendChild(newStep);
-    },
-
-    editRecipe() {
-      this.edit = !this.edit;
-      this.toggleButton = !this.toggleButton;
-      this.disabled = !this.disabled;
-    },
-
     saveRecipe() {
-      // Handle save
-      this.edit = !this.edit;
-      this.toggleButton =!this.toggleButton;
-      this.disabled = !this.disabled;
+      this.$router.push({path:'/dashboard/home'});
+      this.$store.commit('SAVE_NEW_RECIPE');
     }
   }
 };
@@ -136,26 +61,36 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../styles/variables'
+@import '../styles/mixins'
 
 .full-recipe
+  comp-size(95%, 95%)
+  padding 10px
   display grid
-  width 90%
-  max-height 90%
-  background white
-  border-radius 6px
-  overflow scroll
-
-.list-container, .steps
-  display grid
-  grid-template-columns 35em
-  grid-template-rows auto
+  grid-template-rows 50px auto
   grid-gap 10px
-  justify-items start
+  border-radius 6px
+  background $white
 
-.title
-  align-self center
-  color $blue
-  font-size 30px
+.buttons
+  grid-row 1/2
+  display flex
+  align-items center
+  justify-content center
+
+.context-buttons
+  display flex
+  flex-flow row nowrap 
+  width 200px
+  justify-content space-evenly
+  align-items center
+
+.recipe
+  grid-row 2/3
+  overflow scroll
+  border-radius 6px
+  background #fff
+  padding 10px
 
 </style>
 

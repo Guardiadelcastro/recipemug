@@ -1,47 +1,22 @@
 <template>
   <button 
     :class="theme"
-    @click.prevent="handleClick"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
-    <Icon
-      v-if="showIcon"
-      :icon="icon"
-    /> {{ name }} 
+    <slot />
   </button>
 </template>
 
 <script>
-import Icon from './BaseIcon.vue';
 
 export default {
   name: 'BaseButton',
-  components: {
-    Icon
-  },
+  inheritAttrs: false,
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
     theme: {
       type: String,
       default: 'grey'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    handleClick(event) {
-      this.$emit('click', event);
     }
   }
 };
@@ -61,15 +36,21 @@ button
   transition ease 0.3s
   cursor pointer
   font-weight bold
-  border-radius 5px
+  border-radius $br
   padding 10px
 
 .square 
   square(35px)
+  padding 0
+
+.square-small 
+  square(10px)
+  padding 0
 
 .circle
   square(45px)
   border-radius 50px
+  padding 0
 
 .blue
   color $white
@@ -133,12 +114,11 @@ button
 
 .grey
   color $white
-    background-color $grey
-    border-color transparent
-
+  background-color $grey
+  border-color transparent
     &:hover
       background-color $dark-grey
-
+      border-color $dark-grey
     &:active
       background-color $white
       color $grey
@@ -159,4 +139,18 @@ background-color $dark-red
   &:hover:before
     background-color none
     width: 100%
+
+.login-button
+  background $transparent
+  border none
+  color $dark-blue
+  &:hover
+    background-color darken($transparent, 30%)
+
+.login-button.left
+  border-radius $br 0 0 0
+
+.login-button.right
+  border-radius 0 $br 0 0
+
 </style>

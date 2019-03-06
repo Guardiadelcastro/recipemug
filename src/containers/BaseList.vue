@@ -6,16 +6,16 @@
     <div id="list">
       <BaseInput  
         theme="green" 
-        message="Add an ingredient"
+        placeholder="Add an ingredient"
       />
     </div>
-    <BaseButton />
-    <BaseInput
+    <BaseButton
       type="button" 
       theme="green" 
-      name="+" 
-      @click="addIngredient" 
-    />
+      @click="addIngredient"
+    >
+      <i class="fas fa-plus" />
+    </BaseButton>
   </div>
 </template>
 

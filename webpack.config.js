@@ -13,7 +13,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    open: true,
     hot: true
   },
   module: {

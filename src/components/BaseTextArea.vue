@@ -1,38 +1,47 @@
 <template>
-  <textarea
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup.prevent
-  />
+  <div>
+    <label v-if="label">{{ label }}</label>
+    <textarea 
+      :value="value"
+      :class="theme"
+      v-bind="$attrs"
+      v-on="listeners"
+      @input="updateValue"
+    /> 
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'BaseTextArea',
+  inheritAttrs: false,
   props: {
-    message: {
-      type: String,
-      default: 'Write here'
-    },
     theme: {
       type: String,
       default: 'default'
     },
-    value: {
+    label: {
       type: String,
       default: ''
-    }
+    },
   },
   data() {
     return {
-      content: this.value 
+      value: ''
     };
   },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    }
+  },
   methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };
@@ -47,10 +56,11 @@ export default {
     resize none
     padding 10px
     width 600px
-    height 200px
+    height 150px
     border-radius $br
     font-family $font
     font-size 16px
+    background $white
 
   .default
     border 1px solid $blue

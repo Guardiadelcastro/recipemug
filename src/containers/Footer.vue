@@ -9,7 +9,6 @@
 <script>
 export default {
   name:'Footer',
-  props: {}
 };
 </script>
 
@@ -17,7 +16,7 @@ export default {
 @import '../styles/variables'
 
   .footer
-    background-color $ligh-green
+    background-color $light-green
     grid-column 1 / 4
     grid-row 4 / 5
     display flex
@@ -26,8 +25,9 @@ export default {
 
   .team
     font-family $font
-    margin-bottom 10px
+    margin-bottom 15px
     font-size 13px
+    text-shadow 0px 0.1px 0px
 
 </style>
 

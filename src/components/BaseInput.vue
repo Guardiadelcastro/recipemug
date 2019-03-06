@@ -1,38 +1,46 @@
 <template>
-  <input 
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup="handleInput"
-  >
+  <div class="input-container">
+    <label v-if="label">{{ label }}</label>
+    <input 
+      :value="value"
+      :class="theme"
+      v-bind="$attrs"
+      v-on="listeners"
+      @input="updateValue"
+    >
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'BaseInput',
+  inheritAttrs: false,
   props: {
     theme: {
       type: String,
       default: 'default'
     },
-    message: {
-      type: String,
-      default: 'Write here'
-    },
-    value: {
+    label: {
       type: String,
       default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: ''
+    },
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
     }
   },
-  data() {
-    return {
-      content: this.value
-    };
-  },
   methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };
@@ -45,13 +53,21 @@ export default {
 input
   outline none
   font-size 16px
-  padding 10px 15px
+  padding 10px
   border-radius $br
   border 1px solid transparent
-  background-color white
+  background-color $white
   transition all ease 0.3s
   font-font-family $font
-  
+
+label 
+  font-family $font
+  margin 0 5px
+
+.input-container
+  display flex
+  flex-flow column nowrap
+
 .default
   border 1px solid $blue
 

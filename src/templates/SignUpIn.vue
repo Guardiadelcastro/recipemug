@@ -1,40 +1,33 @@
 <template>
   <div class="container">
-    <div class="image" />
-    <Login />
+    <LogInSignUp />
   </div>
 </template>
 
 <script>
-import Login from '../components/Login.vue';
+import LogInSignUp from '../components/LogInSignUp.vue';
 
 export default {
-  name: 'LandingLogin',
+  name: 'SignUpIn',
   components: {
-    Login
+    LogInSignUp
   },
   props: {},
   methods: {
-    login1: function () {
     
-    }
   }
 };
+
 </script>
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
+@import '../styles/mixins'
+  
   .container
-    display grid 
-    grid-template-columns 50vw 50vw
-
-  .image
-    grid-column 1/2
-    background $blue
-
-  .login
-    grid-column 2/3
+    display flex 
+    justify-content center
+    align-items center
+    background-image url('https://assets.recipemug.club/img/landing2.jpg')
   
 </style>
-
-
