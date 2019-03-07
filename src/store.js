@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    jwt:'',
     categories: [
       { id: 1, name: 'Breakfast', img:'https://assets.recipemug.club/img/categories/breakfast.jpg'},
       { id: 2, name: 'Lunch', img:'https://assets.recipemug.club/img/categories/lunch.jpg'},
@@ -19,14 +20,25 @@ export default new Vuex.Store({
     editActive: false
   },
   getters: {
+    getJWT(state) {
+      return state.jwt;
+    },
     getIngredients(state) {
       const recipe = state.recipes.find((recipe) => {
         return recipe.uuid == state.activeRecipe;
       });
       return recipe.ingredients;
     }
-  }, 
+  },
+  actions: {
+    addToken(context) {
+      context.commit('SET_JWT', );
+    }
+  },
   mutations: {
+    SET_JWT(state, jwt) {
+
+    },
     ADD_RECIPES(state, recipes) {
       state.recipes = [];
       state.recipes = recipes;

@@ -20,7 +20,7 @@
         theme="green"
         @click.prevent="login"
       > 
-        Register
+        Log In
       </BaseButton>
     </form>
     <div>{{ message }}</div>
@@ -44,13 +44,18 @@ export default {
     return {
       email: '',
       password: '',
-      message: ''
+      message:''
     };
   },
   methods: {
     async login() {
-      let response = await userLogin(this.email, this.password);
-      this.message = response.data;
+      const response = await userLogin(this.email, this.password);
+      this.message = response.data.message;
+      const jwt = response.data.token;
+      const user = response.data.user;
+      
+
+      this.$router.push({path:'/dashboard/home'});
     } 
   }
     
