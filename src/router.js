@@ -9,11 +9,11 @@ import UserHome from './templates/UserHome.vue';
 import WeekPlan from './templates/WeekPlan.vue';
 import HomePage from './pages/HomePage.vue';
 import AboutUs from './templates/AboutUs.vue';
-import SignUpIn from './templates/SignUpIn.vue';
 import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
 import Register from './containers/Register.vue';
+import Login from './containers/Login.vue';
 
 Vue.use(Router);
 
@@ -25,11 +25,11 @@ export default new Router({
       children: [
         {
           path: '/',
-          component: SignUpIn
+          component: Login
         },
         {
           path: '/login',
-          component: SignUpIn
+          component: Login
         },
         {
           path: '/register',

@@ -9,25 +9,28 @@ const users = axios.create({
   }
 });
 
-// export async function loginUser(email, password) {
-//   try {
-
-//   } catch(err) {
-//     console.log(err);
-//   }
+export async function userLogin(email, password) {
+  try {
+    const response = await users.post('/login', {
+      email: email,
+      password: password
+    });
+    return response;
+  } catch(err) {
+    return err;
+  }
    
-// }
+}
 
-export async function axiosRegister(email, password) {
+export async function userRegister(email, password) {
   try {
     const response = await users.post('/register', {
       email: email,
       password: password
     });
-    // eslint-disable-next-line no-console
-    console.log(response);
+    return response;
   } catch(err) {
     // eslint-disable-next-line no-console
-    console.log(err);
+    return err;
   }
 }

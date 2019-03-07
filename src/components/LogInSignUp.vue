@@ -23,14 +23,14 @@
         class="log-in"
       >
         <BaseInput
-          id="email"
+          v-model="email"
           type="text"
           label="email"
           placeholder="Email"
           required
         />
         <BaseInput
-          id="password"
+          v-model="password"
           type="password"
           label="password"
           placeholder="Password"
@@ -93,6 +93,10 @@ export default {
       type: String,
       default: ''
     },
+    password: {
+      type: String,
+      default: ''
+    },
     active: {
       type: Boolean,
       default: true
@@ -112,11 +116,12 @@ export default {
       this.title='Sign Up';
       this.active = false;
     },
-    logIn() {
-      const email = document.getElementById('email').value;
-            
+    logIn() {            
       axios
-        .get('https://api.recipemug.club/users/email/' + email)
+        .post('http://localhost:3000/users/login', {
+          email: this.email,
+          password: this.password
+        })
         .then((user) => {
           this.$store.commit('ADD_USER', user.data);
           this.$router.push({path:'/dashboard/home'});

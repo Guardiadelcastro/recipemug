@@ -1,6 +1,6 @@
 <template>
   <div class="register-container">
-    <h1>Register</h1>
+    <h1>Log In</h1>
     <form method="POST">
       <BaseInput
         v-model="email"
@@ -16,16 +16,9 @@
         placeholder="******"
         required
       /> 
-      <BaseInput
-        id="repeat-password"
-        type="password"
-        label="Repeat Password"
-        placeholder="*****"
-        required
-      /> 
       <BaseButton
         theme="green"
-        @click.prevent="register"
+        @click.prevent="login"
       > 
         Register
       </BaseButton>
@@ -37,7 +30,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-import { userRegister } from '../services/UserService';
+import { userLogin } from '../services/UserService';
 
 export default {
   name: 'Register',
@@ -55,8 +48,9 @@ export default {
     };
   },
   methods: {
-    async register() {
-      this.message = await userRegister(this.email, this.password);
+    async login() {
+      let response = await userLogin(this.email, this.password);
+      this.message = response.data;
     } 
   }
     
