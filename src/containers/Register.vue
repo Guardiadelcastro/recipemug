@@ -25,7 +25,7 @@
       /> 
       <BaseButton
         theme="green"
-        @click.prevent="register"
+        @click.prevent="registerUser"
       > 
         Register
       </BaseButton>
@@ -37,7 +37,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-import { register } from '../services/UserService';
+import { register } from '../services/userService';
 
 export default {
   name: 'Register',
@@ -55,7 +55,7 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async registerUser() {
       this.message = await register(this.email, this.password);
     } 
   }

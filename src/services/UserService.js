@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const users = axios.create({  
+const auth = axios.create({  
   baseURL: 'http://localhost:3000/users',
   withCredentials: false, // This is the default
   headers: {
@@ -11,7 +11,7 @@ const users = axios.create({
 
 export async function login(email, password) {
   try {
-    const response = await users.post('/login', {
+    const response = await auth.post('/login', {
       email: email,
       password: password
     });
@@ -24,7 +24,7 @@ export async function login(email, password) {
 
 export async function register(email, password) {
   try {
-    const response = await users.post('/register', {
+    const response = await auth.post('/register', {
       email: email,
       password: password
     });
