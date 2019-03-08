@@ -37,7 +37,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-import { userRegister } from '../services/UserService';
+import { register } from '../services/UserService';
 
 export default {
   name: 'Register',
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     async register() {
-      this.message = await userRegister(this.email, this.password);
+      this.message = await register(this.email, this.password);
     } 
   }
     

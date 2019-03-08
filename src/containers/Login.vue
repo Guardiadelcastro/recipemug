@@ -30,7 +30,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-import { userLogin } from '../services/UserService';
+// import { userLogin } from '../services/UserService';
 
 export default {
   name: 'Register',
@@ -48,15 +48,15 @@ export default {
     };
   },
   methods: {
-    async login() {
-      const response = await userLogin(this.email, this.password);
-      this.message = response.data.message;
-      const jwt = response.data.token;
-      const user = response.data.user;
+    // async login() {
+    //   const response = await userLogin(this.email, this.password);
+    //   this.message = response.data.message;
+    //   const jwt = response.data.token;
+    //   const user = response.data.user;
       
 
-      this.$router.push({path:'/dashboard/home'});
-    } 
+    //   this.$router.push({path:'/dashboard/home'});
+    // } 
   }
     
 };

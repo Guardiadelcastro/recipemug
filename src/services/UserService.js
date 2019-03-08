@@ -9,7 +9,7 @@ const users = axios.create({
   }
 });
 
-export async function userLogin(email, password) {
+export async function login(email, password) {
   try {
     const response = await users.post('/login', {
       email: email,
@@ -22,7 +22,7 @@ export async function userLogin(email, password) {
    
 }
 
-export async function userRegister(email, password) {
+export async function register(email, password) {
   try {
     const response = await users.post('/register', {
       email: email,
