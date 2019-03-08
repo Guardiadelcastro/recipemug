@@ -1,11 +1,9 @@
 import { login } from '../../services/userService';
 
-export const users = {
+export const user = {
   namespaced: true,
   state: {
-    jwt: { 
-      token: ''
-    },
+    jwt: '',
     user: {}
   },
 
@@ -15,6 +13,9 @@ export const users = {
     },
     getUser(state) {
       return state.user;
+    },
+    getToken(state) {
+      return state.jwt;
     }
   },
 
@@ -23,6 +24,10 @@ export const users = {
       const response = await login(email, password);
       commit('SET_JWT', response.token);
       commit('SET_USER', response.user);
+    },
+    logout({commit}, ) {
+      commit('CLEAN_USER_STATE');
+      commit('CLEAN_RECIPE_STATE', null, {root: true});
     }
   },
 
@@ -32,6 +37,11 @@ export const users = {
     },
     SET_USER(state, user) {
       state.user = user;
+    },
+    CLEAN_USER_STATE(state) {
+      state.jwt ={};
+      state.user = {};
     }
   }
 };
+

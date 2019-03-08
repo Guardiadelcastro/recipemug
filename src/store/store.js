@@ -1,12 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { users } from './modules/userModule';
+import { user } from './modules/user';
+import { recipe } from './modules/recipe';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   modules: {
-    users
+    user,
+    recipe
   }
 });
+
+export default store;
