@@ -37,7 +37,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-import { register } from '../services/userService';
+import { register } from '../services/UserService';
 
 export default {
   name: 'Register',
