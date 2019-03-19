@@ -4,7 +4,8 @@ export const user = {
   namespaced: true,
   state: {
     jwt: '',
-    user: {}
+    user: {},
+    isLogged: false
   },
 
   getters: {
@@ -16,6 +17,9 @@ export const user = {
     },
     getToken(state) {
       return state.jwt;
+    },
+    getLogStatus(state) {
+      return state.logStatus;
     }
   },
 
@@ -24,8 +28,9 @@ export const user = {
       const response = await login(email, password);
       commit('SET_JWT', response.token);
       commit('SET_USER', response.user);
+      commit('SET_LOG_STATUS');
     },
-    logout({commit}, ) {
+    logOut({commit}, ) {
       commit('CLEAN_USER_STATE');
       commit('CLEAN_RECIPE_STATE', null, {root: true});
     }
@@ -38,9 +43,13 @@ export const user = {
     SET_USER(state, user) {
       state.user = user;
     },
+    SET_LOG_STATUS(state) {
+      state.isLogged = true;
+    },
     CLEAN_USER_STATE(state) {
       state.jwt ={};
       state.user = {};
+      state.logStatus = false;
     }
   }
 };

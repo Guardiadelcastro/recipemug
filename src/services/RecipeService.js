@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { user } from '../store/modules/user';
 
-const token = this.$store.getToken;
+const token = user.getters.getToken;
 
 const recipes = axios.create({  
   baseURL: 'http://localhost:3000/api/recipes/',
