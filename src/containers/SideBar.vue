@@ -10,38 +10,14 @@
       <NavLink
         show-icon
         icon="fab fa-phoenix-squadron"
+        to="/dashboard/Profile"
+        name="Profile"
+      />
+      <NavLink
+        show-icon
+        icon="fab fa-phoenix-squadron"
         to="/dashboard/home"
         name="Home"
-      />
-      <NavLink
-        show-icon
-        icon="fas fa-search"
-        to="/dashboard/search"
-        name="Search"
-      />
-      <NavLink
-        show-icon
-        icon="fas fa-book"
-        to="/dashboard/my-cookbook"
-        name="My Cookbook"
-      />
-      <NavLink
-        show-icon
-        icon="fas fa-share-square"
-        to="/dashboard/shared"
-        name="Shared with Me"
-      />
-      <NavLink
-        show-icon
-        icon="fas fa-calendar-check"
-        to="/dashboard/week-plan"
-        name="Week Plan"
-      />
-      <NavLink
-        show-icon
-        icon="fas fa-lemon"
-        to="/dashboard/meal-plans"
-        name="My Meals"
       />
     </div>
   </div>
