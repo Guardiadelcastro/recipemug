@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { user } from '../store/modules/user';
+import { keys } from './AppService';
 
 const token = user.getters.getToken;
 
 const recipes = axios.create({  
-  baseURL: 'http://localhost:3000/api/recipes/',
+  baseURL: `${keys.apiUrl}/api/recipes/`,
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',

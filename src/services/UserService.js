@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { keys } from './AppService';
 
 const auth = axios.create({  
-  baseURL: 'http://localhost:3000/users',
+  baseURL: `${keys.apiUrl}/users`,
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
