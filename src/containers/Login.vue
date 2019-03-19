@@ -24,21 +24,21 @@
       </BaseButton>
     </form>
     <div>{{ message }}</div>
+    <div>status {{ status }}</div>
+    <div> {{ user }}</div>
   </div>
 </template>
 
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
-// import { userLogin } from '../services/UserService';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: 'Register',
+  name: 'Login',
   components: {
     BaseButton,
     BaseInput
-  },
-  props: {
   },
   data() {
     return {
@@ -47,16 +47,28 @@ export default {
       message:''
     };
   },
+  computed: {
+    ...mapGetters('user',{
+      status: 'getLogStatus',
+      user: 'getUser'
+    })
+  },
   methods: {
-    // async login() {
-    //   const response = await userLogin(this.email, this.password);
-    //   this.message = response.data.message;
-    //   const jwt = response.data.token;
-    //   const user = response.data.user;
-      
-
-    //   this.$router.push({path:'/dashboard/home'});
-    // } 
+    ...mapActions('user', {
+      loginUser: 'login'
+    }),
+    async login() {
+      const user = {
+        email: this.email,
+        password: this.password
+      };
+      await this.loginUser(user);
+      if (this.status === true) {
+        this.message = 'Auth successful';
+        return;
+      }
+      this.message = 'Please try again';
+    } 
   }
     
 };
