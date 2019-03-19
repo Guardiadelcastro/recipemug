@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Navigation />
+    <NavigationBar />
     <Transition
       name="slide-fade"
     >
@@ -11,11 +11,11 @@
 
 
 <script>
-import Navigation from './templates/Navigation.vue';
+import NavigationBar from './templates/NavigationBar.vue';
 export default {
   name: 'App',
   components: {
-    Navigation
+    NavigationBar
   }
 };
 

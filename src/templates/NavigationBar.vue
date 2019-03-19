@@ -2,7 +2,7 @@
   <div class="nav-grid">
     <Logo class="logo" />
     <NavButtons class="auth-buttons" />
-    <div class="navigation" />
+    <NavigationList class="navigation" />
     <Footer class="footer" />
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 import Logo from '../components/Logo.vue';
 import NavButtons from '../containers/NavButtons.vue';
+import NavigationList from '../containers/NavigationList.vue';
 import Footer from '../components/Footer.vue';
 
 export default {
@@ -17,6 +18,7 @@ export default {
   components: {
     Logo,
     NavButtons,
+    NavigationList,
     Footer
   }
     

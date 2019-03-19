@@ -8,21 +8,15 @@
     >
       <i class="fas fa-plus-square" />
     </BaseButton>
-    <BaseIcon
-      icon="fas fa-user"
-      class="user"
-    />
   </nav>
 </template>
 <script>
 import BaseButton from '../components/BaseButton.vue';
-import BaseIcon from '../components/BaseIcon.vue';
 
 export default {
   name: 'DashNavBar',
   components: {
     BaseButton,
-    BaseIcon
   },
   methods: {
     createNew() {
