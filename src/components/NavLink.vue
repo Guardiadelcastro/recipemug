@@ -7,7 +7,7 @@
       v-if="showIcon"
       :icon="icon"
     />
-    {{ name }}
+    <slot />
   </RouterLink>
 </template>
 
@@ -20,10 +20,6 @@ export default {
     BaseIcon
   },
   props: {
-    name: {
-      type: String,
-      default: 'Link'
-    },
     theme: {
       type: String,
       default: 'nav'

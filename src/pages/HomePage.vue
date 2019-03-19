@@ -6,19 +6,16 @@
     >
       <RouterView class="content" />
     </Transition>
-    <Footer class="footer" />
   </div>
 </template>
 
 <script>
 import HomeNav from '../containers/HomeNav.vue';
-import Footer from '../containers/Footer.vue';
 
 export default {
   name: 'Landing',
   components: {
     HomeNav,
-    Footer
   }
 };
 </script>
