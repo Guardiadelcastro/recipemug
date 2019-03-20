@@ -1,3 +1,5 @@
+@import './variables';
+
 square($size)
   width $size
   height $size
@@ -7,3 +9,11 @@ comp-size($height, $width)
   width $width
   max-height $height
   max-width $width
+
+right-gradient($color1 = $green, $color2 = $aqua)
+  background-image linear-gradient(to right, $color1, $color2)
+
+fit-box()
+  box-sizing border-box
+  height 100%
+  width 100%

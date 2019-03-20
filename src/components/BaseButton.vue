@@ -16,7 +16,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'grey'
+      default: 'light'
     }
   }
 };
@@ -31,7 +31,7 @@ button
   flex-flow row nowrap
   justify-content center
   align-items center
-  border 3px solid
+  border 2px solid
   font-size 16px
   transition ease 0.3s
   cursor pointer
@@ -39,6 +39,15 @@ button
   border-radius $br
   padding 10px
 
+.light
+  color $dark
+  background-color $light
+  border-color $dark
+  &:hover
+    color $light
+    background-color $dark
+    border-color $light
+ 
 .square 
   square(35px)
   padding 0
@@ -122,35 +131,5 @@ button
     &:active
       background-color $white
       color $grey
-
-.modern
-color $white
-background-color $dark-red
-
-&:before
-    background: #fff none repeat scroll 0 0
-    content: ""
-    height: 2px
-    left: 0
-    position: absolute 
-    width: 0%
-    transition: 0.5s
-
-  &:hover:before
-    background-color none
-    width: 100%
-
-.login-button
-  background $transparent
-  border none
-  color $dark-blue
-  &:hover
-    background-color darken($transparent, 30%)
-
-.login-button.left
-  border-radius $br 0 0 0
-
-.login-button.right
-  border-radius 0 $br 0 0
 
 </style>

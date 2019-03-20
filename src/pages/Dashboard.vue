@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <DashNavBar class="navbar" />
     <SideBar class="sidebar" />
     <div class="content">
       <Transition name="slide-fade">
@@ -11,13 +10,11 @@
 </template>
 
 <script>
-import DashNavBar from '../containers/DashNavBar.vue';
 import SideBar from '../containers/SideBar.vue';
 import * as axios from 'axios';
 export default {
   name: 'Dashboard',
   components: {
-    DashNavBar,
     SideBar,
   },
   mounted() {

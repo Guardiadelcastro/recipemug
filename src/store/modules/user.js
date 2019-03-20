@@ -44,7 +44,7 @@ export const user = {
         console.error(err);
       }
     },
-    logOut({commit}, ) {
+    logOut({commit}) {
       commit('CLEAN_USER_STATE');
       commit('CLEAN_RECIPE_STATE', null, {root: true});
       localStorage.removeItem('token');

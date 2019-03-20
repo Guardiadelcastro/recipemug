@@ -13,7 +13,8 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    hot: true
+    hot: true,
+    port: 8008
   },
   module: {
     rules: [

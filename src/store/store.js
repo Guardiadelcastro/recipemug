@@ -5,6 +5,7 @@ import { user } from './modules/user';
 import { recipe } from './modules/recipe';
 
 Vue.use(Vuex);
+Vue.config.devtools = true;
 
 const store = new Vuex.Store({
   modules: {
