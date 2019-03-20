@@ -1,7 +1,6 @@
 <template>
   <RouterLink
     :class="theme"
-    class="nav"
     :to="to"
   >
     <slot />
@@ -55,20 +54,14 @@ export default {
     &:hover
       background-color $light-dark
   
-  .home
-    font-family $font
-    color $white
-    padding 15px 20px
+  .no-decoration
     text-decoration none
-    font-size 1em
-    font-weight bold
-    height 25px
-    transition all ease 0.5s
-    border 2px solid $red
     &:hover
-      border-bottom 2px solid $white
+      cursor pointer
 
   i
     padding-right 5px
+
+
 </style>
 

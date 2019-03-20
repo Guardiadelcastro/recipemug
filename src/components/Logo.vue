@@ -1,18 +1,27 @@
 <template>
   <div :class="theme">
-    <span class="recipe">
-      Recipe
-    </span>
-    <span class="mug">
-      Mug
-    </span>
+    <NavLink
+      to="/"
+      theme="no-decoration"
+    >
+      <span class="recipe">
+        Recipe
+      </span>
+      <span class="mug">
+        Mug
+      </span>
+    </NavLink>
   </div>
 </template>
 
 <script>
+import NavLink from './NavLink.vue';
 
 export default {
   name: 'BaseLogo',
+  components: {
+    NavLink
+  },
   props: {
     theme: {
       type: String,

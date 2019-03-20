@@ -1,6 +1,5 @@
 <template>
   <div class="homepage">
-    <HomeNav class="nav" />
     <Transition
       name="slide-fade"
     >
@@ -10,12 +9,10 @@
 </template>
 
 <script>
-import HomeNav from '../containers/HomeNav.vue';
 
 export default {
   name: 'Landing',
   components: {
-    HomeNav,
   }
 };
 </script>
@@ -28,7 +25,7 @@ export default {
     grid-template-rows 1fr 7fr 1fr
     background $white
     height 100vh
-    width 100vw
+    width 100%
 
   .nav
     grid-row 1/2
