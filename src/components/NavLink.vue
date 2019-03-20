@@ -35,6 +35,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
   .nav
+    box-sizing border-box
     width 100%
     padding 10px
     text-align center

@@ -22,10 +22,12 @@ export default {
 </script>
 <style lang="stylus">
 @import './styles/variables'
+@import './styles/mixins'
 
 body
   margin 0
   min-height 100vh
+  font-family $font
 
 .app
   display grid
@@ -37,6 +39,7 @@ body
 
 .app-content
   grid-column 2/3
+  min-height 100vh
 
 .slide-fade-enter-active 
     transition all 0.5s ease
