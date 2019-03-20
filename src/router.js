@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
+// Components
 import Dashboard from './pages/Dashboard.vue';
+import Index from './templates/Index.vue';
 import UserHome from './templates/UserHome.vue';
-import HomePage from './pages/HomePage.vue';
 import AboutUs from './templates/AboutUs.vue';
 import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
@@ -18,35 +20,32 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: HomePage,
-      children: [
-        {
-          path: '/',
-          component: Login
-        },
-        {
-          path: '/login',
-          name: 'Login',
-          component: Login
-        },
-        {
-          path: '/register',
-          name: 'Register',
-          component: Register
-        },
-        {
-          path: '/pricing',
-          component: Pricing
-        },
-        {
-          path:'/about',
-          component: AboutUs
-        },
-        {
-          path:'/info',
-          component: AppInfo
-        }
-      ]
+      name: 'Index',
+      component: Index,
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/pricing',
+      name: 'Pricing',
+      component: Pricing
+    },
+    {
+      path:'/about',
+      name: 'About',
+      component: AboutUs
+    },
+    {
+      path:'/info',
+      component: AppInfo
     },
     {
       path: '/dashboard',

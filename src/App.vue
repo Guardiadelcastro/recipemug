@@ -32,7 +32,8 @@ body
   grid-template-columns 200px auto
 
 .nav-grid
-  grid-column 1/2
+  width 200px
+  position fixed
 
 .app-content
   grid-column 2/3
