@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard.vue';
 import Index from './templates/Index.vue';
 import UserHome from './templates/UserHome.vue';
 import AboutUs from './templates/AboutUs.vue';
-import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
@@ -42,10 +41,6 @@ export default new Router({
       path:'/about',
       name: 'About',
       component: AboutUs
-    },
-    {
-      path:'/info',
-      component: AppInfo
     },
     {
       path: '/dashboard',

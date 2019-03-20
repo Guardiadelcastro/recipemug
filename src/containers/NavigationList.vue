@@ -4,14 +4,11 @@
       v-if="!status"
       class="home links"
     >
-      <NavLink to="/info">
-        Home
-      </NavLink>
-      <NavLink to="/about">
-        About
-      </NavLink>
       <NavLink to="/pricing">
         Pricing
+      </NavLink>
+      <NavLink to="/about">
+        About Us
       </NavLink>
     </div>
     <div
