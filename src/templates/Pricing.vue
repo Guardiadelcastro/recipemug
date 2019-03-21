@@ -1,5 +1,5 @@
 <template>
-  <div class="index-container">
+  <div class="index-container wrap full-height">
     <div class="index-content"> 
       <h1 class="title">
         It's Free!
@@ -48,11 +48,6 @@ export default {
   color transparent
   background-clip text
   margin 20px 0
-
-.wrap
-  right-gradient()
-  padding: 3px;
-  margin 30px
 
 .info
   color $dark

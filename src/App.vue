@@ -41,6 +41,9 @@ body
   grid-column 2/3
   min-height 100vh
 
+.full-height
+  height 100vh
+
 .slide-fade-enter-active 
     transition all 0.5s ease
 
@@ -50,4 +53,12 @@ body
 .slide-fade-enter, .slide-fade-leave-to
   transform translateX(100px)
   opacity 0
+
+.wrap
+  right-gradient()
+  padding 3px
+.wrap-left
+  down-gradient()
+  padding-left 5px
+
 </style>
