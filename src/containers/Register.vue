@@ -40,7 +40,9 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+
 import { register } from '../services/UserService';
+import { required } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Register',
