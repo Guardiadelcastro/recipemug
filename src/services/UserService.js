@@ -1,4 +1,6 @@
 import axios from 'axios';
+import NProgress from 'nprogress';
+
 import { keys } from './AppService';
 
 const auth = axios.create({  
@@ -8,6 +10,20 @@ const auth = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json'
   }
+});
+
+// before a request is made start the nprogress
+auth.interceptors.request.use(config => {
+  NProgress.start();
+  return config;
+}, error => {
+  NProgress.done();
+});
+
+// before a response is returned stop nprogress
+auth.interceptors.response.use(response => {
+  NProgress.done();
+  return response;
 });
 
 export async function login(email, password) {
