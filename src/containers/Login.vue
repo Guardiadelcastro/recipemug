@@ -1,10 +1,8 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">
-        Log In
-      </h1>
-    </div>
+    <h1 class="title">
+      Log In
+    </h1>
     <form
       class="login-form"
       method="POST"
@@ -23,7 +21,7 @@
       /> 
       <BaseButton
         class="submit"
-        theme="green"
+        theme="blue"
         @click.prevent="login"
       > 
         Log In
@@ -88,7 +86,6 @@ export default {
 @import '../styles/mixins'
 
 .container
-  padding 20px
   display flex
   flex-flow column nowrap
   align-items center
@@ -103,7 +100,7 @@ export default {
   right-gradient()
   color transparent
   background-clip text
-  margin 20px 0
+  margin 30px 0
 
 .login-form
   display grid 

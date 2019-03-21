@@ -1,30 +1,33 @@
 <template>
-  <div class="register-container">
-    <h1>Register</h1>
-    <form method="POST">
+  <div class="container">
+    <h1 class="title">
+      Register
+    </h1>
+    <form
+      class="register-form"
+      method="POST"
+    >
       <BaseInput
         v-model="email"
         type="text"
-        label="email"
-        placeholder="Email"
+        label="Email"
         required
       />
       <BaseInput
         v-model="password"
         type="password"
-        label="password"
-        placeholder="******"
+        label="Password"
         required
       /> 
       <BaseInput
         id="repeat-password"
         type="password"
         label="Repeat Password"
-        placeholder="*****"
         required
       /> 
       <BaseButton
-        theme="green"
+        class="submit"
+        theme="blue"
         @click.prevent="registerUser"
       > 
         Register
@@ -64,11 +67,33 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../styles/variables'
+@import '../styles/mixins'
 
-  .register-container
-    display flex
-    flex-flow column nowrap
-    align-items center
-    justify-content center
+.container
+  display flex
+  flex-flow column nowrap
+  align-items center
+  justify-content flex-start
+  background $background
+
+.title
+  justify-self center
+  font-family $font-title
+  font-size 3em
+  padding-left 2px
+  right-gradient()
+  color transparent
+  background-clip text
+  margin 30px 0
+
+.register-form
+  display grid 
+  grid-template-columns 1fr
+  grid-template-rows auto 
+  grid-gap 10px
+
+.submit
+  align-self center
 
 </style>
