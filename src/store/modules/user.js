@@ -1,13 +1,12 @@
 import { login } from '../../services/UserService';
 
-export const user = {
+const user = {
   namespaced: true,
   state: {
     jwt: '',
     user: null,
     isLoggedIn: false
   },
-
   getters: {
     getUserID(state) {
       return state.user._id;
@@ -22,7 +21,6 @@ export const user = {
       return state.isLoggedIn;
     }
   },
-
   actions: {
     async login({commit}, {email, password}) {
       try {
@@ -50,7 +48,6 @@ export const user = {
       localStorage.removeItem('token');
     }
   },
-
   mutations: {
     SET_JWT(state) {
       const token = localStorage.getItem('token');
@@ -70,3 +67,4 @@ export const user = {
   }
 };
 
+export default user;

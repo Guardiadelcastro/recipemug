@@ -1,7 +1,7 @@
 import { createNewRecipe, fetchAllRecipes } from '../../services/RecipeService';
 import { isNull } from 'util';
 
-export const recipe = {
+const recipe = {
   namespaced: true,
   state: {
     recipes: [],
@@ -90,3 +90,5 @@ export const recipe = {
     }
   }
 };
+
+export default recipe;

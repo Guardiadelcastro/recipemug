@@ -19,6 +19,13 @@
 		"vue/require-default-prop": ["error", {
 			"required": false,
 			"non-required": false
+		}],
+		"vue/max-attributes-per-line": ["error", {
+			"singleline": 3,
+			"multiline": {
+				"max": 2,
+				"allowFirstLine": false
+			}
 		}]
 	},
 	"plugins": ["jest"]

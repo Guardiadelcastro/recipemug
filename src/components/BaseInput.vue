@@ -29,10 +29,6 @@ export default {
       type: String,
       default: ''
     },
-    form: {
-      type: String,
-      default: ''
-    },
     value: {
       type: [String, Number],
       default: ''
@@ -87,4 +83,7 @@ label
   span.focus
     width 100%
 
+.error span 
+  width 100%
+  background $red
 </style>

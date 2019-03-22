@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { user } from '../store/modules/user';
+import user from '../store/modules/user';
 import { keys } from './AppService';
 
 const token = user.getters.getToken;

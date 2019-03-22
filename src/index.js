@@ -6,6 +6,7 @@ import store from './store/store';
 import Vuelidate from 'vuelidate';
 
 Vue.config.productionTip = false;
+Vue.config.devtools = true;
 
 Vue.use(VueRouter);
 Vue.use(Vuelidate);

@@ -39,6 +39,11 @@ button
   border-radius $br
   padding 10px
 
+button:disabled, button[disabled=disabled]
+  background $grey !important
+  &:hover
+    background $grey
+
 .light
   color $dark
   background-color $light

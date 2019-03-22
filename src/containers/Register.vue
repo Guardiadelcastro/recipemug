@@ -3,30 +3,51 @@
     <h1 class="title">
       Register
     </h1>
-    <form
-      class="register-form"
-      method="POST"
-    >
+    <form class="register-form" method="POST">
+      <div v-if="$v.email.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.email.required" class="warning-message">
+          Email is required
+        </span>
+        <span v-if="!$v.email.email" class="warning-message">
+          Please enter a valid email
+        </span>
+      </div>
       <BaseInput
-        v-model="email"
-        type="text"
-        label="Email"
-        required
+        v-model.trim="email"
+        type="text" label="Email"
+        :class="{error: $v.email.$error}"
+        @blur="$v.email.$touch()"
       />
+      <div v-if="$v.password.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.password.required" class="warning-message">
+          Password is required
+        </span>
+        <span v-if="!$v.password.minLength" class="warning-message">
+          6 characters minimum
+        </span>
+      </div>
       <BaseInput
-        v-model="password"
-        type="password"
-        label="Password"
-        required
-      /> 
+        v-model.trim="password" 
+        type="password" label="Password"
+        :class="{error: $v.password.$error}"
+        @blur="$v.password.$touch()"
+      />
+      <div v-if="$v.repeatPassword.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.repeatPassword.required || !$v.repeatPassword.sameAsPassword" class="warning-message">
+          Passwords do not match
+        </span>
+      </div>
       <BaseInput
-        id="repeat-password"
-        type="password"
-        label="Repeat Password"
-        required
+        v-model.trim="repeatPassword"
+        type="password" label="Repeat Password"
+        :class="{error: $v.repeatPassword.$error}"
+        @blur="$v.repeatPassword.$touch()"
       /> 
       <BaseButton
-        class="submit"
+        :disabled="$v.$invalid" class="submit"
         theme="blue"
         @click.prevent="registerUser"
       > 
@@ -42,7 +63,7 @@ import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
 
 import { register } from '../services/UserService';
-import { required } from 'vuelidate/lib/validators';
+import { required, email, minLength, sameAs } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Register',
@@ -54,10 +75,25 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: '',
-      message: ''
+      email: null,
+      password: null,
+      repeatPassword: null,
+      message: null
     };
+  },
+  validations: {
+    email: {
+      email,
+      required
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    },
+    repeatPassword: {
+      required,
+      sameAsPassword: sameAs('password')
+    }
   },
   methods: {
     async registerUser() {
@@ -94,6 +130,9 @@ export default {
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
+
+.fa-exclamation-circle, .warning-message
+  color $red  
 
 .submit
   align-self center
