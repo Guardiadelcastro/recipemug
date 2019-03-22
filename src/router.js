@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
+import NProgress from 'nprogress';
 // Components
 import Dashboard from './pages/Dashboard.vue';
 import Index from './templates/Index.vue';
@@ -14,7 +14,12 @@ import Login from './containers/Login.vue';
 
 Vue.use(Router);
 
+<<<<<<< HEAD
 export default new Router({
+=======
+const router = new Router({
+  mode: 'history',
+>>>>>>> refactor
   routes: [
     {
       path: '/',
@@ -63,3 +68,19 @@ export default new Router({
     },
   ],
 });
+
+router.beforeResolve((to, from, next) => {
+  // If this isn't an initial page load.
+  if (to.name) {
+    // Start the route progress bar.
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach((to, from) => {
+  // Complete the animation of the route progress bar.
+  NProgress.done();
+});
+
+export default router;
