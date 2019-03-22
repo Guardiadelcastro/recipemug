@@ -11,9 +11,14 @@ comp-size($height, $width)
   max-width $width
 
 right-gradient($color1 = $green, $color2 = $aqua)
-  background-image linear-gradient(to right, $color1, $color2)
+  background linear-gradient(to right, $color1, $color2)
+down-gradient($color1 = $green, $color2 = $aqua)
+  background linear-gradient($color1, $color2)
 
 fit-box()
   box-sizing border-box
   height 100%
   width 100%
+
+border-radius-top($radius = $br)
+  border-radius $radius $radius 0 0

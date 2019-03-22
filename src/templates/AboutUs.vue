@@ -1,5 +1,5 @@
 <template>
-  <main class="index-container">
+  <main class="index-container wrap full-height">
     <div class="index-content"> 
       <h1 class="title">
         About Us
@@ -98,13 +98,9 @@ export default {
   color transparent
   background-clip text
   margin 20px 0
+
 .table-title
   font-size 2em
-
-.wrap
-  right-gradient()
-  padding: 3px;
-  margin 30px
 
 .info
   color $dark

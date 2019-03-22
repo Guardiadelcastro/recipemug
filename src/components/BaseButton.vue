@@ -33,11 +33,16 @@ button
   align-items center
   border 2px solid
   font-size 16px
-  transition ease 0.3s
+  transition all ease 0.3s
   cursor pointer
   font-weight bold
   border-radius $br
   padding 10px
+
+button:disabled, button[disabled=disabled]
+  background $grey !important
+  &:hover
+    background $grey
 
 .light
   color $dark
@@ -60,7 +65,13 @@ button
   square(45px)
   border-radius 50px
   padding 0
-
+.gradient
+  right-gradient()
+  color $white
+  border-color transparent
+  &:hover
+    background $green
+  
 .blue
   color $white
   background-color $blue
