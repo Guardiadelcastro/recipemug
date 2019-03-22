@@ -3,26 +3,35 @@
     <h1 class="title">
       Log In
     </h1>
-    <form
-      class="login-form"
-      method="POST"
-    >
+    <form class="login-form" method="POST">
+      <div v-if="$v.email.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.email.required" class="warning-message">
+          Email is required
+        </span>
+        <span v-if="!$v.email.email" class="warning-message">
+          Please enter a valid email
+        </span>
+      </div>
       <BaseInput
-        v-model="email"
-        type="text"
-        label="Email"
-        required
+        v-model.trim="email"
+        type="text" label="Email"
+        :class="{error: $v.email.$error}"
+        @blur="$v.email.$touch()"
       />
+      <div v-if="$v.password.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.password.required" class="warning-message"> Password is required </span>
+      </div>
       <BaseInput
-        v-model="password"
-        type="password"
-        label="Password"
-        required
+        v-model.trim="password"
+        type="password" label="Password"
+        :class="{error: $v.password.$error}"
+        @blur="$v.password.$touch()"
       /> 
       <BaseButton
-        class="submit"
-        theme="blue"
-        @click.prevent="login"
+        :disabled="$v.$invalid" class="submit"
+        theme="blue" @click.prevent="login"
       > 
         Log In
       </BaseButton>
@@ -39,7 +48,9 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+
 import { mapGetters, mapActions } from 'vuex';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Login',
@@ -49,10 +60,19 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: '',
-      message:''
+      email: null,
+      password: null,
+      message: null
     };
+  },
+  validations: {
+    email: {
+      email,
+      required
+    },
+    password: {
+      required,
+    }
   },
   computed: {
     ...mapGetters('user',{

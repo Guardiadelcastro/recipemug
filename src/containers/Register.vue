@@ -48,8 +48,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue"
-        @click.prevent="registerUser"
+        theme="blue" @click.prevent="registerUser"
       > 
         Register
       </BaseButton>
