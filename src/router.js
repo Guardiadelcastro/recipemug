@@ -14,12 +14,7 @@ import Login from './containers/Login.vue';
 
 Vue.use(Router);
 
-<<<<<<< HEAD
-export default new Router({
-=======
 const router = new Router({
-  mode: 'history',
->>>>>>> refactor
   routes: [
     {
       path: '/',

@@ -20,17 +20,14 @@
 			"required": false,
 			"non-required": false
 		}],
-<<<<<<< HEAD
 		"vue/max-attributes-per-line": ["error", {
 			"singleline": 3,
 			"multiline": {
 				"max": 2,
 				"allowFirstLine": false
 			}
-		}]
-=======
+		}],
 		"no-unused-vars":"off"
->>>>>>> refactor
 	},
 	"plugins": ["jest"]
 }
