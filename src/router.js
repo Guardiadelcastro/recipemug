@@ -44,6 +44,9 @@ const router = new Router({
     {
       path: '/dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      },
       children: [
         {
           path: '', 
@@ -62,6 +65,17 @@ const router = new Router({
       ]
     },
   ],
+});
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (this.$store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+    next('/login');
+  } else {
+    next();
+  }
 });
 
 router.beforeResolve((to, from, next) => {

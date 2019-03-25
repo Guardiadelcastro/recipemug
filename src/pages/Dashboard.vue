@@ -1,22 +1,16 @@
 <template>
   <div class="container">
-    <SideBar class="sidebar" />
-    <div class="content">
-      <Transition name="slide-fade">
-        <RouterView />
-      </Transition>
-    </div>
+    <Transition name="slide-fade">
+      <RouterView />
+    </Transition>
   </div>
 </template>
 
 <script>
-import SideBar from '../containers/SideBar.vue';
 import * as axios from 'axios';
+
 export default {
   name: 'Dashboard',
-  components: {
-    SideBar,
-  },
   mounted() {
     const id = this.$store.state.user[0].uuid;
     axios
