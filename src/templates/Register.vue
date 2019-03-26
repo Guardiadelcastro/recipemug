@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <h1 class="title">
-      Log In
+      Register
     </h1>
-    <form class="login-form" method="POST">
+    <form class="register-form" method="POST">
       <div v-if="$v.email.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
         <span v-if="!$v.email.required" class="warning-message">
@@ -21,48 +21,63 @@
       />
       <div v-if="$v.password.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
-        <span v-if="!$v.password.required" class="warning-message"> Password is required </span>
+        <span v-if="!$v.password.required" class="warning-message">
+          Password is required
+        </span>
+        <span v-if="!$v.password.minLength" class="warning-message">
+          6 characters minimum
+        </span>
       </div>
       <BaseInput
-        v-model.trim="password"
+        v-model.trim="password" 
         type="password" label="Password"
         :class="{error: $v.password.$error}"
         @blur="$v.password.$touch()"
+      />
+      <div v-if="$v.repeatPassword.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.repeatPassword.required || !$v.repeatPassword.sameAsPassword" class="warning-message">
+          Passwords do not match
+        </span>
+      </div>
+      <BaseInput
+        v-model.trim="repeatPassword"
+        type="password" label="Repeat Password"
+        :class="{error: $v.repeatPassword.$error}"
+        @blur="$v.repeatPassword.$touch()"
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="login"
+        theme="blue" @click.prevent="registerUser"
       > 
-        Log In
+        Register
       </BaseButton>
     </form>
-    <br>
-    <br>
-    <br>
-    <div>{{ message }}</div>
-    <div>status {{ status }}</div>
-    <div> {{ user }}</div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+import Notification from '../models/NotificationModel';
 
-import { mapGetters, mapActions } from 'vuex';
-import { required, email } from 'vuelidate/lib/validators';
+import { register } from '../services/UserServices';
+import { required, email, minLength, sameAs } from 'vuelidate/lib/validators';
 
 export default {
-  name: 'Login',
+  name: 'Register',
   components: {
     BaseButton,
     BaseInput
+  },
+  props: {
   },
   data() {
     return {
       email: null,
       password: null,
-      message: null
+      repeatPassword: null,
     };
   },
   validations: {
@@ -72,29 +87,27 @@ export default {
     },
     password: {
       required,
+      minLength: minLength(6)
+    },
+    repeatPassword: {
+      required,
+      sameAsPassword: sameAs('password')
     }
   },
-  computed: {
-    ...mapGetters('user',{
-      status: 'getLogStatus',
-      user: 'getUser'
-    })
-  },
   methods: {
-    ...mapActions('user', {
-      loginUser: 'login'
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
     }),
-    async login() {
-      const user = {
-        email: this.email,
-        password: this.password
-      };
-      await this.loginUser(user);
-      if (this.status === true) {
-        this.message = 'Auth successful';
+    async registerUser() {
+      const response = await register(this.email, this.password);
+      if (response === false) {
+        const failureMessage = new Notification('Registration Failed', 'red');
+        this.addNotification(failureMessage);
         return;
       }
-      this.message = 'Please try again';
+      const successMessage = new Notification('Login Accepted','green');
+      this.addNotification(successMessage);
+      this.$router.push({name: 'Login'});
     } 
   }
     
@@ -122,12 +135,16 @@ export default {
   background-clip text
   margin 30px 0
 
-.login-form
+.register-form
   display grid 
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
 
+.fa-exclamation-circle, .warning-message
+  color $red  
+
 .submit
   align-self center
+
 </style>

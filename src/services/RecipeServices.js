@@ -1,8 +1,8 @@
 import axios from 'axios';
-import NProgress from 'nprogress';
 
+import store from '../store/store';
 import user from '../store/modules/user';
-import { keys } from './AppService';
+import { keys } from './AppServices';
 
 const token = user.getters.getToken;
 
@@ -15,18 +15,23 @@ const recipes = axios.create({
     Authorization: `Bearer ${token}`
   }
 });
-// before a request is made start the nprogress
+
+// Start loading before a request
 recipes.interceptors.request.use(config => {
-  NProgress.start();
+  store.dispatch('loader/startLoading');
   return config;
 }, error => {
-  NProgress.done();
+  store.dispatch('loader/finishLoading');
+  return Promise.reject(error);
 });
 
-// before a response is returned stop nprogress
+// Finish Loading after a response 
 recipes.interceptors.response.use(response => {
-  NProgress.done();
+  store.dispatch('loader/finishLoading');
   return response;
+}, error => {
+  store.dispatch('loader/finishLoading');
+  return Promise.reject(error);
 });
 
 export async function createNewRecipe(recipe) {
@@ -49,3 +54,5 @@ export async function fetchAllRecipes(owner) {
   }
 
 }
+
+

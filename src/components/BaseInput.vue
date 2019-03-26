@@ -86,4 +86,8 @@ label
 .error span 
   width 100%
   background $red
+
+.ok span 
+  width 100%
+  right-gradient()
 </style>

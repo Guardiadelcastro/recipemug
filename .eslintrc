@@ -27,6 +27,7 @@
 				"allowFirstLine": false
 			}
 		}],
+		"no-console": "off",
 		"no-unused-vars":"off"
 	},
 	"plugins": ["jest"]

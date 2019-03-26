@@ -9,8 +9,8 @@ import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
-import Register from './containers/Register.vue';
-import Login from './containers/Login.vue';
+import Register from './templates/Register.vue';
+import Login from './templates/Login.vue';
 
 Vue.use(Router);
 
@@ -44,6 +44,9 @@ const router = new Router({
     {
       path: '/dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      },
       children: [
         {
           path: '', 
@@ -62,6 +65,17 @@ const router = new Router({
       ]
     },
   ],
+});
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (this.$store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+    next('/login');
+  } else {
+    next();
+  }
 });
 
 router.beforeResolve((to, from, next) => {
