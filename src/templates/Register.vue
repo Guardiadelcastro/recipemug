@@ -16,7 +16,7 @@
       <BaseInput
         v-model.trim="email"
         type="text" label="Email"
-        :class="{error: $v.email.$error}"
+        :class="{error: $v.email.$error, ok: !$v.email.$error}"
         @blur="$v.email.$touch()"
       />
       <div v-if="$v.password.$error" class="warning">
@@ -31,7 +31,7 @@
       <BaseInput
         v-model.trim="password" 
         type="password" label="Password"
-        :class="{error: $v.password.$error}"
+        :class="{error: $v.password.$error, ok: !$v.email.$error}"
         @blur="$v.password.$touch()"
       />
       <div v-if="$v.repeatPassword.$error" class="warning">
@@ -43,7 +43,7 @@
       <BaseInput
         v-model.trim="repeatPassword"
         type="password" label="Repeat Password"
-        :class="{error: $v.repeatPassword.$error}"
+        :class="{error: $v.repeatPassword.$error, ok: !$v.email.$error}"
         @blur="$v.repeatPassword.$touch()"
       /> 
       <BaseButton
