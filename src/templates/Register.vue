@@ -61,7 +61,7 @@
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
 
-import { register } from '../services/UserService';
+import { register } from '../services/UserServices';
 import { required, email, minLength, sameAs } from 'vuelidate/lib/validators';
 
 export default {

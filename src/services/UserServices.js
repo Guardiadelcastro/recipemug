@@ -1,6 +1,6 @@
 import axios from 'axios';
-import NProgress from 'nprogress';
 
+import store from '../store/store';
 import { keys } from './AppServices';
 
 const auth = axios.create({  
@@ -12,7 +12,23 @@ const auth = axios.create({
   }
 });
 
+// Start loading before a request
+auth.interceptors.request.use(config => {
+  store.dispatch('loader/startLoading');
+  return config;
+}, error => {
+  store.dispatch('loader/finishLoading');
+  return Promise.reject(error);
+});
 
+// Finish Loading after a response 
+auth.interceptors.response.use(response => {
+  store.dispatch('loader/finishLoading');
+  return response;
+}, error => {
+  store.dispatch('loader/finishLoading');
+  return Promise.reject(error);
+});
 
 export async function login(email, password) {
   try {
@@ -35,21 +51,6 @@ export async function register(email, password) {
     });
     return response;
   } catch(err) {
-    // eslint-disable-next-line no-console
     return err;
   }
 }
-
-// before a request is made start the nprogress
-auth.interceptors.request.use(config => {
-  NProgress.start();
-  return config;
-}, error => {
-  NProgress.done();
-});
-
-// before a response is returned stop nprogress
-auth.interceptors.response.use(response => {
-  NProgress.done();
-  return response;
-});

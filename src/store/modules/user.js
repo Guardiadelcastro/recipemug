@@ -22,11 +22,12 @@ const user = {
     }
   },
   actions: {
-    async login({commit}, {email, password}) {
+    async login({commit, rootActions}, {email, password}) {
       try {
+
         const response = await login(email, password);
-        // eslint-disable-next-line no-console
         console.log(response);
+
         if (!response.status === 200) {
           throw new Error('failed auth');
         }
@@ -34,9 +35,11 @@ const user = {
         const token = response.data.token;
         const user = response.data.user;
         localStorage.setItem('token', token);
+        // Commit actions
         commit('SET_LOG_STATUS');
         commit('SET_USER', user);
         commit('SET_JWT');
+
         return true;
       } catch(err) {
         // eslint-disable-next-line no-console
