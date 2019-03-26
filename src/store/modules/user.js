@@ -22,7 +22,7 @@ const user = {
     }
   },
   actions: {
-    async login({commit, rootActions}, {email, password}) {
+    async login({commit}, {email, password}) {
       try {
 
         const response = await login(email, password);
@@ -42,8 +42,7 @@ const user = {
 
         return true;
       } catch(err) {
-        // eslint-disable-next-line no-console
-        console.error(err);
+ 
         return false;
       }
     },

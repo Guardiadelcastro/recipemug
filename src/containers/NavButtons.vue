@@ -15,7 +15,7 @@
       v-else
       class="buttons"
     >
-      <BaseButton @click="logout">
+      <BaseButton @click.prevent="logout">
         Log Out
       </BaseButton>
     </div>
@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import BaseButton from '../components/BaseButton.vue';
 import { mapState, mapActions } from 'vuex';
+import Notification from '../models/NotificationModel';
+import BaseButton from '../components/BaseButton.vue';
 export default {
   name: 'NavButtons',
   components: {
@@ -39,6 +40,9 @@ export default {
     ...mapActions('user', {
       actionLogout: 'logOut'
     }),
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
+    }),
     goToLogin() {
       this.$router.push({name: 'Login'});
     },
@@ -47,7 +51,9 @@ export default {
     },
     async logout() {
       await this.actionLogout();
-      this.$router.push({name: 'Login'});
+      const logoutMessage = new Notification('Logged out','green');
+      this.addNotification(logoutMessage);
+      this.$router.push({name: 'Home'});
     }
   }
 };

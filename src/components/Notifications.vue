@@ -45,6 +45,7 @@ export default {
   flex-flow row nowrap
   justify-content space-between
   align-items center
+  margin-bottom 5px
   padding 5px 10px
   width 175px
   height 35px

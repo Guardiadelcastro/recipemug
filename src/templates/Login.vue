@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import BaseButton from '../components/BaseButton.vue';
-import BaseInput from '../components/BaseInput.vue';
-
-import Notification from '../models/NotificationModel';
 import { mapActions } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
+
+import BaseButton from '../components/BaseButton.vue';
+import BaseInput from '../components/BaseInput.vue';
+import Notification from '../models/NotificationModel';
 
 export default {
   name: 'Login',
