@@ -4,7 +4,7 @@ const user = {
   namespaced: true,
   state: {
     jwt: '',
-    user: null,
+    user: {},
     isLoggedIn: false
   },
   getters: {

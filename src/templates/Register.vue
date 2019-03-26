@@ -16,7 +16,7 @@
       <BaseInput
         v-model.trim="email"
         type="text" label="Email"
-        :class="{error: $v.email.$error, ok: !$v.email.$error}"
+        :class="{error: $v.email.$error}"
         @blur="$v.email.$touch()"
       />
       <div v-if="$v.password.$error" class="warning">
@@ -31,7 +31,7 @@
       <BaseInput
         v-model.trim="password" 
         type="password" label="Password"
-        :class="{error: $v.password.$error, ok: !$v.email.$error}"
+        :class="{error: $v.password.$error}"
         @blur="$v.password.$touch()"
       />
       <div v-if="$v.repeatPassword.$error" class="warning">
@@ -43,7 +43,7 @@
       <BaseInput
         v-model.trim="repeatPassword"
         type="password" label="Repeat Password"
-        :class="{error: $v.repeatPassword.$error, ok: !$v.email.$error}"
+        :class="{error: $v.repeatPassword.$error}"
         @blur="$v.repeatPassword.$touch()"
       /> 
       <BaseButton
@@ -53,13 +53,14 @@
         Register
       </BaseButton>
     </form>
-    <div>{{ message }}</div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
+import Notification from '../models/NotificationModel';
 
 import { register } from '../services/UserServices';
 import { required, email, minLength, sameAs } from 'vuelidate/lib/validators';
@@ -77,7 +78,6 @@ export default {
       email: null,
       password: null,
       repeatPassword: null,
-      message: null
     };
   },
   validations: {
@@ -95,8 +95,19 @@ export default {
     }
   },
   methods: {
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
+    }),
     async registerUser() {
-      this.message = await register(this.email, this.password);
+      const response = await register(this.email, this.password);
+      if (response === false) {
+        const failureMessage = new Notification('Registration Failed', 'red');
+        this.addNotification(failureMessage);
+        return;
+      }
+      const successMessage = new Notification('Login Accepted','green');
+      this.addNotification(successMessage);
+      this.$router.push({name: 'Login'});
     } 
   }
     

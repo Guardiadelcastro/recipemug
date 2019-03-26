@@ -49,8 +49,8 @@ export async function register(email, password) {
       email: email,
       password: password
     });
-    return response;
-  } catch(err) {
-    return err;
+    return true;
+  } catch(error) {
+    return false;
   }
 }

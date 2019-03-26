@@ -1,6 +1,6 @@
 
 import { Module, GetterTree, MutationTree } from 'vuex';
-import { RootState } from '@/store';
+import { RootState } from '../store';
 
 
 const loader = {
