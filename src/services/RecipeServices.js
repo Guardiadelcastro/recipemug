@@ -2,7 +2,7 @@ import axios from 'axios';
 import NProgress from 'nprogress';
 
 import user from '../store/modules/user';
-import { keys } from './AppService';
+import { keys } from './AppServices';
 
 const token = user.getters.getToken;
 

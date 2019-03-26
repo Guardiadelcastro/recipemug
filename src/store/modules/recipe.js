@@ -1,4 +1,4 @@
-import { createNewRecipe, fetchAllRecipes } from '../../services/RecipeService';
+import { createNewRecipe, fetchAllRecipes } from '../../services/RecipeServices';
 import { isNull } from 'util';
 
 const recipe = {

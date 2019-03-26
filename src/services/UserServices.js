@@ -1,7 +1,7 @@
 import axios from 'axios';
 import NProgress from 'nprogress';
 
-import { keys } from './AppService';
+import { keys } from './AppServices';
 
 const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`,
