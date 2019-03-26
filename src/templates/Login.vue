@@ -16,7 +16,7 @@
       <BaseInput
         v-model.trim="email"
         type="text" label="Email"
-        :class="{error: $v.email.$error, ok: !$v.email.$error}"
+        :class="{error: $v.email.$error}"
         @blur="$v.email.$touch()"
       />
       <div v-if="$v.password.$error" class="warning">
@@ -26,7 +26,7 @@
       <BaseInput
         v-model.trim="password"
         type="password" label="Password"
-        :class="{error: $v.password.$error, ok: !$v.email.$error}"
+        :class="{error: $v.password.$error}"
         @blur="$v.password.$touch()"
       /> 
       <BaseButton
@@ -70,7 +70,6 @@ export default {
     }
   },
   computed: {
- 
   },
   methods: {
     ...mapActions('user', {

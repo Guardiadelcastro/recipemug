@@ -11,6 +11,9 @@ const notifications = {
   actions: {
     addNotification({commit}, notification) {
       commit('SET_NOTIFICATION', notification);
+      setTimeout(() => {
+        commit('CLEAR_NOTIFICATION');
+      }, 10000);
     }
   },
   mutations: {
