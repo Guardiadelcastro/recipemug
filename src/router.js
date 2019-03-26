@@ -9,8 +9,8 @@ import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
-import Register from './containers/Register.vue';
-import Login from './containers/Login.vue';
+import Register from './templates/Register.vue';
+import Login from './templates/Login.vue';
 
 Vue.use(Router);
 

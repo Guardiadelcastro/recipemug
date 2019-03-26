@@ -37,9 +37,11 @@ const user = {
         commit('SET_LOG_STATUS');
         commit('SET_USER', user);
         commit('SET_JWT');
+        return true;
       } catch(err) {
         // eslint-disable-next-line no-console
         console.error(err);
+        return false;
       }
     },
     logOut({commit}) {

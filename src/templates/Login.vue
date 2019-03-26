@@ -36,12 +36,6 @@
         Log In
       </BaseButton>
     </form>
-    <br>
-    <br>
-    <br>
-    <div>{{ message }}</div>
-    <div>status {{ status }}</div>
-    <div> {{ user }}</div>
   </div>
 </template>
 
@@ -49,7 +43,8 @@
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
 
-import { mapGetters, mapActions } from 'vuex';
+import Notification from '../models/NotificationModel';
+import { mapActions } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
 
 export default {
@@ -75,26 +70,28 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('user',{
-      status: 'getLogStatus',
-      user: 'getUser'
-    })
+ 
   },
   methods: {
     ...mapActions('user', {
       loginUser: 'login'
+    }),
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
     }),
     async login() {
       const user = {
         email: this.email,
         password: this.password
       };
-      await this.loginUser(user);
-      if (this.status === true) {
-        this.message = 'Auth successful';
+      const success = await this.loginUser(user);
+      if (success === false) {
+        const failureMessage = new Notification('Login Failed', 'red');
+        this.addNotification(failureMessage);
         return;
       }
-      this.message = 'Please try again';
+      const successMessage = new Notification('Login Accepted','green');
+      this.addNotification(successMessage);
     } 
   }
     

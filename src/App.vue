@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Notifications />
     <NavigationBar />
     <Transition
       name="slide-fade"
@@ -12,10 +13,13 @@
 
 <script>
 import NavigationBar from './templates/NavigationBar.vue';
+import Notifications from './components/Notifications.vue';
+
 export default {
   name: 'App',
   components: {
-    NavigationBar
+    NavigationBar,
+    Notifications
   }
 };
 

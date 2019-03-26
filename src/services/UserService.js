@@ -12,19 +12,7 @@ const auth = axios.create({
   }
 });
 
-// before a request is made start the nprogress
-auth.interceptors.request.use(config => {
-  NProgress.start();
-  return config;
-}, error => {
-  NProgress.done();
-});
 
-// before a response is returned stop nprogress
-auth.interceptors.response.use(response => {
-  NProgress.done();
-  return response;
-});
 
 export async function login(email, password) {
   try {
@@ -51,3 +39,17 @@ export async function register(email, password) {
     return err;
   }
 }
+
+// before a request is made start the nprogress
+auth.interceptors.request.use(config => {
+  NProgress.start();
+  return config;
+}, error => {
+  NProgress.done();
+});
+
+// before a response is returned stop nprogress
+auth.interceptors.response.use(response => {
+  NProgress.done();
+  return response;
+});
