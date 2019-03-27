@@ -4,6 +4,33 @@
       Register
     </h1>
     <form class="register-form" method="POST">
+      <div v-if="$v.username.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.username.required" class="warning-message">
+          Email is required
+        </span>
+      </div>
+      <BaseInput
+        v-model.trim="username"
+        type="text" label="Username"
+        :class="{error: $v.username.$error}"
+        @blur="$v.username.$touch()"
+      />
+      <div v-if="$v.email.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.email.required" class="warning-message">
+          Email is required
+        </span>
+        <span v-if="!$v.email.email" class="warning-message">
+          Please enter a valid email
+        </span>
+      </div>
+      <BaseInput
+        v-model.trim="email"
+        type="text" label="Email"
+        :class="{error: $v.email.$error}"
+        @blur="$v.email.$touch()"
+      />
       <div v-if="$v.email.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
         <span v-if="!$v.email.required" class="warning-message">
@@ -81,6 +108,9 @@ export default {
     };
   },
   validations: {
+    username: {
+      required
+    },
     email: {
       email,
       required
