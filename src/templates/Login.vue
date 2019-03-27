@@ -91,6 +91,7 @@ export default {
       }
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
+      this.$router.push({ name: 'Dashboard' });
     } 
   }
     
