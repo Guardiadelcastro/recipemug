@@ -14,12 +14,18 @@
 <script>
 import NavigationBar from './templates/NavigationBar.vue';
 import Notifications from './components/Notifications.vue';
-
+import { checkAuth } from './services/UserServices';
 export default {
   name: 'App',
   components: {
     NavigationBar,
     Notifications
+  },
+  beforeCreate() {
+    const response = checkAuth();
+    if(response === true) {
+      this.$router.push({ name:'Profile' });
+    }
   }
 };
 

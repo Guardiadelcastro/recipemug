@@ -20,11 +20,14 @@
       >
         <i class="fas fa-plus-square" /> New Recipe
       </BaseButton>
-      <NavLink to="/dashboard/Profile">
-        <i class="fab fa-phoenix-squadron" /> Profile
+      <NavLink to="/dashboard/home">
+        Home
+      </NavLink>
+      <NavLink to="/dashboard/profile">
+        Profile
       </NavLink>
       <NavLink to="/dashboard/home">
-        <i class="fas fa-home" />My Recipes
+        My Recipes
       </NavLink> 
     </div>
   </div>

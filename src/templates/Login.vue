@@ -31,7 +31,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="login"
+        theme="blue" @click.prevent="loginUser"
       > 
         Log In
       </BaseButton>
@@ -42,6 +42,7 @@
 <script>
 import { mapActions } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
+import { login } from '../services/UserServices';
 
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
@@ -72,19 +73,12 @@ export default {
   computed: {
   },
   methods: {
-    ...mapActions('user', {
-      loginUser: 'login'
-    }),
     ...mapActions('notifications', {
       addNotification: 'addNotification'
     }),
-    async login() {
-      const user = {
-        email: this.email,
-        password: this.password
-      };
-      const success = await this.loginUser(user);
-      if (success === false) {
+    async loginUser() {
+      const response = await login(this.email, this.password);
+      if (response === false) {
         const failureMessage = new Notification('Login Failed', 'red');
         this.addNotification(failureMessage);
         return;

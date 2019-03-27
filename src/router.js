@@ -44,13 +44,10 @@ const router = new Router({
     {
       path: '/dashboard',
       component: Dashboard,
-      meta: {
-        requiresAuth: true
-      },
       children: [
         {
           path: '', 
-          name: 'profile',
+          name: 'Profile',
           component: Profile
         },
         {
@@ -59,7 +56,7 @@ const router = new Router({
         },
         {
           path: 'full-recipe',
-          name: 'fullRecipe',
+          name: 'fullecipe',
           component: FullRecipe
         }
       ]

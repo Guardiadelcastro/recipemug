@@ -1,5 +1,3 @@
-import { login } from '../../services/UserServices';
-
 const user = {
   namespaced: true,
   state: {
@@ -22,34 +20,19 @@ const user = {
     }
   },
   actions: {
-    async login({commit}, {email, password}) {
-      try {
-
-        const response = await login(email, password);
-        console.log(response);
-
-        if (!response.status === 200) {
-          throw new Error('failed auth');
-        }
-        
-        const token = response.data.token;
-        const user = response.data.user;
-        localStorage.setItem('token', token);
-        // Commit actions
-        commit('SET_LOG_STATUS');
-        commit('SET_USER', user);
-        commit('SET_JWT');
-
-        return true;
-      } catch(err) {
- 
-        return false;
-      }
-    },
     logOut({commit}) {
       commit('CLEAN_USER_STATE');
       commit('CLEAN_RECIPE_STATE', null, {root: true});
       localStorage.removeItem('token');
+    },
+    userIsLogged({commit}) {
+      commit('SET_LOG_STATUS');
+    },
+    addUser({commit}, user){
+      commit('SET_USER', user);
+    },
+    addToken({commit}){
+      commit('SET_JWT');
     }
   },
   mutations: {

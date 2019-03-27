@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 import store from '../store/store';
 import { keys } from './AppServices';
@@ -36,11 +37,19 @@ export async function login(email, password) {
       email: email,
       password: password
     });
-    return response;
+    if(!response.status === 200) {
+      return false;
+    }
+    const token = response.data.token;
+    const user = response.data.user;
+    localStorage.setItem('token', token);
+    store.dispatch('user/userIsLogged');
+    store.dispatch('user/addToken');
+    store.dispatch('user/addUser', user);
+    return true;
   } catch(err) {
-    return err;
+    return false;
   }
-   
 }
 
 export async function register(email, password) {
@@ -52,5 +61,29 @@ export async function register(email, password) {
     return true;
   } catch(error) {
     return false;
+  }
+}
+
+export async function checkAuth() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    return false;
+  }
+  store.dispatch('user/userIsLogged');
+  store.dispatch('user/addToken');
+  const user = await getUser(token);
+  store.dispatch('user/addUser', user);
+  return true;
+}
+
+export async function getUser(token) {
+  try {
+    const { email } = jwt_decode(token);
+    const user = await auth.get('/find-by-email', {
+      email: email,
+    });
+    return user;
+  } catch(err) {
+    return err;
   }
 }
