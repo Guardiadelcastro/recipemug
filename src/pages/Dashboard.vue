@@ -27,31 +27,10 @@ export default {
 @import '../styles/mixins'
 
 .container
-  display grid 
-  grid-template-rows 1fr 10fr
-  grid-template-columns 200px 10fr
-  width 100vw
-  height 100vh
-  max-height 100vh
-  background $white
-
-.navbar
-  grid-row 1 / 2 
-  grid-column 2 / 3
-
-.sidebar
-  grid-row 1 / 3
-  grid-column 1 / 2
-
-.content
-  grid-row 2 / 3
-  grid-column 2 / 3
-  justify-self center
-  comp-size(100%, 100%)
-  overflow hidden
-  display flex
-  justify-content center
-  align-items center
+  box-sizing border-box
+  width 100%
+  height 100%
+  background $background
 
 .slide-fade-enter-active 
   transition all 0.5s ease
