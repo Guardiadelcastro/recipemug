@@ -2,9 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import NProgress from 'nprogress';
 // Components
-import Dashboard from './pages/Dashboard.vue';
+import Dashboard from './templates/Dashboard.vue';
 import Index from './templates/Index.vue';
-import UserHome from './templates/UserHome.vue';
+import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
 import FullRecipe from './templates/FullRecipe.vue';
@@ -54,7 +54,7 @@ const router = new Router({
         {
           path: 'recipes',
           name: 'Recipes',
-          component: UserHome
+          component: Recipes
         },
         {
           path: 'full-recipe',

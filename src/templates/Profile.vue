@@ -38,7 +38,7 @@ export default {
   display flex
   flex-flow column
   align-items flex-start
-  justify-content start
+  justify-content flex-start
 
 .title
   justify-self center
