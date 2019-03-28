@@ -20,14 +20,14 @@
       >
         <i class="fas fa-plus-square" /> New Recipe
       </BaseButton>
-      <NavLink to="/dashboard/home">
+      <NavLink :to="{name: 'Dashboard', params: { username: username }}">
         Home
       </NavLink>
-      <NavLink to="/dashboard/profile">
+      <NavLink :to="{ name: 'Profile' }">
         Profile
       </NavLink>
-      <NavLink to="/dashboard/home">
-        My Recipes
+      <NavLink :to="{ name: 'Recipes' }">
+        Recipes
       </NavLink> 
     </div>
   </div>
@@ -36,7 +36,7 @@
 <script>
 import NavLink from '../components/NavLink.vue';
 import BaseButton from '../components/BaseButton.vue';
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'NavigationList',
@@ -45,8 +45,9 @@ export default {
     BaseButton
   },
   computed: {
-    ...mapState('user', {
-      status: 'isLoggedIn'
+    ...mapGetters('user', {
+      status: 'getLogStatus',
+      username: 'getUsername'
     })
   },
 

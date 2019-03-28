@@ -41,7 +41,7 @@ export async function login(email, password) {
       return false;
     }
     const token = response.data.token;
-    const user = response.data.user;
+    const user = response.data.userData;
     localStorage.setItem('token', token);
     store.dispatch('user/userIsLogged');
     store.dispatch('user/addToken');
@@ -52,9 +52,10 @@ export async function login(email, password) {
   }
 }
 
-export async function register(email, password) {
+export async function register(username, email, password) {
   try {
     const response = await auth.post('/register', {
+      username: username,
       email: email,
       password: password
     });
@@ -69,18 +70,23 @@ export async function checkAuth() {
   if (!token) {
     return false;
   }
+  const response = await getUser(token);
+  if(!response) {
+    return false;
+  }
+  const user = response.data;
   store.dispatch('user/userIsLogged');
   store.dispatch('user/addToken');
-  const user = await getUser(token);
   store.dispatch('user/addUser', user);
   return true;
 }
 
 export async function getUser(token) {
   try {
-    const { email } = jwt_decode(token);
-    const user = await auth.get('/find-by-email', {
-      email: email,
+    const decode = jwt_decode(token);
+    console.log(decode);
+    const user = await auth.get('/find/email', {
+      email: decode.email,
     });
     return user;
   } catch(err) {

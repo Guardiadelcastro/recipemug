@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
 import { login } from '../services/UserServices';
 
@@ -71,6 +71,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('user', {
+      user: 'getUsername'
+    })
   },
   methods: {
     ...mapActions('notifications', {
@@ -85,7 +88,7 @@ export default {
       }
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
-      this.$router.push({ name: 'Dashboard' });
+      this.$router.push({ name: 'Dashboard', params: { username: this.user } });
     } 
   }
     

@@ -49,7 +49,7 @@ export default {
     &:hover
       background-color $light-dark
 
-  .nav.router-link-exact-active, .nav.router-link-active
+  .nav.router-link-exact-active
     background $light
     color $dark
     &:hover

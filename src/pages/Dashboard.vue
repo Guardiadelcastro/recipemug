@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import * as axios from 'axios';
+// import * as axios from 'axios';
 
 export default {
   name: 'Dashboard',
   mounted() {
-    const id = this.$store.state.user[0].uuid;
-    axios
-      .get('https://api.recipemug.club/recipes/'+ id)
-      .then((recipes) => {
-        this.$store.commit('ADD_RECIPES', recipes.data);
-      });
+    // const id = this.$store.state.user[0].uuid;
+    // axios
+    //   .get('https://api.recipemug.club/recipes/'+ id)
+    //   .then((recipes) => {
+    //     this.$store.commit('ADD_RECIPES', recipes.data);
+    //   });
   }
 };
 </script>

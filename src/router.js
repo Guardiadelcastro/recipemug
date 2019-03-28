@@ -42,16 +42,18 @@ const router = new Router({
       component: AboutUs
     },
     {
-      path: '/dashboard',
+      path: '/dashboard/:username',
+      name: 'Dashboard',
       component: Dashboard,
       children: [
         {
-          path: '', 
+          path: 'profile', 
           name: 'Profile',
           component: Profile
         },
         {
           path: 'recipes',
+          name: 'Recipes',
           component: UserHome
         },
         {

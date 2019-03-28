@@ -12,6 +12,9 @@ const user = {
     getUser(state) {
       return state.user;
     },
+    getUsername(state) {
+      return state.user.username;
+    },
     getToken(state) {
       return state.jwt;
     },
@@ -47,6 +50,7 @@ const user = {
       state.isLoggedIn = true;
     },
     CLEAN_USER_STATE(state) {
+      localStorage.removeItem('token');
       state.jwt ={};
       state.user = {};
       state.isLoggedIn = false;

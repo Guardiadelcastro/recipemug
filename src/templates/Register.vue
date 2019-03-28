@@ -7,7 +7,7 @@
       <div v-if="$v.username.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
         <span v-if="!$v.username.required" class="warning-message">
-          Email is required
+          Username is required
         </span>
       </div>
       <BaseInput
@@ -15,21 +15,6 @@
         type="text" label="Username"
         :class="{error: $v.username.$error}"
         @blur="$v.username.$touch()"
-      />
-      <div v-if="$v.email.$error" class="warning">
-        <i class="fas fa-exclamation-circle" />
-        <span v-if="!$v.email.required" class="warning-message">
-          Email is required
-        </span>
-        <span v-if="!$v.email.email" class="warning-message">
-          Please enter a valid email
-        </span>
-      </div>
-      <BaseInput
-        v-model.trim="email"
-        type="text" label="Email"
-        :class="{error: $v.email.$error}"
-        @blur="$v.email.$touch()"
       />
       <div v-if="$v.email.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
@@ -103,6 +88,7 @@ export default {
   data() {
     return {
       email: null,
+      username: null,
       password: null,
       repeatPassword: null,
     };
@@ -129,7 +115,7 @@ export default {
       addNotification: 'addNotification'
     }),
     async registerUser() {
-      const response = await register(this.email, this.password);
+      const response = await register(this.username, this.email, this.password);
       if (response === false) {
         const failureMessage = new Notification('Registration Failed', 'red');
         this.addNotification(failureMessage);
