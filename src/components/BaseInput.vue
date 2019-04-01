@@ -1,9 +1,6 @@
 <template>
   <div class="input-container">
-    <label
-      v-if="label"
-      :for="label"
-    >{{ label }}</label>
+    <label v-if="label" :for="label">{{ label }}</label>
     <input 
       :name="label"
       :value="value"
@@ -32,11 +29,12 @@ export default {
     value: {
       type: [String, Number],
       default: ''
-    },
-    inFocus: {
-      type: Boolean,
-      default: false
     }
+  },
+  data() {
+    return {
+      inFocus: false
+    };
   },
   computed: {
     listeners() {
@@ -44,7 +42,7 @@ export default {
         ...this.$listeners,
         input: this.updateValue
       };
-    }
+    },
   },
   methods: {
     updateValue(event) {
@@ -65,7 +63,7 @@ input
   border 0
   padding 10px 15px
   border-radius-top()
-  font-font-family $font
+  font-family $font
 
 label 
   font-family $font
@@ -87,7 +85,4 @@ label
   width 100%
   background $red
 
-.ok span 
-  width 100%
-  right-gradient()
 </style>

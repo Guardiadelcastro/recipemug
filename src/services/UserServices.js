@@ -15,19 +15,19 @@ const auth = axios.create({
 
 // Start loading before a request
 auth.interceptors.request.use(config => {
-  store.dispatch('loader/startLoading');
+  store.dispatch('loading/startLoading');
   return config;
 }, error => {
-  store.dispatch('loader/finishLoading');
+  store.dispatch('loading/finishLoading');
   return Promise.reject(error);
 });
 
 // Finish Loading after a response 
 auth.interceptors.response.use(response => {
-  store.dispatch('loader/finishLoading');
+  store.dispatch('loading/finishLoading');
   return response;
 }, error => {
-  store.dispatch('loader/finishLoading');
+  store.dispatch('loading/finishLoading');
   return Promise.reject(error);
 });
 

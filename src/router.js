@@ -7,7 +7,7 @@ import Index from './templates/Index.vue';
 import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
-import FullRecipe from './templates/FullRecipe.vue';
+// import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
 import Login from './templates/Login.vue';
@@ -62,11 +62,11 @@ const router = new Router({
           name: 'NewRecipe',
           component: NewRecipe
         },
-        {
-          path: 'full-recipe',
-          name: 'fullecipe',
-          component: FullRecipe
-        }
+        // {
+        //   path: 'full-recipe',
+        //   name: 'fullecipe',
+        //   component: FullRecipe
+        // }
       ]
     },
   ],

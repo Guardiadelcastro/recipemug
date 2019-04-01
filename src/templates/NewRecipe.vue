@@ -4,42 +4,39 @@
       <h1 class="title">
         New Recipe
       </h1>
-      <BaseInput v-model="title" label="Title" />
+      <BaseInput v-model="recipe.title" label="Title" />
+      <BaseTextArea v-model="recipe.description" label="Description" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 import BaseInput from '../components/BaseInput.vue';
-// import BaseTextArea from '../components/BaseTextArea.vue';
+import BaseTextArea from '../components/BaseTextArea.vue';
 export default {
   name: 'NewRecipe',
   components: {
     BaseInput,
-    // BaseTextArea
+    BaseTextArea
   },
   data() {
     return {
-      slug: '',
-      title: '',
-      description: '',
-      ingredients: [],
-      steps: [],
+      recipe: {}
     };
   },
   computed: {
     ...mapGetters('recipe', {
-      getActive: 'getActive'
+      getActive: 'getActive',
     }),
     
   },
-  beforeMount() {
-    this.new = this.getActive();
+  created() {
+    this.recipe = this.getActive;
   },
   methods: {
     ...mapActions('recipe', {
-
+      
     }),
     createSlug() {
       let date = new Date;
@@ -60,6 +57,9 @@ export default {
 .container
   display flex
   flex-flow column nowrap
+  justify-content flex-start
+  align-items flex-start
+  padding 20px
 
 .title
   justify-self center

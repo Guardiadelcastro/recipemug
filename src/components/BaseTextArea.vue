@@ -1,13 +1,20 @@
 <template>
-  <div>
-    <label v-if="label">{{ label }}</label>
-    <textarea 
-      :value="value"
-      :class="theme"
-      v-bind="$attrs"
-      v-on="listeners"
-      @input="updateValue"
-    /> 
+  <div class="area-container">
+    <label v-if="label" :for="label">{{ label }}</label>
+    <div class="text-area">
+      <span
+        :class="inFocus ? 'focus' : ''"
+      />
+      <textarea
+        :name="label"
+        :value="value"
+        v-bind="$attrs"
+        v-on="listeners"
+        @input="updateValue"
+        @focus="inFocus = true"
+        @blur="inFocus = false"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,18 +24,18 @@ export default {
   name: 'BaseTextArea',
   inheritAttrs: false,
   props: {
-    theme: {
-      type: String,
-      default: 'default'
-    },
     label: {
       type: String,
       default: ''
     },
+    value: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
-      value: ''
+      inFocus: false
     };
   },
   computed: {
@@ -49,25 +56,39 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import '../styles/variables'
+@import '../styles/variables'
+@import '../styles/mixins'
 
-  textarea
-    outline none
-    resize none
-    padding 10px
-    width 600px
-    height 150px
-    border-radius $br
-    font-family $font
-    font-size 16px
-    background $white
+.area-container
+  display flex
+  flex-flow column nowrap
+  span 
+    height 0
+    width 5px
+    right-gradient() 
+    transition height ease 0.5s
+  span.focus
+    height 100%
+.text-area
+  display flex
+  flex-flow row nowrap
 
-  .default
-    border 1px solid $blue
+textarea
+  outline none
+  resize none
+  padding 10px
+  width 600px
+  height 150px
+  border 0
+  font-family $font
+  font-size 1.15em
 
-  .correct
-    border 1px solid $green
+label 
+  font-family $font
+  font-weight bold
+  margin 0 5px 5px 5px
   
-  .error
-    border 1px solid $red
+
+.error
+  border 1px solid $red
 </style>

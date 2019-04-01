@@ -26,7 +26,7 @@ const recipe = {
     createNewRecipe({commit, rootState}) {
       const newRecipe = {
         slug: '',
-        title: 'New recipe',
+        title: '',
         description: 'New description',
         ingredients: [],
         steps: [],
