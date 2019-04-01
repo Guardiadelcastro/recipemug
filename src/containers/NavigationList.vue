@@ -17,6 +17,7 @@
     >
       <BaseButton
         type="button"
+        @click="createNew"
       >
         <i class="fas fa-plus-square" /> New Recipe
       </BaseButton>
@@ -36,7 +37,7 @@
 <script>
 import NavLink from '../components/NavLink.vue';
 import BaseButton from '../components/BaseButton.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'NavigationList',
@@ -50,6 +51,15 @@ export default {
       username: 'getUsername'
     })
   },
+  methods: {
+    ...mapActions('recipe', {
+      new: 'createNewRecipe'
+    }),
+    createNew() {
+      this.new();
+      this.$router.push({name: 'NewRecipe'});
+    }
+  }
 
 };
 </script>

@@ -11,6 +11,7 @@ import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
 import Login from './templates/Login.vue';
+import NewRecipe from './templates/NewRecipe.vue';
 
 Vue.use(Router);
 
@@ -54,7 +55,12 @@ const router = new Router({
         {
           path: 'recipes',
           name: 'Recipes',
-          component: Recipes
+          component: Recipes,
+        },
+        {
+          path: 'recipes/new',
+          name: 'NewRecipe',
+          component: NewRecipe
         },
         {
           path: 'full-recipe',
