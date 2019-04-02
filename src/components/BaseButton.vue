@@ -65,6 +65,7 @@ button:disabled, button[disabled=disabled]
   square(45px)
   border-radius 50px
   padding 0
+
 .gradient
   right-gradient()
   color $white
@@ -88,10 +89,8 @@ button:disabled, button[disabled=disabled]
   color $white
   background-color $red
   border-color transparent
-
   &:hover
     background-color $dark-red
-
   &:active
     background-color $white
     color $red
