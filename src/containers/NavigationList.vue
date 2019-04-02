@@ -57,7 +57,7 @@ export default {
     }),
     createNew() {
       this.new();
-      this.$router.push({name: 'NewRecipe'});
+      this.$router.push({name: 'EditRecipe'});
     }
   }
 

@@ -11,7 +11,7 @@ import Pricing from './templates/Pricing.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
 import Login from './templates/Login.vue';
-import NewRecipe from './templates/NewRecipe.vue';
+import EditRecipe from './templates/EditRecipe.vue';
 
 Vue.use(Router);
 
@@ -58,9 +58,9 @@ const router = new Router({
           component: Recipes,
         },
         {
-          path: 'recipes/new',
-          name: 'NewRecipe',
-          component: NewRecipe
+          path: 'recipes/edit',
+          name: 'EditRecipe',
+          component: EditRecipe
         },
         // {
         //   path: 'full-recipe',

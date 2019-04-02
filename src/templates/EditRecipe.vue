@@ -4,8 +4,15 @@
       <h1 class="title">
         New Recipe
       </h1>
-      <BaseInput v-model="recipe.title" label="Title" />
-      <BaseTextArea v-model="recipe.description" label="Description" />
+      <BaseButton class="button" theme="orange" @click="saveRecipe">
+        Save Recipe
+      </basebutton>
+      <h3> Title</h3>
+      <BaseInput
+        v-model="recipe.title"
+      />
+      <h3>Description</h3>
+      <BaseTextArea v-model="recipe.description" />
     </div>
   </div>
 </template>
@@ -13,23 +20,24 @@
 <script>
 import { mapState, mapActions, mapGetters } from 'vuex';
 import BaseInput from '../components/BaseInput.vue';
+import BaseButton from '../components/BaseButton.vue';
 import BaseTextArea from '../components/BaseTextArea.vue';
 export default {
-  name: 'NewRecipe',
+  name: 'EditRecipe',
   components: {
     BaseInput,
-    BaseTextArea
+    BaseTextArea,
+    BaseButton
   },
   data() {
     return {
-      recipe: {}
+      recipe: {},
     };
   },
   computed: {
     ...mapGetters('recipe', {
       getActive: 'getActive',
     }),
-    
   },
   created() {
     this.recipe = this.getActive;
@@ -45,7 +53,7 @@ export default {
       title = title.replace(/\W+/g, '-').toLowerCase();
       const slug = `${date}-${title}`;
       this.slug = slug;
-    }
+    },
   }
 };
 </script>
@@ -65,4 +73,17 @@ export default {
   justify-self center
   border-bottom 2px dashed $green
 
+.recipe-title, .recipe-description
+  display flex
+  flex-flow row nowrap
+  align-items center
+  justify-content flex-start
+  padding 10px 20px
+  transition all ease 0.3s
+
+.button
+  margin 0 10px
+
+.fa-check-circle
+  color $green
 </style>
