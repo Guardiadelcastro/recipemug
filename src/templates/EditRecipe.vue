@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h1 class="title">
-        New Recipe
+        Edit the recipe
       </h1>
       <BaseButton class="button" theme="orange">
         Save Recipe
@@ -14,7 +14,7 @@
       <h3>Description</h3>
       <BaseTextArea v-model="recipe.description" />
       <h3> Ingredients</h3>
-      <div class="add-ingredient">
+      <div class="add">
         <BaseInput v-model="ingredientToAdd" @keyup.enter="addIngredient" />
         <BaseButton theme="blue" @click.prevent="addIngredient">
           Add
@@ -29,6 +29,24 @@
             <i class="far fa-trash-alt" />
           </BaseButton>
           {{ ingredient }}
+        </li>
+      </ul>
+      <h3> Steps</h3>
+      <div class="add">
+        <BaseTextArea v-model="stepToAdd" @keyup.enter="addStep" />
+        <BaseButton theme="blue" @click.prevent="addStep">
+          Add
+        </BaseButton>
+      </div>
+      <ul>
+        <li v-for="(step, index) in recipe.steps" :key="index">
+          <BaseButton
+            theme="red square"
+            @click="removeStep(index)"
+          >
+            <i class="far fa-trash-alt" />
+          </BaseButton>
+          {{ step }}
         </li>
       </ul>
     </div>
@@ -50,7 +68,8 @@ export default {
   data() {
     return {
       recipe: {},
-      ingredientToAdd: ''
+      ingredientToAdd: '',
+      stepToAdd: ''
     };
   },
   computed: {
@@ -80,6 +99,13 @@ export default {
     removeIngredient(index) {
       this.recipe.ingredients.splice(index, 1);
     },
+    addStep(){
+      this.recipe.steps.push(this.stepToAdd);
+      this.stepToAdd = '';
+    },
+    removeStep(index) {
+      this.recipe.steps.splice(index, 1);
+    },
   }
 };
 </script>
@@ -99,7 +125,7 @@ export default {
   justify-self center
   border-bottom 2px dashed $green
 
-.add-ingredient
+.add
   display grid
   grid-template-columns 2.5fr 1fr
   grid-gap 10px

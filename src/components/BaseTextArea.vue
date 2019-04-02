@@ -81,7 +81,7 @@ label
   font-weight bold
   margin 0 5px 5px 5px
   
-textarea .active
+textarea.active
   box($blue)
 
 .error textarea

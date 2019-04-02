@@ -75,5 +75,7 @@ button
   flex-flow column nowrap
   align-items center
   justify-content flex-start
-  
+
+i 
+  margin-right 5px
 </style>

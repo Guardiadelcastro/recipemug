@@ -77,7 +77,7 @@ input
     background transparent
     color $dark
     
-input .active
+input.active
   box($blue)
 
 .error input

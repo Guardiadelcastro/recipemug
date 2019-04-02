@@ -107,18 +107,6 @@ button:disabled, button[disabled=disabled]
     background-color $white
     color $orange
 
-.yellow
-  color $white
-  background-color $yellow
-  border-color transparent
-
-  &:hover
-    background-color $dark-yellow
-
-  &:active
-    background-color $white
-    color $yellow
-
 .green
   color $white
   background-color $green
@@ -130,16 +118,5 @@ button:disabled, button[disabled=disabled]
   &:active
     background-color $white
     color $green
-
-.grey
-  color $white
-  background-color $grey
-  border-color transparent
-    &:hover
-      background-color $dark-grey
-      border-color $dark-grey
-    &:active
-      background-color $white
-      color $grey
 
 </style>
