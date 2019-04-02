@@ -75,6 +75,8 @@ export async function checkAuth() {
     return false;
   }
   const user = response.data;
+  // console.log(response);
+  // console.log(user);
   store.dispatch('user/userIsLogged');
   store.dispatch('user/addToken');
   store.dispatch('user/addUser', user);
@@ -84,11 +86,12 @@ export async function checkAuth() {
 export async function getUser(token) {
   try {
     const decode = jwt_decode(token);
-    console.log(decode);
-    const user = await auth.get('/find/email', {
-      email: decode.email,
+    const email = decode.user.email;
+    const response = await auth.get('/find/email', {
+      email: email
     });
-    return user;
+    console.log(response);
+    return false;
   } catch(err) {
     return err;
   }

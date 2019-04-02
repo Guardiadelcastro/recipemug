@@ -17,16 +17,13 @@ export default {
       default: 'nav'
     },
     to: {
-      type: String,
-      default: '/#lost'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
+      type: [Object, String],
+      default:'/lost'
+    }
+  },
+  methods: {
+    redirectIndex() {
+      this.$router.push({name: 'Index'});
     }
   }
 };

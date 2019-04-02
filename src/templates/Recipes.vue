@@ -32,11 +32,6 @@ export default {
   components: {
     BaseButton
   },
-  data() {
-    return {
-      recipes: []
-    };
-  },
   computed: {
     ...mapState('recipe', {
       recipes: 'recipes'

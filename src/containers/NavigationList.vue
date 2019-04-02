@@ -37,7 +37,7 @@
 <script>
 import NavLink from '../components/NavLink.vue';
 import BaseButton from '../components/BaseButton.vue';
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
   name: 'NavigationList',
@@ -46,9 +46,9 @@ export default {
     BaseButton
   },
   computed: {
-    ...mapGetters('user', {
-      status: 'getLogStatus',
-      username: 'getUsername'
+    ...mapState('user', {
+      status: 'isLoggedIn',
+      username: 'user.username'
     })
   },
   methods: {
