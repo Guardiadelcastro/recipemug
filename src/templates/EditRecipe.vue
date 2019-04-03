@@ -87,10 +87,10 @@ export default {
     createSlug() {
       let date = new Date;
       date = date.getTime();
-      let title = this.title;
+      let title = this.recipe.title;
       title = title.replace(/\W+/g, '-').toLowerCase();
       const slug = `${date}-${title}`;
-      this.slug = slug;
+      this.recipe.slug = slug;
     },
     addIngredient(){
       this.recipe.ingredients.push(this.ingredientToAdd);
@@ -109,6 +109,7 @@ export default {
     async save() {
       this.createSlug();
       const newRecipe = { ...this.recipe };
+      console.log(newRecipe);
       await this.saveRecipe(newRecipe);
     }
   }

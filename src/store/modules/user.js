@@ -38,13 +38,16 @@ const user = {
     addToken({commit}){
       commit('SET_JWT');
     },
-    async addUserRecipe({commit}, userRecipe) {
-      await updateUser(userRecipe);
-      commit('ADD_USER_RECIPE', userRecipe);
+    async addUserRecipe({state, commit}, userRecipe) {
+      await commit('ADD_USER_RECIPE', userRecipe);
+      const user = {...state.user};
+      console.log(user);
+      await updateUser(user);
     },
-    async updateUserRecipe({ commit }, userRecipe) {
-      await updateUser(userRecipe);
+    async updateUserRecipe({ state, commit }, userRecipe) {
       commit('UPDATE_USER_RECIPE', userRecipe);
+      const user = {...state.user};
+      await updateUser(user);
     }
   },
   mutations: {
@@ -65,7 +68,7 @@ const user = {
       state.isLoggedIn = false;
     },
     ADD_USER_RECIPE(state, userRecipe) {
-      state.recipes.push(userRecipe);
+      state.user.recipes.push(userRecipe);
     },
     UPDATE_USER_RECIPE(state, userRecipe) {
       const index = state.user.recipes.indexOf((recipe) => {

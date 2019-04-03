@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import store from '../store/store';
 import { keys } from './AppServices';
 
-const user = axios.create({  
+const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`,
   withCredentials: false, // This is the default
   headers: {
@@ -14,7 +14,7 @@ const user = axios.create({
 });
 
 // Start loading before a request
-user.interceptors.request.use(config => {
+auth.interceptors.request.use(config => {
   store.dispatch('loading/startLoading');
   return config;
 }, error => {
@@ -23,7 +23,7 @@ user.interceptors.request.use(config => {
 });
 
 // Finish Loading after a response 
-user.interceptors.response.use(response => {
+auth.interceptors.response.use(response => {
   store.dispatch('loading/finishLoading');
   return response;
 }, error => {
@@ -33,7 +33,7 @@ user.interceptors.response.use(response => {
 
 export async function login(email, password) {
   try {
-    const response = await user.post('/login', {
+    const response = await auth.post('/login', {
       email: email,
       password: password
     });
@@ -54,7 +54,7 @@ export async function login(email, password) {
 
 export async function register(username, email, password) {
   try {
-    const response = await user.post('/register', {
+    const response = await auth.post('/register', {
       username: username,
       email: email,
       password: password
@@ -86,16 +86,14 @@ export async function checkAuth() {
 export async function getUser(token) {
   const decode = jwt_decode(token);
   const email = decode.user.email;
-  const response = await user.get('/find/email', {
+  const response = await auth.get('/find/email', {
     email: email
   });
-  console.log(response);
   return false;
 }
 
 export async function updateUser(user) {
-  const response = await user.post('/update', {
-    user
-  });
+  console.log(user);
+  const response = await auth.put('/update', user);
   console.log(response);
 }

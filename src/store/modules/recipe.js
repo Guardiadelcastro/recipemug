@@ -34,24 +34,26 @@ const recipe = {
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
-    async saveRecipe({commit, state, dispatch}) {
-      let activeRecipe = state.activeRecipe;
-      let userRecipe = {
-        slug: activeRecipe.slug,
-        title: activeRecipe.title
+    async saveRecipe({commit, state, dispatch}, recipeToSave) {
+      const userRecipe = {
+        slug: recipeToSave.slug,
+        title: recipeToSave.title
       };
-      const recipeToUpdate = state.recipes.find((recipe) => {
-        recipe.slug === activeRecipe.slug;
+      console.log(recipeToSave);
+      console.log(userRecipe);
+      const recipes = state.recipes;
+      const recipeInArray = recipes.find((recipe) => {
+        recipe.slug === recipeToSave.slug;
       });
-      if (recipeToUpdate === undefined) {
-        const response = await saveNewRecipe(activeRecipe);
-        // TODO handle failed request 
+      if (recipeInArray === undefined) {
+        const response = await saveNewRecipe(recipeToSave);
+        // TODO: handle failed request 
         dispatch('user/addUserRecipe', userRecipe, {root: true});
-        commit('SAVE_NEW_RECIPE', activeRecipe);
+        commit('SAVE_NEW_RECIPE', recipeToSave);
         return;
       }
       dispatch('user/updateUserRecipe', userRecipe, {root: true});
-      commit('UPDATE_RECIPE', activeRecipe);
+      commit('UPDATE_RECIPE', recipeToSave);
     }
   },
 
