@@ -4,7 +4,7 @@
       <h1 class="title">
         Edit the recipe
       </h1>
-      <BaseButton class="button" theme="orange">
+      <BaseButton class="button" theme="orange" @click="save">
         Save Recipe
       </basebutton>
       <h3> Title</h3>
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     ...mapActions('recipe', {
-      
+      saveRecipe: 'saveRecipe'
     }),
     createSlug() {
       let date = new Date;
@@ -106,6 +106,11 @@ export default {
     removeStep(index) {
       this.recipe.steps.splice(index, 1);
     },
+    async save() {
+      this.createSlug();
+      const newRecipe = { ...this.recipe };
+      await this.saveRecipe(newRecipe);
+    }
   }
 };
 </script>
@@ -123,7 +128,13 @@ export default {
 
 .title
   justify-self center
-  border-bottom 2px dashed $green
+  font-family $font-title
+  font-size 3em
+  margin 0
+  right-gradient()
+  color transparent
+  background-clip text
+  margin 20px 0
 
 .add
   display grid

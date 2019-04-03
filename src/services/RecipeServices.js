@@ -34,17 +34,6 @@ recipes.interceptors.response.use(response => {
   return Promise.reject(error);
 });
 
-export async function createNewRecipe(recipe) {
-  try {
-    const response = await recipes.post('/create-recipe', {
-      recipe
-    });
-    return response;
-  } catch(err) {
-    return err;
-  }
-}
-
 export async function fetchAllRecipes(owner) {
   try {
     const recipes = await recipes.get('/my-recipes', {owner});
@@ -55,4 +44,20 @@ export async function fetchAllRecipes(owner) {
 
 }
 
+export async function saveNewRecipe(recipe) {
+  try{
+    const response = await recipes.post('/create', {recipe});
+    return response;
+  } catch(err) {
+    return err;
+  }
+}
 
+export async function updateRecipe(recipe) {
+  try{
+    const response = await recipes.put('/update', {recipe});
+    return response;
+  } catch(err) {
+    return err;
+  }
+}

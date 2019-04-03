@@ -70,8 +70,6 @@ button:disabled, button[disabled=disabled]
   right-gradient()
   color $white
   border-color transparent
-  &:hover
-    background $green
   
 .blue
   color $white

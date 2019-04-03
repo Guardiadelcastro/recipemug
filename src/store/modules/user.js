@@ -36,6 +36,14 @@ const user = {
     },
     addToken({commit}){
       commit('SET_JWT');
+    },
+    async addUserRecipe({commit}, userRecipe) {
+      // TODO: send api request to add user recipe
+      commit('ADD_USER_RECIPE', userRecipe);
+    },
+    updateUserRecipe({ commit }, userRecipe) {
+      // TODO: send api request to update user recipe
+      commit('UPDATE_USER_RECIPE', userRecipe);
     }
   },
   mutations: {
@@ -54,6 +62,15 @@ const user = {
       state.jwt ={};
       state.user = {};
       state.isLoggedIn = false;
+    },
+    ADD_USER_RECIPE(state, userRecipe) {
+      state.recipes.push(userRecipe);
+    },
+    UPDATE_USER_RECIPE(state, userRecipe) {
+      const index = state.user.recipes.indexOf((recipe) => {
+        recipe.slug = userRecipe.slug;
+      });
+      state.user.recipes[index] = userRecipe;
     }
   }
 };

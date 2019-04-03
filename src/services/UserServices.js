@@ -96,3 +96,7 @@ export async function getUser(token) {
     return err;
   }
 }
+
+export async function updateUser(data) {
+  
+}

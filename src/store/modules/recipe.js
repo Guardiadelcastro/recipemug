@@ -1,4 +1,4 @@
-import { createNewRecipe, fetchAllRecipes } from '../../services/RecipeServices';
+import { createNewRecipe, fetchAllRecipes, saveNewRecipe, updateRecipe } from '../../services/RecipeServices';
 import { isNull } from 'util';
 
 const recipe = {
@@ -25,36 +25,34 @@ const recipe = {
     },
     createNewRecipe({commit, rootState}) {
       const newRecipe = {
-        slug: '',
+        slug: 'new',
         title: '',
         description: 'New description',
         ingredients: [],
         steps: [],
-        owner: rootState.user._id
+        owner: rootState.user.user.email
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
-    async saveRecipe({commit, state}) {
-      let activeRecipe = state.active;
-      if(activeRecipe._id === isNull) {
-        await createNewRecipe(activeRecipe);
+    async saveRecipe({commit, state, dispatch}) {
+      let activeRecipe = state.activeRecipe;
+      let userRecipe = {
+        slug: activeRecipe.slug,
+        title: activeRecipe.title
+      };
+      const recipeToUpdate = state.recipes.find((recipe) => {
+        recipe.slug === activeRecipe.slug;
+      });
+      if (recipeToUpdate === undefined) {
+        const response = await saveNewRecipe(activeRecipe);
+        // TODO handle failed request 
+        dispatch('user/addUserRecipe', userRecipe, {root: true});
         commit('SAVE_NEW_RECIPE', activeRecipe);
         return;
       }
-      commit('SAVE_RECIPE', activeRecipe);
-    },
-    updateTitle({commit}, title) {
-      commit('SET_TITLE', title);
-    },
-    updateDescription({commit}, description) {
-      commit('SET_DESCRIPTION', description);
-    },
-    updateIngredients({commit}, ingredients) {
-      commit('SET_INGREDIENTS', ingredients);
-    },
-    updateSteps({commit}, steps) {
-      commit('SET_STEPS', steps);
-    },
+      dispatch('user/updateUserRecipe', userRecipe, {root: true});
+      commit('UPDATE_RECIPE', activeRecipe);
+    }
   },
 
   mutations: {
@@ -68,25 +66,13 @@ const recipe = {
     SET_ACTIVE_RECIPE(state, recipe) {
       state.activeRecipe = recipe;
     },
-    SAVE_NEW_RECIPE(state, activeRecipe) {
-      state.recipes.push(activeRecipe);
-      state.active = {};
+    SAVE_NEW_RECIPE(state, recipe) {
+      state.recipes.push(recipe);
+      state.activeRecipe = {};
     },
-    SAVE_RECIPE(state, activeRecipe) {
-      const index = state.recipes.findIndex(recipe => recipe._id == activeRecipe._id);
-      state.recipes[index] = activeRecipe;
-    },
-    SET_TITLE(state, title) {
-      state.activeRecipe.title = title;
-    },
-    SET_DESCRIPTION(state, description) {
-      state.activeRecipe.description = description;
-    },
-    SET_INGREDIENTS(state, ingredients) {
-      state.activeRecipe.ingredients = ingredients;
-    },
-    SET_STEPS(state, steps) {
-      state.activeRecipe.steps = steps;
+    UPDATE_RECIPE(state, recipeToUpdate) {
+      const index = state.recipes.findIndex(recipe => recipe.slug == recipeToUpdate.slug);
+      state.recipes[index] = recipeToUpdate;
     }
   }
 };
