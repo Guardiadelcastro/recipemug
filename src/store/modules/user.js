@@ -1,3 +1,4 @@
+import {updateUser} from '../../services/UserServices';
 const user = {
   namespaced: true,
   state: {
@@ -38,11 +39,11 @@ const user = {
       commit('SET_JWT');
     },
     async addUserRecipe({commit}, userRecipe) {
-      // TODO: send api request to add user recipe
+      await updateUser(userRecipe);
       commit('ADD_USER_RECIPE', userRecipe);
     },
-    updateUserRecipe({ commit }, userRecipe) {
-      // TODO: send api request to update user recipe
+    async updateUserRecipe({ commit }, userRecipe) {
+      await updateUser(userRecipe);
       commit('UPDATE_USER_RECIPE', userRecipe);
     }
   },
