@@ -7,17 +7,17 @@
 </template>
 
 <script>
-// import * as axios from 'axios';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Dashboard',
-  mounted() {
-    // const id = this.$store.state.user[0].uuid;
-    // axios
-    //   .get('https://api.recipemug.club/recipes/'+ id)
-    //   .then((recipes) => {
-    //     this.$store.commit('ADD_RECIPES', recipes.data);
-    //   });
+  created() {
+    this.fetch();
+  },
+  methods: {
+    ...mapActions('recipe', {
+      fetch: 'fetchRecipes'
+    })
   }
 };
 </script>

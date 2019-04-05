@@ -34,10 +34,11 @@ recipes.interceptors.response.use(response => {
   return Promise.reject(error);
 });
 
-export async function fetchAllRecipes(owner) {
+export async function fetchUserRecipes(owner) {
   try {
-    const recipes = await recipes.get('/my-recipes', {owner});
-    return recipes;
+    const response = await recipes.get(`/my-recipes/${owner}`);
+    console.log(response.data);
+    return response.data;
   } catch(err) {
     return err;
   }

@@ -9,7 +9,7 @@
       <p>Email:</p>
       <p>{{ user.email }}</p>
       <p>Recipes:</p>
-      <p>{{ user.recipes.length }}</p>
+      <p>{{ count }}</p>
     </main>
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
   computed: {
     ...mapGetters('user', {
       user: 'getUser'
+    }),
+    ...mapGetters('recipe', {
+      count: 'getRecipeCount'
     })
   }
 };

@@ -1,5 +1,4 @@
-import { fetchAllRecipes, saveNewRecipe } from '../../services/RecipeServices';
-import { isNull } from 'util';
+import { fetchUserRecipes, saveNewRecipe } from '../../services/RecipeServices';
 
 const recipe = {
   namespaced: true,
@@ -14,46 +13,43 @@ const recipe = {
     },
     getActive(state) {
       return state.activeRecipe;
+    },
+    getRecipeCount(state) {
+      return state.recipes.length;
     }
   },
 
   actions: {
     async fetchRecipes({commit, rootState}) {
-      const owner = { owner: rootState.user._id };
-      const recipes = await fetchAllRecipes(owner);
+      const owner = rootState.user.user.email;
+      const recipes = await fetchUserRecipes(owner);
       commit('SET_RECIPES', recipes);
     },
     createNewRecipe({commit, rootState}) {
       const newRecipe = {
         slug: 'new',
         title: '',
-        description: 'New description',
+        description: '',
         ingredients: [],
         steps: [],
         owner: rootState.user.user.email
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
-    async saveRecipe({commit, state, dispatch}, recipeToSave) {
-      const userRecipe = {
-        slug: recipeToSave.slug,
-        title: recipeToSave.title
-      };
-      console.log(recipeToSave);
-      console.log(userRecipe);
+    async saveRecipe({commit, state}, recipeToSave) {
       const recipeInArray = state.recipes.find((recipe) => {
         recipe.slug === recipeToSave.slug;
       });
-      console.log(recipeInArray);
       if (recipeInArray == undefined) {
+        commit('SAVE_NEW_RECIPE', recipeToSave);
         const response = await saveNewRecipe(recipeToSave);
         //TODO: handle failed request 
-        dispatch('user/addUserRecipe', userRecipe, {root: true});
-        commit('SAVE_NEW_RECIPE', recipeToSave);
         return;
       }
-      dispatch('user/updateUserRecipe', userRecipe, {root: true});
       commit('UPDATE_RECIPE', recipeToSave);
+    },
+    cleanRecipeState({commit}) {
+      commit('CLEAN_RECIPE_STATE');
     }
   },
 

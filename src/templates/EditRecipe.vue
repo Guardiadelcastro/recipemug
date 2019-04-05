@@ -127,14 +127,14 @@ export default {
   padding 20px
 
 .title
-  justify-self center
   font-family $font-title
   font-size 3em
-  margin 0
-  right-gradient()
-  color transparent
-  background-clip text
   margin 20px 0
+  padding 10px
+  color $dark
+  border 3px dashed $dark
+  border-radius $br
+  justify-self center
 
 .add
   display grid

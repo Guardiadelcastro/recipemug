@@ -7,11 +7,11 @@ const user = {
     isLoggedIn: false
   },
   getters: {
-    getUserID(state) {
-      return state.user._id;
-    },
     getUser(state) {
       return state.user;
+    },
+    getRecipes(state) {
+      return state.user.recipes;
     },
     getUsername(state) {
       return state.user.username;
@@ -24,9 +24,9 @@ const user = {
     }
   },
   actions: {
-    logOut({commit}) {
+    logOut({commit, dispatch}) {
       commit('CLEAN_USER_STATE');
-      commit('CLEAN_RECIPE_STATE', null, {root: true});
+      dispatch('cleanRecipeState', null, {root: true});
       localStorage.removeItem('token');
     },
     userIsLogged({commit}) {
