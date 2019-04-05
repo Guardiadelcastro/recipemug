@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 import store from '../store/store';
-import user from '../store/modules/user';
+// import { user } from '../store/modules/user';
 import { keys } from './AppServices';
 
-const token = user.getters.getToken;
+const token = localStorage.getItem('token');
 
 const recipes = axios.create({  
   baseURL: `${keys.apiUrl}/api/recipes/`,

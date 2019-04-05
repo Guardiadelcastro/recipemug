@@ -109,7 +109,6 @@ export default {
     async save() {
       this.createSlug();
       const newRecipe = { ...this.recipe };
-      console.log(newRecipe);
       await this.saveRecipe(newRecipe);
     }
   }

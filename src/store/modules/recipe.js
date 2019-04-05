@@ -1,4 +1,4 @@
-import { createNewRecipe, fetchAllRecipes, saveNewRecipe, updateRecipe } from '../../services/RecipeServices';
+import { fetchAllRecipes, saveNewRecipe } from '../../services/RecipeServices';
 import { isNull } from 'util';
 
 const recipe = {
@@ -41,13 +41,13 @@ const recipe = {
       };
       console.log(recipeToSave);
       console.log(userRecipe);
-      const recipes = state.recipes;
-      const recipeInArray = recipes.find((recipe) => {
+      const recipeInArray = state.recipes.find((recipe) => {
         recipe.slug === recipeToSave.slug;
       });
-      if (recipeInArray === undefined) {
+      console.log(recipeInArray);
+      if (recipeInArray == undefined) {
         const response = await saveNewRecipe(recipeToSave);
-        // TODO: handle failed request 
+        //TODO: handle failed request 
         dispatch('user/addUserRecipe', userRecipe, {root: true});
         commit('SAVE_NEW_RECIPE', recipeToSave);
         return;
