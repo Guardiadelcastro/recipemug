@@ -46,6 +46,7 @@ const router = new Router({
       path: '/dashboard/:username',
       name: 'Dashboard',
       component: Dashboard,
+      props: true,
       children: [
         {
           path: 'profile', 

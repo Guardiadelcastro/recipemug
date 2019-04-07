@@ -15,7 +15,6 @@
 import NavigationBar from './templates/NavigationBar.vue';
 import Notifications from './components/Notifications.vue';
 import { checkAuth } from './services/UserServices';
-import {mapState} from 'vuex';
 
 export default {
   name: 'App',
@@ -23,17 +22,9 @@ export default {
     NavigationBar,
     Notifications
   },
-  mutations:{
-    ...mapState('user', {
-      username: 'user.username'
-    })
-  },
   mounted() {
-    const response = checkAuth();
-    if(response === true) {
-      this.$router.push({ name:'Profile', params: { username: this.user } });
-    }
-  }
+    const isLogged = checkAuth();
+  },
 };
 
 </script>

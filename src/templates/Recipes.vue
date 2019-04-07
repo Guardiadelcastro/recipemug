@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 import BaseButton from '../components/BaseButton.vue';
 

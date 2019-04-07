@@ -2,7 +2,9 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 import store from '../store/store';
+import router from '../router';
 import { keys } from './AppServices';
+import { fetchUserRecipes } from './RecipeServices';
 
 const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`,
@@ -67,28 +69,27 @@ export async function register(username, email, password) {
 
 export async function checkAuth() {
   const token = localStorage.getItem('token');
-  if (!token) {
+  console.log(token);
+  if (token === null) {
+    router.push({ name: 'Index' });
     return false;
   }
-  const response = await getUser(token);
-  if(!response) {
-    return false;
-  }
-  const user = response.data;
-  // console.log(response);
-  // console.log(user);
-  store.dispatch('user/userIsLogged');
-  store.dispatch('user/addToken');
-  store.dispatch('user/addUser', user);
+  const decode = jwt_decode(token);
+  const user = decode.user;
+  const username = user.username;
+  await store.dispatch('user/userIsLogged');
+  await store.dispatch('user/addToken');
+  await store.dispatch('user/addUser', user);
+  store.dispatch('recipe/fetchRecipes');
+  router.push({ name: 'Dashboard', params: { username: username } });
   return true;
 }
 
-export async function getUser(token) {
-  const decode = jwt_decode(token);
-  const email = decode.user.email;
-  const response = await auth.get('/find/email', {
-    email: email
-  });
+export async function getUser(email) {
+  const response = await auth.get(`/find/${email}`);
+  if(response.status === 500) {
+    return response.data;
+  }
   return false;
 }
 

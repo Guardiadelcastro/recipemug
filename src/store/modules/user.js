@@ -10,9 +10,6 @@ const user = {
     getUser(state) {
       return state.user;
     },
-    getRecipes(state) {
-      return state.user.recipes;
-    },
     getUsername(state) {
       return state.user.username;
     },
