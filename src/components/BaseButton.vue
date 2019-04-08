@@ -116,5 +116,12 @@ button:disabled, button[disabled=disabled]
   &:active
     background-color $white
     color $green
-
+.dark
+  color $light
+  background-color $dark
+  border-color transparent
+  &:hover
+    color $dark
+    background-color $light
+    border-color $dark
 </style>

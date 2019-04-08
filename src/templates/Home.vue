@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <h1 class="title">
       Home
     </h1>
@@ -16,6 +16,12 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
+.home-container
+  display flex 
+  flex-flow column nowrap
+  justify-content flex-start
+  align-items flex-start
+  padding 20px
 .title
   font-family $font-title
   font-size 3em

@@ -37,19 +37,11 @@ const recipe = {
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
     addActiveRecipe({commit, state}, slug) {
-      const recipeInArray = state.recipes.find(recipe => {
-        if (recipe.slug === slug){
-          return recipe;
-        }
-      });
+      const recipeInArray = state.recipes.find(recipe => recipe.slug === slug );
       commit('SET_ACTIVE_RECIPE', recipeInArray);
     },
     async saveRecipe({commit, state}, recipeToSave) {
-      const recipeInArray = state.recipes.find((recipe) => {
-        if (recipe.slug === recipeToSave.slug) {
-          return recipe;
-        }
-      });
+      const recipeInArray = state.recipes.find((recipe) => recipe.slug === recipeToSave.slug);
       if (recipeInArray == undefined) {
         commit('SAVE_NEW_RECIPE', recipeToSave);
         const response = await saveNewRecipe(recipeToSave);

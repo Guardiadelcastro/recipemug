@@ -8,10 +8,10 @@ import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
 import Login from './templates/Login.vue';
-// import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
 import EditRecipe from './templates/EditRecipe.vue';
+import Recipe from './templates/Recipe.vue';
 import Home from './templates/Home.vue';
 
 Vue.use(Router);
@@ -68,6 +68,12 @@ const router = new Router({
           path: ':slug/edit',
           name: 'EditRecipe',
           component: EditRecipe
+        },
+        {
+          props: true,
+          path: ':slug',
+          name: 'Recipe',
+          component: Recipe
         }
       ]
     },

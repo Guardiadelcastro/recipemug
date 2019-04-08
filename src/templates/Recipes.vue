@@ -1,5 +1,5 @@
 <template>
-  <div class="recipes-grid">
+  <div class="recipes-container">
     <div class="recipes">
       <h1 class="title">
         My recipes
@@ -15,6 +15,12 @@
             @click.prevent="goToRecipe(recipe.slug)"
           >
             <i class="fas fa-directions" />
+          </BaseButton>
+          <BaseButton
+            theme="square orange"
+            @click.prevent="editRecipe(recipe.slug)"
+          >
+            <i class="fas fa-edit" />
           </BaseButton>
           <span class="recipe-title">{{ recipe.title }}</span>
         </div>
@@ -44,8 +50,12 @@ export default {
     }),
     goToRecipe(slug) {
       this.setActive(slug);
+      this.$router.push({ name: 'Recipe', params: {slug: slug }});
+    },
+    editRecipe(slug) {
+      this.setActive(slug);
       this.$router.push({ name: 'EditRecipe', params: {slug: slug }});
-    }
+    },
   }
 };
 </script>
@@ -54,10 +64,12 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
-.recipes-grid
-  display grid 
-  grid-template-columns 1fr 8fr 1fr
-  justify-items left
+.recipes-container
+  display flex 
+  flex-flow column nowrap
+  justify-content flex-start
+  align-items flex-start
+  padding 20px
 
 .title
   font-family $font-title

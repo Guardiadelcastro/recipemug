@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="edit">
+    <nav class="buttons">
+      <BaseButton class="button" theme="orange" @click="save">
+        Save Recipe
+      </BaseButton>
+    </nav>
+    <div class="recipe-container">
       <h1 class="title">
         {{ componentTitle }}
       </h1>
-      <BaseButton class="button" theme="orange" @click="save">
-        Save Recipe
-      </basebutton>
+      
       <h3> Title</h3>
       <BaseInput
         v-model="recipe.title"
@@ -123,7 +126,7 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
-.container
+.recipe-container
   display flex
   flex-flow column nowrap
   justify-content flex-start
@@ -133,7 +136,7 @@ export default {
 .title
   font-family $font-title
   font-size 3em
-  margin 20px 0
+  margin 0 0 20px 0
   padding 10px
   color $dark
   border 3px dashed $dark
@@ -162,7 +165,13 @@ ul
       margin-right 5px
       display inline-flex
 
-.button
-  margin 0 10px
+.buttons
+  position sticky 
+  top: 0
+  opacity .95
+  padding 10px
+  display flex
+  justify-content flex-end
+  align-items center
 
 </style>
