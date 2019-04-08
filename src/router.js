@@ -7,11 +7,12 @@ import Index from './templates/Index.vue';
 import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
+import Login from './templates/Login.vue';
 // import FullRecipe from './templates/FullRecipe.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
-import Login from './templates/Login.vue';
 import EditRecipe from './templates/EditRecipe.vue';
+import Home from './templates/Home.vue';
 
 Vue.use(Router);
 
@@ -43,11 +44,15 @@ const router = new Router({
       component: AboutUs
     },
     {
-      path: '/dashboard/:username',
-      name: 'Dashboard',
-      component: Dashboard,
       props: true,
+      path: '/dashboard/:username',
+      component: Dashboard,
       children: [
+        {
+          path: '',
+          name: 'Home',
+          component: Home
+        },
         {
           path: 'profile', 
           name: 'Profile',
@@ -59,15 +64,11 @@ const router = new Router({
           component: Recipes,
         },
         {
-          path: 'recipes/edit',
+          props: true,
+          path: ':slug/edit',
           name: 'EditRecipe',
           component: EditRecipe
-        },
-        // {
-        //   path: 'full-recipe',
-        //   name: 'fullecipe',
-        //   component: FullRecipe
-        // }
+        }
       ]
     },
   ],

@@ -21,7 +21,7 @@
       >
         <i class="fas fa-plus-square" /> New Recipe
       </BaseButton>
-      <NavLink :to="{name: 'Dashboard', params: { username: username }}">
+      <NavLink :to="{ name: 'Home' }">
         Home
       </NavLink>
       <NavLink :to="{ name: 'Profile' }">
@@ -29,7 +29,7 @@
       </NavLink>
       <NavLink :to="{ name: 'Recipes' }">
         Recipes
-      </NavLink> 
+      </NavLink>
     </div>
   </div>
 </template>
@@ -47,8 +47,10 @@ export default {
   },
   computed: {
     ...mapState('user', {
-      status: 'isLoggedIn',
-      username: 'user.username'
+      status: state => state.isLoggedIn,
+    }),
+    ...mapState('recipe', {
+      slug: state => state.activeRecipe.slug
     })
   },
   methods: {
@@ -57,7 +59,7 @@ export default {
     }),
     createNew() {
       this.new();
-      this.$router.push({name: 'EditRecipe'});
+      this.$router.push({name: 'EditRecipe', params: { slug: this.slug }});
     }
   }
 

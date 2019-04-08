@@ -45,14 +45,14 @@ export default {
   justify-content flex-start
 
 .title
-  justify-self center
   font-family $font-title
-  font-size 4em
-  right-gradient()
-  color transparent
-  background-clip text
+  font-size 3em
   margin 20px 0
-  padding 5px
+  padding 10px
+  color $dark
+  border 3px dashed $dark
+  border-radius $br
+  justify-self center
 
 .info
   display grid 

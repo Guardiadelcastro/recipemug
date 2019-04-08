@@ -12,7 +12,7 @@
         >
           <BaseButton
             theme="square blue"
-            @click.prevent=""
+            @click.prevent="goToRecipe(recipe.slug)"
           >
             <i class="fas fa-directions" />
           </BaseButton>
@@ -31,24 +31,21 @@ import BaseButton from '../components/BaseButton.vue';
 export default {
   name: 'Recipes',
   components: {
-    BaseButton
+    BaseButton,
   },
   computed: {
     ...mapGetters('recipe', {
       recipes: 'getRecipes'
     })
   },
-  mounted() {
-    // this.fetchRecipes();
-  },
   methods: {
-    // ...mapActions('recipe', {
-    //   fetchRecipes: 'fetchRecipes'
-    // }),
-    // goToRecipe(id) {
-    //   this.$store.commit('MAKE_ACTIVE', id);
-    //   this.$router.push({name:'fullRecipe'});
-    // }
+    ...mapActions('recipe', {
+      setActive: 'addActiveRecipe'
+    }),
+    goToRecipe(slug) {
+      this.setActive(slug);
+      this.$router.push({ name: 'EditRecipe', params: {slug: slug }});
+    }
   }
 };
 </script>

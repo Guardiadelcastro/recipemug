@@ -88,7 +88,7 @@ export default {
       }
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
-      this.$router.push({ name: 'Dashboard', params: { username: this.user } });
+      this.$router.push({ name: 'Home', params: { username: this.user } });
     } 
   }
     

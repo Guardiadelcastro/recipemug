@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h1 class="title">
-        Edit the recipe
+        {{ componentTitle }}
       </h1>
       <BaseButton class="button" theme="orange" @click="save">
         Save Recipe
@@ -67,6 +67,7 @@ export default {
   },
   data() {
     return {
+      componentTitle: 'Edit the recipe',
       recipe: {},
       ingredientToAdd: '',
       stepToAdd: ''
@@ -75,10 +76,13 @@ export default {
   computed: {
     ...mapGetters('recipe', {
       getActive: 'getActive',
-    }),
+    })
   },
   created() {
     this.recipe = this.getActive;
+    if (this.recipe.slug == 'new') {
+      this.componentTitle = 'New recipe';
+    }
   },
   methods: {
     ...mapActions('recipe', {

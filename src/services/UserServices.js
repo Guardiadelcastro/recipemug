@@ -69,7 +69,6 @@ export async function register(username, email, password) {
 
 export async function checkAuth() {
   const token = localStorage.getItem('token');
-  console.log(token);
   if (token === null) {
     router.push({ name: 'Index' });
     return false;
@@ -81,7 +80,7 @@ export async function checkAuth() {
   await store.dispatch('user/addToken');
   await store.dispatch('user/addUser', user);
   store.dispatch('recipe/fetchRecipes');
-  router.push({ name: 'Dashboard', params: { username: username } });
+  router.push({ name: 'Home', params: { username: username } });
   return true;
 }
 
