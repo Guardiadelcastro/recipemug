@@ -1,9 +1,6 @@
 <template>
   <div class="edit">
     <nav class="buttons">
-      <BaseButton class="button" theme="danger" @click="deleteRecipe">
-        Delete Recipe
-      </BaseButton>
       <BaseButton class="button" theme="warning" @click="save">
         Save Recipe
       </BaseButton>
@@ -26,17 +23,17 @@
           Add
         </BaseButton>
       </div>
-      <ul>
-        <li v-for="(ingredient, index) in recipe.ingredients" :key="index">
-          <BaseButton
-            theme="danger square"
-            @click="removeIngredient(index)"
-          >
-            <i class="far fa-trash-alt" />
-          </BaseButton>
+      <div v-for="(ingredient, index) in recipe.ingredients" :key="index" class="ingredient">
+        <BaseButton
+          theme="danger square"
+          @click="removeIngredient(index)"
+        >
+          <i class="far fa-trash-alt" />
+        </BaseButton>
+        <p>
           {{ ingredient }}
-        </li>
-      </ul>
+        </p>
+      </div>
       <h3> Steps</h3>
       <div class="add">
         <BaseTextArea v-model="stepToAdd" @keyup.enter="addStep" />
@@ -44,17 +41,17 @@
           Add
         </BaseButton>
       </div>
-      <ul>
-        <li v-for="(step, index) in recipe.steps" :key="index">
-          <BaseButton
-            theme="danger square"
-            @click="removeStep(index)"
-          >
-            <i class="far fa-trash-alt" />
-          </BaseButton>
+      <div v-for="(step, index) in recipe.steps" :key="index" class="step">
+        <BaseButton
+          theme="danger square"
+          @click="removeStep(index)"
+        >
+          <i class="far fa-trash-alt" />
+        </BaseButton>
+        <p>
           {{ step }}
-        </li>
-      </ul>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -79,7 +76,7 @@ export default {
       oldTitle: '',
       recipe: {},
       ingredientToAdd: '',
-      stepToAdd: ''
+      stepToAdd: '',
     };
   },
   computed: {
@@ -97,7 +94,7 @@ export default {
   methods: {
     ...mapActions('recipe', {
       saveRecipe: 'saveRecipe',
-      delete: 'deleteRecipe'
+      // delete: 'deleteRecipe'
     }),
     ...mapActions('notifications', {
       addNotification: 'addNotification'
@@ -134,15 +131,16 @@ export default {
       this.addNotification(successMessage);
       this.$router.push({name: 'Recipe', params: {slug: this.recipe.slug}});
     },
-    async deleteRecipe() {
-      let decision = confirm('want to delete recipe?');
-      if (decision) {
-        await this.deleteRecipe(this.recipe);
-        const deletedMessage = new Notification('Recipe Deleted','red');
-        this.addNotification(deletedMessage);
-        return;
-      }
-    }
+    // async deleteRecipe() {
+    //   let decision = confirm('want to delete recipe?');
+    //   if (decision) {
+    //     await this.deleteRecipe(this.recipe);
+    //     this.$router.push({name: 'Recipes'});
+    //     const deletedMessage = new Notification('Recipe Deleted','red');
+    //     this.addNotification(deletedMessage);
+    //     return;
+    //   }
+    // }
   }
 };
 </script>
@@ -151,6 +149,9 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
+.edit
+  width 100%
+  height 100%
 .recipe-container
   display flex
   flex-flow column nowrap
@@ -175,20 +176,18 @@ export default {
   align-items center
   justify-content flex-start
   transition all ease 0.3s
-ul
-  list-style-type none
-  & li
-    width 100%
-    display inline-flex
-    justify-content flex-start
-    align-items center
-    padding 5px 10px
-    color $dark
-    text-align left
-    font-size 1.25em
-    & button
-      margin-right 5px
-      display inline-flex
+
+.step, .ingredient
+  width 100%
+  display grid 
+  grid-template-columns 1fr 9fr
+  grid-template-rows auto
+  & button
+    grid-column 1/2
+    place-self center 
+  & p
+    grid-column 2/3
+     
 
 .buttons
   position sticky 
@@ -196,7 +195,7 @@ ul
   opacity .95
   padding 10px
   display flex
-  justify-content flex-end
+  justify-content flex-start
   align-items center
 
 .button

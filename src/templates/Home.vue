@@ -3,6 +3,7 @@
     <h1 class="title">
       Home
     </h1>
+    <p>Go to Recipes to view your recipes and profile to view your profile</p>
   </div>
 </template>
 

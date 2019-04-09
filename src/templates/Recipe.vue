@@ -1,9 +1,6 @@
 <template>
   <div class="recipe">
     <nav class="buttons">
-      <BaseButton class="button" theme="danger" @click="deleteRecipe">
-        Delete Recipe
-      </BaseButton>
       <BaseButton class="button" theme="warning" @click="edit">
         Edit Recipe
       </BaseButton>
@@ -68,15 +65,16 @@ export default {
     edit() {
       this.$router.push({ name: 'EditRecipe', params: {slug: this.recipe.slug }});
     },
-    async deleteRecipe() {
-      let decision = confirm('want to delete recipe?');
-      if (decision) {
-        await this.deleteRecipe(this.recipe);
-        const deletedMessage = new Notification('Recipe Deleted','red');
-        this.addNotification(deletedMessage);
-        return;
-      }
-    }
+    // async deleteRecipe() {
+    //   let decision = confirm('want to delete recipe?');
+    //   if (decision) {
+    //     await this.deleteRecipe(this.recipe);
+    //     this.$router.push({name: 'Recipes'});
+    //     const deletedMessage = new Notification('Recipe Deleted','red');
+    //     this.addNotification(deletedMessage);
+    //     return;
+    //   }
+    // }
   }
 };
 </script>
@@ -85,6 +83,8 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
+.recipe
+  display grid
 .recipe-container
   display flex
   flex-flow column nowrap
@@ -99,7 +99,7 @@ export default {
   opacity .95
   padding 10px
   display flex
-  justify-content flex-end
+  justify-content flex-start
   align-items center
 .button
   margin-right 5px
