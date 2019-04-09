@@ -33,6 +33,7 @@ export default {
 @import '../styles/variables'
   .nav
     box-sizing border-box
+    outline none
     width 100%
     padding 10px
     text-align center
