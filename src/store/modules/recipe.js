@@ -1,5 +1,4 @@
-import { createNewRecipe, fetchAllRecipes } from '../../services/RecipeServices';
-import { isNull } from 'util';
+import { fetchUserRecipes, saveNewRecipe, updateRecipe, deleteRecipe } from '../../services/RecipeServices';
 
 const recipe = {
   namespaced: true,
@@ -14,47 +13,53 @@ const recipe = {
     },
     getActive(state) {
       return state.activeRecipe;
+    },
+    getRecipeCount(state) {
+      return state.recipes.length;
     }
   },
 
   actions: {
     async fetchRecipes({commit, rootState}) {
-      const owner = { owner: rootState.user._id };
-      const recipes = await fetchAllRecipes(owner);
+      const owner = rootState.user.user.email;
+      const recipes = await fetchUserRecipes(owner);
       commit('SET_RECIPES', recipes);
     },
     createNewRecipe({commit, rootState}) {
       const newRecipe = {
-        _id: null,
-        title: 'New recipe',
-        description: 'New description',
+        id: '0',
+        slug: 'new',
+        title: '',
+        description: '',
         ingredients: [],
         steps: [],
-        owner: rootState.user._id
+        owner: rootState.user.user.email
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
-    async saveRecipe({commit, state}) {
-      let activeRecipe = state.active;
-      if(activeRecipe._id === isNull) {
-        await createNewRecipe(activeRecipe);
-        commit('SAVE_NEW_RECIPE', activeRecipe);
+    addActiveRecipe({commit, state}, selectedRecipe) {
+      const recipeInArray = state.recipes.find(recipe => recipe.slug === selectedRecipe.slug );
+      commit('SET_ACTIVE_RECIPE', recipeInArray);
+    },
+    async saveRecipe({commit, state}, recipeToSave) {
+      const recipeInArray = state.recipes.find((recipe) => recipe.id === recipeToSave.id);
+      if (recipeInArray === undefined) {
+        commit('SAVE_NEW_RECIPE', recipeToSave);
+        const response = await saveNewRecipe(recipeToSave);
+        //TODO: handle failed request 
         return;
       }
-      commit('SAVE_RECIPE', activeRecipe);
+      await updateRecipe(recipeToSave);
+      commit('UPDATE_RECIPE', recipeToSave);
+      // dispatch('cleanRecipeState');
     },
-    updateTitle({commit}, title) {
-      commit('SET_TITLE', title);
+    async deleteRecipe({commit}, recipeToDelete) {
+      await deleteRecipe(recipeToDelete.id);
+      commit('DELETE_RECIPE', recipeToDelete);
     },
-    updateDescription({commit}, description) {
-      commit('SET_DESCRIPTION', description);
-    },
-    updateIngredients({commit}, ingredients) {
-      commit('SET_INGREDIENTS', ingredients);
-    },
-    updateSteps({commit}, steps) {
-      commit('SET_STEPS', steps);
-    },
+    cleanRecipeState({commit}) {
+      commit('CLEAN_RECIPE_STATE');
+    }
   },
 
   mutations: {
@@ -68,25 +73,17 @@ const recipe = {
     SET_ACTIVE_RECIPE(state, recipe) {
       state.activeRecipe = recipe;
     },
-    SAVE_NEW_RECIPE(state, activeRecipe) {
-      state.recipes.push(activeRecipe);
-      state.active = {};
+    SAVE_NEW_RECIPE(state, recipe) {
+      state.recipes.push(recipe);
+      state.activeRecipe = {};
     },
-    SAVE_RECIPE(state, activeRecipe) {
-      const index = state.recipes.findIndex(recipe => recipe._id == activeRecipe._id);
-      state.recipes[index] = activeRecipe;
+    UPDATE_RECIPE(state, recipeToUpdate) {
+      const index = state.recipes.findIndex(recipe => recipe.slug == recipeToUpdate.slug);
+      state.recipes[index] = recipeToUpdate;
     },
-    SET_TITLE(state, title) {
-      state.activeRecipe.title = title;
-    },
-    SET_DESCRIPTION(state, description) {
-      state.activeRecipe.description = description;
-    },
-    SET_INGREDIENTS(state, ingredients) {
-      state.activeRecipe.ingredients = ingredients;
-    },
-    SET_STEPS(state, steps) {
-      state.activeRecipe.steps = steps;
+    DELETE_RECIPE(state, recipeToDelete) {
+      const index = state.recipes.findIndex(recipe => recipe.slug == recipeToDelete.slug);
+      state.recipes.splice(index, 1);
     }
   }
 };

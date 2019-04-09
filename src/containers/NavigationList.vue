@@ -17,15 +17,19 @@
     >
       <BaseButton
         type="button"
+        @click="createNew"
       >
         <i class="fas fa-plus-square" /> New Recipe
       </BaseButton>
-      <NavLink to="/dashboard/Profile">
-        <i class="fab fa-phoenix-squadron" /> Profile
+      <NavLink :to="{ name: 'Home' }">
+        Home
       </NavLink>
-      <NavLink to="/dashboard/home">
-        <i class="fas fa-home" />My Recipes
-      </NavLink> 
+      <NavLink :to="{ name: 'Profile' }">
+        Profile
+      </NavLink>
+      <NavLink :to="{ name: 'Recipes' }">
+        Recipes
+      </NavLink>
     </div>
   </div>
 </template>
@@ -33,7 +37,7 @@
 <script>
 import NavLink from '../components/NavLink.vue';
 import BaseButton from '../components/BaseButton.vue';
-import { mapState } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
   name: 'NavigationList',
@@ -43,9 +47,21 @@ export default {
   },
   computed: {
     ...mapState('user', {
-      status: 'isLoggedIn'
+      status: state => state.isLoggedIn,
+    }),
+    ...mapState('recipe', {
+      slug: state => state.activeRecipe.slug
     })
   },
+  methods: {
+    ...mapActions('recipe', {
+      new: 'createNewRecipe'
+    }),
+    createNew() {
+      this.new();
+      this.$router.push({name: 'EditRecipe', params: { slug: this.slug }});
+    }
+  }
 
 };
 </script>
@@ -61,5 +77,7 @@ button
   flex-flow column nowrap
   align-items center
   justify-content flex-start
-  
+
+i 
+  margin-right 5px
 </style>

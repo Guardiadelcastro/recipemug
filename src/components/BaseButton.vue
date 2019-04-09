@@ -41,6 +41,8 @@ button
 
 button:disabled, button[disabled=disabled]
   background $grey !important
+  color $white !important
+  border-color transparent !important
   &:hover
     background $grey
 
@@ -52,7 +54,49 @@ button:disabled, button[disabled=disabled]
     color $light
     background-color $dark
     border-color $light
- 
+
+.dark
+  color $white
+  background-color $dark
+  border-color transparent
+  &:hover
+    color $dark
+    background-color $white
+    border-color $dark
+
+.danger 
+  color $white
+  background-color $red
+  border-color $red
+  &:hover
+    color $red
+    background-color $white
+
+.info 
+  color $white
+  background-color $blue
+  border-color $blue
+  &:hover
+    color $blue
+    background-color $white
+
+.success
+  color $white
+  background-color $green
+  border-color $green
+  &:hover
+    color $green
+    background-color $white
+
+.warning
+  color $white
+  background-color $yellow
+  border-color $yellow
+  &:hover
+    color $yellow
+    background-color $white
+
+
 .square 
   square(35px)
   padding 0
@@ -65,82 +109,5 @@ button:disabled, button[disabled=disabled]
   square(45px)
   border-radius 50px
   padding 0
-.gradient
-  right-gradient()
-  color $white
-  border-color transparent
-  &:hover
-    background $green
-  
-.blue
-  color $white
-  background-color $blue
-  border-color transparent
-
-  &:hover
-    background-color $dark-blue
-
-  &:active
-    background-color $white
-    color $blue
-
-.red
-  color $white
-  background-color $red
-  border-color transparent
-
-  &:hover
-    background-color $dark-red
-
-  &:active
-    background-color $white
-    color $red
-
-.orange
-  color $white
-  background-color $orange
-  border-color transparent
-
-  &:hover
-    background-color $dark-orange
-
-  &:active
-    background-color $white
-    color $orange
-
-.yellow
-  color $white
-  background-color $yellow
-  border-color transparent
-
-  &:hover
-    background-color $dark-yellow
-
-  &:active
-    background-color $white
-    color $yellow
-
-.green
-  color $white
-  background-color $green
-  border-color transparent
-
-  &:hover
-    background-color $dark-green
-
-  &:active
-    background-color $white
-    color $green
-
-.grey
-  color $white
-  background-color $grey
-  border-color transparent
-    &:hover
-      background-color $dark-grey
-      border-color $dark-grey
-    &:active
-      background-color $white
-      color $grey
 
 </style>

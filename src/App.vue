@@ -14,13 +14,17 @@
 <script>
 import NavigationBar from './templates/NavigationBar.vue';
 import Notifications from './components/Notifications.vue';
+import { checkAuth } from './services/UserServices';
 
 export default {
   name: 'App',
   components: {
     NavigationBar,
     Notifications
-  }
+  },
+  mounted() {
+    const isLogged = checkAuth();
+  },
 };
 
 </script>

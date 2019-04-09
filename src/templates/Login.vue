@@ -31,7 +31,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="login"
+        theme="success" @click.prevent="loginUser"
       > 
         Log In
       </BaseButton>
@@ -40,8 +40,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { required, email } from 'vuelidate/lib/validators';
+import { login } from '../services/UserServices';
 
 import BaseButton from '../components/BaseButton.vue';
 import BaseInput from '../components/BaseInput.vue';
@@ -70,27 +71,24 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('user', {
+      user: 'getUsername'
+    })
   },
   methods: {
-    ...mapActions('user', {
-      loginUser: 'login'
-    }),
     ...mapActions('notifications', {
       addNotification: 'addNotification'
     }),
-    async login() {
-      const user = {
-        email: this.email,
-        password: this.password
-      };
-      const success = await this.loginUser(user);
-      if (success === false) {
+    async loginUser() {
+      const response = await login(this.email, this.password);
+      if (response === false) {
         const failureMessage = new Notification('Login Failed', 'red');
         this.addNotification(failureMessage);
         return;
       }
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
+      this.$router.push({ name: 'Home', params: { username: this.user } });
     } 
   }
     
@@ -123,6 +121,7 @@ export default {
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
+  justify-items center
 
 .fa-exclamation-circle, .warning-message
   color $red

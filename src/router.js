@@ -2,15 +2,17 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import NProgress from 'nprogress';
 // Components
-import Dashboard from './pages/Dashboard.vue';
+import Dashboard from './templates/Dashboard.vue';
 import Index from './templates/Index.vue';
-import UserHome from './templates/UserHome.vue';
+import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
 import Pricing from './templates/Pricing.vue';
-import FullRecipe from './templates/FullRecipe.vue';
+import Login from './templates/Login.vue';
 import Profile from './templates/Profile.vue';
 import Register from './templates/Register.vue';
-import Login from './templates/Login.vue';
+import EditRecipe from './templates/EditRecipe.vue';
+import Recipe from './templates/Recipe.vue';
+import Home from './templates/Home.vue';
 
 Vue.use(Router);
 
@@ -42,25 +44,36 @@ const router = new Router({
       component: AboutUs
     },
     {
-      path: '/dashboard',
+      props: true,
+      path: '/dashboard/:username',
       component: Dashboard,
-      meta: {
-        requiresAuth: true
-      },
       children: [
         {
-          path: '', 
-          name: 'profile',
+          path: '',
+          name: 'Home',
+          component: Home
+        },
+        {
+          path: 'profile', 
+          name: 'Profile',
           component: Profile
         },
         {
           path: 'recipes',
-          component: UserHome
+          name: 'Recipes',
+          component: Recipes,
         },
         {
-          path: 'full-recipe',
-          name: 'fullRecipe',
-          component: FullRecipe
+          props: true,
+          path: ':slug/edit',
+          name: 'EditRecipe',
+          component: EditRecipe
+        },
+        {
+          props: true,
+          path: ':slug',
+          name: 'Recipe',
+          component: Recipe
         }
       ]
     },

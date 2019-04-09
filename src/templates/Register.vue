@@ -1,9 +1,21 @@
-<template>
+s<template>
   <div class="container">
     <h1 class="title">
       Register
     </h1>
     <form class="register-form" method="POST">
+      <div v-if="$v.username.$error" class="warning">
+        <i class="fas fa-exclamation-circle" />
+        <span v-if="!$v.username.required" class="warning-message">
+          Username is required
+        </span>
+      </div>
+      <BaseInput
+        v-model.trim="username"
+        type="text" label="Username"
+        :class="{error: $v.username.$error}"
+        @blur="$v.username.$touch()"
+      />
       <div v-if="$v.email.$error" class="warning">
         <i class="fas fa-exclamation-circle" />
         <span v-if="!$v.email.required" class="warning-message">
@@ -48,7 +60,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="registerUser"
+        theme="success" @click.prevent="registerUser"
       > 
         Register
       </BaseButton>
@@ -76,11 +88,15 @@ export default {
   data() {
     return {
       email: null,
+      username: null,
       password: null,
       repeatPassword: null,
     };
   },
   validations: {
+    username: {
+      required
+    },
     email: {
       email,
       required
@@ -99,7 +115,7 @@ export default {
       addNotification: 'addNotification'
     }),
     async registerUser() {
-      const response = await register(this.email, this.password);
+      const response = await register(this.username, this.email, this.password);
       if (response === false) {
         const failureMessage = new Notification('Registration Failed', 'red');
         this.addNotification(failureMessage);
@@ -140,6 +156,7 @@ export default {
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
+  justify-items center
 
 .fa-exclamation-circle, .warning-message
   color $red  

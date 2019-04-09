@@ -17,16 +17,13 @@ export default {
       default: 'nav'
     },
     to: {
-      type: String,
-      default: '/#lost'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
+      type: [Object, String],
+      default:'/lost'
+    }
+  },
+  methods: {
+    redirectIndex() {
+      this.$router.push({name: 'Index'});
     }
   }
 };
@@ -49,7 +46,7 @@ export default {
     &:hover
       background-color $light-dark
 
-  .nav.router-link-exact-active, .nav.router-link-active
+  .nav.router-link-exact-active
     background $light
     color $dark
     &:hover

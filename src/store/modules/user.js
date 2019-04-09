@@ -1,5 +1,4 @@
-import { login } from '../../services/UserServices';
-
+import {updateUser} from '../../services/UserServices';
 const user = {
   namespaced: true,
   state: {
@@ -8,11 +7,11 @@ const user = {
     isLoggedIn: false
   },
   getters: {
-    getUserID(state) {
-      return state.user._id;
-    },
     getUser(state) {
       return state.user;
+    },
+    getUsername(state) {
+      return state.user.username;
     },
     getToken(state) {
       return state.jwt;
@@ -22,34 +21,30 @@ const user = {
     }
   },
   actions: {
-    async login({commit}, {email, password}) {
-      try {
-
-        const response = await login(email, password);
-        console.log(response);
-
-        if (!response.status === 200) {
-          throw new Error('failed auth');
-        }
-        
-        const token = response.data.token;
-        const user = response.data.user;
-        localStorage.setItem('token', token);
-        // Commit actions
-        commit('SET_LOG_STATUS');
-        commit('SET_USER', user);
-        commit('SET_JWT');
-
-        return true;
-      } catch(err) {
- 
-        return false;
-      }
-    },
-    logOut({commit}) {
+    logOut({commit, dispatch}) {
       commit('CLEAN_USER_STATE');
-      commit('CLEAN_RECIPE_STATE', null, {root: true});
+      dispatch('cleanRecipeState', null, {root: true});
       localStorage.removeItem('token');
+    },
+    userIsLogged({commit}) {
+      commit('SET_LOG_STATUS');
+    },
+    addUser({commit}, user){
+      commit('SET_USER', user);
+    },
+    addToken({commit}){
+      commit('SET_JWT');
+    },
+    async addUserRecipe({state, commit}, userRecipe) {
+      await commit('ADD_USER_RECIPE', userRecipe);
+      const user = {...state.user};
+      console.log(user);
+      await updateUser(user);
+    },
+    async updateUserRecipe({ state, commit }, userRecipe) {
+      commit('UPDATE_USER_RECIPE', userRecipe);
+      const user = {...state.user};
+      await updateUser(user);
     }
   },
   mutations: {
@@ -64,9 +59,19 @@ const user = {
       state.isLoggedIn = true;
     },
     CLEAN_USER_STATE(state) {
+      localStorage.removeItem('token');
       state.jwt ={};
       state.user = {};
       state.isLoggedIn = false;
+    },
+    ADD_USER_RECIPE(state, userRecipe) {
+      state.user.recipes.push(userRecipe);
+    },
+    UPDATE_USER_RECIPE(state, userRecipe) {
+      const index = state.user.recipes.indexOf((recipe) => {
+        recipe.slug = userRecipe.slug;
+      });
+      state.user.recipes[index] = userRecipe;
     }
   }
 };

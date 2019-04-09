@@ -1,21 +1,16 @@
 <template>
   <div class="input-container">
-    <label
-      v-if="label"
-      :for="label"
-    >{{ label }}</label>
+    <label v-if="label" :for="label">{{ label }}</label>
     <input 
       :name="label"
       :value="value"
+      :class="{ active: inFocus }"
       v-bind="$attrs"
       v-on="listeners"
       @input="updateValue"
       @focus="inFocus = true"
       @blur="inFocus = false"
     >
-    <span
-      :class="inFocus ? 'focus' : ''"
-    />
   </div>
 </template>
 
@@ -32,11 +27,12 @@ export default {
     value: {
       type: [String, Number],
       default: ''
-    },
-    inFocus: {
-      type: Boolean,
-      default: false
     }
+  },
+  data() {
+    return {
+      inFocus: false
+    };
   },
   computed: {
     listeners() {
@@ -44,7 +40,7 @@ export default {
         ...this.$listeners,
         input: this.updateValue
       };
-    }
+    },
   },
   methods: {
     updateValue(event) {
@@ -59,35 +55,32 @@ export default {
 @import '../styles/variables'
 @import '../styles/mixins'
 
-input
-  outline none
-  font-size 1.15em
-  border 0
-  padding 10px 15px
-  border-radius-top()
-  font-font-family $font
+.input-container
+  display flex
+  flex-flow column nowrap
 
 label 
   font-family $font
   font-weight bold
   margin 0 5px 5px 5px
 
-.input-container
-  display flex
-  flex-flow column nowrap
-  span 
-    height 3px
-    width 0
-    right-gradient() 
-    transition width ease 0.5s
-  span.focus
-    width 100%
+input
+  outline none
+  font-size 1.15em
+  box($grey)
+  background #fff
+  padding 10px 15px
+  font-family $font
+  color $dark
+  transition all ease 0.1s
+  &:disabled
+    background transparent
+    color $dark
+    
+input.active
+  box($blue)
 
-.error span 
-  width 100%
-  background $red
+.error input
+  box($red) 
 
-.ok span 
-  width 100%
-  right-gradient()
 </style>
