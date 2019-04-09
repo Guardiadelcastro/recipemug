@@ -1,7 +1,7 @@
 <template>
   <div class="recipe">
     <nav class="buttons">
-      <BaseButton class="button" theme="dark" @click="edit">
+      <BaseButton class="button" theme="warning" @click="edit">
         Edit Recipe
       </BaseButton>
     </nav>

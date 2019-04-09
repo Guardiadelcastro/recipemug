@@ -1,4 +1,4 @@
-<template>
+s<template>
   <div class="container">
     <h1 class="title">
       Register
@@ -60,7 +60,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="registerUser"
+        theme="success" @click.prevent="registerUser"
       > 
         Register
       </BaseButton>
@@ -156,6 +156,7 @@ export default {
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
+  justify-items center
 
 .fa-exclamation-circle, .warning-message
   color $red  

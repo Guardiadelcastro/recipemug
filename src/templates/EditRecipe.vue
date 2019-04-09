@@ -1,7 +1,7 @@
 <template>
   <div class="edit">
     <nav class="buttons">
-      <BaseButton class="button" theme="orange" @click="save">
+      <BaseButton class="button" theme="warning" @click="save">
         Save Recipe
       </BaseButton>
     </nav>
@@ -19,14 +19,14 @@
       <h3> Ingredients</h3>
       <div class="add">
         <BaseInput v-model="ingredientToAdd" @keyup.enter="addIngredient" />
-        <BaseButton theme="blue" @click.prevent="addIngredient">
+        <BaseButton theme="info" @click.prevent="addIngredient">
           Add
         </BaseButton>
       </div>
       <ul>
         <li v-for="(ingredient, index) in recipe.ingredients" :key="index">
           <BaseButton
-            theme="red square"
+            theme="danger square"
             @click="removeIngredient(index)"
           >
             <i class="far fa-trash-alt" />
@@ -37,14 +37,14 @@
       <h3> Steps</h3>
       <div class="add">
         <BaseTextArea v-model="stepToAdd" @keyup.enter="addStep" />
-        <BaseButton theme="blue" @click.prevent="addStep">
+        <BaseButton theme="info" @click.prevent="addStep">
           Add
         </BaseButton>
       </div>
       <ul>
         <li v-for="(step, index) in recipe.steps" :key="index">
           <BaseButton
-            theme="red square"
+            theme="danger square"
             @click="removeStep(index)"
           >
             <i class="far fa-trash-alt" />
@@ -71,6 +71,8 @@ export default {
   data() {
     return {
       componentTitle: 'Edit the recipe',
+      recipeTitle: '',
+      recipeSlug: '',
       recipe: {},
       ingredientToAdd: '',
       stepToAdd: ''
@@ -83,9 +85,11 @@ export default {
   },
   created() {
     this.recipe = this.getActive;
+    this.recipeTitle = this.getActive.title;
     if (this.recipe.slug == 'new') {
       this.componentTitle = 'New recipe';
     }
+    this.recipeSlug = this.getActive.title;
   },
   methods: {
     ...mapActions('recipe', {
@@ -114,9 +118,17 @@ export default {
       this.recipe.steps.splice(index, 1);
     },
     async save() {
-      this.createSlug();
-      const newRecipe = { ...this.recipe };
-      await this.saveRecipe(newRecipe);
+      if(this.recipe.slug === 'new') {
+        this.createSlug();
+        const newRecipe = { ...this.recipe };
+        await this.saveRecipe(newRecipe, this.recipeSlug);
+        return;
+      }
+      if(this.recipeTitle === this.recipe.title) {
+        this.createSlug();
+        this.updateRecipe(this.recipeSlug);
+      }
+      this.$router.push({name: 'Recipe', params: {slug: this.recipe.slug}});
     }
   }
 };

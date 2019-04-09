@@ -11,13 +11,13 @@
           class="recipe"
         >
           <BaseButton
-            theme="square blue"
+            theme="square info"
             @click.prevent="goToRecipe(recipe.slug)"
           >
             <i class="fas fa-directions" />
           </BaseButton>
           <BaseButton
-            theme="square orange"
+            theme="square warning"
             @click.prevent="editRecipe(recipe.slug)"
           >
             <i class="fas fa-edit" />

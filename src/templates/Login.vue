@@ -31,7 +31,7 @@
       /> 
       <BaseButton
         :disabled="$v.$invalid" class="submit"
-        theme="blue" @click.prevent="loginUser"
+        theme="success" @click.prevent="loginUser"
       > 
         Log In
       </BaseButton>
@@ -121,6 +121,7 @@ export default {
   grid-template-columns 1fr
   grid-template-rows auto 
   grid-gap 10px
+  justify-items center
 
 .fa-exclamation-circle, .warning-message
   color $red
