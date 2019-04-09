@@ -13,8 +13,8 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    open: true,
-    hot: true
+    hot: true,
+    port: 8008
   },
   module: {
     rules: [
@@ -23,9 +23,9 @@ module.exports = {
         use: 'vue-loader'
       }, 
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'   
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: 'babel-loader'
       },
       {
         test: /\.css$/,

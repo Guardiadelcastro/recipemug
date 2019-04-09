@@ -3,42 +3,27 @@
     :class="theme"
     :to="to"
   >
-    <BaseIcon
-      v-if="showIcon"
-      :icon="icon"
-    />
-    {{ name }}
+    <slot />
   </RouterLink>
 </template>
 
 <script>
-import BaseIcon from './BaseIcon.vue';
 
 export default {
   name: 'NavLink',
-  components: {
-    BaseIcon
-  },
   props: {
-    name: {
-      type: String,
-      default: 'Link'
-    },
     theme: {
       type: String,
       default: 'nav'
     },
     to: {
-      type: String,
-      default: '/#lost'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
+      type: [Object, String],
+      default:'/lost'
+    }
+  },
+  methods: {
+    redirectIndex() {
+      this.$router.push({name: 'Index'});
     }
   }
 };
@@ -47,37 +32,34 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
   .nav
+    box-sizing border-box
+    width 100%
+    padding 10px
+    text-align center
     font-family $font
-    color $white
-    padding 15px 20px
+    color $light
     text-decoration none
-    font-size 1em
+    font-size 1.25em
     font-weight bold
-    height 25px
+    min-height 25px
     transition all ease 0.5s
     &:hover
-      background-color $dark-red
+      background-color $light-dark
 
-  .nav.router-link-exact-active, .nav.router-link-active
-    background $white
-    color $red
+  .nav.router-link-exact-active
+    background $light
+    color $dark
     &:hover
-      background-color $white
+      background-color $light-dark
   
-  .home
-    font-family $font
-    color $white
-    padding 15px 20px
+  .no-decoration
     text-decoration none
-    font-size 1em
-    font-weight bold
-    height 25px
-    transition all ease 0.5s
-    border 2px solid $red
     &:hover
-      border-bottom 2px solid $white
+      cursor pointer
 
   i
     padding-right 5px
+
+
 </style>
 

@@ -1,48 +1,22 @@
 <template>
   <button 
     :class="theme"
-    @click.prevent="handleClick"
-    @keyup.prevent
+    v-bind="$attrs"
+    v-on="$listeners"
   >
-    <Icon
-      v-if="showIcon"
-      :icon="icon"
-    /> {{ name }} 
+    <slot />
   </button>
 </template>
 
 <script>
-import Icon from './BaseIcon.vue';
 
 export default {
   name: 'BaseButton',
-  components: {
-    Icon
-  },
+  inheritAttrs: false,
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
     theme: {
       type: String,
-      default: 'grey'
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    showIcon: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    handleClick(event) {
-      this.$emit('click', event);
+      default: 'light'
     }
   }
 };
@@ -57,13 +31,71 @@ button
   flex-flow row nowrap
   justify-content center
   align-items center
-  border 3px solid
+  border 2px solid
   font-size 16px
-  transition ease 0.3s
+  transition all ease 0.3s
   cursor pointer
   font-weight bold
   border-radius $br
   padding 10px
+
+button:disabled, button[disabled=disabled]
+  background $grey !important
+  color $white !important
+  border-color transparent !important
+  &:hover
+    background $grey
+
+.light
+  color $dark
+  background-color $light
+  border-color $dark
+  &:hover
+    color $light
+    background-color $dark
+    border-color $light
+
+.dark
+  color $white
+  background-color $dark
+  border-color transparent
+  &:hover
+    color $dark
+    background-color $white
+    border-color $dark
+
+.danger 
+  color $white
+  background-color $red
+  border-color $red
+  &:hover
+    color $red
+    background-color $white
+
+.info 
+  color $white
+  background-color $blue
+  border-color $blue
+  &:hover
+    color $blue
+    background-color $white
+
+.success
+  color $white
+  background-color $green
+  border-color $green
+  &:hover
+    color $green
+    background-color $white
+
+.warning
+  color $white
+  background-color $yellow
+  border-color $yellow
+  &:hover
+    color $yellow
+    background-color $white
+
 
 .square 
   square(35px)
@@ -77,106 +109,5 @@ button
   square(45px)
   border-radius 50px
   padding 0
-
-.blue
-  color $white
-  background-color $blue
-  border-color transparent
-
-  &:hover
-    background-color $dark-blue
-
-  &:active
-    background-color $white
-    color $blue
-
-.red
-  color $white
-  background-color $red
-  border-color transparent
-
-  &:hover
-    background-color $dark-red
-
-  &:active
-    background-color $white
-    color $red
-
-.orange
-  color $white
-  background-color $orange
-  border-color transparent
-
-  &:hover
-    background-color $dark-orange
-
-  &:active
-    background-color $white
-    color $orange
-
-.yellow
-  color $white
-  background-color $yellow
-  border-color transparent
-
-  &:hover
-    background-color $dark-yellow
-
-  &:active
-    background-color $white
-    color $yellow
-
-.green
-  color $white
-  background-color $green
-  border-color transparent
-
-  &:hover
-    background-color $dark-green
-
-  &:active
-    background-color $white
-    color $green
-
-.grey
-  color $white
-  background-color $grey
-  border-color transparent
-    &:hover
-      background-color $dark-grey
-      border-color $dark-grey
-    &:active
-      background-color $white
-      color $grey
-
-.modern
-color $white
-background-color $dark-red
-
-&:before
-    background: #fff none repeat scroll 0 0
-    content: ""
-    height: 2px
-    left: 0
-    position: absolute 
-    width: 0%
-    transition: 0.5s
-
-  &:hover:before
-    background-color none
-    width: 100%
-
-.login-button
-  background $transparent
-  border none
-  color $dark-blue
-  &:hover
-    background-color darken($transparent, 30%)
-
-.login-button.left
-  border-radius $br 0 0 0
-
-.login-button.right
-  border-radius 0 $br 0 0
 
 </style>

@@ -1,88 +1,108 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Dashboard from './pages/Dashboard.vue';
-import Cookbook from './templates/Cookbook.vue';
-import MealPlans from './templates/MealPlans.vue';
-import Search from './templates/Search.vue';
-import Shared from './templates/Shared.vue';
-import UserHome from './templates/UserHome.vue';
-import WeekPlan from './templates/WeekPlan.vue';
-import HomePage from './pages/HomePage.vue';
+import NProgress from 'nprogress';
+// Components
+import Dashboard from './templates/Dashboard.vue';
+import Index from './templates/Index.vue';
+import Recipes from './templates/Recipes.vue';
 import AboutUs from './templates/AboutUs.vue';
-import SignUpIn from './templates/SignUpIn.vue';
-import AppInfo from './templates/AppInfo.vue';
 import Pricing from './templates/Pricing.vue';
-import FullRecipe from './templates/FullRecipe.vue';
+import Login from './templates/Login.vue';
+import Profile from './templates/Profile.vue';
+import Register from './templates/Register.vue';
+import EditRecipe from './templates/EditRecipe.vue';
+import Recipe from './templates/Recipe.vue';
+import Home from './templates/Home.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      component: HomePage,
-      children: [
-        {
-          path: '/',
-          component: SignUpIn
-        },
-        {
-          path: '/login',
-          component: SignUpIn
-        },
-        {
-          path: '/pricing',
-          component: Pricing
-        },
-        {
-          path:'/about',
-          component: AboutUs
-        },
-        {
-          path:'/info',
-          component: AppInfo
-        }
-      ]
+      name: 'Index',
+      component: Index,
     },
     {
-      path: '/dashboard',
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/pricing',
+      name: 'Pricing',
+      component: Pricing
+    },
+    {
+      path:'/about',
+      name: 'About',
+      component: AboutUs
+    },
+    {
+      props: true,
+      path: '/dashboard/:username',
       component: Dashboard,
       children: [
         {
-          path: '', 
-          name: 'userHome',
-          component: UserHome
+          path: '',
+          name: 'Home',
+          component: Home
         },
         {
-          path: 'home',
-          component: UserHome
+          path: 'profile', 
+          name: 'Profile',
+          component: Profile
         },
         {
-          path: 'search',
-          component: Search
+          path: 'recipes',
+          name: 'Recipes',
+          component: Recipes,
         },
         {
-          path: 'my-cookbook',
-          component: Cookbook
+          props: true,
+          path: ':slug/edit',
+          name: 'EditRecipe',
+          component: EditRecipe
         },
         {
-          path: 'shared',
-          component: Shared
-        },
-        {
-          path: 'week-plan',
-          component: WeekPlan
-        },
-        {
-          path: 'meal-plans',
-          component: MealPlans
-        },
-        {
-          path: 'full-recipe',
-          name: 'fullRecipe',
-          component: FullRecipe
+          props: true,
+          path: ':slug',
+          name: 'Recipe',
+          component: Recipe
         }
       ]
     },
   ],
 });
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (this.$store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+    next('/login');
+  } else {
+    next();
+  }
+});
+
+router.beforeResolve((to, from, next) => {
+  // If this isn't an initial page load.
+  if (to.name) {
+    // Start the route progress bar.
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach((to, from) => {
+  // Complete the animation of the route progress bar.
+  NProgress.done();
+});
+
+export default router;

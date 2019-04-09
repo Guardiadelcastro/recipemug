@@ -1,38 +1,50 @@
 <template>
-  <input 
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup.prevent="handleInput"
-  >
+  <div class="input-container">
+    <label v-if="label" :for="label">{{ label }}</label>
+    <input 
+      :name="label"
+      :value="value"
+      :class="{ active: inFocus }"
+      v-bind="$attrs"
+      v-on="listeners"
+      @input="updateValue"
+      @focus="inFocus = true"
+      @blur="inFocus = false"
+    >
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'BaseInput',
+  inheritAttrs: false,
   props: {
-    theme: {
+    label: {
       type: String,
-      default: 'default'
-    },
-    message: {
-      type: String,
-      default: 'Write here'
+      default: ''
     },
     value: {
-      type: String,
+      type: [String, Number],
       default: ''
     }
   },
   data() {
     return {
-      content: this.value
+      inFocus: false
     };
   },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    },
+  },
   methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };
@@ -41,23 +53,34 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../styles/variables'
+@import '../styles/mixins'
+
+.input-container
+  display flex
+  flex-flow column nowrap
+
+label 
+  font-family $font
+  font-weight bold
+  margin 0 5px 5px 5px
 
 input
   outline none
-  font-size 16px
-  padding 10px
-  border-radius $br
-  border 1px solid transparent
-  background-color $white
-  transition all ease 0.3s
-  font-font-family $font
-  
-.default
-  border 1px solid $blue
+  font-size 1.15em
+  box($grey)
+  background #fff
+  padding 10px 15px
+  font-family $font
+  color $dark
+  transition all ease 0.1s
+  &:disabled
+    background transparent
+    color $dark
+    
+input.active
+  box($blue)
 
-.correct
-  border 1px solid $green
+.error input
+  box($red) 
 
-.error
-  border 1px solid $red
 </style>

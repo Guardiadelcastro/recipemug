@@ -7,10 +7,10 @@
       >
         <BaseButton
           theme="square blue"
-          show-icon
-          icon="fas fa-directions" 
           @click="goToRecipe(recipe.uuid)"
-        />
+        >
+          <i class="fas fa-directions" />
+        </BaseButton>
         {{ recipe.title }}
       </li>
     </ul>
@@ -20,6 +20,7 @@
 <script>
 import BaseButton from '../components/BaseButton.vue';
 import axios from 'axios';
+
 export default {
   name: 'AllRecipes',
   components: {
@@ -51,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   @import '../styles/variables'
   @import '../styles/mixins'
 

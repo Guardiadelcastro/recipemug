@@ -13,15 +13,22 @@
 	"rules": {
 		"indent": ["error", 2],
 		"linebreak-style": ["error", "unix"],
-		"quotes": ["error", "single"],
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }],
 		"semi": ["error", "always"],
-		"vue/component-name-in-template-casing": ["error",
-			"PascalCase | kebab-case"
-		],
+		"vue/component-name-in-template-casing": ["error", "PascalCase | kebab-case"],
 		"vue/require-default-prop": ["error", {
 			"required": false,
 			"non-required": false
-		}]
+		}],
+		"vue/max-attributes-per-line": ["error", {
+			"singleline": 3,
+			"multiline": {
+				"max": 2,
+				"allowFirstLine": false
+			}
+		}],
+		"no-console": "off",
+		"no-unused-vars":"off"
 	},
 	"plugins": ["jest"]
 }

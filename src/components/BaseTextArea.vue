@@ -1,24 +1,28 @@
 <template>
-  <textarea
-    v-model="content" 
-    :class="theme"
-    :placeholder="message"
-    @input="handleInput"
-    @keyup.prevent
-  />
+  <div class="area-container">
+    <label v-if="label" :for="label">{{ label }}</label>
+    <textarea
+      :name="label"
+      :class="{ active: inFocus }"
+      :value="value"
+      v-bind="$attrs"
+      v-on="listeners"
+      @input="updateValue"
+      @focus="inFocus = true"
+      @blur="inFocus = false"
+    />
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'BaseTextArea',
+  inheritAttrs: false,
   props: {
-    message: {
+    label: {
       type: String,
-      default: 'Write here'
-    },
-    theme: {
-      type: String,
-      default: 'default'
+      default: ''
     },
     value: {
       type: String,
@@ -27,12 +31,20 @@ export default {
   },
   data() {
     return {
-      content: this.value 
+      inFocus: false
     };
   },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    }
+  },
   methods: {
-    handleInput() {
-      this.$emit('input', this.content);
+    updateValue(event) {
+      this.$emit('input', event.target.value);
     }
   }
 };
@@ -40,25 +52,39 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import '../styles/variables'
+@import '../styles/variables'
+@import '../styles/mixins'
 
-  textarea
-    outline none
-    resize none
-    padding 10px
-    width 600px
-    height 150px
-    border-radius $br
-    font-family $font
-    font-size 16px
-    background $white
-
-  .default
-    border 1px solid $blue
-
-  .correct
-    border 1px solid $green
+.area-container
+  display flex
+  flex-flow column nowrap
   
-  .error
-    border 1px solid $red
+
+textarea
+  box($grey)
+  outline none
+  resize none
+  padding 10px
+  width 600px
+  height 150px
+  font-family $font
+  font-size 1.15em
+  background #fff
+  color $dark
+  transition all ease 0.1s
+  &:disabled
+    background transparent
+    color $dark
+
+label 
+  font-family $font
+  font-weight bold
+  margin 0 5px 5px 5px
+  
+textarea.active
+  box($blue)
+
+.error textarea
+  box($red) 
+
 </style>
