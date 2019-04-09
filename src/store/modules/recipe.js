@@ -1,4 +1,4 @@
-import { fetchUserRecipes, saveNewRecipe } from '../../services/RecipeServices';
+import { fetchUserRecipes, saveNewRecipe, updateRecipe, deleteRecipe } from '../../services/RecipeServices';
 
 const recipe = {
   namespaced: true,
@@ -27,6 +27,7 @@ const recipe = {
     },
     createNewRecipe({commit, rootState}) {
       const newRecipe = {
+        id: '0',
         slug: 'new',
         title: '',
         description: '',
@@ -36,19 +37,25 @@ const recipe = {
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
-    addActiveRecipe({commit, state}, slug) {
-      const recipeInArray = state.recipes.find(recipe => recipe.slug === slug );
+    addActiveRecipe({commit, state}, selectedRecipe) {
+      const recipeInArray = state.recipes.find(recipe => recipe.slug === selectedRecipe.slug );
       commit('SET_ACTIVE_RECIPE', recipeInArray);
     },
     async saveRecipe({commit, state}, recipeToSave) {
-      const recipeInArray = state.recipes.find((recipe) => recipe.slug === recipeToSave.slug);
-      if (recipeInArray == undefined) {
+      const recipeInArray = state.recipes.find((recipe) => recipe.id === recipeToSave.id);
+      if (recipeInArray === undefined) {
         commit('SAVE_NEW_RECIPE', recipeToSave);
         const response = await saveNewRecipe(recipeToSave);
         //TODO: handle failed request 
         return;
       }
+      await updateRecipe(recipeToSave);
       commit('UPDATE_RECIPE', recipeToSave);
+      // dispatch('cleanRecipeState');
+    },
+    async deleteRecipe({commit}, recipeToDelete) {
+      await deleteRecipe(recipeToDelete.id);
+      commit('DELETE_RECIPE', recipeToDelete);
     },
     cleanRecipeState({commit}) {
       commit('CLEAN_RECIPE_STATE');
@@ -73,6 +80,10 @@ const recipe = {
     UPDATE_RECIPE(state, recipeToUpdate) {
       const index = state.recipes.findIndex(recipe => recipe.slug == recipeToUpdate.slug);
       state.recipes[index] = recipeToUpdate;
+    },
+    DELETE_RECIPE(state, recipeToDelete) {
+      const index = state.recipes.findIndex(recipe => recipe.slug == recipeToDelete.slug);
+      state.recipes.splice(index, 1);
     }
   }
 };

@@ -1,6 +1,9 @@
 <template>
   <div class="recipe">
     <nav class="buttons">
+      <BaseButton class="button" theme="danger" @click="deleteRecipe">
+        Delete Recipe
+      </BaseButton>
       <BaseButton class="button" theme="warning" @click="edit">
         Edit Recipe
       </BaseButton>
@@ -31,7 +34,9 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
+
+import Notification from '../models/NotificationModel';
 import BaseButton from '../components/BaseButton.vue';
 
 export default {
@@ -53,8 +58,24 @@ export default {
     this.recipe = this.getActive;
   },
   methods: {
+    ...mapActions('recipe', {
+      setActive: 'addActiveRecipe',
+      delete: 'deleteRecipe'
+    }),
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
+    }),
     edit() {
       this.$router.push({ name: 'EditRecipe', params: {slug: this.recipe.slug }});
+    },
+    async deleteRecipe() {
+      let decision = confirm('want to delete recipe?');
+      if (decision) {
+        await this.deleteRecipe(this.recipe);
+        const deletedMessage = new Notification('Recipe Deleted','red');
+        this.addNotification(deletedMessage);
+        return;
+      }
     }
   }
 };
@@ -80,6 +101,8 @@ export default {
   display flex
   justify-content flex-end
   align-items center
+.button
+  margin-right 5px
 
 .title
   font-family $font-title

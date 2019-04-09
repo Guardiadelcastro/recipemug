@@ -63,3 +63,12 @@ export async function updateRecipe(recipe) {
     return err;
   }
 }
+
+export async function deleteRecipe(id) {
+  try{
+    const response = await recipes.delete(`/delete/${id}`);
+    return response;
+  } catch(err) {
+    return err;
+  }
+}

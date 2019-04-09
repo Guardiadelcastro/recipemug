@@ -1,6 +1,9 @@
 <template>
   <div class="edit">
     <nav class="buttons">
+      <BaseButton class="button" theme="danger" @click="deleteRecipe">
+        Delete Recipe
+      </BaseButton>
       <BaseButton class="button" theme="warning" @click="save">
         Save Recipe
       </BaseButton>
@@ -61,6 +64,8 @@ import { mapState, mapActions, mapGetters } from 'vuex';
 import BaseInput from '../components/BaseInput.vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseTextArea from '../components/BaseTextArea.vue';
+import Notification from '../models/NotificationModel';
+
 export default {
   name: 'EditRecipe',
   components: {
@@ -71,8 +76,7 @@ export default {
   data() {
     return {
       componentTitle: 'Edit the recipe',
-      recipeTitle: '',
-      recipeSlug: '',
+      oldTitle: '',
       recipe: {},
       ingredientToAdd: '',
       stepToAdd: ''
@@ -89,11 +93,14 @@ export default {
     if (this.recipe.slug == 'new') {
       this.componentTitle = 'New recipe';
     }
-    this.recipeSlug = this.getActive.title;
   },
   methods: {
     ...mapActions('recipe', {
-      saveRecipe: 'saveRecipe'
+      saveRecipe: 'saveRecipe',
+      delete: 'deleteRecipe'
+    }),
+    ...mapActions('notifications', {
+      addNotification: 'addNotification'
     }),
     createSlug() {
       let date = new Date;
@@ -118,17 +125,23 @@ export default {
       this.recipe.steps.splice(index, 1);
     },
     async save() {
-      if(this.recipe.slug === 'new') {
+      if(this.recipe.slug === 'new' || this.oldTitle !== this.recipe.title) {
         this.createSlug();
-        const newRecipe = { ...this.recipe };
-        await this.saveRecipe(newRecipe, this.recipeSlug);
+      }
+      const newRecipe = { ...this.recipe };
+      await this.saveRecipe(newRecipe);
+      const successMessage = new Notification('Recipe Saved','green');
+      this.addNotification(successMessage);
+      this.$router.push({name: 'Recipe', params: {slug: this.recipe.slug}});
+    },
+    async deleteRecipe() {
+      let decision = confirm('want to delete recipe?');
+      if (decision) {
+        await this.deleteRecipe(this.recipe);
+        const deletedMessage = new Notification('Recipe Deleted','red');
+        this.addNotification(deletedMessage);
         return;
       }
-      if(this.recipeTitle === this.recipe.title) {
-        this.createSlug();
-        this.updateRecipe(this.recipeSlug);
-      }
-      this.$router.push({name: 'Recipe', params: {slug: this.recipe.slug}});
     }
   }
 };
@@ -185,5 +198,8 @@ ul
   display flex
   justify-content flex-end
   align-items center
+
+.button
+  margin-right 5px
 
 </style>

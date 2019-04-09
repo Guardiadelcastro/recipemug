@@ -80,7 +80,6 @@ export async function checkAuth() {
   await store.dispatch('user/addToken');
   await store.dispatch('user/addUser', user);
   store.dispatch('recipe/fetchRecipes');
-  router.push({ name: 'Home', params: { username: username } });
   return true;
 }
 
