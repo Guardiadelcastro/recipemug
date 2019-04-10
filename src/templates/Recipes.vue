@@ -10,7 +10,7 @@
         class="recipe"
       >
         <span class="recipe-title">{{ recipe.title }}</span>
-        <secition class="buttons">
+        <section class="buttons">
           <BaseButton
             theme="square info"
             @click.prevent="goToRecipe(recipe)"
@@ -29,7 +29,7 @@
           >
             <i class="fas fa-trash-alt" />
           </BaseButton>
-        </secition>
+        </section>
       </div>
     </main>
   </div>

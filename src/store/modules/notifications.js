@@ -13,7 +13,7 @@ const notifications = {
       commit('SET_NOTIFICATION', notification);
       setTimeout(() => {
         commit('CLEAR_NOTIFICATION');
-      }, 10000);
+      }, 5000);
     }
   },
   mutations: {

@@ -38,7 +38,6 @@ export async function fetchUserRecipes(owner) {
   try {
     owner.trim();
     const response = await recipes.get(`/my-recipes/${owner}`);
-    console.log(response.data);
     return response.data;
   } catch(err) {
     return err;

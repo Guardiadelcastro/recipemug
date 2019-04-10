@@ -1,3 +1,3 @@
 export const keys = {
-  apiUrl: process.env.API || 'http://localhost:3000'
+  apiUrl: process.env.LOCAL_API || 'https://api.recipemug.club'
 };
