@@ -23,7 +23,7 @@ const user = {
   actions: {
     logOut({commit, dispatch}) {
       commit('CLEAN_USER_STATE');
-      dispatch('cleanRecipeState', null, {root: true});
+      dispatch('recipe/cleanRecipeState', null, {root: true});
       localStorage.removeItem('token');
     },
     userIsLogged({commit}) {
