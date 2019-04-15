@@ -8,11 +8,9 @@ import { fetchUserRecipes } from './RecipeServices';
 
 const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`,
-  withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    'Access-Control-Request-Headers': 'true'
   }
 });
 
