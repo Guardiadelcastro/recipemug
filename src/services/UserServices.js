@@ -4,14 +4,9 @@ import jwt_decode from 'jwt-decode';
 import store from '../store/store';
 import router from '../router';
 import { keys } from './AppServices';
-import { fetchUserRecipes } from './RecipeServices';
 
 const auth = axios.create({  
-  baseURL: `${keys.apiUrl}/users`,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  }
+  baseURL: `${keys.apiUrl}/users`
 });
 
 // Start loading before a request
