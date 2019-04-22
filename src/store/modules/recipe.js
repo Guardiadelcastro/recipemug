@@ -41,10 +41,11 @@ const recipe = {
       const recipeInArray = state.recipes.find(recipe => recipe.slug === selectedRecipe.slug );
       commit('SET_ACTIVE_RECIPE', recipeInArray);
     },
-    async saveRecipe({commit, dispatch}, recipeToSave) {
+    async saveRecipe({commit}, recipeToSave) {
       if (recipeToSave.id === '0') {
         const response = await saveNewRecipe(recipeToSave);
-        await dispatch('fetchRecipes');
+        const newRecipe = response.newRecipe;
+        commit('SAVE_NEW_RECIPE', newRecipe);
         //TODO: handle failed request 
         return;
       }
@@ -70,6 +71,10 @@ const recipe = {
       state.recipes = recipes;
     },
     SET_ACTIVE_RECIPE(state, recipe) {
+      state.activeRecipe = recipe;
+    },
+    SAVE_NEW_RECIPE(state, recipe) {
+      state.recipes.push(recipe);
       state.activeRecipe = recipe;
     },
     UPDATE_RECIPE(state, recipeToUpdate) {
