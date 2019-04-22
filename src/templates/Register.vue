@@ -121,7 +121,7 @@ export default {
         this.addNotification(failureMessage);
         return;
       }
-      const successMessage = new Notification('Login Accepted','green');
+      const successMessage = new Notification(`New user: ${this.username}`,'green');
       this.addNotification(successMessage);
       this.$router.push({name: 'Login'});
     } 
