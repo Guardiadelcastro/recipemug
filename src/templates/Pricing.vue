@@ -36,7 +36,7 @@ export default {
   display flex
   flex-flow column
   align-items center
-  justify-content center
+  justify-content flex-start
   background $background
 
 .title
