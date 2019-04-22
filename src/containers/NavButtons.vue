@@ -53,7 +53,7 @@ export default {
       await this.actionLogout();
       const logoutMessage = new Notification('Logged out','green');
       this.addNotification(logoutMessage);
-      this.$router.push({name: 'Home'});
+      this.$router.push({ name: 'Index' });
     }
   }
 };
