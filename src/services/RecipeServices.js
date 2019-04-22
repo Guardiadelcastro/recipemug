@@ -5,6 +5,7 @@ import store from '../store/store';
 import { keys } from './AppServices';
 
 const token = localStorage.getItem('token');
+const bearer = `Bearer ${token}`;
 
 const recipes = axios.create({  
   baseURL: `${keys.apiUrl}/api/recipes/`,
@@ -12,7 +13,7 @@ const recipes = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`
+    Authorization: bearer
   }
 });
 
