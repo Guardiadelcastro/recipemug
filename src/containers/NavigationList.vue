@@ -4,6 +4,9 @@
       v-if="!status"
       class="home links"
     >
+      <NavLink to="/">
+        Home
+      </NavLink>
       <NavLink to="/pricing">
         Pricing
       </NavLink>

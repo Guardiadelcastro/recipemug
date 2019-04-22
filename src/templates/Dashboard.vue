@@ -11,7 +11,7 @@ import { mapActions } from 'vuex';
 
 export default {
   name: 'Dashboard',
-  created() {
+  beforeMount() {
     this.fetch();
   },
   methods: {

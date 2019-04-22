@@ -79,6 +79,9 @@ export default {
     ...mapActions('notifications', {
       addNotification: 'addNotification'
     }),
+    ...mapActions('recipe', {
+      fetch: 'fetchRecipes'
+    }),
     async loginUser() {
       const response = await login(this.email, this.password);
       if (response === false) {
@@ -86,11 +89,12 @@ export default {
         this.addNotification(failureMessage);
         return;
       }
+      // await this.fetch;
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
       setTimeout(() => {
         this.$router.push({ name: 'Home', params: { username: this.user } });
-      }, 2000);
+      }, 3000);
     } 
   }
     

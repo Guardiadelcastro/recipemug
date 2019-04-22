@@ -41,11 +41,12 @@ const recipe = {
       const recipeInArray = state.recipes.find(recipe => recipe.slug === selectedRecipe.slug );
       commit('SET_ACTIVE_RECIPE', recipeInArray);
     },
-    async saveRecipe({commit, state}, recipeToSave) {
+    async saveRecipe({commit, state, dispatch}, recipeToSave) {
       const recipeInArray = state.recipes.find((recipe) => recipe.id === recipeToSave.id);
       if (recipeInArray === undefined) {
         commit('SAVE_NEW_RECIPE', recipeToSave);
         const response = await saveNewRecipe(recipeToSave);
+        await dispatch('fetchRecipes');
         //TODO: handle failed request 
         return;
       }
