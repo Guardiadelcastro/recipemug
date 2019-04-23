@@ -44,7 +44,7 @@ const recipe = {
     async saveRecipe({commit}, recipeToSave) {
       if (recipeToSave.id === '0') {
         const response = await saveNewRecipe(recipeToSave);
-        const newRecipe = response.newRecipe;
+        const newRecipe = response.data.newRecipe;
         commit('SAVE_NEW_RECIPE', newRecipe);
         //TODO: handle failed request 
         return;

@@ -51,10 +51,14 @@ export default {
       recipes: state => state.recipes,
     })
   },
+  mounted() {
+    this.fetch();
+  },
   methods: {
     ...mapActions('recipe', {
       setActive: 'addActiveRecipe',
-      delete: 'deleteRecipe'
+      delete: 'deleteRecipe',
+      fetch: 'fetchRecipes'
     }),
     ...mapActions('notifications', {
       addNotification: 'addNotification'
