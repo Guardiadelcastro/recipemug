@@ -4,7 +4,8 @@ import store from '../store/store';
 // import { user } from '../store/modules/user';
 import { keys } from './AppServices';
 
-const token = localStorage.getItem('token');
+const token = store.getters['user/getToken'];
+console.log(token);
 const bearer = `Bearer ${token}`;
 
 const recipes = axios.create({  

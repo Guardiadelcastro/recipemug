@@ -89,12 +89,9 @@ export default {
         this.addNotification(failureMessage);
         return;
       }
-      // await this.fetch;
       const successMessage = new Notification('Login Accepted','green');
       this.addNotification(successMessage);
-      setTimeout(() => {
-        this.$router.push({ name: 'Home', params: { username: this.user } });
-      }, 3000);
+      this.$router.push({ name: 'Home', params: { username: this.user } });
     } 
   }
     
