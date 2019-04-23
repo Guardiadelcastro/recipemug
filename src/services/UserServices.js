@@ -76,17 +76,3 @@ export async function checkAuth() {
   store.dispatch('recipe/fetchRecipes');
   return true;
 }
-
-export async function getUser(email) {
-  const response = await auth.get(`/find/${email}`);
-  if(response.status === 500) {
-    return response.data;
-  }
-  return false;
-}
-
-export async function updateUser(user) {
-  console.log(user);
-  const response = await auth.put('/update', user);
-  console.log(response);
-}
