@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 import store from '../store/store';
-// import { user } from '../store/modules/user';
+import { user } from '../store/modules/user';
 import { keys } from './AppServices';
 
-const token = store.getters['user/getToken'];
+// const token = store.getters['user/getToken'];
+const token = localStorage.getItem['token'];
 console.log(token);
 const bearer = `Bearer ${token}`;
 
@@ -38,13 +39,11 @@ recipes.interceptors.response.use(response => {
 
 export async function fetchUserRecipes(owner) {
   try {
-    owner.trim();
     const response = await recipes.get(`/my-recipes/${owner}`);
     return response.data;
   } catch(err) {
     return err;
   }
-
 }
 
 export async function saveNewRecipe(recipe) {
