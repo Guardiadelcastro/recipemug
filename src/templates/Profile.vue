@@ -6,8 +6,6 @@
     <main class="info">
       <p>Username:</p>
       <p>{{ user.username }}</p>
-      <p>Email:</p>
-      <p>{{ user.email }}</p>
       <p>Recipes:</p>
       <p>{{ count }}</p>
     </main>

@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 
 import store from '../store/store';
 import router from '../router';
-import { keys } from './AppServices';
+import { keys, token } from './AppServices';
 
 const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`
@@ -75,18 +75,4 @@ export async function checkAuth() {
   await store.dispatch('user/addUser', user);
   store.dispatch('recipe/fetchRecipes');
   return true;
-}
-
-export async function getUser(email) {
-  const response = await auth.get(`/find/${email}`);
-  if(response.status === 500) {
-    return response.data;
-  }
-  return false;
-}
-
-export async function updateUser(user) {
-  console.log(user);
-  const response = await auth.put('/update', user);
-  console.log(response);
 }

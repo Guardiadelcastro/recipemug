@@ -1,20 +1,17 @@
 import axios from 'axios';
 
 import store from '../store/store';
-// import { user } from '../store/modules/user';
+import { user } from '../store/modules/user';
 import { keys } from './AppServices';
 
-const token = store.getters['user/getToken'];
-console.log(token);
-const bearer = `Bearer ${token}`;
-
+const token = localStorage.getItem('token');
 const recipes = axios.create({  
   baseURL: `${keys.apiUrl}/api/recipes/`,
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: bearer
+    Authorization: `Bearer ${token}`
   }
 });
 
@@ -38,13 +35,11 @@ recipes.interceptors.response.use(response => {
 
 export async function fetchUserRecipes(owner) {
   try {
-    owner.trim();
     const response = await recipes.get(`/my-recipes/${owner}`);
     return response.data;
   } catch(err) {
     return err;
   }
-
 }
 
 export async function saveNewRecipe(recipe) {
