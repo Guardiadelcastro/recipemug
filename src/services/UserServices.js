@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 
 import store from '../store/store';
 import router from '../router';
-import { keys } from './AppServices';
+import { keys, token } from './AppServices';
 
 const auth = axios.create({  
   baseURL: `${keys.apiUrl}/users`
