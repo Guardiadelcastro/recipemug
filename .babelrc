@@ -1,0 +1,6 @@
+{
+  "presets": ["vue"],
+  "ignore": [
+    "node_modules"
+  ]
+}
