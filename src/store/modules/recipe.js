@@ -21,7 +21,7 @@ const recipe = {
 
   actions: {
     async fetchRecipes({commit, rootState}) {
-      const owner = rootState.user.user.email;
+      const owner = rootState.user.user.username;
       const recipes = await fetchUserRecipes(owner);
       commit('SET_RECIPES', recipes);
     },
@@ -33,7 +33,7 @@ const recipe = {
         description: '',
         ingredients: [],
         steps: [],
-        owner: rootState.user.user.email
+        owner: rootState.user.user.username
       };
       commit('SET_ACTIVE_RECIPE', newRecipe);
     },
