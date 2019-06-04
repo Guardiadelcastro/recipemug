@@ -1,17 +1,14 @@
 import axios from 'axios';
 
 import store from '../store/store';
-import { user } from '../store/modules/user';
 import { keys } from './AppServices';
 
-const token = localStorage.getItem('token');
 const recipes = axios.create({  
   baseURL: `${keys.apiUrl}/api/recipes/`,
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`
   }
 });
 
@@ -35,7 +32,11 @@ recipes.interceptors.response.use(response => {
 
 export async function fetchUserRecipes(owner) {
   try {
-    const response = await recipes.get(`/my-recipes/${owner}`);
+    const response = await recipes.get(`/my-recipes/${owner}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     return response.data;
   } catch(err) {
     return err;
@@ -44,7 +45,11 @@ export async function fetchUserRecipes(owner) {
 
 export async function saveNewRecipe(recipe) {
   try{
-    const response = await recipes.post('/create', {recipe});
+    const response = await recipes.post('/create', {recipe}, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     return response;
   } catch(err) {
     return err;
@@ -53,7 +58,11 @@ export async function saveNewRecipe(recipe) {
 
 export async function updateRecipe(recipe) {
   try{
-    const response = await recipes.put('/update', {recipe});
+    const response = await recipes.put('/update', {recipe}, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     return response;
   } catch(err) {
     return err;
@@ -62,7 +71,11 @@ export async function updateRecipe(recipe) {
 
 export async function deleteRecipe(id) {
   try{
-    const response = await recipes.delete(`/delete/${id}`);
+    const response = await recipes.delete(`/delete/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     return response;
   } catch(err) {
     return err;
