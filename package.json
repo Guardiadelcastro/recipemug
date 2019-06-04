@@ -21,41 +21,39 @@
 		"docsiserve": "docsify serve docs"
 	},
 	"dependencies": {
-		"axios": "^0.18.0",
-		"docsify-cli": "^4.3.0",
+		"axios": "^0.19.0",
 		"jwt-decode": "^2.2.0",
 		"nprogress": "^0.2.0",
 		"vue": "^2.6.10",
-		"vue-router": "^3.0.3",
+		"vue-router": "^3.0.6",
 		"vuelidate": "^0.7.4",
-		"vuex": "^3.1.0"
+		"vuex": "^3.1.1"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.4.3",
+		"@babel/core": "^7.4.5",
 		"@vue/component-compiler-utils": "^2.6.0",
-		"autoprefixer": "^9.5.1",
+		"autoprefixer": "^9.6.0",
 		"babel-eslint": "^10.0.1",
-		"babel-loader": "^8.0.5",
+		"babel-loader": "^8.0.6",
 		"babel-preset-vue": "^2.0.2",
 		"css-loader": "^2.1.1",
 		"cssnano": "^4.1.10",
 		"eslint": "^5.16.0",
 		"eslint-loader": "^2.1.2",
-		"eslint-plugin-jest": "^22.4.1",
+		"eslint-plugin-jest": "^22.6.4",
 		"eslint-plugin-vue": "^5.2.2",
 		"html-webpack-plugin": "^3.2.0",
-		"jest": "^24.7.1",
-		"postcss": "^7.0.14",
+		"jest": "^24.8.0",
+		"postcss": "^7.0.16",
 		"postcss-loader": "^3.0.0",
-		"stylint": "^1.5.9",
 		"stylus": "^0.54.5",
 		"stylus-loader": "^3.0.2",
 		"vue-loader": "^15.6.4",
 		"vue-style-loader": "^4.1.2",
 		"vue-template-compiler": "^2.6.10",
-		"webpack": "^4.29.6",
-		"webpack-cli": "^3.3.0",
-		"webpack-dev-server": "^3.3.0"
+		"webpack": "^4.32.2",
+		"webpack-cli": "^3.3.2",
+		"webpack-dev-server": "^3.5.1"
 	},
 	"bugs": {
 		"url": "https://github.com/Guardiadelcastro/RecipeMug/issues"
